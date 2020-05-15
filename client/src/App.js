@@ -1,10 +1,24 @@
-import React from 'react';
-import Loginpage from './Loginpage'
+import React, { useContext } from 'react';
+import Loginpage from './components/Loginpage.js'
+import Nameform from "./components/Nameform.js"
+import Businessinfo from "./components/Businessinfo.js"
+import Nonprofit from "./components/Nonprofit.js"
+import Sponsorshiplevels from "./components/Sponsorshiplevels.js"
+import {Switch, Route, Redirect} from "react-router-dom"
+import { FormContext } from "./context/FormContext"
 
 function App() {
+  const { token } = useContext(FormContext)
   return (
     <div className="App">
-      <Loginpage />
+      <Switch>
+      
+         <Route exact path = "/" render ={() => token ? <Redirect to = "/form1" /> : <Loginpage />} /> 
+         <Route exact path = "/form1" render = {() => token  ? <Nameform /> : <Redirect to = "/" />} />
+         <Route exact path = "/form2" render ={() => token ? <Businessinfo /> : <Redirect to = "/" />} />
+         <Route exact path = "/form3" render = {() => token ? <Nonprofit /> : <Redirect to = "/" /> } />
+         <Route exact path = "/form4" render = {() => token ? <Sponsorshiplevels /> : <Redirect to = "/" />} />
+      </Switch>
     </div>
   );
 }
