@@ -1,48 +1,60 @@
 import React, { useContext, useState } from "react"
 import { FormContext } from "../context/FormContext"
+import { Link } from "react-router-dom"
 
 function Sponsorshiplevels(){ 
-    const {sponsorShipLevel, handleChange} = useContext(FormContext)
-    const [checked, setChecked] = useState(false)
+    const {qty, value, handleChange, handleSubmit} = useContext(FormContext)
     const sponsorArray = [
     {
         name:"paladin", 
-        value: 10000, 
+        value: 10000,
+        description: "O.P.V. Paladin Level Sponsorship Website Sponsorship Social Announcement Recognition at Event Logo on Event Flyers Logo on Event Shirts Swag Distribution Radio Endorsement TV Endorsement Vendor at Event"
     }, 
     { 
         name:"abrams", 
-        value: 5000
+        value: 5000,
+        description:"O.P.V. Abrams Level Sponsorship Website Sponsorship Social Announcement Recognition at Event Logo on Event Flyers Logo on Event Shirts Swag Distribution Radio Endorsement TV Endorsement Vendor at Event" 
 
     }, 
     { 
         name: "stryker", 
-        value: 2500
+        value: 2500,
+        description:"O.P.V. Stryker Level Sponsorship Website Sponsorship Social Announcement Recognition at Event Logo on Event Flyers Logo on Event Shirts Swag Distribution Radio Endorsement Vendor at Event"
     },
     {
         name: "bradley",
-        value: 1000
+        value: 1000,
+        description:"O.P.V. Bradley Level Sponsorship Website Sponsorship Social Announcement Recognition at Event Logo on Event Flyers Logo on Event Shirts Swag Distribution Vendor at Event"
     }, 
     { 
         name: "amtrack", 
-        value: 500, 
+        value: 500,
+        description:"O.P.V. Amtrak Level Sponsorship Website Sponsorship Social Announcement Recognition at Event Logo on Event Flyers"
     },
     {
         name:"wla", 
-        value: 250
-    },
+        value: 250,
+        description:"O.P.V. WLA Level Sponsorship Website Sponsorship Social Announcement Recognition at Event" 
+    }
 ]
+   
     return( 
         <div>
-            <form>
+            <div>
                 <h1>Sponsorship Level</h1>
                {sponsorArray.map(item => 
-               <div onClick = {() => {console.log("clicked")}}>
-                   <h1>{item.name}</h1>
-                   <p>{item.value}</p>
+                <div onClick = {() => handleSubmit(item.value)} key = {item.name}>
+                        <h1>{item.name}</h1>
+                        <p>{item.value}</p>
+                        <p>{item.description}</p>
                 </div>
                )}
-            </form>
-            {console.log(sponsorShipLevel)}
+               <p>Qty:</p>
+                <input type = "text" name = "qty" value = {qty} onChange = {handleChange}></input>
+               <p>Total: {qty * value}</p>
+               <Link to = "/form5">Continue</Link>
+            </div>
+            {console.log(qty, value)}
         </div> 
     )
 }

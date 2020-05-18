@@ -39,10 +39,8 @@ const initState = {
     businessWebsite:"", 
     veteranOwned: false, 
     nonProfit: false, 
-    sponsorShipLevel: { 
-        level: "", 
-        qty: ""
-    }, 
+    qty: "", 
+    value: "",
     needPower: false, 
     vendorSpace: "", 
     firstName: "", 
@@ -64,6 +62,12 @@ function FormProvider(props){
         }))
     }
 
+    function handleSubmit(value){ 
+        setUserState((prev => ({ 
+            ...prev, 
+            value: value
+        })))
+    }
    
         function handleSignup(email, password){ 
             auth.createUserWithEmailAndPassword(email, password)
@@ -143,6 +147,7 @@ function FormProvider(props){
             }))
         }
 
+        console.log(userState)
 
     return( 
         <FormContext.Provider value = {{
@@ -152,7 +157,8 @@ function FormProvider(props){
             signInWithFacebook, 
             signInWithGoogle, 
             handleLogin,
-            logout 
+            logout,
+            handleSubmit
 
         }}>
             {props.children}
