@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import React, { useContext } from "react"
 import { FormContext } from "../context/FormContext"
 import { Link } from "react-router-dom"
 
@@ -53,6 +53,8 @@ function Sponsorshiplevels(){
                 <input type = "text" name = "qty" value = {qty} onChange = {handleChange}></input>
                <p>Total: {qty * value}</p>
                <Link to = "/form5">Continue</Link>
+               <p></p>
+               <Link to = "/form3">Back</Link>
             </div>
             {console.log(qty, value)}
         </div> 

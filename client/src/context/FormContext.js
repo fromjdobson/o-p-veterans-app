@@ -25,26 +25,26 @@ const googleProvider = new firebase.auth.GoogleAuthProvider()
 
 const initState = { 
     token: "" || localStorage.getItem("token"), 
-    email: "", 
-    displayName: "", 
-    phoneNumber: "", 
-    id:"", 
-    companyName: "",
-    address:"", 
-    city: "", 
-    businessPhone: "", 
-    aptNumber: "", 
-    state: "", 
-    zipCode: "", 
-    businessWebsite:"", 
-    veteranOwned: false, 
-    nonProfit: false, 
-    qty: "", 
-    value: "",
-    needPower: false, 
-    vendorSpace: "", 
-    firstName: "", 
-    lastName: ""
+    email: "" || localStorage.getItem("email"),
+    displayName: "" || localStorage.getItem("displayName"), 
+    phoneNumber: "" || localStorage.getItem("phoneNumber"), 
+    id:"" || localStorage.getItem("id"), 
+    companyName: "" || localStorage.getItem("companyName"),
+    address:"" || localStorage.getItem("address"), 
+    city: "" || localStorage.getItem("city"), 
+    businessPhone: "" || localStorage.getItem("businessPhone"), 
+    aptNumber: ""  || localStorage.getItem("aptNumber"), 
+    state: "" || localStorage.getItem("state"), 
+    zipCode: "" || localStorage.getItem("zipCode"), 
+    businessWebsite:"" || localStorage.getItem("businessWebsite"), 
+    veteranOwned: false || localStorage.getItem("veteranOwned"), 
+    nonProfit: false || localStorage.getItem("nonProfit"), 
+    qty: "" || localStorage.getItem("qty"), 
+    value: "" || localStorage.getItem("value"), 
+    needPower: false || localStorage.getItem("needPower"), 
+    vendorSpace: "" || localStorage.getItem("vendorSpace"),
+    firstName: "" || localStorage.getItem("firstName"), 
+    lastName: "" || localStorage.getItem("lastName")
 }
 
 export const FormContext = React.createContext()
@@ -60,6 +60,7 @@ function FormProvider(props){
             ...prev, 
             [name]: value
         }))
+        localStorage.setItem([name], value)
     }
 
     function handleSubmit(value){ 
@@ -67,6 +68,7 @@ function FormProvider(props){
             ...prev, 
             value: value
         })))
+        localStorage.setItem("value", value)
     }
    
         function handleSignup(email, password){ 
@@ -146,8 +148,6 @@ function FormProvider(props){
                 token: ""
             }))
         }
-
-        console.log(userState)
 
     return( 
         <FormContext.Provider value = {{
