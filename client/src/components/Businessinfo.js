@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { FormContext } from '../context/FormContext'
-import { useHistory } from "react-router-dom"
+import { useHistory, Link } from "react-router-dom"
 
 
 function Businessinfo(){ 
@@ -78,6 +78,7 @@ function Businessinfo(){
                 </input>
                 <button>Continue</button>
             </form>
+            <Link to ="/form1">Back</Link>
             
         </div>
     )

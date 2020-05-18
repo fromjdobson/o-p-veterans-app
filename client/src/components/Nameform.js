@@ -1,18 +1,12 @@
-import React, {useState, useContext} from 'react'
+import React, { useContext } from 'react'
 import { FormContext } from '../context/FormContext'
 import { Link } from "react-router-dom"
 
-const initInputs = { 
-    firstName: "", 
-    lastName: "", 
-    phoneNumber: ""
-}
 
 
 
 function Nameform(){ 
-    const {firstName, lastName, handleChange, phoneNumber} = useContext(FormContext)
-    const [inputs, setInputs] = useState(initInputs)
+    const {firstName, lastName, handleChange, phoneNumber, logout} = useContext(FormContext)
 
     
 
@@ -44,6 +38,7 @@ function Nameform(){
             >
             </input>
             <Link exact to = "/form2">Continue</Link>
+            <button onClick = {() => logout()}>Logout</button>
         </div> 
     )
 }

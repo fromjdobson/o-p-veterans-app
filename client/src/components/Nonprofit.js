@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import { FormContext } from "../context/FormContext"
-import { useHistory } from "react-router-dom"
+import { useHistory, Link } from "react-router-dom"
 
 function Nonprofit(){ 
     const { handleChange, companyName } = useContext(FormContext)
@@ -67,6 +67,7 @@ function Nonprofit(){
 
                 <button>Continue</button>
             </form>
+            <Link to ="/form2">Back</Link>
         </div>
     )
 }
