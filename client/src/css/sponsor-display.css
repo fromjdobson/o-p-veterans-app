@@ -1,0 +1,32 @@
+.sponsor-display-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 432px;
+    /* border: 1px solid dodgerblue; */
+}
+
+.logos-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    /* border: 1px solid red; */
+}
+
+.sponsor-level-label {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 16px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 1px;
+    color:#545454;
+    /* border: 1px solid orange; */
+
+}

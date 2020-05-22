@@ -1,6 +1,13 @@
 .left-display-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 50%;
     height: 100%;
-    background: #3C4027;
+    /* background: #3C4027; */
+    background: #F4F4F4;
+
 }
+
+
 

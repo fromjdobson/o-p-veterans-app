@@ -1,0 +1,9 @@
+.sponsor-logo-container {
+    width: 100px;
+    height: 100px;
+    background: url('../images/american-Shaman-Logo.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* border: 1px solid red; */
+}
