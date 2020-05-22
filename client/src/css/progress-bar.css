@@ -1,0 +1,22 @@
+.progress-bar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 360px;
+    height: 24px;
+    margin: 88px 0px 0px 0px;
+    /* background: #C4C4C4; */
+}
+
+.bar {
+    width: 16px;
+    height: 2px;
+    margin: 0px;
+    background: #545454;
+}
+
+.statusIcon {
+    width: 24px;
+    height: 24px;
+    margin: 0px 8px 0px 8px;
+}
