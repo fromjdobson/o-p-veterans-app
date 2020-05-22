@@ -7,10 +7,29 @@
     background: #F4F4F4;
 }
 
+section {
+    border: 1px solid brown;
+}
+
+.close-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+.status-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 360px;
+    height: 64px;
+    margin-top: 32px;
+    /* border: 1px solid red; */
+}
+
 .headline-container {
     width: 360px;
-    margin: 40px 0px 0px 0px;
-    border: 1px solid lightcoral;
+    margin: 24px 0px 0px 0px;
+    /* border: 1px solid lightcoral; */
 }
 
 .headline-container h1 {
@@ -25,7 +44,7 @@
 }
 
 .inputs-container {
-    margin: 40px 0px 0px 0px;
+    margin: 16px 0px 0px 0px;
     /* border: 1px solid dodgerblue; */
 }
 
@@ -63,6 +82,17 @@ input {
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    color: #4D4F5C;
+}
+
+.body-2 {
+    margin: 0px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
     line-height: 24px;
     letter-spacing: 0.5px;
     color: #4D4F5C;
@@ -126,4 +156,46 @@ input {
     background: #3A5044;
     color: #FFFFFF;
     border: none;
+}
+
+.break-container {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    width: 360px;
+    margin-top: 16px;
+    /* border: 1px solid red; */
+}
+
+.break-bar {
+    width: 132px;
+    height: 1px;
+    background: #545454;
+    opacity: 50%;
+}
+
+.google-button {
+    width: 160px;
+    min-height: 40px;
+    margin-top: 16px;
+    background: url('../images/google-sign-in-deafult-2x.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* border: 1px solid lightcoral; */
+}
+
+.already-member-container {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    width: 360px;
+    margin-top: 16px;
+    /* border: 1px solid lightcoral;     */
+}
+
+.stretch {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }

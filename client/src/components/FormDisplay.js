@@ -9,9 +9,14 @@ import inactiveCheckBox from '../images/icons/circle.svg'
 const FormDisplay = () => {
     return (
         <div className='form-display-container'>
-
-            <ProgressBar />
-            <StatusBar />
+            <div className='close-container'>
+                <p className='body-1'>Back to O.P. Veteran</p>
+                <div className='close'></div>
+            </div>
+            <div className='status-container'>
+                <ProgressBar />
+                <StatusBar />
+            </div>
 
             <div className='headline-container'>
                 <h1>Create an account</h1>
@@ -45,6 +50,18 @@ const FormDisplay = () => {
             </form>
 
             <button type="submit" form="form1" value="Submit">CREATE AN ACCOUNT</button>
+
+            <div className='break-container'>
+                <div className='break-bar'></div>
+                <p className='body-1'>or use</p>
+                <div className='break-bar'></div>
+            </div>
+
+            <div className='google-button'></div>
+            <div className='already-member-container'>
+                <p className='body-2 stretch'>Already have an account with O.P. Veteran?</p>
+                <p className='body-1 stretch'>Log in here.</p>
+            </div>
         </div>
 
 
