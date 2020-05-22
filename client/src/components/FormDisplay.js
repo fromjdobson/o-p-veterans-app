@@ -4,6 +4,7 @@ import ProgressBar from './ProgressBar'
 import StatusBar from './StatusBar'
 
 import '../css/form-display.css'
+import inactiveCheckBox from '../images/icons/circle.svg'
 
 const FormDisplay = () => {
     return (
@@ -37,7 +38,13 @@ const FormDisplay = () => {
                         <p className='helper-text'>Helper Text</p>
                     </div>
                 </div>
+                <div className='terms-container'>
+                    <img src={inactiveCheckBox} alt='Unchecked' />
+                    <p className='terms'>I have read and accept the <span className='em-terms'>Terms of Service</span> and <span className='em-terms'>Privacy Policy</span>.</p>
+                </div>
             </form>
+
+            <button type="submit" form="form1" value="Submit">CREATE AN ACCOUNT</button>
         </div>
 
 
