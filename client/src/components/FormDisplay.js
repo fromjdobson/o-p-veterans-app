@@ -10,6 +10,10 @@ const FormDisplay = () => {
         <div className='form-display-container'>
             <ProgressBar />
             <StatusBar />
+            <div className='headline-container'>
+                <h1>Create an account</h1>
+                <h3>to sponsor Vet Fest or register for a vendor booth.</h3>
+            </div>
         </div>
     )
 }
