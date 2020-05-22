@@ -1,0 +1,7 @@
+.status-bar-container {
+    width: 360px;
+    height: 4px;
+    margin: 48px 0px 0px 0px;
+    background: linear-gradient(90deg, #006600 0%, rgba(58, 80, 68, 0.25) 49.9%);
+    visibility: visible;
+}
