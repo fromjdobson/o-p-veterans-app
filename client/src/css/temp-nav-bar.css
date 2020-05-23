@@ -1,0 +1,9 @@
+.temp-nav-bar-container {
+    width: 100%;
+    background: dodgerblue;
+}
+
+.temp-nav-bar-container a {
+    color: white;
+    text-decoration: none;
+}
