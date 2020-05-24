@@ -1,5 +1,6 @@
 import React from 'react'
 
+import TempNavBar from './components/TempNavBar'
 import LeftDisplay from './components/LeftDisplay'
 import FormDisplay from './components/FormDisplay'
 
@@ -9,6 +10,7 @@ import './css/app.css'
 const App = () => {
   return (
     <div className='app-container'>
+      <TempNavBar />
       <LeftDisplay />
       <FormDisplay />
     </div>
