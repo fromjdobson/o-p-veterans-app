@@ -3,7 +3,7 @@ import React from 'react'
 import ProgressBar from './ProgressBar'
 import StatusBar from './StatusBar'
 
-import '../css/form-2.css'
+import '../css/form2.css'
 
 
 const Form2 = () => {

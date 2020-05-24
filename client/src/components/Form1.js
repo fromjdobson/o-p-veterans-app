@@ -3,7 +3,7 @@ import React from 'react'
 import ProgressBar from './ProgressBar'
 import StatusBar from './StatusBar'
 
-import '../css/form-1.css'
+import '../css/form1.css'
 import inactiveCheckBox from '../images/icons/circle.svg'
 
 const Form1 = () => {
@@ -22,19 +22,19 @@ const Form1 = () => {
                 <form id='form1'>
                     <div className='inputs-container'>
                         <div className='input-container'>
-                            <label for='email'><h3 className='label'>Email</h3></label>
+                            <label><h3 className='label'>Email</h3></label>
                             <input type='text' id='emailInput' name='email'></input>
                             <p className='helper-text'>Helper Text</p>
                         </div>
 
                         <div className='input-container'>
-                            <label for='password'><h3 className='label'>Password</h3></label>
+                            <label><h3 className='label'>Password</h3></label>
                             <input type='text' id='passwordInput' name='password'></input>
                             <p className='helper-text'>Helper Text</p>
                         </div>
 
                         <div className='input-container'>
-                            <label for='confirmPassword'><h3 className='label'>Confirm Password</h3></label>
+                            <label><h3 className='label'>Confirm Password</h3></label>
                             <input type='text' id='passwordConfirmInput' name='passwordConfirm'></input>
                             <p className='helper-text'>Helper Text</p>
                         </div>

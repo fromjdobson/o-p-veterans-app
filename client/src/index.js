@@ -8,13 +8,14 @@ import './css/index.css'
 
 
 ReactDOM.render(
-  <React.StrictMode>
+  
     <BrowserRouter>
       {/* <FormProvider> */}
         <App />
       {/* </FormProvider> */}
     </BrowserRouter>
-  </React.StrictMode>,
+  ,
   document.getElementById('root')
 );
+
 
