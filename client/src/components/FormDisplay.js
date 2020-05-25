@@ -2,10 +2,12 @@ import React from 'react'
 
 import '../css/form-display.css'
 
+import ProgressDisplay from './ProgressDisplay'
+
 const FormDisplay = () => {
     return (
         <div className='form-display-container'>
-            <h2>Form Display</h2>
+            <ProgressDisplay />
         </div>
     )
 }
