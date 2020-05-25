@@ -1,0 +1,6 @@
+.app-container {
+    box-sizing: border-box;
+    width: 1312px;
+    height: 744px;
+    border: 1px solid lightcoral;
+}
