@@ -3,6 +3,7 @@ import React from 'react'
 import ProgressBar from './ProgressBar'
 import StatusBar from './StatusBar'
 import PreviewBox from './PreviewBox'
+import ProgressButtons from './ProgressButtons'
 
 import '../css/form2.css'
 
@@ -79,7 +80,8 @@ const Form2 = () => {
                 </div>
             </div>
 
-
+            <ProgressButtons />
+            
         </div>
     )
 }

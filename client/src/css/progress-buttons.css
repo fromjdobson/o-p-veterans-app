@@ -1,0 +1,22 @@
+.progress-buttons-container {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 40px;
+    /* border: 1px solid red; */
+}
+
+.prev {
+    width: 48px;
+    height: 48px;
+    /* visibility: hidden; */
+    padding: 0px 24px 0px 24px;
+}
+
+.cont {
+    width: 48px;
+    height: 48px;
+    visibility: visible;
+    padding: 0px 24px 0px 24px;
+}
