@@ -2,13 +2,13 @@ body {
     margin: 0px;
 }
 
-.input-container {
+/* .company-container {
     box-sizing: border-box;
     width: 360px;
     height: 88px;
     margin: 0px 0px 0px 0px;
-    /* border: 1px solid red; */
-}
+    border: 1px solid red;
+} */
 
 .label {
     width: 100%;

@@ -7,3 +7,119 @@
     border: 1px solid lightcoral;
 }
 
+.form2-inputs-container {
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    /* height: 100%; */
+    border: 1px solid lightgreen;
+}
+
+.company-container {
+    width: 280px;
+    border: 1px solid dodgerblue;
+}
+
+.input-company-name {
+    box-sizing: border-box;
+    width: 100%;
+    height: 32px;
+    margin: 0px;
+    /* background: none; */
+}
+
+.phone-container {
+    width: 128px;
+    margin-left: 40px;
+    border: 1px solid lightcoral;
+}
+.input-phone{
+    box-sizing: border-box;
+    width: 100%;
+    height: 32px;
+    margin: 0px;
+    /* background: none; */
+}
+
+.address-container {
+    width: 280px;
+    border: 1px solid dodgerblue;
+}
+
+.input-address {
+    box-sizing: border-box;
+    width: 100%;
+    height: 32px;
+    margin: 0px;
+    /* background: none; */
+}
+
+.apt-container {
+    width: 56px;
+    margin-left: 40px;
+    border: 1px solid dodgerblue;
+}
+
+.input-apt {
+    box-sizing: border-box;
+    width: 100%;
+    height: 32px;
+    margin: 0px;
+    /* background: none; */
+}
+
+.apt-helper-text {
+    display: none;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 0.05em;
+    width: 100%;
+    color: #990000;
+    /* visibility: visible; */
+    margin: 4px 0px 0px 0px;
+    /* background: lightblue;  */
+}
+
+.city-container {
+    width: 280px;
+    border: 1px solid dodgerblue;
+}
+
+.input-city {
+    box-sizing: border-box;
+    width: 100%;
+    height: 32px;
+    margin: 0px;
+    /* background: none; */
+}
+
+.state-container {
+    width: 56px;
+    margin-left: 40px;
+    border: 1px solid dodgerblue;
+}
+
+.input-state {
+    box-sizing: border-box;
+    width: 100%;
+    height: 32px;
+    margin: 0px;
+    /* background: none; */
+}
+
+.zipcode-container {
+    width: 128px;
+    margin-left: 40px;
+    border: 1px solid dodgerblue;
+}
+
+.input-zipcode {
+    box-sizing: border-box;
+    width: 100%;
+    height: 32px;
+    margin: 0px;
+    /* background: none; */
+}
