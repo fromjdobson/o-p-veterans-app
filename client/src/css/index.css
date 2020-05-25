@@ -1,3 +1,46 @@
 body {
     margin: 0px;
 }
+
+.input-container {
+    box-sizing: border-box;
+    width: 360px;
+    height: 88px;
+    margin: 0px 0px 0px 0px;
+    /* border: 1px solid red; */
+}
+
+.label {
+    width: 100%;
+    /* background: red; */
+    margin: 0px 0px 8px 0px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 1.5px;
+    color: #4D4F5C;
+}
+
+input {
+    box-sizing: border-box;
+    width: 360px;
+    height: 32px;
+    margin: 0px;
+    /* background: red; */
+}
+
+.helper-text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 0.05em;
+    width: 100%;
+    color: #990000;
+    visibility: visible;
+    margin: 4px 0px 0px 0px;
+    /* background: lightblue;  */
+}

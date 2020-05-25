@@ -10,9 +10,10 @@ const Form1 = () => {
     return (
         <div className='form1-container'>
             <div className='status-container'>
-                    <ProgressBar />
-                    <StatusBar />
-                </div>
+                <ProgressBar />
+                <StatusBar />
+            </div>
+            
             <div className='container'>
                 <div className='headline-container'>
                     <h1>Create an account</h1>
