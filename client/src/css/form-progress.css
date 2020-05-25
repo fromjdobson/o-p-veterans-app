@@ -1,10 +1,12 @@
 .form-progress-container {
+    box-sizing: border-box;
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 90%;
     height: 24px;
-    border: 1px solid dodgerblue;
+    margin-top: 16px;
+    /* border: 1px solid dodgerblue; */
 }
 
 .progress-icon {

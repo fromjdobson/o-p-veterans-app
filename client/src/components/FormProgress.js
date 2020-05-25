@@ -7,7 +7,7 @@ import ProgressCircleChecked from '../images/icons/circle-checked.svg'
 const FormProgress = () => {
     return (
         <div className='form-progress-container'>
-            <img src={ProgressCircle} alt='Default' className='progress-icon' />
+            <img src={ProgressCircleChecked} alt='Default' className='progress-icon' />
             <div className='progress-bar'></div>
 
             <img src={ProgressCircle} alt='Default' className='progress-icon' />

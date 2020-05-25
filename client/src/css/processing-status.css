@@ -1,0 +1,7 @@
+.processing-status-container {
+    box-sizing: border-box;
+    width: 90%;
+    height: 4px;
+    margin-top: 32px;
+    background: brown;
+}
