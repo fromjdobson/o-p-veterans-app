@@ -8,6 +8,7 @@ const TempNavBar = () => {
         <div className='temp-nav-bar-container'>
             <Link to='/form1'>Form 1</Link>
             <Link to='/form2'>Form 2</Link>
+            <Link to='/form3'>Form 3</Link>
         </div>
     )
 }

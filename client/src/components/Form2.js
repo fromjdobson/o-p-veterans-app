@@ -15,8 +15,8 @@ const Form2 = () => {
                 </div>
             <div className='container'>
                 <div className='headline-container'>
-                    <h1>Create an account</h1>
-                    <p className='body-1'>to sponsor Vet Fest or register for a vendor booth.</p>
+                    {/* <h1>Create an account</h1> */}
+                    <p className='body-1'>Thanks for creating an account, Joe Snuffy. Now, we need a little more information.</p>
                 </div>
 
             </div>

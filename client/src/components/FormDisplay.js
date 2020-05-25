@@ -5,9 +5,10 @@ import { Switch, Route } from 'react-router-dom'
 // import StatusBar from './StatusBar'
 
 import Form1 from './Form1'
+import Form2 from './Form2'
+import Form3 from './Form3'
 
 import '../css/form-display.css'
-import Form2 from './Form2'
 
 
 const FormDisplay = () => {
@@ -24,6 +25,10 @@ const FormDisplay = () => {
 
                 <Route path='/form2'>
                     <Form2 />
+                </Route>
+
+                <Route path='/form3'>
+                    <Form3 />
                 </Route>
             </Switch>
         </div>
