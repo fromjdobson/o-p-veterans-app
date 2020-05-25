@@ -1,6 +1,7 @@
 .temp-nav-bar-container {
     display: flex;
     justify-content: center;
+    width: 100%;
     background: dodgerblue;
     color: #F4F4F4;
 }

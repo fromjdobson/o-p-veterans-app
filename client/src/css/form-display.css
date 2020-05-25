@@ -1,0 +1,6 @@
+.form-display-container {
+    box-sizing: border-box;
+    width: 50%;
+    height: 100%;
+    border: 1px solid green;
+}

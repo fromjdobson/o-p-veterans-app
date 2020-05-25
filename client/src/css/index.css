@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+
 body {
     display: flex;
     justify-content: center;
@@ -6,5 +8,92 @@ body {
     height: 100vh;
     margin: 0px;
     background: #F4F4F4;
+}
 
+h2 {
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 1px;
+    color: #4D4F5C;
+    margin: 0px;
+    /* border: 1px solid red; */
+}
+
+h3 {
+    font-family: Roboto;
+    font-weight: medium;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 1px;
+    color: #4D4F5C;
+    margin: 0px;
+    border: 1px solid red;
+}
+
+h4 {
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 1px;
+    color: #4D4F5C;
+    margin: 0px;
+    border: 1px solid red;
+}
+
+.body1 {
+    font-family: Source Sans Pro;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    color: #545454;
+    margin: 0px;
+    border: 1px solid red;
+}
+
+.body2 {
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 1px;
+    color: #545454;
+    margin: 0px;
+    border: 1px solid red;
+}
+
+.subtitle {
+    font-family: Source Sans Pro;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.25px;
+    color: #444444;
+    margin: 0px;
+    border: 1px solid red;
+}
+
+.input-text {
+    font-family: Source Sans Pro;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.25px;
+    color: #444444;
+    margin: 0px;
+    border: 1px solid red;
+}
+
+.helper-text {
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    color: #444444;
+    margin: 0px;
+    border: 1px solid red;
 }
