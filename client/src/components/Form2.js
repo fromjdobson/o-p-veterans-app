@@ -2,6 +2,7 @@ import React from 'react'
 
 import ProgressBar from './ProgressBar'
 import StatusBar from './StatusBar'
+import PreviewBox from './PreviewBox'
 
 import '../css/form2.css'
 
@@ -14,7 +15,7 @@ const Form2 = () => {
                 <StatusBar />
             </div>
 
-            <div className='headline-container'>
+            <div className='form2-headline-container'>
                 <p className='body-1'>Thanks for creating an account, Joe Snuffy. Now, we need a little more information.</p>
             </div>
 
@@ -31,6 +32,7 @@ const Form2 = () => {
                     <input type='text' id='phoneInput' name='phone' className='input-phone'></input>
                     <p className='helper-text'>Helper Text</p>
                 </div>
+
             </div>
 
             <div className='form2-inputs-container'>
@@ -68,6 +70,15 @@ const Form2 = () => {
                     <p className='helper-text'>Helper Text</p>
                 </div>
             </div>
+
+            <div className='logo-upload-container'>
+                <PreviewBox />
+                <div className='upload-input-container'>
+                    <button type="submit" className='upload-button' value="selectFile">Select file...</button>
+                    <input type='text' id='uploadInput' name='upload' className='input-upload' placeholder='https://' disabled='true' />
+                </div>
+            </div>
+
 
         </div>
     )

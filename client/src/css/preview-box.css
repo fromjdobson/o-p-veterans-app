@@ -1,0 +1,9 @@
+.preview-box-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    margin-right: 16px;
+    border: 1px solid olivedrab;
+}
