@@ -39,6 +39,17 @@ input {
     /* background: red; */
 }
 
+h4 {
+    margin: 0px 0px 8px 0px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 1.5px;
+    color: #4D4F5C;
+}
+
 .helper-text {
     font-family: Roboto;
     font-style: normal;

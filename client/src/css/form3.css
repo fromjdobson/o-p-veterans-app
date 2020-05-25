@@ -4,3 +4,50 @@
     height: 100%;
     /* border: 1px solid red; */
 }
+
+.radio-selection-container {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-top: 16px;
+
+    /* border: 1px solid red; */
+}
+
+.radio-selection {
+    display: flex; 
+    align-items: center;
+    width: 100%;
+    margin-top: 8px;
+    /* border: 1px solid blueviolet; */
+}
+
+.radio-button {
+    width: 24px;
+    height: 24px;
+}
+
+.radio-button-label {
+    width: 100%;
+    font-family: Source Sans Pro;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+
+    /* border: 1px solid lightsalmon; */
+}
+
+.coupon-input-container {
+    width: 70%;
+    margin-top: 16px;
+    /* border: 1px solid green; */
+}
+
+.input-coupon {
+    box-sizing: border-box;
+    width: 72px;
+    height: 32px;
+    margin: 0px;
+    /* background: none; */
+}
