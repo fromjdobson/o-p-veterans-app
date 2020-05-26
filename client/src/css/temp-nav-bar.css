@@ -10,3 +10,8 @@
     background: dodgerblue;
     color: #F4F4F4;
 }
+
+.temp-nav-bar-container a {
+    margin: 0px 4px 0px 4px;
+    color: #F4F4F4;
+}
