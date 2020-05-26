@@ -1,0 +1,7 @@
+.form-container {
+    box-sizing: border-box;
+    width: 576px;
+    height: 100%;
+    margin-top: 32px;
+    border: 2px solid lightcoral;
+}
