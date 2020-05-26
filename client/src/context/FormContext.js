@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import firebase from 'firebase'
+
+
 
 
 const firebaseConfig = {
@@ -16,6 +18,13 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
+// Get a database reference to our posts
+
+
+
+
+
+
 
 
 const auth = firebase.auth()
@@ -24,7 +33,7 @@ const FBprovider = new firebase.auth.FacebookAuthProvider()
 const googleProvider = new firebase.auth.GoogleAuthProvider()
 
 const initState = { 
-    token: "" || localStorage.getItem("token"), 
+    token: null || localStorage.getItem("token"), 
     email: "" || localStorage.getItem("email"),
     displayName: "" || localStorage.getItem("displayName"), 
     phoneNumber: "" || localStorage.getItem("phoneNumber"), 
@@ -44,7 +53,8 @@ const initState = {
     needPower: false || localStorage.getItem("needPower"), 
     vendorSpace: "" || localStorage.getItem("vendorSpace"),
     firstName: "" || localStorage.getItem("firstName"), 
-    lastName: "" || localStorage.getItem("lastName")
+    lastName: "" || localStorage.getItem("lastName"), 
+    loaded: false,
 }
 
 export const FormContext = React.createContext()
@@ -54,6 +64,21 @@ function FormProvider(props){
     
     const [userState, setUserState] = useState(initState)
     
+    useEffect(() => { 
+        let sqPaymentScript = document.createElement("script");
+        sqPaymentScript.src = "https://js.squareup.com/v2/paymentform";
+        sqPaymentScript.type = "text/javascript";
+        sqPaymentScript.async = false;
+        sqPaymentScript.onload = () => {
+        setUserState({
+        loaded: true
+      })
+    }
+    document.getElementsByTagName("head")[0].appendChild(sqPaymentScript);
+  }, [])
+
+  const paymentform = window.sqPaymentForm
+
     function handleChange(e){ 
         const {name, value} = e.target
         setUserState(prev => ({ 
@@ -62,6 +87,26 @@ function FormProvider(props){
         }))
         localStorage.setItem([name], value)
     }
+
+    function writeUserData(companyName, qty, value) {
+        const itemsRef = firebase.database().ref('users/' + firebase.auth().currentUser.uid);
+      const item = { 
+        username: companyName,
+        qty: qty, 
+        value: value,
+      }
+      itemsRef.push(item);
+    }
+      function getUserData(companyName){ 
+        var userId = firebase.auth().currentUser.uid;
+        return firebase.database().ref('users/' + firebase.auth().currentUser.uid).once('value').then(function(snapshot) {
+        var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
+        console.log(username, userId)
+        
+  // ...
+});
+
+      }
 
     function handleSubmit(value){ 
         setUserState((prev => ({ 
@@ -143,11 +188,33 @@ function FormProvider(props){
           }
         function logout(){ 
             localStorage.removeItem("token")
+            localStorage.removeItem("email")
+            localStorage.removeItem("displayName")
+            localStorage.removeItem("phoneNumber")
+            localStorage.removeItem("id")
+            localStorage.removeItem("companyName")
+            localStorage.removeItem("address")
+            localStorage.removeItem("city")
+            localStorage.removeItem("businessPhone")
+            localStorage.removeItem("aptNumber")
+            localStorage.removeItem("state")
+            localStorage.removeItem("zipCode")
+            localStorage.removeItem("businessWebsite")
+            localStorage.removeItem("veteranOwned")
+            localStorage.removeItem("nonProfit")
+            localStorage.removeItem("qty")
+            localStorage.removeItem("value")
+            localStorage.removeItem("needPower")
+            localStorage.removeItem("vendorSpace")
+            localStorage.removeItem("firstName")
+            localStorage.removeItem("lastName")
+            localStorage.removeItem("loaded")
             auth.signOut()
             setUserState(() => ({ 
-                token: ""
+                token: "",
             }))
         }
+
 
     return( 
         <FormContext.Provider value = {{
@@ -158,7 +225,10 @@ function FormProvider(props){
             signInWithGoogle, 
             handleLogin,
             logout,
-            handleSubmit
+            paymentform,
+            handleSubmit,
+            writeUserData,
+            getUserData
 
         }}>
             {props.children}
