@@ -1,9 +1,9 @@
 import React, { useContext } from "react"
 import { FormContext } from "../context/FormContext"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 
 function Sponsorshiplevels(){ 
-    const {qty, value, handleChange, handleSubmit} = useContext(FormContext)
+    const {qty, value, handleChange, handleSubmit, writeUserData, companyName, getUserData} = useContext(FormContext)
     const sponsorArray = [
     {
         name:"paladin", 
@@ -37,10 +37,17 @@ function Sponsorshiplevels(){
         description:"O.P.V. WLA Level Sponsorship Website Sponsorship Social Announcement Recognition at Event" 
     }
 ]
+    const history = useHistory()
+    function addtoDB(){ 
+       history.push("/form5")
+       writeUserData(companyName, qty, value)
+       
+    }
    
     return( 
         <div>
             <div>
+                
                 <h1>Sponsorship Level</h1>
                {sponsorArray.map(item => 
                 <div onClick = {() => handleSubmit(item.value)} key = {item.name}>
@@ -52,7 +59,8 @@ function Sponsorshiplevels(){
                <p>Qty:</p>
                 <input type = "text" name = "qty" value = {qty} onChange = {handleChange}></input>
                <p>Total: {qty * value}</p>
-               <Link to = "/form5">Continue</Link>
+               <button onClick = {() => addtoDB()}>Continue</button>
+               <button onClick = {() => getUserData(companyName)}>Get data</button>
                <p></p>
                <Link to = "/form3">Back</Link>
             </div>
