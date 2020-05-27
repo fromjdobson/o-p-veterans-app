@@ -1,0 +1,10 @@
+.logo-component-container {
+    width: 100px;
+    height: 100px;
+    color: red;
+    background: url('../images/American-Shaman-Logo.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: 1px solid #545454;;
+}

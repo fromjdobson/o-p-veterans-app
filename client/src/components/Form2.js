@@ -1,5 +1,7 @@
 import React from 'react'
 
+import LogoComponent from './LogoComponent'
+
 import '../css/form2.css'
 
 const Form2 = () => {
@@ -58,6 +60,7 @@ const Form2 = () => {
                     <p className='helper-text'>Helper Text</p>
                 </div>
             </div>
+            <LogoComponent />
         </div>
     )
 }
