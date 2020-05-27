@@ -1,7 +1,7 @@
 import React from 'react'
 
 import termsCheckDefault from '../images/icons/circle.svg'
-import googleLogo from '../images/google-button-2.svg'
+// import googleLogo from '../images/google-button-2.svg'
 import '../css/form1.css'
 
 const Form1 = () => {
@@ -45,10 +45,10 @@ const Form1 = () => {
                 <div className='break-bar'></div>
             </div>
 
-            <div className='google-button-container'>
+            {/* <div className='google-button-container'>
                 <img src={googleLogo} alt='Google Signin' />
                 <p className='google'>SIGN IN WITH GOOGLE</p>
-            </div>
+            </div> */}
 
             <div className='new-google-button'>
 
