@@ -1,5 +1,6 @@
 import React from 'react'
 
+import termsCheckDefault from '../images/icons/circle.svg'
 import '../css/form1.css'
 
 const Form1 = () => {
@@ -30,6 +31,12 @@ const Form1 = () => {
                 </div>
             </div>
 
+            <div className='terms-container'>
+                <img src={termsCheckDefault} alt='Unchecked' />
+                <p className='subtitle'>I have read and accept the <span className='body2'>Terms of Service</span> and <span className='body2'>Privacy Policy</span>.</p>
+            </div>
+            
+            <button>CREATE AN ACCOUNT</button>
         </div>
     )
 }

@@ -24,7 +24,7 @@
     box-sizing: border-box;
     width: 100%;
     margin: 16px 0px 0px 0px;
-    border: 1px solid purple;
+    /* border: 1px solid purple; */
 }
 
 .input-item-containter {
@@ -35,4 +35,20 @@
     height: 88px;
     margin: 0px 0px 0px 0px;
     /* border: 1px solid lightseagreen; */
+}
+
+.terms-container {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 32px;
+    margin: 8px 0px 0px 0px;
+    /* border: 1px solid orange;  */
+}
+
+.terms-container img {
+    width: 18px;
+    height: 18px;
+    margin: 0px 8px 0px 0px;
 }
