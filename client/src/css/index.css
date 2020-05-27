@@ -116,6 +116,18 @@ h4 {
     /* border: 1px solid red; */
 }
 
+.headline-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 72px;
+    box-sizing: border-box;
+    /* border: 1px solid dodgerblue; */
+}
+
+
+
 label {
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 8px 0px;
@@ -137,6 +149,16 @@ input {
     background: none;
     border: 1px solid #CCCCCC;
     /* background: lightseagreen; */
+}
+
+.input-item-containter {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 288px;
+    height: 88px;
+    margin: 0px 0px 0px 0px;
+    /* border: 1px solid lightseagreen; */
 }
 
 button {
