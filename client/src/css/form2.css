@@ -14,7 +14,7 @@
     height: 100%;
     padding: 16px 16px 0px 16px;
     /* background: lightblue; */
-    border: 1px solid lightcoral;
+    /* border: 1px solid lightcoral; */
 }
 
 .form2-inputs-container {
@@ -22,8 +22,8 @@
     display: flex;
 
     width: 100%;
-    margin: 16px 0px 0px 0px;
-    border: 1px solid purple;
+    margin: 8px 0px 0px 0px;
+    /* border: 1px solid purple; */
 }
 
 .company-name-container {
@@ -33,7 +33,7 @@
     width: 200px;
     height: 88px;
     margin: 0px 40px 0px 0px;
-    border: 1px solid lightseagreen;
+    /* border: 1px solid lightseagreen; */
 }
 
 .company-phone-container {
@@ -43,5 +43,55 @@
     width: 104px;
     height: 88px;
     margin: 0px 0px 0px 0px;
-    border: 1px solid lightseagreen;
+    /* border: 1px solid lightseagreen; */
+}
+
+.company-address-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 88px;
+    margin: 0px 40px 0px 0px;
+    /* border: 1px solid lightseagreen; */
+}
+
+.company-suite-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 80px;
+    height: 88px;
+    margin: 0px 40px 0px 0px;
+    /* border: 1px solid lightseagreen; */
+}
+
+.company-city-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 128px;
+    height: 88px;
+    margin: 0px 40px 0px 0px;
+    /* border: 1px solid lightseagreen; */
+}
+
+.company-state-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 128px;
+    height: 88px;
+    margin: 0px 40px 0px 0px;
+    /* border: 1px solid lightseagreen; */
+}
+
+.company-zipcode-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 128px;
+    height: 88px;
+    margin: 0px 40px 0px 0px;
+    /* border: 1px solid lightseagreen; */
 }
