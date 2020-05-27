@@ -61,6 +61,25 @@
     opacity: 50%;
 }
 
+.new-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 16px; */
+    /* border: 1px solid red; */
+}
+
+.new-google-button {
+    width: 160px;
+    min-height: 40px;
+    margin-top: 0px;
+    background: url('../images/google-sign-in-deafult-2x.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* border: 1px solid lightcoral; */
+    }
+
 .google-button-container {
     box-sizing: border-box;
 

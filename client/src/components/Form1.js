@@ -50,6 +50,10 @@ const Form1 = () => {
                 <p className='google'>SIGN IN WITH GOOGLE</p>
             </div>
 
+            <div className='new-google-button'>
+
+            </div>
+
             <div className='member-container'>
                 <p className='body1'>Already have an account with O.P. Veteran?</p>
                 <p className='body2'>Log in here</p>
