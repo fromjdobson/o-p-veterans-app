@@ -1,6 +1,7 @@
 import React from 'react'
 
 import termsCheckDefault from '../images/icons/circle.svg'
+import googleLogo from '../images/google-button-2.svg'
 import '../css/form1.css'
 
 const Form1 = () => {
@@ -37,6 +38,23 @@ const Form1 = () => {
             </div>
             
             <button>CREATE AN ACCOUNT</button>
+
+            <div className='break-container'>
+                <div className='break-bar'></div>
+                <p className='body1'>or use</p>
+                <div className='break-bar'></div>
+            </div>
+
+            <div className='google-button-container'>
+                <img src={googleLogo} alt='Google Signin' />
+                <p className='google'>SIGN IN WITH GOOGLE</p>
+            </div>
+
+            <div className='member-container'>
+                <p className='body1'>Already have an account with O.P. Veteran?</p>
+                <p className='body2'>Log in here</p>
+
+            </div>
         </div>
     )
 }
