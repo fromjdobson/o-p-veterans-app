@@ -3,5 +3,5 @@
     width: 90%;
     height: 4px;
     margin-top: 32px;
-    background: brown;
+    background: linear-gradient(90deg, #006600 0%, rgba(58, 80, 68, 0.25) 49.9%);
 }
