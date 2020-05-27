@@ -60,7 +60,13 @@ const Form2 = () => {
                     <p className='helper-text'>Helper Text</p>
                 </div>
             </div>
-            <LogoComponent />
+
+            <div className='form2-inputs-container'>
+                <div className='upload-container'>
+                    <LogoComponent />
+                    <button>SELECT IMAGE</button>
+                </div>
+            </div>
         </div>
     )
 }

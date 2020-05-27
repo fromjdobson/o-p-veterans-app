@@ -20,7 +20,6 @@
 .form2-inputs-container {
     box-sizing: border-box;
     display: flex;
-
     width: 100%;
     margin: 8px 0px 0px 0px;
     /* border: 1px solid purple; */
@@ -95,3 +94,22 @@
     margin: 0px 40px 0px 0px;
     /* border: 1px solid lightseagreen; */
 }
+
+.upload-container {
+    box-sizing: border-box;
+    display: flex;
+    width: 120px;
+    flex-direction: column;
+    align-items: center;
+
+    /* width: 100%; */
+    margin: 8px 0px 0px 0px;
+    /* border: 1px solid dodgerblue; */
+}
+
+.upload-container button {
+    height: 32px;
+    width: 100%;
+    margin-top: 8px;
+}
+
