@@ -1,6 +1,7 @@
 import React from 'react'
 
 import LogoComponent from './LogoComponent'
+import ProgressButtons from './ProgressButtons'
 
 import '../css/form2.css'
 
@@ -67,6 +68,8 @@ const Form2 = () => {
                     <button>SELECT IMAGE</button>
                 </div>
             </div>
+            <ProgressButtons />
+
         </div>
     )
 }

@@ -1,0 +1,14 @@
+.progress-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    height: 48px;
+    width: 176px;
+    position: absolute;
+    bottom: 32px;
+    /* border: 1px solid dodgerblue; */
+}
+
+.progress-arrow {
+    width: 48px;
+    height: 48px;
+}
