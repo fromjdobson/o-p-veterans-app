@@ -7,6 +7,8 @@ import Form3 from './Form3'
 import SponsorshipSelection from './SponsorshipSelection'
 import VendorSpace from './VendorSpace'
 import PaymentInfo from './PaymentInfo'
+import PaymentComplete from './PaymentComplete'
+import PaymentReview from './PaymentReview'
 
 import '../css/form.css'
 
@@ -37,6 +39,14 @@ const Form = () => {
 
                 <Route path='/paymentInfo'>
                     <PaymentInfo />
+                </Route>
+
+                <Route path='/paymentComplete'>
+                    <PaymentComplete />
+                </Route>
+
+                <Route path='/paymentReview'>
+                    <PaymentReview />
                 </Route>
 
             </Switch>

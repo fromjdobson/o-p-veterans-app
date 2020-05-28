@@ -6,7 +6,7 @@ const PaymentInfo = () => {
     return (
         <div className='payment-info-container'>
             <div className='headline-container'>
-                <h1>Payment Informaion</h1>
+                <h1>Payment Information</h1>
                 <p className='body2'>B</p>
             </div>
         </div>
