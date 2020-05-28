@@ -14,7 +14,7 @@ const PaymentInfo = () => {
                 <div className='card-name-container'>
                     <label for='cardNameInput'><h4>Name on card</h4></label>
                     <input type='text' id='cardNameInput' name='cardNameInput' />
-                    <p className='helper-text'>M. Galicanokus</p>
+                    <p className='helper-text'>M.Galikanokus</p>
                 </div>
             </div>
 
