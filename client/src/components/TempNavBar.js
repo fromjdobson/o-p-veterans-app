@@ -11,6 +11,7 @@ const TempNavBar = () => {
             <Link to='/form3'>Form 3</Link>
             <Link to='/sponsorshipSelection'>Sponsorship Selection</Link>
             <Link to='/vendorSpace'>Vendor Space</Link>
+            <Link to='/paymentInfo'>Payment Info</Link>
         </div>
     )
 }

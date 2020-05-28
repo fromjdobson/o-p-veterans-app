@@ -6,6 +6,7 @@ import Form2 from './Form2'
 import Form3 from './Form3'
 import SponsorshipSelection from './SponsorshipSelection'
 import VendorSpace from './VendorSpace'
+import PaymentInfo from './PaymentInfo'
 
 import '../css/form.css'
 
@@ -32,6 +33,10 @@ const Form = () => {
 
                 <Route path='/vendorSpace'>
                     <VendorSpace />
+                </Route>
+
+                <Route path='/paymentInfo'>
+                    <PaymentInfo />
                 </Route>
 
             </Switch>
