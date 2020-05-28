@@ -1,11 +1,13 @@
 import React from 'react'
 
+import PaymentReview from './PaymentReview'
+
 import '../css/sponsorship-display.css'
 
 const SponsorshipDisplay = () => {
     return (
         <div className='sponsorship-display-container'>
-            <h2>Sponsorship Display</h2>
+            <PaymentReview />
         </div>
     )
 }
