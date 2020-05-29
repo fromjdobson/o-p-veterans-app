@@ -1,9 +1,9 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import { FormContext } from "../context/FormContext"
 import { Link, useHistory } from "react-router-dom"
 
 function Sponsorshiplevels(){ 
-    const {qty, value, handleChange, handleSubmit, writeUserData, companyName, getUserData} = useContext(FormContext)
+    const {qty, value, handleChange, handleSubmit, writeUserData, companyName, getUserData, coupon, checkCoupon} = useContext(FormContext)
     const sponsorArray = [
     {
         name:"paladin", 
@@ -38,10 +38,14 @@ function Sponsorshiplevels(){
     }
 ]
     const history = useHistory()
+    const [toggle, setToggle] = useState(false)
     function addtoDB(){ 
        history.push("/form5")
        writeUserData(companyName, qty, value)
-       
+    }
+    function pushCoupon(){ 
+        checkCoupon(coupon)
+        history.push("/form6")
     }
    
     return( 
@@ -61,10 +65,19 @@ function Sponsorshiplevels(){
                <p>Total: {qty * value}</p>
                <button onClick = {() => addtoDB()}>Continue</button>
                <button onClick = {() => getUserData(companyName)}>Get data</button>
+               {!toggle ? 
+               <div onClick = {() => setToggle(prev => !prev)}>
+                   have a coupon code? Enter it here
+               </div> : 
+               <div>
+                    <input type = "text" name = "coupon" value = {coupon} onChange = {handleChange}></input>
+                    <p>{checkCoupon}</p>
+                    <button onClick = {() => pushCoupon() }>Submit</button>
+               </div>
+               }
                <p></p>
                <Link to = "/form3">Back</Link>
             </div>
-            {console.log(qty, value)}
         </div> 
     )
 }

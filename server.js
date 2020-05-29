@@ -41,7 +41,7 @@ app.post('/process-payment', async (req, res) => {
   const request_body = {
     source_id: request_params.nonce,
     amount_money: {
-      amount: ((req.body.qty * req.body.value) * 100), // £1.00 charge
+      amount: ((req.body.qty * req.body.value) * 100), 
       currency: 'USD'
     },
     idempotency_key: idempotency_key

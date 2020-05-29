@@ -1,8 +1,12 @@
 import React, { useContext } from 'react';
+import { useHistory } from "react-router-dom"
 import { FormContext } from '../context/FormContext';
 
 const Square = ({ paymentForm }) => {
-
+    const history = useHistory()
+    function pushToNextPage(){ 
+        history.push("/form6")
+    }
     const {qty, value } = useContext(FormContext)
     const config = {
         // Initialize the payment form elements
@@ -48,8 +52,9 @@ const Square = ({ paymentForm }) => {
                 console.error('Encountered errors:');
                 errors.forEach(function (error) {
                     console.error('  ' + error.message);
+                    alert(`Encountered errors, ${error.message}`);
                 });
-                alert('Encountered errors, check browser developer console for more details');
+                
                 return;
             }
                alert(`The generated nonce is:\n${nonce}`);
@@ -77,10 +82,11 @@ const Square = ({ paymentForm }) => {
                 .then(data => {
                   console.log(JSON.stringify(data));
                   alert('Payment complete successfully!\nCheck browser developer console form more details');
+                  pushToNextPage()
                 })
                 .catch(err => {
                   console.error(err);
-                  alert('Payment failed to complete!\nCheck browser developer console form more details');
+                  alert(`Payment failed to complete!\n ${err}`);
                 });
             }
           }
