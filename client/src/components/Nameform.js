@@ -19,14 +19,14 @@ function Nameform(){
                 type = "text"
                 name = "firstName"
                 value = {firstName}  
-                onChange = {handleChange}  
+                onChange = {() => handleChange}  
             ></input>
             <p>Last Name</p>
             <input
                 type = "text"
                 name = "lastName"
                 value = {lastName}
-                onChange = {handleChange}
+                onChange = {() => handleChange}
             >
             </input>
             <p>Phone Number</p>
@@ -34,7 +34,7 @@ function Nameform(){
                 type = "number"
                 name = "phoneNumber"
                 value = {phoneNumber}
-                onChange = {handleChange}
+                onChange = {() => handleChange}
             >
             </input>
             <Link exact to = "/form2">Continue</Link>

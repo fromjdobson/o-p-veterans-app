@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import firebase from 'firebase'
 
 
@@ -25,12 +25,13 @@ firebase.analytics();
 
 
 
-
+const couponCodes = ["opvet123", "test123", "cupon111"]
 
 const auth = firebase.auth()
 
 const FBprovider = new firebase.auth.FacebookAuthProvider()
 const googleProvider = new firebase.auth.GoogleAuthProvider()
+const twitterProiver = new firebase.auth.TwitterAuthProvider()
 
 const initState = { 
     token: null || localStorage.getItem("token"), 
@@ -55,6 +56,7 @@ const initState = {
     firstName: "" || localStorage.getItem("firstName"), 
     lastName: "" || localStorage.getItem("lastName"), 
     loaded: false,
+    coupon: ""
 }
 
 export const FormContext = React.createContext()
@@ -64,20 +66,6 @@ function FormProvider(props){
     
     const [userState, setUserState] = useState(initState)
     
-    useEffect(() => { 
-        let sqPaymentScript = document.createElement("script");
-        sqPaymentScript.src = "https://js.squareup.com/v2/paymentform";
-        sqPaymentScript.type = "text/javascript";
-        sqPaymentScript.async = false;
-        sqPaymentScript.onload = () => {
-        setUserState({
-        loaded: true
-      })
-    }
-    document.getElementsByTagName("head")[0].appendChild(sqPaymentScript);
-  }, [])
-
-  const paymentform = window.sqPaymentForm
 
     function handleChange(e){ 
         const {name, value} = e.target
@@ -89,24 +77,30 @@ function FormProvider(props){
     }
 
     function writeUserData(companyName, qty, value) {
-        const itemsRef = firebase.database().ref('users/' + firebase.auth().currentUser.uid);
-      const item = { 
-        username: companyName,
-        qty: qty, 
-        value: value,
+        let userEmail = firebase.auth().currentUser.email
+        let checkedNew = userEmail.split('.').join("");
+        const itemsRef = firebase.database().ref('users/' + checkedNew);
+        const item = { 
+            username: companyName,
+            qty: qty, 
+            value: value,
       }
       itemsRef.push(item);
     }
-      function getUserData(companyName){ 
-        var userId = firebase.auth().currentUser.uid;
-        return firebase.database().ref('users/' + firebase.auth().currentUser.uid).once('value').then(function(snapshot) {
-        var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
-        console.log(username, userId)
-        
-  // ...
-});
 
-      }
+    function checkCoupon(coupon){ 
+        if(couponCodes.includes(coupon)){ 
+            setUserState((prev) => ({ 
+                ...prev, 
+                qty: 0, 
+            }))
+            alert("coupon code accepted")
+        } else { 
+        alert("coupon code is invalid")
+        }
+    }
+
+      
 
     function handleSubmit(value){ 
         setUserState((prev => ({ 
@@ -187,28 +181,7 @@ function FormProvider(props){
                 })
           }
         function logout(){ 
-            localStorage.removeItem("token")
-            localStorage.removeItem("email")
-            localStorage.removeItem("displayName")
-            localStorage.removeItem("phoneNumber")
-            localStorage.removeItem("id")
-            localStorage.removeItem("companyName")
-            localStorage.removeItem("address")
-            localStorage.removeItem("city")
-            localStorage.removeItem("businessPhone")
-            localStorage.removeItem("aptNumber")
-            localStorage.removeItem("state")
-            localStorage.removeItem("zipCode")
-            localStorage.removeItem("businessWebsite")
-            localStorage.removeItem("veteranOwned")
-            localStorage.removeItem("nonProfit")
-            localStorage.removeItem("qty")
-            localStorage.removeItem("value")
-            localStorage.removeItem("needPower")
-            localStorage.removeItem("vendorSpace")
-            localStorage.removeItem("firstName")
-            localStorage.removeItem("lastName")
-            localStorage.removeItem("loaded")
+            localStorage.clear()
             auth.signOut()
             setUserState(() => ({ 
                 token: "",
@@ -225,10 +198,9 @@ function FormProvider(props){
             signInWithGoogle, 
             handleLogin,
             logout,
-            paymentform,
             handleSubmit,
             writeUserData,
-            getUserData
+            checkCoupon,
 
         }}>
             {props.children}
