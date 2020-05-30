@@ -1,13 +1,9 @@
 import React, { useContext } from 'react';
-import { useHistory } from "react-router-dom"
 import { FormContext } from '../context/FormContext';
 
 const Square = ({ paymentForm }) => {
-    const history = useHistory()
-    function pushToNextPage(){ 
-        history.push("/form6")
-    }
-    const {qty, value } = useContext(FormContext)
+
+    const {qty, value, pushToNextPage } = useContext(FormContext)
     const config = {
         // Initialize the payment form elements
         

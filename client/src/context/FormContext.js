@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import firebase from 'firebase'
+import { useHistory } from "react-router-dom"
 
 
 
@@ -29,6 +30,7 @@ const couponCodes = ["opvet123", "test123", "cupon111"]
 
 const auth = firebase.auth()
 
+
 const FBprovider = new firebase.auth.FacebookAuthProvider()
 const googleProvider = new firebase.auth.GoogleAuthProvider()
 const twitterProiver = new firebase.auth.TwitterAuthProvider()
@@ -56,13 +58,15 @@ const initState = {
     firstName: "" || localStorage.getItem("firstName"), 
     lastName: "" || localStorage.getItem("lastName"), 
     loaded: false,
-    coupon: ""
+    coupon: "", 
+    hasPayed: false || localStorage.getItem("hasPayed"),
 }
 
 export const FormContext = React.createContext()
 
 
 function FormProvider(props){ 
+    const history = useHistory()
     
     const [userState, setUserState] = useState(initState)
     
@@ -93,11 +97,23 @@ function FormProvider(props){
             setUserState((prev) => ({ 
                 ...prev, 
                 qty: 0, 
+                hasPayed: true
             }))
+            localStorage.setItem("hasPayed", userState.hasPayed)
             alert("coupon code accepted")
+            history.push("/form6")
+            console.log(userState.hasPayed)
         } else { 
         alert("coupon code is invalid")
         }
+    }
+
+    function pushToNextPage(){ 
+        setUserState((prev) => ({ 
+            ...prev, 
+            hasPayed: true
+        }))
+        history.push("/form6")
     }
 
       
@@ -199,6 +215,7 @@ function FormProvider(props){
             handleLogin,
             logout,
             handleSubmit,
+            pushToNextPage,
             writeUserData,
             checkCoupon,
 
