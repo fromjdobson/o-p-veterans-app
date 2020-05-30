@@ -6,12 +6,13 @@ import Nonprofit from "./components/Nonprofit.js"
 import Square from './components/Square.js';
 import Booths from "./components/Booths.js"
 import Sponsorshiplevels from "./components/Sponsorshiplevels.js"
-import {Switch, Route, Redirect} from "react-router-dom"
+import {Switch, Route, Redirect, useHistory} from "react-router-dom"
 import { FormContext } from "./context/FormContext"
 
 function App() {
-  const { token, qty, value } = useContext(FormContext)
+  const { token, qty, value, hasPayed } = useContext(FormContext)
   const [isLoad, setLoad] = useState(false);
+  const history = useHistory()
   useEffect(() => {
     let sqPaymentScript = document.createElement("script");
     // sandbox: https://js.squareupsandbox.com/v2/paymentform
@@ -40,7 +41,7 @@ function App() {
          <Route exact path = "/form3" render = {() => token ? <Nonprofit /> : <Redirect to = "/" /> } />
          <Route exact path = "/form4" render = {() => token ? <Sponsorshiplevels /> : <Redirect to = "/" />} />
          <Route exact path = "/form5" render ={ () => token ? <div className="App"> {squarePayment} </div> : <Redirect to = "/" />} />
-         <Route exact path = "/form6" render = {() => token ? <Booths /> : <Redirect to = "/" />} />
+         <Route exact path = "/form6" render = {() => token && hasPayed ? <Booths /> : history.goBack()} />
       </Switch>
       
     </div>

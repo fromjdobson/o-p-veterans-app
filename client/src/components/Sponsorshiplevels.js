@@ -3,7 +3,7 @@ import { FormContext } from "../context/FormContext"
 import { Link, useHistory } from "react-router-dom"
 
 function Sponsorshiplevels(){ 
-    const {qty, value, handleChange, handleSubmit, writeUserData, companyName, getUserData, coupon, checkCoupon} = useContext(FormContext)
+    const {qty, value, handleChange, handleSubmit, writeUserData, companyName, coupon, checkCoupon} = useContext(FormContext)
     const sponsorArray = [
     {
         name:"paladin", 
@@ -43,10 +43,7 @@ function Sponsorshiplevels(){
        history.push("/form5")
        writeUserData(companyName, qty, value)
     }
-    function pushCoupon(){ 
-        checkCoupon(coupon)
-        history.push("/form6")
-    }
+    
    
     return( 
         <div>
@@ -64,15 +61,13 @@ function Sponsorshiplevels(){
                 <input type = "text" name = "qty" value = {qty} onChange = {handleChange}></input>
                <p>Total: {qty * value}</p>
                <button onClick = {() => addtoDB()}>Continue</button>
-               <button onClick = {() => getUserData(companyName)}>Get data</button>
                {!toggle ? 
                <div onClick = {() => setToggle(prev => !prev)}>
                    have a coupon code? Enter it here
                </div> : 
                <div>
                     <input type = "text" name = "coupon" value = {coupon} onChange = {handleChange}></input>
-                    <p>{checkCoupon}</p>
-                    <button onClick = {() => pushCoupon() }>Submit</button>
+                    <button onClick = {() => checkCoupon(coupon) }>Submit</button>
                </div>
                }
                <p></p>
