@@ -42,6 +42,8 @@ function App() {
          <Route exact path = "/form4" render = {() => token ? <Sponsorshiplevels /> : <Redirect to = "/" />} />
          <Route exact path = "/form5" render ={ () => token ? <div className="App"> {squarePayment} </div> : <Redirect to = "/" />} />
          <Route exact path = "/form6" render = {() => token && hasPayed ? <Booths /> : history.goBack()} />
+         <Route path='/opvet' component={() => { window.location.href = 'https://opveteran.org/'  
+            return null }}/>
       </Switch>
       
     </div>
