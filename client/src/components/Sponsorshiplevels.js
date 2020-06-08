@@ -3,7 +3,7 @@ import { FormContext } from "../context/FormContext"
 import { Link, useHistory } from "react-router-dom"
 
 function Sponsorshiplevels(){ 
-    const {qty, value, handleChange, handleSubmit, writeUserData, companyName, coupon, checkCoupon, veteranOwned, pushToNextPage} = useContext(FormContext)
+    const {qty, value, handleChange, handleSubmit, needPower, coupon, checkCoupon, veteranOwned, pushToNextPage} = useContext(FormContext)
     const sponsorArray = [
     {
         name:"paladin", 
@@ -40,8 +40,8 @@ function Sponsorshiplevels(){
     const history = useHistory()
     const [toggle, setToggle] = useState(false)
     function addtoDB(){ 
-        console.log(veteranOwned)
-        veteranOwned ? pushToNextPage() : history.push("/form5")
+        veteranOwned && needPower ? history.push("/form5") : pushToNextPage()
+       
        
     }
     
