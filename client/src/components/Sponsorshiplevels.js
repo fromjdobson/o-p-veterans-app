@@ -1,9 +1,9 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import { FormContext } from "../context/FormContext"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 
 function Sponsorshiplevels(){ 
-    const {qty, value, handleChange, handleSubmit} = useContext(FormContext)
+    const {qty, value, handleChange, handleSubmit, needPower, coupon, checkCoupon, veteranOwned, pushToNextPage} = useContext(FormContext)
     const sponsorArray = [
     {
         name:"paladin", 
@@ -37,10 +37,19 @@ function Sponsorshiplevels(){
         description:"O.P.V. WLA Level Sponsorship Website Sponsorship Social Announcement Recognition at Event" 
     }
 ]
+    const history = useHistory()
+    const [toggle, setToggle] = useState(false)
+    function addtoDB(){ 
+        veteranOwned && needPower ? history.push("/form5") : pushToNextPage()
+       
+       
+    }
+    
    
     return( 
         <div>
             <div>
+                
                 <h1>Sponsorship Level</h1>
                {sponsorArray.map(item => 
                 <div onClick = {() => handleSubmit(item.value)} key = {item.name}>
@@ -52,11 +61,19 @@ function Sponsorshiplevels(){
                <p>Qty:</p>
                 <input type = "text" name = "qty" value = {qty} onChange = {handleChange}></input>
                <p>Total: {qty * value}</p>
-               <Link to = "/form5">Continue</Link>
+               <button onClick = {() => addtoDB()}>Continue</button>
+               {!toggle ? 
+               <div onClick = {() => setToggle(prev => !prev)}>
+                   have a coupon code? Enter it here
+               </div> : 
+               <div>
+                    <input type = "text" name = "coupon" value = {coupon} onChange = {handleChange}></input>
+                    <button onClick = {() => checkCoupon(coupon)}>Submit</button>
+               </div>
+               }
                <p></p>
                <Link to = "/form3">Back</Link>
             </div>
-            {console.log(qty, value)}
         </div> 
     )
 }

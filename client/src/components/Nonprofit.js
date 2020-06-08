@@ -3,9 +3,8 @@ import { FormContext } from "../context/FormContext"
 import { useHistory, Link } from "react-router-dom"
 
 function Nonprofit(){ 
-    const { handleChange, companyName } = useContext(FormContext)
+    const { handleChange, companyName, veteranOwned, needPower } = useContext(FormContext)
     const history = useHistory()
-    console.log(companyName)
     function handleSubmit(){ 
         history.push("/form4")
     }
@@ -27,7 +26,6 @@ function Nonprofit(){
                     </input>
                     Yes
                 </label>
-
                 <label> 
                     <input
                         type = "radio"
@@ -38,6 +36,24 @@ function Nonprofit(){
                     </input>
                     No (may require sponsorship)
                 </label>
+                {veteranOwned ? <> <p>Do you require a booth with power?</p>
+                    
+                <input 
+                    type = "radio"
+                    name = "needPower"
+                    value = {true}
+                    onChange = {handleChange}
+                ></input>
+                Yes (additional charges may apply) 
+                  
+                <input 
+                    type = "radio"
+                    name = "needPower"
+                    value = {false}
+                    onChange = {handleChange}
+                ></input>
+                  No
+                </> : "" }
                 <h1>Non Profit Status</h1>
                 <p>is the business you are registering a non-profit</p>
                 <label> 

@@ -4,15 +4,19 @@ import { FormContext } from '../context/FormContext'
 // const LinkedInProvider = new firebase.auth.LinkedInProvider()
 function Loginpage(){ 
 
-    const {signInWithGoogle, signInWithFacebook, logout, handleSignup, token, handleLogin} = useContext(FormContext)
-    
+    const {signInWithGoogle, signInWithFacebook, logout, handleSignup, token, handleLogin, errorMessage} = useContext(FormContext)
+    const initToggle = { 
+        privacyAgreement: false, 
+        login: false
+    }
     
     const initLogin = { 
         email: "", 
         password:"",
     }
-    const [toggle, setToggle] = useState(false)
+    const [toggle, setToggle] = useState(initToggle)
     const [login, setLogin] = useState(initLogin)
+
 
     
     
@@ -41,18 +45,25 @@ function Loginpage(){
                 name = "password" 
                 onChange = {handleChange}></input>
                 
-                <p></p>
+                <div>{errorMessage ? <p style = {{color: "red"}}>{errorMessage}</p> : ""}</div>
                 <input 
                     type = "radio"
-                    onClick = {() => setToggle((prev) => !prev)}>
-                </input>
+                    onClick = {() => setToggle((prev) => ({ 
+                        ...prev, 
+                        privacyAgreement: !prev.privacyAgreement
+                    }))}/>
                 <span>I have read and accept the Terms of Service and Privacy Policy</span>
                 <p></p>
-                <p onClick = {() => {handleLogin(login.email, login.password)}}>Already have an account? Sign in</p>
-                {toggle ? <button onClick = {() => handleSignup(login.email, login.password)} disabled = {false}>Create an Account</button> : <button disabled = {true} >Create an Account</button>}
+                <p onClick = {() => setToggle((prev) => ({ 
+                    ...prev, 
+                    login: !prev.login
+                }))}>Already have an account? Sign in</p>
+                {toggle.login ? <button onClick = {() => handleLogin(login.email, login.password)}>Login</button> : null}
+                
+                {!toggle.login && toggle.privacyAgreement ? <button onClick = {() => handleSignup(login.email, login.password)} disabled = {false}>Create an Account</button> : null}
                 <p>or use</p>
-                {toggle ? <button onClick = {() => signInWithGoogle()}>Google</button> :  <button disabled = {true} onClick = {() => signInWithGoogle()}>Google</button>}
-                {toggle ? <button onClick = {() => signInWithFacebook()}>FaceBook</button> : <button disabled = {true} onClick = {() => signInWithFacebook()}>FaceBook</button>}
+                {toggle.privacyAgreement ? <button onClick = {() => signInWithGoogle()}>Google</button> :  <button disabled = {true} onClick = {() => signInWithGoogle()}>Google</button>}
+                {toggle.privacyAgreement ? <button onClick = {() => signInWithFacebook()}>FaceBook</button> : <button disabled = {true} onClick = {() => signInWithFacebook()}>FaceBook</button>}
                {token ? <button onClick = {() => logout()}>Logout</button> : ""} 
                 {/* <button onClick = {() => signInWithLinkedIn()}>LinkedIn</button> */}
     </div> 
