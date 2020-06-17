@@ -40,7 +40,7 @@ function Sponsorshiplevels(){
     const history = useHistory()
     const [toggle, setToggle] = useState(false)
     function addtoDB(){ 
-        veteranOwned && needPower ? history.push("/form5") : pushToNextPage()
+        veteranOwned & needPower ? history.push("/form5") : pushToNextPage()
        
        
     }
