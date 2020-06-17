@@ -26,7 +26,7 @@ function Booths(){
         {whiteToggle ? booths?.map((i) => <div onClick = {() => selectBooth(i)}>{i}</div>) : null}
 
         <h1 onClick = {() => setCompanyToggle(prev => !prev)}> See Companies that have already registered</h1>
-        {companyToggle ? userBoothState?.map((i) => <div>{i?.companyName}:{i?.boothSelected}</div>) : null}
+        {companyToggle ? userBoothState?.map((i) => <div>{i.boothSelected ? i?.companyName : ""} {i?.boothSelected}</div>) : null}
         
         {/* <h1 onClick = {() => setYellowToggle(prev => !prev)}>Yellow Booths</h1>
         {yellowToggle ? yellowBooths && yellowBooths?.map((i) => <div onClick = {() => selectBooth(i)}>{i}</div>) : null}
