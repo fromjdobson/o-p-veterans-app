@@ -6,9 +6,10 @@ import { useHistory } from "react-router"
 
 
 function Booths(){ 
-    const { selectBooth, writeUserData, booths, updateDB, getBooths } = useContext(FormContext)
+    const { selectBooth, writeUserData, booths, updateDB, getBooths, userBoothState } = useContext(FormContext)
     
     const [whiteToggle, setWhiteToggle] = useState(false)
+    const [companyToggle, setCompanyToggle ] = useState(false)
     const history = useHistory()
 
     function goHome(){ 
@@ -23,6 +24,9 @@ function Booths(){
     <div>  
         <h1 onClick = {() => setWhiteToggle(prev => !prev)}>Available Booths</h1>
         {whiteToggle ? booths?.map((i) => <div onClick = {() => selectBooth(i)}>{i}</div>) : null}
+
+        <h1 onClick = {() => setCompanyToggle(prev => !prev)}> See Companies that have already registered</h1>
+        {companyToggle ? userBoothState?.map((i) => <div>{i?.companyName}:{i?.boothSelected}</div>) : null}
         
         {/* <h1 onClick = {() => setYellowToggle(prev => !prev)}>Yellow Booths</h1>
         {yellowToggle ? yellowBooths && yellowBooths?.map((i) => <div onClick = {() => selectBooth(i)}>{i}</div>) : null}

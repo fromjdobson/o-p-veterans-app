@@ -80,7 +80,7 @@ function FormProvider(props){
     const [userState, setUserState] = useState(initState)
     const [boothState, setBoothState] = useState({})
     const [availableBooths, setAvailableBooths] = useState({})
-    const [userBoothState, setUserBoothState] = useState({})
+    const [userBoothState, setUserBoothState] = useState([])
     const [errorMessage, setErrorMessage] = useState({errorMessage: ""})
     
     // useEffect(() => { 
@@ -143,18 +143,20 @@ function FormProvider(props){
 
     function getUsersBoothSelection(){ 
         let userRef = firebase.database().ref('users/')
-            userRef.on('value', function(snapshot){ 
+            userRef.once('value', function(snapshot){ 
+                console.log(snapshot.val())
                 snapshot.forEach(function(childSnapshot){ 
                     console.log(childSnapshot.val())
                     let userData = childSnapshot.val()
-                    setUserBoothState((prev) => ({ 
+                    setUserBoothState((prev) => [
                         ...prev, 
                         userData
-                    }))
+                    ])
                 })  
             })
-    }
-
+        }
+        console.log(userBoothState)
+        
     function updateDB(){ 
         let boothRef = firebase.database().ref('booths/')
         boothRef.on('value', function(snapshot){ 
@@ -324,7 +326,7 @@ function FormProvider(props){
             getBooths,
             updateDB,
             ...availableBooths,
-            ...userBoothState
+            userBoothState
 
         }}>
             {props.children}
