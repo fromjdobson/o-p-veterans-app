@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom"
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCYOX6Hlc8xNiCbhBbmcIrxmVsIJphSXfI",
+    apiKey: process.env.REACT_APP_API_KEY,
     authDomain: "op-vet.firebaseapp.com",
     databaseURL: "https://op-vet.firebaseio.com",
     projectId: "op-vet",
