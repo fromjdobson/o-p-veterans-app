@@ -1,12 +1,12 @@
 import React, { useContext, useState, useEffect } from "react"
 import {FormContext} from "../context/FormContext"
-import image from "../images/OPVeteran2020sitemap.jpg"
+import image from "../images/2020 site map png labeled.png"
 import Zoom from 'react-img-zoom'
 import { useHistory } from "react-router"
 
 
 function Booths(){ 
-    const { selectBooth, writeUserData, booths, updateDB, boothState } = useContext(FormContext)
+    const { selectBooth, writeUserData, booths, updateDB, getBooths } = useContext(FormContext)
     
     const [whiteToggle, setWhiteToggle] = useState(false)
     const history = useHistory()
@@ -16,7 +16,9 @@ function Booths(){
         updateDB()
         history.push('/opvet')
     }
-
+    useEffect(() => { 
+        getBooths()
+    }, [])
     return(
     <div>  
         <h1 onClick = {() => setWhiteToggle(prev => !prev)}>Available Booths</h1>
@@ -40,15 +42,15 @@ function Booths(){
         {value >= 2500 ? <>
             <h1 onClick = {() => setBlueYellowToggle(prev => !prev)}>Blue Yellow Booths</h1>
             {blueYellowToggle ? blueYellow?.map((i) => <div onClick = {() => selectBooth(i)}>{i}</div>) : null} </>: null} */}
-
+            <div></div>
             <button onClick = {() => goHome()}>Submit</button>
 
             <Zoom
                 img={image}
-                zoomScale={4}
+                zoomScale={3}
                 width={800}
                 height={800}
-                transitionTime={0}
+                transitionTime={.2}
                 />
     </div>
     )
