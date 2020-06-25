@@ -155,7 +155,6 @@ function FormProvider(props){
                 })  
             })
         }
-        console.log(userBoothState)
         
     function updateDB(){ 
         let boothRef = firebase.database().ref('booths/')
@@ -221,7 +220,7 @@ function FormProvider(props){
         localStorage.setItem("value", value)
     }
    
-        function handleSignup(email, password){ 
+        function handleSignup(email, password, confirmPassword){ 
             auth.createUserWithEmailAndPassword(email, password)
                 .then(() => { 
                     const user = firebase.auth().currentUser;
@@ -234,7 +233,7 @@ function FormProvider(props){
                                     errorMessage: ""
                                 }))
                             });
-                })
+                }) 
                 .catch(e => setErrorMessage((prev) => ({
                     ...prev, 
                     errorMessage: e.message
@@ -246,10 +245,23 @@ function FormProvider(props){
                   console.log("failed to signup")
                 }
               })
-          }
+            }  
+          
           
           function handleLogin(email, password){ 
             auth.signInWithEmailAndPassword(email, password)
+            .then(res => { 
+                console.log(res)
+                const {uid} = res.user
+                localStorage.setItem("token", uid)
+                localStorage.setItem("email", res.user.email)
+                setUserState(prev => ({ 
+                    ...prev,
+                    email: res.user.email,
+                    token: res.user.uid
+
+                }))
+            })
                 .catch(e => setErrorMessage((prev) => ({
                     ...prev, 
                     errorMessage: e.message
@@ -326,7 +338,8 @@ function FormProvider(props){
             getBooths,
             updateDB,
             ...availableBooths,
-            userBoothState
+            userBoothState, 
+    
 
         }}>
             {props.children}

@@ -1,10 +1,10 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import { FormContext } from '../context/FormContext'
 
 // const LinkedInProvider = new firebase.auth.LinkedInProvider()
 function Loginpage(){ 
 
-    const {signInWithGoogle, signInWithFacebook, logout, handleSignup, token, handleLogin, errorMessage} = useContext(FormContext)
+    const {signInWithGoogle, signInWithFacebook, logout, handleSignup, token, handleLogin, errorMessage, checkedPassword} = useContext(FormContext)
     const initToggle = { 
         privacyAgreement: false, 
         login: false
@@ -13,13 +13,21 @@ function Loginpage(){
     const initLogin = { 
         email: "", 
         password:"",
+        confirmPassword: "",
     }
     const [toggle, setToggle] = useState(initToggle)
     const [login, setLogin] = useState(initLogin)
+    const [message, setMessage] = useState("")
 
+    function checkPasswords(){ 
+        let results = login.password.localeCompare(login.confirmPassword)
+        if(results === 0){ 
+            handleSignup(login.email, login.password)
+            setMessage("Account Created Successfully")
+        } else 
+        setMessage("passwords do not match, please try again")
+    }
 
-    
-    
     function handleChange(e){ 
         const {name, value} = e.target
         setLogin((prev) => ({
@@ -44,6 +52,18 @@ function Loginpage(){
                 value = {login.password}
                 name = "password" 
                 onChange = {handleChange}></input>
+                {!toggle.login ?
+                <> 
+                    <p>Confirm Password</p>
+                    <input type = "password"
+                    value = {login.confirmPassword}
+                    name = "confirmPassword"
+                    onChange = {handleChange}>
+                    </input> 
+                </>
+                    : "" }
+
+                <p style = {{color: "red"}}>{message}</p>
                 
                 <div>{errorMessage ? <p style = {{color: "red"}}>{errorMessage}</p> : ""}</div>
                 <input 
@@ -60,7 +80,7 @@ function Loginpage(){
                 }))}>Already have an account? Sign in</p>
                 {toggle.login ? <button onClick = {() => handleLogin(login.email, login.password)}>Login</button> : null}
                 
-                {!toggle.login && toggle.privacyAgreement ? <button onClick = {() => handleSignup(login.email, login.password)} disabled = {false}>Create an Account</button> : null}
+                {!toggle.login && toggle.privacyAgreement ? <button onClick = {() => checkPasswords()} disabled = {false}>Create an Account</button> : null}
                 <p>or use</p>
                 {toggle.privacyAgreement ? <button onClick = {() => signInWithGoogle()}>Google</button> :  <button disabled = {true} onClick = {() => signInWithGoogle()}>Google</button>}
                 {toggle.privacyAgreement ? <button onClick = {() => signInWithFacebook()}>FaceBook</button> : <button disabled = {true} onClick = {() => signInWithFacebook()}>FaceBook</button>}
