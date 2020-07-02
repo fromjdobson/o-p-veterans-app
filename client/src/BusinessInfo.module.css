@@ -1,0 +1,140 @@
+body {
+    background-color: #2a4121;
+}
+
+
+.businessContainer {
+    /* display:flex;
+    justify-content: space-around; */
+    width: 100%;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+    background: #fff;
+    padding: 1em;
+    margin: 2em 2em ;
+    
+
+}
+
+ .form {
+    display:flex; 
+    flex-direction: column;
+    justify-content: space-evenly;;  
+}
+
+.row1 {
+    display:flex;
+    justify-content: space-evenly;
+    /* align-items: center; */
+}
+
+ .row2 {
+    display: flex;
+    justify-content: space-evenly;
+    margin-left:.2em;
+}
+
+.row3 {
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: .3em;
+} 
+
+
+.company {
+    display:flex;
+    flex-direction:column;
+}
+
+
+.phone {
+    display:flex;
+    flex-direction:column;
+}
+
+.address {
+    display:flex;
+    flex-direction:column;
+}
+
+.apt {
+    display:flex;
+    flex-direction:column;
+    width: 9em;
+}
+
+
+.city {
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+
+.state {
+    display:flex;
+    flex-direction:column;
+    width: 2.3em;
+}
+
+.zip {
+    display:flex;
+    flex-direction:column;
+    width: 5em;
+}
+
+form label {
+    font-size: 18px;
+    color: black;
+}
+
+.company input,
+.address input,
+.city input {
+    width: 15rem;
+    border-radius: .3em;
+}
+
+.apt input {
+    width: 3em;
+    border-radius:.3em;
+}
+
+.state input,
+.zip input {
+    border-radius: .3em;
+}
+
+
+.rowBtn {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;   
+}
+
+.backBtn,
+.contBtn {
+    width: 7rem;
+    border-radius: 5px;
+    font-size:20px;
+}
+
+.backBtn {
+    background-color: #C4C4C4;
+    border: 1px solid #000000;
+}
+
+.contBtn {
+    background-color:#3A5044;
+    color:white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
