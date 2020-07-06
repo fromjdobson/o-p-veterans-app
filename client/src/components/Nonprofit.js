@@ -1,6 +1,7 @@
 import React, { useContext } from "react"
 import { FormContext } from "../context/FormContext"
 import { useHistory, Link } from "react-router-dom"
+import styles from '../css/Nonprofit.module.css'
 
 function Nonprofit(){ 
     const { handleChange, companyName, veteranOwned, needPower } = useContext(FormContext)
@@ -9,7 +10,7 @@ function Nonprofit(){
         history.push("/form4")
     }
     return( 
-        <div>
+        <div className={styles.container}>
             <form onSubmit = {handleSubmit}>
                 <h1>Veteran Business & Nonprofit status</h1>
                 <h2>just a little more info about {companyName}</h2>
@@ -81,9 +82,11 @@ function Nonprofit(){
                     No (may require sponsorship)
                 </label>
 
-                <button>Continue</button>
+                <div className={styles.btnRow}>
+                    <Link to ="/form2"><button className={styles.backBtn}>Back</button></Link>
+                    <button className={styles.contBtn}>Continue</button>
+                </div>
             </form>
-            <Link to ="/form2">Back</Link>
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { FormContext } from '../context/FormContext'
 import { useHistory, Link } from "react-router-dom"
+import styles from '../css/BusinessInfo.module.css'
 
 
 function Businessinfo(){ 
@@ -12,9 +13,11 @@ function Businessinfo(){
     }
 
     return( 
-        <div> 
-            <form onSubmit = {handleSubmit}>
-                <p>Company Name</p>
+        <div className={styles.businessContainer}> 
+            <form className={styles.form} onSubmit = {handleSubmit}>
+            <div className={styles.row1}>
+                <div className={styles.company}>
+                <label>Company Name</label>
                 <input
                     type = "text"
                     name = "companyName"
@@ -23,7 +26,24 @@ function Businessinfo(){
                     required = {true}
                 >
                 </input>
-                <p>Address</p>
+                </div>
+
+                <div className={styles.phone}>
+                <label>Phone</label>
+                <input
+                    type = "text"
+                    name = "businessPhone"
+                    value = {businessPhone}
+                    onChange = {handleChange}
+                    required = {true}
+                    > 
+                </input>
+                </div>
+            </div>
+
+            <div className={styles.row2}>
+                <div className={styles.address}>
+                <label>Address</label>
                 <input
                     type = "text"
                     name = "address"
@@ -32,7 +52,24 @@ function Businessinfo(){
                     required = {true}
                 >
                 </input>
-                <p>City</p>
+                </div>
+
+                <div className={styles.apt}>
+                <label>Apt #</label>
+                <input
+                    type = "text"
+                    name = "aptNumber"
+                    value = {aptNumber}
+                    onChange = {handleChange}
+                > 
+                </input>
+                </div>
+            </div>
+            
+
+            <div className={styles.row3}>
+                <div className={styles.city}>
+                <label>City</label>
                 <input
                     type = "text"
                     name = "city"
@@ -41,24 +78,10 @@ function Businessinfo(){
                     required = {true}
                 >
                 </input> 
-                <p>Phone</p>
-                <input
-                    type = "number"
-                    name = "businessPhone"
-                    value = {businessPhone}
-                    onChange = {handleChange}
-                    required = {true}
-                > 
-                </input>
-                <p>Apt #</p>
-                <input
-                    type = "text"
-                    name = "aptNumber"
-                    value = {aptNumber}
-                    onChange = {handleChange}
-                > 
-                </input>
-                <p>State</p>
+                </div>
+        
+                <div className={styles.state}>
+                <label>State</label>
                 <input
                     type = "text"
                     name = "state"
@@ -67,7 +90,10 @@ function Businessinfo(){
                     required = {true}
                 > 
                 </input>
-                <p>Zip Code</p>
+                </div>
+
+                <div className={styles.zip}>
+                <label>Zip Code</label>
                 <input
                     type = "text"
                     name = "zipCode"
@@ -76,10 +102,14 @@ function Businessinfo(){
                     required = {true}
                 > 
                 </input>
-                <button>Continue</button>
-            </form>
-            <Link to ="/form1">Back</Link>
-            
+                </div>
+            </div>
+
+            <div className={styles.rowBtn}>
+                <Link to ="/form1"><button className={styles.backBtn}>Back</button></Link>
+                <button className={styles.contBtn}>Continue</button>
+            </div>
+            </form>            
         </div>
     )
 }

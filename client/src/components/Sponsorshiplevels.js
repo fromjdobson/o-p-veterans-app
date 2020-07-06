@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react"
 import { FormContext } from "../context/FormContext"
 import { Link, useHistory } from "react-router-dom"
+import styles from '../css/Sponsorship.module.css'
 
 function Sponsorshiplevels(){ 
-    const {qty, value, handleChange, handleSubmit, needPower, coupon, checkCoupon, veteranOwned, pushToNextPage} = useContext(FormContext)
+    const {qty, value, handleChange, handleSubmit, writeUserData, companyName, coupon, checkCoupon, veteranOwned, pushToNextPage} = useContext(FormContext)
     const sponsorArray = [
     {
         name:"paladin", 
@@ -40,41 +41,50 @@ function Sponsorshiplevels(){
     const history = useHistory()
     const [toggle, setToggle] = useState(false)
     function addtoDB(){ 
-        veteranOwned & needPower ? history.push("/form5") : pushToNextPage()
-       
+        console.log(veteranOwned)
+        veteranOwned ? pushToNextPage() : history.push("/form5")
        
     }
     
    
     return( 
         <div>
+        <div className={styles.levelContainer}>
             <div>
                 
                 <h1>Sponsorship Level</h1>
-               {sponsorArray.map(item => 
-                <div onClick = {() => handleSubmit(item.value)} key = {item.name}>
+                
+                <div className={styles.grid}>
+               {sponsorArray.map(item =>
+                <div className={styles.card} onClick = {() => handleSubmit(item.value)} key = {item.name}>
                         <h1>{item.name}</h1>
                         <p>{item.value}</p>
                         <p>{item.description}</p>
                 </div>
                )}
-               <p>Qty:</p>
-                <input type = "text" name = "qty" value = {qty} onChange = {handleChange}></input>
+               </div>
+               <div className={styles.qty}>
+                </div>
                <p>Total: {qty * value}</p>
-               <button onClick = {() => addtoDB()}>Continue</button>
+               
+               
                {!toggle ? 
                <div onClick = {() => setToggle(prev => !prev)}>
                    have a coupon code? Enter it here
                </div> : 
-               <div>
+               <div className={styles.coupon}>
                     <input type = "text" name = "coupon" value = {coupon} onChange = {handleChange}></input>
                     <button onClick = {() => checkCoupon(coupon)}>Submit</button>
                </div>
                }
-               <p></p>
-               <Link to = "/form3">Back</Link>
+               <br></br>
+               <div className={styles.btn}>
+                <Link to = "/form3"><button className={styles.backBtn}>Back</button></Link>
+                <button className={styles.contBtn} onClick = {() => addtoDB()}>Continue</button>
+               </div>
             </div>
         </div> 
+        </div>
     )
 }
 

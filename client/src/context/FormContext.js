@@ -57,7 +57,7 @@ const initState = {
     businessWebsite:"" || localStorage.getItem("businessWebsite"), 
     veteranOwned: false , 
     nonProfit: false || localStorage.getItem("nonProfit"), 
-    qty: "" || localStorage.getItem("qty"), 
+    qty: 1, 
     value: "" || localStorage.getItem("value"), 
     needPower: false, 
     vendorSpace: "" || localStorage.getItem("vendorSpace"),

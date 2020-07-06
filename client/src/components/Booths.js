@@ -22,6 +22,13 @@ function Booths(){
     }, [])
     return(
     <div>  
+         <Zoom
+                img={image}
+                zoomScale={3}
+                width={800}
+                height={800}
+                transitionTime={.2}
+            />
         <h1 onClick = {() => setWhiteToggle(prev => !prev)}>Available Booths</h1>
         {whiteToggle ? booths?.map((i) => <div onClick = {() => selectBooth(i)}>{i}</div>) : null}
 
@@ -49,13 +56,7 @@ function Booths(){
             <div></div>
             <button onClick = {() => goHome()}>Submit</button>
 
-            <Zoom
-                img={image}
-                zoomScale={3}
-                width={800}
-                height={800}
-                transitionTime={.2}
-                />
+           
     </div>
     )
 }
