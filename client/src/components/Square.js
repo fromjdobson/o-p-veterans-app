@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { FormContext } from '../context/FormContext';
 
 const Square = ({ paymentForm }) => {
-
     const {qty, value, pushToNextPage } = useContext(FormContext)
     const config = {
         // Initialize the payment form elements
@@ -78,6 +77,7 @@ const Square = ({ paymentForm }) => {
                 .then(data => {
                   console.log(JSON.stringify(data));
                   alert('Payment complete successfully!\nCheck browser developer console form more details');
+
                   pushToNextPage()
                 })
                 .catch(err => {

@@ -37,7 +37,7 @@ function Nonprofit(){
                     </input>
                     No (may require sponsorship)
                 </label>
-                {veteranOwned ? <> <p>Do you require a booth with power?</p>
+                 <> <p>Do you require a booth with power?</p>
                     
                 <input 
                     type = "radio"
@@ -54,7 +54,7 @@ function Nonprofit(){
                     onChange = {handleChange}
                 ></input>
                   No
-                </> : "" }
+                </>
                 <h1>Non Profit Status</h1>
                 <p>is the business you are registering a non-profit</p>
                 <label> 

@@ -34,25 +34,6 @@ function Booths(){
 
         <h1 onClick = {() => setCompanyToggle(prev => !prev)}> See Companies that have already registered</h1>
         {companyToggle ? userBoothState?.map((i) => <div>{i.boothSelected ? i?.companyName : ""} {i?.boothSelected}</div>) : null}
-        
-        {/* <h1 onClick = {() => setYellowToggle(prev => !prev)}>Yellow Booths</h1>
-        {yellowToggle ? yellowBooths && yellowBooths?.map((i) => <div onClick = {() => selectBooth(i)}>{i}</div>) : null}
-
-        {value >= 1000 ? <>
-            <h1 onClick = {() => setPinkWhiteToggle(prev => !prev)}>Pink White Booths</h1>
-            {pinkWhiteToggle ? pinkWhite?.map((i) => <div onClick = {() => selectBooth(i)}>{i}</div>) : null} </>: null}
-
-        {value >= 1000 ? <>
-            <h1 onClick = {() => setPinkYellowToggle(prev => !prev)}>Pink Yellow Booths</h1>
-            { pinkYellowToggle ? pinkYellow?.map((i) => <div onClick = {() => selectBooth(i)}>{i} </div>) : null} </>: null}
-
-        {value >= 2500 ? <>
-            <h1 onClick = {() => setBlueWhiteToggle(prev => !prev)}>Blue White Booths</h1>
-            {blueWhiteToggle ? blueWhite?.map((i) => <div onClick = {() => selectBooth(i)}>{i}</div>) : null} </> : null}
-
-        {value >= 2500 ? <>
-            <h1 onClick = {() => setBlueYellowToggle(prev => !prev)}>Blue Yellow Booths</h1>
-            {blueYellowToggle ? blueYellow?.map((i) => <div onClick = {() => selectBooth(i)}>{i}</div>) : null} </>: null} */}
             <div></div>
             <button onClick = {() => goHome()}>Submit</button>
 
