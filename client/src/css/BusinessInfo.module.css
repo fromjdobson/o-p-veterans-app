@@ -90,17 +90,21 @@ form label {
 .address input,
 .city input {
     width: 15rem;
-    border-radius: .3em;
+    border-radius: 5px;
+    border: 1px solid #111111;
 }
 
 .apt input {
     width: 3em;
-    border-radius:.3em;
+    border-radius:5px;
+    border: 1px solid #111111;
 }
 
 .state input,
-.zip input {
-    border-radius: .3em;
+.zip input,
+.phone input {
+    border-radius: 5px;
+    border: 1px solid #111111;
 }
 
 

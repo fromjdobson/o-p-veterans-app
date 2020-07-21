@@ -1,0 +1,37 @@
+.container {
+    margin: 3em 0;
+}
+
+.grid {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    background-color:#ffffff;
+    grid-gap: 20px;
+    padding: 1em 0;
+}
+
+.grid div:hover {
+color:#ea0a2a;
+}
+.heading {
+    color:#f3edc6;
+}
+
+.heading:hover {
+    color:#e1e746;
+}
+
+.btnDiv {
+    display:flex;
+    justify-content: center;
+}
+
+.submitBtn {
+    background-color: white;
+    color: black;
+    width: 7rem;
+    border-radius:5px;
+    /* padding:.5em; */
+    font-size: 20px;
+}

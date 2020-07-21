@@ -1,0 +1,56 @@
+/* .paymentContainer {
+    dis
+    
+} */
+
+.form {
+    display:flex; 
+    flex-direction: column;
+    margin: 2em;
+    justify-content: space-evenly;
+    font-size: 18px;  
+}
+
+.form input {
+    border: 1px solid #111111; 
+    border-radius: 5px; 
+    padding: .3rem;
+    font-size: 15px;
+}
+
+.cardNum,
+.expirationDate,
+.cvc,
+.zipcode {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5em;
+}
+
+.bottomRow {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.cardNum input {
+    font-size: 15px;
+    width:90%
+}
+
+.bottomRow input {
+    width: 50%;
+}
+
+.creditCardBtn {
+    width: 150px;
+    font-size: 16px;
+    padding: .3em;
+    color: white;
+    background-color: #2F80ED;
+}
+
+.btnRow {
+    display: flex;
+    justify-content: center;
+}
