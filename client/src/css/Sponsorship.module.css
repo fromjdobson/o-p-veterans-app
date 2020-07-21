@@ -25,6 +25,10 @@
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
+.aTag a:hover {
+    color: red;
+}
+
 .qty {
     display:flex;
     align-items: baseline;

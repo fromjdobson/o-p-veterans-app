@@ -18,7 +18,8 @@ body {
  .form {
     display:flex; 
     flex-direction: column;
-    justify-content: space-evenly;;  
+    justify-content: space-evenly;
+     
 }
 
 .row1 {
@@ -91,8 +92,9 @@ form label {
 .city input {
     width: 15rem;
     border-radius: 5px;
-    border: 1px solid #111111;
+    border: 1px solid #111111; 
 }
+
 
 .apt input {
     width: 3em;
