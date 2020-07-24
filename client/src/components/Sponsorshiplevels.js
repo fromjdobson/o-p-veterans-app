@@ -95,7 +95,7 @@ function Sponsorshiplevels() {
                 value={coupon}
                 onChange={handleChange}
               ></input>
-              <button onClick={() => checkCoupon(coupon)}>Submit</button>
+              <button className={styles.couponBtn} onClick={() => checkCoupon(coupon)}>Submit</button>
             </div>
           )}
           <br></br>

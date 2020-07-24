@@ -39,7 +39,7 @@ function Nameform() {
             Continue
           </button>
         </Link>
-        {/* <button className={styles.logoutBtn} type='button' onClick = {() => logout()}>Logout</button> */}
+        <button className={styles.logoutBtn} type='button' onClick = {() => logout()}>Logout</button>
       </form>
     </div>
   );

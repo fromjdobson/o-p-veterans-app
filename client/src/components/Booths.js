@@ -47,7 +47,7 @@ function Booths() {
       </h1>
       {companyToggle
         ? userBoothState.map(i => (
-            <div>
+            <div className={styles.regList}>
               {i.boothSelected ? i.companyName : ""} {i.boothSelected}
             </div>
           ))
