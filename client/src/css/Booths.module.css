@@ -2,7 +2,8 @@
     margin: 3em 0;
 }
 
-.grid {
+.grid,
+.regList {
     display:grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     justify-items: center;
@@ -11,13 +12,6 @@
     
 }
 
-.regList {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    justify-items: center;
-    background-color:#ffffff;
-    grid-gap: 20px;
-}
 
 .grid div:hover {
 color:#ea0a2a;
