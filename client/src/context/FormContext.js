@@ -57,7 +57,7 @@ const initState = {
     businessWebsite:"" || localStorage.getItem("businessWebsite"), 
     veteranOwned: false , 
     nonProfit: false || localStorage.getItem("nonProfit"), 
-    qty: "" || localStorage.getItem("qty"), 
+    qty: 1, 
     value: "" || localStorage.getItem("value"), 
     needPower: false, 
     vendorSpace: "" || localStorage.getItem("vendorSpace"),
@@ -79,7 +79,7 @@ function FormProvider(props){
     
     const [userState, setUserState] = useState(initState)
     const [boothState, setBoothState] = useState({})
-    const [availableBooths, setAvailableBooths] = useState({})
+    const [availableBooths, setAvailableBooths] = useState({booths:[]})
     const [userBoothState, setUserBoothState] = useState([])
     const [errorMessage, setErrorMessage] = useState({errorMessage: ""})
     
@@ -87,7 +87,8 @@ function FormProvider(props){
     //     getBooths()
     // }, [])
     function handleChange(e){ 
-        const {name, value} = e.target
+        let {name, value} = e.target
+        if(value === 'false') value = false
         setUserState(prev => ({ 
             ...prev, 
             [name]: value
@@ -163,9 +164,9 @@ function FormProvider(props){
                 let boothsAvailable = childSnapshot.val()
                 console.log(boothsAvailable)
                 let key = userState.boothSelected
-                let index = boothsAvailable?.indexOf(key)
+                let index = boothsAvailable.length ? boothsAvailable.indexOf(key) : null
                 console.log(key, index)
-                boothsAvailable?.includes(key) ? boothsAvailable.splice(index, 1) : console.log(boothsAvailable, key, 1111)
+                boothsAvailable.length && boothsAvailable.includes(key) && boothsAvailable.splice(index, 1) 
                 const booths = { 
                     booths: boothsAvailable
                 }
@@ -197,6 +198,7 @@ function FormProvider(props){
             ...prev, 
             hasPayed: true
         }))
+        console.log('pushing')
         writeUserData()
         history.push("/form6")
     }
