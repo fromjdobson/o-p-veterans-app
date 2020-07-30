@@ -10,7 +10,12 @@ form {
     display:flex;
     flex-direction: column;
     justify-content: flex-start;
-    /* text-align: center; */
+}
+.row1,
+.row2 {
+    display: flex;
+    align-items: center;
+    
 }
 
 .btnRow {

@@ -79,7 +79,7 @@ function FormProvider(props){
     
     const [userState, setUserState] = useState(initState)
     const [boothState, setBoothState] = useState({})
-    const [availableBooths, setAvailableBooths] = useState({})
+    const [availableBooths, setAvailableBooths] = useState({booths:[]})
     const [userBoothState, setUserBoothState] = useState([])
     const [errorMessage, setErrorMessage] = useState({errorMessage: ""})
     
@@ -164,9 +164,9 @@ function FormProvider(props){
                 let boothsAvailable = childSnapshot.val()
                 console.log(boothsAvailable)
                 let key = userState.boothSelected
-                let index = boothsAvailable?.indexOf(key)
+                let index = boothsAvailable.length ? boothsAvailable.indexOf(key) : null
                 console.log(key, index)
-                boothsAvailable?.includes(key) ? boothsAvailable.splice(index, 1) : console.log(boothsAvailable, key, 1111)
+                boothsAvailable.length && boothsAvailable.includes(key) && boothsAvailable.splice(index, 1) 
                 const booths = { 
                     booths: boothsAvailable
                 }
