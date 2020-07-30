@@ -57,6 +57,7 @@ function Booths() {
       <div className={styles.btnDiv}>
       <button className={styles.submitBtn} onClick={() => goHome()}>Submit</button>
       </div>
+
     </div>
   );
 }

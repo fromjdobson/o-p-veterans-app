@@ -87,7 +87,8 @@ function FormProvider(props){
     //     getBooths()
     // }, [])
     function handleChange(e){ 
-        const {name, value} = e.target
+        let {name, value} = e.target
+        if(value === 'false') value = false
         setUserState(prev => ({ 
             ...prev, 
             [name]: value
@@ -197,6 +198,7 @@ function FormProvider(props){
             ...prev, 
             hasPayed: true
         }))
+        console.log('pushing')
         writeUserData()
         history.push("/form6")
     }

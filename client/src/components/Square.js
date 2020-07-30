@@ -3,8 +3,8 @@ import { FormContext } from "../context/FormContext";
 import styles from "../css/Square.module.css";
 
 const Square = ({ paymentForm }) => {
-  const { qty, value, pushToNextPage } = useContext(FormContext);
-  const config = {
+const { qty, value, pushToNextPage } = useContext(FormContext);
+const config = {
     // Initialize the payment form elements
 
     //TODO: Replace with your sandbox application ID

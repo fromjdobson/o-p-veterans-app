@@ -27,11 +27,8 @@ function App() {
   });
 
   
-  const squarePayment = isLoad ? (
-        <Square paymentForm={ window.SqPaymentForm } value = {value} qty={qty}/>
-    ) : (
-       null
-    )
+  const squarePayment = isLoad && <Square paymentForm={ window.SqPaymentForm } value = {value} qty={qty}/>
+  
   return (
     <div className="App">
       <Switch>
