@@ -48,6 +48,12 @@
     padding: .3em;
     color: white;
     background-color: #2F80ED;
+    border-radius: 5pt;
+    border:none
+}
+
+.creditCardBtn:hover{ 
+    width: 155px;
 }
 
 .btnRow {
