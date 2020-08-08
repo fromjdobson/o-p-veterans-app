@@ -18,37 +18,37 @@ function Sponsorshiplevels() {
   } = useContext(FormContext);
   const sponsorArray = [
     {
-      name: "paladin",
+      name: "Paladin",
       value: 10000,
       description:
         "O.P.V. Paladin Level Sponsorship Website Sponsorship Social Announcement Recognition at Event Logo on Event Flyers Logo on Event Shirts Swag Distribution Radio Endorsement TV Endorsement Vendor at Event"
     },
     {
-      name: "abrams",
+      name: "Abrams",
       value: 5000,
       description:
         "O.P.V. Abrams Level Sponsorship Website Sponsorship Social Announcement Recognition at Event Logo on Event Flyers Logo on Event Shirts Swag Distribution Radio Endorsement TV Endorsement Vendor at Event"
     },
     {
-      name: "stryker",
+      name: "Stryker",
       value: 2500,
       description:
         "O.P.V. Stryker Level Sponsorship Website Sponsorship Social Announcement Recognition at Event Logo on Event Flyers Logo on Event Shirts Swag Distribution Radio Endorsement Vendor at Event"
     },
     {
-      name: "bradley",
+      name: "Bradley",
       value: 1000,
       description:
         "O.P.V. Bradley Level Sponsorship Website Sponsorship Social Announcement Recognition at Event Logo on Event Flyers Logo on Event Shirts Swag Distribution Vendor at Event"
     },
     {
-      name: "amtrack",
+      name: "AMTRACK",
       value: 500,
       description:
         "O.P.V. Amtrak Level Sponsorship Website Sponsorship Social Announcement Recognition at Event Logo on Event Flyers"
     },
     {
-      name: "wla",
+      name: "WLA",
       value: 250,
       description:
         "O.P.V. WLA Level Sponsorship Website Sponsorship Social Announcement Recognition at Event"

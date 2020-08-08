@@ -43,9 +43,10 @@ function Loginpage() {
     }));
   }
   return (
+    <div className = {styles.loginPageContainer}>
     <div className={styles.container}>
       <h1>Create Account</h1>
-      <h5>to reserve your booth at VetFest</h5>
+      <h5>to reserve your booth at OP Veteran Festival</h5>
       <form className={styles.account}>
           <div className={styles.email}>
       
@@ -170,6 +171,7 @@ function Loginpage() {
         ""
       )}
       {/* <button onClick = {() => signInWithLinkedIn()}>LinkedIn</button> */}
+    </div>
     </div>
   );
 }

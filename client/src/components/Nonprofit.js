@@ -63,7 +63,7 @@ function Nonprofit() {
           ""
         )}
         <h1>Non Profit Status</h1>
-        <p>is the business you are registering a non-profit</p>
+        <p>is the business you are registering a non-profit or government agency</p>
         <label>
           <input
             type="radio"

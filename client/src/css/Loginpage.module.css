@@ -18,6 +18,13 @@ body {
     text-align: center;
 }
 
+.loginPageContainer{ 
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 h5 {
     margin-top: -.8em;
     font-weight:normal;
@@ -90,18 +97,33 @@ span {
     font-size:15px;
     border-radius: 5px;
     padding:.2em;
-    background-color: black;
-    color:#fff;
+    background-color: #9e9e9e;
+    color:#000000;
+    height:44px;
     
 }
 
 .googleBtn {
+    border-radius: 5px;
     width: 25%;   
+    background-color: #de5246;
+    color: white;
+}
+
+.googleBtn:hover{ 
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
 }
 
 .facebookBtn {
+    border-radius: 5px;
+    color: white;
+    background-color: #3b5998;
     width: 25%;
     margin-left: .3em;
+}
+
+.facebookBtn:hover{ 
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
 }
 
 

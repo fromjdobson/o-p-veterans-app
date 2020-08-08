@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { FormContext } from "../context/FormContext";
-import image from "../images/2020 site map png labeled.png";
+import image from "../images/OPVeteran2020sitemap.jpg";
 import Zoom from "react-img-zoom";
 import { useHistory } from "react-router";
 import styles from "../css/Booths.module.css";
