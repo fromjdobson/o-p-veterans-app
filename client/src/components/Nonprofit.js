@@ -38,7 +38,6 @@ function Nonprofit() {
         </label>
         {veteranOwned ? (
           <>
-            {" "}
             <p>Do you require a booth with power?</p>
             <label>
             <input

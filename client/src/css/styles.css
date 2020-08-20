@@ -38,3 +38,13 @@
       border: none;
     }
 
+    .profile-form{ 
+      background-color: white;
+      padding: 25px ;
+    }
+
+    .link{ 
+      text-decoration: none;
+      color: whitesmoke;
+    }
+

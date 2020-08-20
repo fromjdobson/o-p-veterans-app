@@ -5,12 +5,9 @@ import styles from "../css/Sponsorship.module.css";
 
 function Sponsorshiplevels() {
   const {
-    qty,
     value,
     handleChange,
     handleSubmit,
-    writeUserData,
-    companyName,
     coupon,
     checkCoupon,
     veteranOwned,
@@ -81,7 +78,7 @@ function Sponsorshiplevels() {
             ))}
           </div>
           <div className={styles.qty}></div>
-          <p>Total: {qty * value}</p>
+          <p>Total: {value}</p>
 
           {!toggle ? (
             <div className={styles.aTag} onClick={() => setToggle(prev => !prev)}>

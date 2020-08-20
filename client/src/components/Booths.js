@@ -9,10 +9,11 @@ function Booths() {
   const {
     selectBooth,
     writeUserData,
-    booths,
+    availableBooths,
     updateDB,
     getBooths,
-    userBoothState
+    userBoothState, 
+    boothSelected
   } = useContext(FormContext);
 
   const [whiteToggle, setWhiteToggle] = useState(false);
@@ -39,7 +40,7 @@ function Booths() {
       <h1 className={styles.heading} onClick={() => setWhiteToggle(prev => !prev)}>Available Booths</h1>
       <div className={styles.grid}>
       {whiteToggle
-        ? booths.map(i => <div className={styles.column} onClick={() => selectBooth(i)}>{i}</div>)
+        ? availableBooths.booths.map(i => <div className={styles.column} onClick={() => selectBooth(i)}>{i}</div>)
         : null}
       </div>
       <h1 className={styles.heading} onClick={() => setCompanyToggle(prev => !prev)}>
@@ -55,7 +56,8 @@ function Booths() {
 
       <br></br>
       <div className={styles.btnDiv}>
-      <button className={styles.submitBtn} onClick={() => goHome()}>Submit</button>
+        {boothSelected ? <button className={styles.submitBtn} onClick={() => goHome()}>Submit</button> : <button className = {styles.submitBtn} onClick = {() => alert("Please Select a booth")}>Submit</button>}
+      
       </div>
 
     </div>

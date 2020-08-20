@@ -6,7 +6,8 @@ import Nonprofit from "./components/Nonprofit.js"
 import Square from './components/Square.js';
 import Booths from "./components/Booths.js"
 import Sponsorshiplevels from "./components/Sponsorshiplevels.js"
-import {Switch, Route, Redirect, useHistory} from "react-router-dom"
+import Profile from "./components/Profilepage.js"
+import {Switch, Route, Redirect, useHistory, Link} from "react-router-dom"
 import { FormContext } from "./context/FormContext"
 
 function App() {
@@ -31,14 +32,16 @@ function App() {
   
   return (
     <div className="App">
+      <Link className = "link" to = "/profile">Profile</Link>
       <Switch>
-         <Route exact path = "/" render ={() => token ? <Redirect to = "/form1" /> : <Loginpage />} /> 
+         <Route exact path = "/" render ={() => token ? <Redirect to = "/form1" /> : <Loginpage />} />
          <Route exact path = "/form1" render = {() => token  ? <Nameform /> : <Redirect to = "/" />} />
          <Route exact path = "/form2" render ={() => token ? <Businessinfo /> : <Redirect to = "/" />} />
          <Route exact path = "/form3" render = {() => token ? <Nonprofit /> : <Redirect to = "/" /> } />
          <Route exact path = "/form4" render = {() => token ? <Sponsorshiplevels /> : <Redirect to = "/" />} />
          <Route exact path = "/form5" render ={ () => token ? <div className="App"> {squarePayment} </div> : <Redirect to = "/" />} />
          <Route exact path = "/form6" render = {() => token && hasPayed ? <Booths /> : history.goBack()} />
+         {token ?  <Route exact path = "/profile" render = {() => token ?  <Profile /> : <Redirect to = "/" />} /> : ""} 
          <Route path='/opvet' component={() => { window.location.href = 'https://opveteran.org/'  
             return null }}/>
       </Switch>

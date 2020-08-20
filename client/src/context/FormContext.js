@@ -59,7 +59,7 @@ const initState = {
     nonProfit: false || localStorage.getItem("nonProfit"), 
     qty: 1, 
     value: "" || localStorage.getItem("value"), 
-    needPower: false, 
+    needPower: false || localStorage.getItem("needPower"), 
     vendorSpace: "" || localStorage.getItem("vendorSpace"),
     firstName: "" || localStorage.getItem("firstName"), 
     lastName: "" || localStorage.getItem("lastName"), 
@@ -78,14 +78,16 @@ function FormProvider(props){
     const history = useHistory()
     
     const [userState, setUserState] = useState(initState)
-    const [boothState, setBoothState] = useState({})
+    const [userProfile, setUserProfile] = useState(initState)
     const [availableBooths, setAvailableBooths] = useState({booths:[]})
     const [userBoothState, setUserBoothState] = useState([])
     const [errorMessage, setErrorMessage] = useState({errorMessage: ""})
-    
-    // useEffect(() => { 
-    //     getBooths()
-    // }, [])
+    const sortAlphaNum = (a, b) => a.localeCompare(b, 'en', { numeric: true })
+
+    useEffect(() => { 
+        getBooths()
+        // console.log("fired the cannons", availableBooths)
+    }, [])
     function handleChange(e){ 
         let {name, value} = e.target
         if(value === 'false') value = false
@@ -101,11 +103,12 @@ function FormProvider(props){
         let userEmail = firebase.auth().currentUser.email
         let checkedNew = userEmail.split('.').join("");
         const itemsRef = firebase.database().ref('users/' + checkedNew);
+
         
         const item = { 
             ...userState
         }
-    //     const boothRef = firebase.database().ref('booths/')
+        // const boothRef = firebase.database().ref('booths/')
     //   const booths = { 
     //     booths: whiteBooths.concat( yellowBooths, pinkWhite, pinkYellow, blueWhite, blueYellow)
     // }
@@ -118,10 +121,10 @@ function FormProvider(props){
         boothRef.once('value', function(snapshot){ 
             snapshot.forEach(function(childSnapshot){ 
                 let booths1 = childSnapshot.val()
-                console.log(booths1)
                 let lowestSponsor = pinkWhite.concat(pinkYellow, blueYellow, blueWhite)
                 let middleLevelSponsor = blueYellow.concat(blueWhite)
                 let {value} = userState
+                console.log(userState, 'abcd')
                 let displayArray = value < 2500 ? booths1?.filter(function(item){  
                     return !lowestSponsor.includes(item) }
                 ) : value >= 2500 && value < 5000 ? booths1?.filter(function(item){ 
@@ -131,6 +134,8 @@ function FormProvider(props){
                 //    displayArray
                 // }
                 // boothRef.set(booths)
+                console.log(displayArray, "this is the display array")
+                displayArray.sort(sortAlphaNum)
                 setAvailableBooths((prev) => ({  
                     ...prev,
                     booths: displayArray
@@ -146,15 +151,15 @@ function FormProvider(props){
         let userRef = firebase.database().ref('users/')
             userRef.once('value', function(snapshot){ 
                 console.log(snapshot.val())
-                snapshot.forEach(function(childSnapshot){ 
-                    console.log(childSnapshot.val())
-                    let userData = childSnapshot.val()
+                // snapshot.forEach(function(childSnapshot){ 
+                //     console.log(childSnapshot.val())
+                    let userData = snapshot.val()
                     setUserBoothState((prev) => [
                         ...prev, 
                         userData
                     ])
                 })  
-            })
+            // })
         }
         
     function updateDB(){ 
@@ -175,6 +180,24 @@ function FormProvider(props){
             })
         })
        
+    }
+
+    function editBooth(booth){ 
+        let boothRef = firebase.database().ref('booths/')
+        boothRef.once('value', function(snapshot){
+            snapshot.forEach(function(childSnapshot){ 
+                let booths = childSnapshot.val()
+                let key = booth
+                let index = booths.length ? booths.indexOf(key) : null
+                booths.includes(key) && booths.splice(index, 1)
+                booths.push(booth)
+                let sortedBooths = booths.sort(sortAlphaNum)
+                const newBooths = { 
+                    booths: sortedBooths
+                }
+                boothRef.set(newBooths)
+            })
+        })
     }
 
     function checkCoupon(coupon){ 
@@ -212,7 +235,32 @@ function FormProvider(props){
         alert(`you have selected booth ${i}`)
     }
 
-      
+    function getUser(){ 
+        let userEmail = firebase.auth().currentUser.email
+        let checkedNew = userEmail.split('.').join("");
+        firebase.database().ref('users/' + checkedNew).once('value').then(function(snapshot) { 
+            let user = snapshot.val()
+            localStorage.setItem("address", user.address)
+            localStorage.setItem("boothSelected", user.boothSelected)
+            localStorage.setItem("businessPhone", user.businessPhone)
+            localStorage.setItem("city", user.city)
+            localStorage.setItem("companyName", user.companyName)
+            localStorage.setItem("displayName", user.displayName)
+            localStorage.setItem("email", user.email)
+            localStorage.setItem("needPower", user.needPower)
+            localStorage.setItem("state", user.state)
+            localStorage.setItem("value", user.value)
+            localStorage.setItem("zipCode", user.zipCode)
+            localStorage.setItem('nonProfit', user.nonProfit)
+            console.log(user, "this is user before state change")
+            setUserProfile((prev) => ({ 
+                ...prev, 
+                ...user
+            }))
+        });
+        
+    }
+    
 
     function handleSubmit(value){ 
         setUserState((prev => ({ 
@@ -240,12 +288,8 @@ function FormProvider(props){
                     ...prev, 
                     errorMessage: e.message
                 })))
-              firebase.auth().onAuthStateChanged(firebaseUser => { 
-                if(firebaseUser){ 
-                    console.log(firebaseUser)
-                } else { 
-                  console.log("failed to signup")
-                }
+              firebase.auth().onAuthStateChanged(() => { 
+                getUser()
               })
             }  
           
@@ -260,7 +304,8 @@ function FormProvider(props){
                 setUserState(prev => ({ 
                     ...prev,
                     email: res.user.email,
-                    token: res.user.uid
+                    token: res.user.uid,
+                    ...res.user
 
                 }))
             })
@@ -282,6 +327,10 @@ function FormProvider(props){
                         token: res.credential.accessToken
 
                     }))
+                    firebase.auth().onAuthStateChanged(() => { 
+                        getUser()
+                      })
+
                 })
                 .catch((error) => { 
                     let errorCode = error.code
@@ -298,6 +347,7 @@ function FormProvider(props){
               firebase.auth().signInWithPopup(googleProvider)
               .then(res => { 
                 const {accessToken} = res.credential
+                console.log(res, "this is the response")
                 localStorage.setItem("token", accessToken)
                 setUserState(prev => ({ 
                     ...prev,
@@ -306,6 +356,9 @@ function FormProvider(props){
                     token: res.credential.accessToken
 
                 }))
+                firebase.auth().onAuthStateChanged(() => { 
+                    getUser()
+                  })
             })
                 .catch(e => { 
                     let error = e.message
@@ -319,9 +372,8 @@ function FormProvider(props){
             setUserState(() => ({ 
                 token: "",
             }))
+            history.push("/")
         }
-
-        
     return( 
         <FormContext.Provider value = {{
             ...userState,
@@ -339,8 +391,12 @@ function FormProvider(props){
             ...errorMessage,
             getBooths,
             updateDB,
-            ...availableBooths,
+            availableBooths,
             userBoothState, 
+            userProfile, 
+            getUser, 
+            setUserState, 
+            editBooth
     
 
         }}>
