@@ -66,7 +66,8 @@ const initState = {
     loaded: false,
     coupon: "", 
     hasPayed: false || localStorage.getItem("hasPayed"),
-    boothSelected: "" || localStorage.getItem("boothSelected")
+    boothSelected: "" || localStorage.getItem("boothSelected"),
+    uid: "" || localStorage.getItem("uid")
    
     
 }
@@ -100,9 +101,9 @@ function FormProvider(props){
 
     function writeUserData() {
         // let boothRef = firebase.database().ref('booths/')
-        let userEmail = firebase.auth().currentUser.email
-        let checkedNew = userEmail.split('.').join("");
-        const itemsRef = firebase.database().ref('users/' + checkedNew);
+        let userId = firebase.auth().currentUser.uid
+        
+        const itemsRef = firebase.database().ref('users/' + userId);
 
         
         const item = { 
@@ -117,8 +118,10 @@ function FormProvider(props){
     }
 
     function getBooths(){ 
+        console.log('get booths fired')
         let boothRef = firebase.database().ref('booths/')
-        boothRef.once('value', function(snapshot){ 
+        boothRef.on('value', function(snapshot){ 
+            console.log(snapshot, 'snapshot')
             snapshot.forEach(function(childSnapshot){ 
                 let booths1 = childSnapshot.val()
                 let lowestSponsor = pinkWhite.concat(pinkYellow, blueYellow, blueWhite)
@@ -150,16 +153,14 @@ function FormProvider(props){
     function getUsersBoothSelection(){ 
         let userRef = firebase.database().ref('users/')
             userRef.once('value', function(snapshot){ 
-                console.log(snapshot.val())
-                // snapshot.forEach(function(childSnapshot){ 
-                //     console.log(childSnapshot.val())
-                    let userData = snapshot.val()
-                    setUserBoothState((prev) => [
-                        ...prev, 
-                        userData
-                    ])
+                snapshot.forEach(function(childSnapshot){ 
+                    let userData = childSnapshot.val()
+                    setUserBoothState((prev) => ([
+                        ...prev,
+                       userData
+                    ]))
                 })  
-            // })
+            })
         }
         
     function updateDB(){ 
@@ -221,7 +222,6 @@ function FormProvider(props){
             ...prev, 
             hasPayed: true
         }))
-        console.log('pushing')
         writeUserData()
         history.push("/form6")
     }
@@ -236,22 +236,22 @@ function FormProvider(props){
     }
 
     function getUser(){ 
-        let userEmail = firebase.auth().currentUser.email
-        let checkedNew = userEmail.split('.').join("");
-        firebase.database().ref('users/' + checkedNew).once('value').then(function(snapshot) { 
+        let userId = firebase.auth().currentUser.uid
+        console.log(firebase.auth().currentUser.uid)
+        firebase.database().ref('users/' + userId).once('value').then(function(snapshot) { 
             let user = snapshot.val()
-            localStorage.setItem("address", user.address)
-            localStorage.setItem("boothSelected", user.boothSelected)
-            localStorage.setItem("businessPhone", user.businessPhone)
-            localStorage.setItem("city", user.city)
-            localStorage.setItem("companyName", user.companyName)
-            localStorage.setItem("displayName", user.displayName)
-            localStorage.setItem("email", user.email)
-            localStorage.setItem("needPower", user.needPower)
-            localStorage.setItem("state", user.state)
-            localStorage.setItem("value", user.value)
-            localStorage.setItem("zipCode", user.zipCode)
-            localStorage.setItem('nonProfit', user.nonProfit)
+            localStorage.setItem("address", user?.address)
+            localStorage.setItem("boothSelected", user?.boothSelected)
+            localStorage.setItem("businessPhone", user?.businessPhone)
+            localStorage.setItem("city", user?.city)
+            localStorage.setItem("companyName", user?.companyName)
+            localStorage.setItem("displayName", user?.displayName)
+            localStorage.setItem("email", user?.email)
+            localStorage.setItem("needPower", user?.needPower)
+            localStorage.setItem("state", user?.state)
+            localStorage.setItem("value", user?.value)
+            localStorage.setItem("zipCode", user?.zipCode)
+            localStorage.setItem('nonProfit', user?.nonProfit)
             console.log(user, "this is user before state change")
             setUserProfile((prev) => ({ 
                 ...prev, 
@@ -319,6 +319,7 @@ function FormProvider(props){
                 .then(res => { 
                     const {accessToken} = res.credential
                     localStorage.setItem("token", accessToken)
+                    localStorage.setItem('uid', res.user.uid)
                     localStorage.setItem("displayName", res.user.displayName)
                     setUserState(prev => ({ 
                         ...prev,
@@ -349,6 +350,7 @@ function FormProvider(props){
                 const {accessToken} = res.credential
                 console.log(res, "this is the response")
                 localStorage.setItem("token", accessToken)
+                localStorage.setItem('uid', res.user.uid)
                 setUserState(prev => ({ 
                     ...prev,
                     displayName: res.user.displayName, 
@@ -396,7 +398,8 @@ function FormProvider(props){
             userProfile, 
             getUser, 
             setUserState, 
-            editBooth
+            editBooth, 
+            getUsersBoothSelection
     
 
         }}>

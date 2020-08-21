@@ -32,7 +32,7 @@ function Profile(){
     return( 
         <div className = "profile-form"> 
         <form>
-        <h1>{`Welcome back, ${userProfile.displayName}`}</h1> 
+        <h1>{`Welcome back ${userProfile.email && userProfile.email}`}</h1> 
             <div>{ toggle ? 
             <>
                 <h2>Address: {userProfile.address}</h2>

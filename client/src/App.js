@@ -9,6 +9,7 @@ import Sponsorshiplevels from "./components/Sponsorshiplevels.js"
 import Profile from "./components/Profilepage.js"
 import {Switch, Route, Redirect, useHistory, Link} from "react-router-dom"
 import { FormContext } from "./context/FormContext"
+import Adminpage from './components/Adminpage.js';
 
 function App() {
   const { token, qty, value, hasPayed } = useContext(FormContext)
@@ -33,6 +34,7 @@ function App() {
   return (
     <div className="App">
       <Link className = "link" to = "/profile">Profile</Link>
+      <Link className = "link" to = "/viewer">Admin</Link>
       <Switch>
          <Route exact path = "/" render ={() => token ? <Redirect to = "/form1" /> : <Loginpage />} />
          <Route exact path = "/form1" render = {() => token  ? <Nameform /> : <Redirect to = "/" />} />
@@ -41,6 +43,7 @@ function App() {
          <Route exact path = "/form4" render = {() => token ? <Sponsorshiplevels /> : <Redirect to = "/" />} />
          <Route exact path = "/form5" render ={ () => token ? <div className="App"> {squarePayment} </div> : <Redirect to = "/" />} />
          <Route exact path = "/form6" render = {() => token && hasPayed ? <Booths /> : history.goBack()} />
+         <Route exact path = "/viewer" render = {() => token ? <Adminpage /> : <Redirect to = "/" />} />
          {token ?  <Route exact path = "/profile" render = {() => token ?  <Profile /> : <Redirect to = "/" />} /> : ""} 
          <Route path='/opvet' component={() => { window.location.href = 'https://opveteran.org/'  
             return null }}/>

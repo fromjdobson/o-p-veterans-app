@@ -54,7 +54,6 @@ function Sponsorshiplevels() {
   const history = useHistory();
   const [toggle, setToggle] = useState(false);
   function addtoDB() {
-    console.log(veteranOwned);
     veteranOwned ? pushToNextPage() : history.push("/form5");
   }
 

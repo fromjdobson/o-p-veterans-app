@@ -27,6 +27,7 @@ function Booths() {
   }
   useEffect(() => {
     getBooths();
+    console.log(availableBooths, 'available booths')
   }, []);
   return (
     <div className={styles.container}>
