@@ -20,7 +20,7 @@ const AppContainer = styled.div`
 export default function App() {
     return (
         <AppContainer>
-            <Header />
+            <Header isLoggedIn={false} />
             <Main />
         </AppContainer>
     )
