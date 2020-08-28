@@ -11,7 +11,6 @@ function Booths() {
     writeUserData,
     availableBooths,
     updateDB,
-    getBooths,
     userBoothState, 
     boothSelected
   } = useContext(FormContext);
@@ -23,12 +22,11 @@ function Booths() {
   function goHome() {
     writeUserData();
     updateDB();
-    history.push("/opvet");
+    history.push("/profile");
   }
-  useEffect(() => {
-    getBooths();
-    console.log(availableBooths, 'available booths')
-  }, []);
+  // useEffect(() => {
+  //   getBooths();
+  // }, []);
   return (
     <div className={styles.container}>
       <Zoom
@@ -57,7 +55,22 @@ function Booths() {
 
       <br></br>
       <div className={styles.btnDiv}>
-        {boothSelected ? <button className={styles.submitBtn} onClick={() => goHome()}>Submit</button> : <button className = {styles.submitBtn} onClick = {() => alert("Please Select a booth")}>Submit</button>}
+        {
+          boothSelected ? 
+            <button 
+              className={styles.submitBtn} 
+              onClick={() => goHome()}
+            >
+              Submit
+            </button> 
+            : 
+            <button 
+              className={styles.submitBtn} 
+              onClick = {() => alert("Please Select a booth")}
+            >
+                Submit
+            </button>
+        }
       
       </div>
 

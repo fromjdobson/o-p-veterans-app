@@ -3,8 +3,6 @@ import firebase from 'firebase'
 import { useHistory } from "react-router-dom"
 
 
-
-
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_API_KEY,
     authDomain: "op-vet.firebaseapp.com",
@@ -41,8 +39,7 @@ const FBprovider = new firebase.auth.FacebookAuthProvider()
 const googleProvider = new firebase.auth.GoogleAuthProvider()
 
 
-const initState = { 
-    token: null || localStorage.getItem("token"), 
+const initState = {
     email: "" || localStorage.getItem("email"),
     displayName: "" || localStorage.getItem("displayName"), 
     phoneNumber: "" || localStorage.getItem("phoneNumber"), 
@@ -67,9 +64,7 @@ const initState = {
     coupon: "", 
     hasPayed: false || localStorage.getItem("hasPayed"),
     boothSelected: "" || localStorage.getItem("boothSelected"),
-    uid: "" || localStorage.getItem("uid")
-   
-    
+    uid: "" || localStorage.getItem('uid')
 }
 
 export const FormContext = React.createContext()
@@ -89,6 +84,7 @@ function FormProvider(props){
         getBooths()
         // console.log("fired the cannons", availableBooths)
     }, [])
+
     function handleChange(e){ 
         let {name, value} = e.target
         if(value === 'false') value = false
@@ -99,35 +95,33 @@ function FormProvider(props){
         localStorage.setItem([name], value)
     }
 
+    // Update user in DB
     function writeUserData() {
         // let boothRef = firebase.database().ref('booths/')
         let userId = firebase.auth().currentUser.uid
         
         const itemsRef = firebase.database().ref('users/' + userId);
 
-        
         const item = { 
             ...userState
         }
-        // const boothRef = firebase.database().ref('booths/')
-    //   const booths = { 
-    //     booths: whiteBooths.concat( yellowBooths, pinkWhite, pinkYellow, blueWhite, blueYellow)
-    // }
-    //     boothRef.set(booths)
+        let boothRef = firebase.database().ref('booths/')
+      const booths = { 
+        booths: whiteBooths.concat( yellowBooths, pinkWhite, pinkYellow, blueWhite, blueYellow)
+    }
+        boothRef.set(booths)
         itemsRef.set(item);
     }
 
-    function getBooths(){ 
-        console.log('get booths fired')
+    function getBooths(){
         let boothRef = firebase.database().ref('booths/')
         boothRef.on('value', function(snapshot){ 
-            console.log(snapshot, 'snapshot')
             snapshot.forEach(function(childSnapshot){ 
                 let booths1 = childSnapshot.val()
                 let lowestSponsor = pinkWhite.concat(pinkYellow, blueYellow, blueWhite)
                 let middleLevelSponsor = blueYellow.concat(blueWhite)
+                
                 let {value} = userState
-                console.log(userState, 'abcd')
                 let displayArray = value < 2500 ? booths1?.filter(function(item){  
                     return !lowestSponsor.includes(item) }
                 ) : value >= 2500 && value < 5000 ? booths1?.filter(function(item){ 
@@ -136,17 +130,13 @@ function FormProvider(props){
                 // const booths = { 
                 //    displayArray
                 // }
-                // boothRef.set(booths)
-                console.log(displayArray, "this is the display array")
                 displayArray.sort(sortAlphaNum)
                 setAvailableBooths((prev) => ({  
                     ...prev,
-                    booths: displayArray
+                   booths:displayArray
                 }))
-                
             })
         })
-        
         getUsersBoothSelection()
     }
 
@@ -158,20 +148,30 @@ function FormProvider(props){
                     setUserBoothState((prev) => ([
                         ...prev,
                        userData
-                    ]))
-                })  
-            })
+                    ]))  
+        })
+    })
+}
+
+    function editUsers(id){ 
+        const itemsRef = firebase.database().ref('users/' + id);
+        const item = { 
+            ...userState,
+            uid: id 
         }
-        
+        itemsRef.set(item)
+
+        getUsersBoothSelection()
+    }
+    
+    //Updates booth array
     function updateDB(){ 
         let boothRef = firebase.database().ref('booths/')
         boothRef.on('value', function(snapshot){ 
             snapshot.forEach(function(childSnapshot){ 
                 let boothsAvailable = childSnapshot.val()
-                console.log(boothsAvailable)
                 let key = userState.boothSelected
                 let index = boothsAvailable.length ? boothsAvailable.indexOf(key) : null
-                console.log(key, index)
                 boothsAvailable.length && boothsAvailable.includes(key) && boothsAvailable.splice(index, 1) 
                 const booths = { 
                     booths: boothsAvailable
@@ -237,22 +237,20 @@ function FormProvider(props){
 
     function getUser(){ 
         let userId = firebase.auth().currentUser.uid
-        console.log(firebase.auth().currentUser.uid)
         firebase.database().ref('users/' + userId).once('value').then(function(snapshot) { 
             let user = snapshot.val()
-            localStorage.setItem("address", user?.address)
-            localStorage.setItem("boothSelected", user?.boothSelected)
-            localStorage.setItem("businessPhone", user?.businessPhone)
-            localStorage.setItem("city", user?.city)
-            localStorage.setItem("companyName", user?.companyName)
-            localStorage.setItem("displayName", user?.displayName)
-            localStorage.setItem("email", user?.email)
-            localStorage.setItem("needPower", user?.needPower)
-            localStorage.setItem("state", user?.state)
-            localStorage.setItem("value", user?.value)
-            localStorage.setItem("zipCode", user?.zipCode)
-            localStorage.setItem('nonProfit', user?.nonProfit)
-            console.log(user, "this is user before state change")
+            localStorage.setItem("address",user && user.address)
+            localStorage.setItem("boothSelected",user && user.boothSelected)
+            localStorage.setItem("businessPhone", user && user.businessPhone)
+            localStorage.setItem("city", user && user.city)
+            localStorage.setItem("companyName", user && user.companyName)
+            localStorage.setItem("displayName", user && user.displayName)
+            localStorage.setItem("email", user && user.email)
+            localStorage.setItem("needPower", user && user.needPower)
+            localStorage.setItem("state", user && user.state)
+            localStorage.setItem("value", user && user.value)
+            localStorage.setItem("zipCode", user && user.zipCode)
+            localStorage.setItem('nonProfit', user && user.nonProfit)
             setUserProfile((prev) => ({ 
                 ...prev, 
                 ...user
@@ -270,112 +268,106 @@ function FormProvider(props){
         localStorage.setItem("value", value)
     }
    
-        function handleSignup(email, password, confirmPassword){ 
-            auth.createUserWithEmailAndPassword(email, password)
-                .then(() => { 
-                    const user = firebase.auth().currentUser;
-                    user.sendEmailVerification()
-                        .then(() => {
-                            // Email sent.
-                            }).catch(function(error) {
-                                setErrorMessage((prev) => ({
-                                    ...prev, 
-                                    errorMessage: ""
-                                }))
-                            });
-                }) 
-                .catch(e => setErrorMessage((prev) => ({
-                    ...prev, 
-                    errorMessage: e.message
-                })))
-              firebase.auth().onAuthStateChanged(() => { 
-                getUser()
-              })
-            }  
-          
-          
-          function handleLogin(email, password){ 
-            auth.signInWithEmailAndPassword(email, password)
-            .then(res => { 
-                console.log(res)
-                const {uid} = res.user
-                localStorage.setItem("token", uid)
-                localStorage.setItem("email", res.user.email)
+    function handleSignup(email, password, confirmPassword){ 
+        auth.createUserWithEmailAndPassword(email, password)
+            .then(() => { 
+                const user = firebase.auth().currentUser;
                 setUserState(prev => ({ 
                     ...prev,
-                    email: res.user.email,
-                    token: res.user.uid,
-                    ...res.user
-
+                    email: user.email,
+                    uid: user.uid,
                 }))
+                localStorage.setItem('uid', user.uid )
+                user.sendEmailVerification()
+                    .then(() => {
+                        // Email sent.
+                        }).catch(function(error) {
+                            setErrorMessage((prev) => ({
+                                ...prev, 
+                                errorMessage: ""
+                            }))
+                        });
+            }).catch(e => setErrorMessage((prev) => ({
+                ...prev, 
+                errorMessage: e.message
+            })))
+            firebase.auth().onAuthStateChanged(function(user){
+                if(user){ getUser() }
             })
-                .catch(e => setErrorMessage((prev) => ({
-                    ...prev, 
-                    errorMessage: e.message
-                })))
-          }
-          function signInWithFacebook(){ 
-              firebase.auth().signInWithPopup(FBprovider)
-                .then(res => { 
-                    const {accessToken} = res.credential
-                    localStorage.setItem("token", accessToken)
-                    localStorage.setItem('uid', res.user.uid)
-                    localStorage.setItem("displayName", res.user.displayName)
-                    setUserState(prev => ({ 
-                        ...prev,
-                        displayName: res.user.displayName, 
-                        email: res.user.email,
-                        token: res.credential.accessToken
+    }  
+            
+    function handleLogin(email, password){ 
+        auth.signInWithEmailAndPassword(email, password)
+        .then(res => { 
+            console.log(res.user)
+            const {uid} = res.user
+            // localStorage.setItem("uid", uid)
+            localStorage.setItem("email", res.user.email)
+            setUserState(prev => ({ 
+                ...prev,
+                email: res.user.email,
+                uid: uid,
 
-                    }))
-                    firebase.auth().onAuthStateChanged(() => { 
-                        getUser()
-                      })
-
-                })
-                .catch((error) => { 
-                    let errorCode = error.code
-                    let errorMessage = error.message
-                    
-                    console.log(errorCode, errorMessage)
-                })
-                
-                
-                
-          }
-
-          function signInWithGoogle(){ 
-              firebase.auth().signInWithPopup(googleProvider)
-              .then(res => { 
-                const {accessToken} = res.credential
-                console.log(res, "this is the response")
-                localStorage.setItem("token", accessToken)
-                localStorage.setItem('uid', res.user.uid)
-                setUserState(prev => ({ 
-                    ...prev,
-                    displayName: res.user.displayName, 
-                    email: res.user.email,
-                    token: res.credential.accessToken
-
-                }))
-                firebase.auth().onAuthStateChanged(() => { 
-                    getUser()
-                  })
-            })
-                .catch(e => { 
-                    let error = e.message
-                    let errorCode = e.code
-                    console.log(error, errorCode)
-                })
-          }
-        function logout(){ 
-            localStorage.clear()
-            auth.signOut()
-            setUserState(() => ({ 
-                token: "",
             }))
-            history.push("/")
-        }
+        }).catch(e => setErrorMessage((prev) => ({
+            ...prev, errorMessage: e.message
+        })))
+        firebase.auth().onAuthStateChanged(function(user) { 
+            if(user){ getUser() }
+        })
+    }
+
+    function signInWithFacebook(){ 
+        firebase.auth().signInWithPopup(FBprovider)
+        .then(res => { 
+            // localStorage.setItem('uid', res.user.uid)
+            localStorage.setItem("displayName", res.user.displayName)
+            setUserState(prev => ({ 
+                ...prev,
+                displayName: res.user.displayName, 
+                email: res.user.email,
+                uid: res.user.uid
+            }))
+            firebase.auth().onAuthStateChanged(function(user){ 
+                if(user){ getUser() }
+            })
+        }).catch((error) => { 
+            let errorCode = error.code
+            let errorMessage = error.message
+            
+            console.log(errorCode, errorMessage)
+        })   
+    }
+
+    function signInWithGoogle(){ 
+        firebase.auth().signInWithPopup(googleProvider)
+        .then(res => { 
+            // localStorage.setItem('uid', res.user.uid)
+            setUserState(prev => ({ 
+                ...prev,
+                displayName: res.user.displayName, 
+                email: res.user.email,
+                uid: res.user.uid
+            }))
+            firebase.auth().onAuthStateChanged(() => { 
+                getUser()
+                })
+        }).catch(e => { 
+            let error = e.message
+            let errorCode = e.code
+            console.log(error, errorCode)
+        })
+    }
+
+    function logout(){ 
+        localStorage.clear()
+        auth.signOut()
+        setUserState(() => ({ 
+            uid: "",
+        }))
+        history.push("/")
+    }
+
     return( 
         <FormContext.Provider value = {{
             ...userState,
@@ -399,7 +391,8 @@ function FormProvider(props){
             getUser, 
             setUserState, 
             editBooth, 
-            getUsersBoothSelection
+            getUsersBoothSelection, 
+            editUsers
     
 
         }}>

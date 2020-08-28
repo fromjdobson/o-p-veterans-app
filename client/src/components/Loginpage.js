@@ -30,9 +30,8 @@ function Loginpage() {
   function checkPasswords() {
     let results = login.password.localeCompare(login.confirmPassword);
     if (results === 0) {
-      handleSignup(login.email, login.password);
-      setMessage("Account Created Successfully");
-    } else setMessage("passwords do not match, please try again");
+      handleSignup(login.email, login.password)
+    } else setMessage("Passwords do not match, please try again")
   }
 
   function handleChange(e) {
@@ -88,15 +87,17 @@ function Loginpage() {
       <div>
         {errorMessage ? <p style={{ color: "red" }}>{errorMessage}</p> : ""}
       </div>
+      {console.log(toggle.privacyAgreement)}
       <input
-        type="radio"
-        onClick={() =>
-          setToggle(prev => ({
+        type="checkbox"
+        checked = {toggle.privacyAgreement}
+        onChange={() =>
+          setToggle((prev) => ({
             ...prev,
-            privacyAgreement: !prev.privacyAgreement
+            privacyAgreement: prev.privacyAgreement ? null : true
           }))
         }
-      />
+        />
 
       <span>
         I have read and accept the Terms of Service and Privacy Policy
@@ -111,26 +112,38 @@ function Loginpage() {
           }))
         }
       >
-        Already have an account? Sign in
+        {!toggle.login ? "Already have an account? Sign in" : "Dont have an account? Sign up!" } 
       </p>
-      {toggle.login ? (
+      {/* {toggle.login ? (
         <button
-          className={styles.loginBtn}
+          style = {toggle.login && toggle.privacyAgreement ?{backgroundColor: "#2C528C", color: "white"} : null }
+          className={styles.accountBtn}
           onClick={() => handleLogin(login.email, login.password)}
+          disabled={!toggle.login && toggle.privacyAgreement ? false : true}
         >
           Login
         </button>
-      ) : null}
+      ) : null} */}
 
-      {!toggle.login && toggle.privacyAgreement ? (
-        <button
+      {toggle.login && toggle.privacyAgreement ? (
+      <button
+        style = {toggle.login && toggle.privacyAgreement ?{backgroundColor: "#2C528C", color: "white"} : null }
+        className={styles.accountBtn}
+        onClick={() => handleLogin(login.email, login.password)}
+        disabled={toggle.login && toggle.privacyAgreement ? false : true}
+      >
+      Login
+    </button>
+        
+      ) : 
+      <button
+          style = {!toggle.login && toggle.privacyAgreement ?{backgroundColor: "#2C528C", color: "white"} : null }
           className={styles.accountBtn}
-          onClick={() => handleSignup(login.email, login.password)}
-          disabled={false}
+          onClick={() => checkPasswords()}
+          disabled={!toggle.login && toggle.privacyAgreement ? false : true}
         >
           Create an Account
-        </button>
-      ) : null}
+        </button>}
 
       <p>or use</p>
 
@@ -140,6 +153,7 @@ function Loginpage() {
         </button>
       ) : (
         <button
+        style = {{backgroundColor: "grey"}}
           className={styles.googleBtn}
           disabled={true}
           onClick={() => signInWithGoogle()}
@@ -156,6 +170,7 @@ function Loginpage() {
         </button>
       ) : (
         <button
+        style = {{backgroundColor: "grey"}}
           className={styles.facebookBtn}
           disabled={true}
           onClick={() => signInWithFacebook()}

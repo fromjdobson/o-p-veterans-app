@@ -12,7 +12,7 @@ import { FormContext } from "./context/FormContext"
 import Adminpage from './components/Adminpage.js';
 
 function App() {
-  const { token, qty, value, hasPayed } = useContext(FormContext)
+  const { uid, value, hasPayed } = useContext(FormContext)
   const [isLoad, setLoad] = useState(false);
   const history = useHistory()
   useEffect(() => {
@@ -29,22 +29,22 @@ function App() {
   });
 
   
-  const squarePayment = isLoad && <Square paymentForm={ window.SqPaymentForm } value = {value} qty={qty}/>
+  const squarePayment = isLoad && <Square paymentForm={ window.SqPaymentForm } value = {value} />
   
   return (
     <div className="App">
-      <Link className = "link" to = "/profile">Profile</Link>
-      <Link className = "link" to = "/viewer">Admin</Link>
+      {uid ? <Link className = "link" to = "/profile">Profile</Link> : null}
+      {uid === "6QOK01bDhZNBCdL8fumFJnQ2V2T2" ? <Link className = "link" to = "/viewer">Admin</Link> : null}
       <Switch>
-         <Route exact path = "/" render ={() => token ? <Redirect to = "/form1" /> : <Loginpage />} />
-         <Route exact path = "/form1" render = {() => token  ? <Nameform /> : <Redirect to = "/" />} />
-         <Route exact path = "/form2" render ={() => token ? <Businessinfo /> : <Redirect to = "/" />} />
-         <Route exact path = "/form3" render = {() => token ? <Nonprofit /> : <Redirect to = "/" /> } />
-         <Route exact path = "/form4" render = {() => token ? <Sponsorshiplevels /> : <Redirect to = "/" />} />
-         <Route exact path = "/form5" render ={ () => token ? <div className="App"> {squarePayment} </div> : <Redirect to = "/" />} />
-         <Route exact path = "/form6" render = {() => token && hasPayed ? <Booths /> : history.goBack()} />
-         <Route exact path = "/viewer" render = {() => token ? <Adminpage /> : <Redirect to = "/" />} />
-         {token ?  <Route exact path = "/profile" render = {() => token ?  <Profile /> : <Redirect to = "/" />} /> : ""} 
+         <Route exact path = "/"      render ={() => uid ? <Redirect to = "/form1" /> : <Loginpage />} />
+         <Route exact path = "/form1" render ={() => uid ? <Nameform /> : <Redirect to = "/" />} />
+         <Route exact path = "/form2" render ={() => uid ? <Businessinfo /> : <Redirect to = "/" />} />
+         <Route exact path = "/form3" render ={() => uid ? <Nonprofit /> : <Redirect to = "/" /> } />
+         <Route exact path = "/form4" render ={() => uid ? <Sponsorshiplevels /> : <Redirect to = "/" />} />
+         <Route exact path = "/form5" render ={() => uid ? <div className="App"> {squarePayment} </div> : <Redirect to = "/" />} />
+         <Route exact path = "/form6" render ={() => uid && hasPayed ? <Booths /> : history.goBack()} />
+         <Route exact path = "/viewer" render={() => uid === "6QOK01bDhZNBCdL8fumFJnQ2V2T2" ? <Adminpage /> : <Redirect to = "/" />} />
+         {uid ?  <Route exact path = "/profile" render = {() => uid ?  <Profile /> : <Redirect to = "/" />} /> : ""} 
          <Route path='/opvet' component={() => { window.location.href = 'https://opveteran.org/'  
             return null }}/>
       </Switch>

@@ -44,7 +44,12 @@
     }
 
     .link{ 
+      margin: 10px;
       text-decoration: none;
       color: whitesmoke;
+    }
+
+    .profile-button{ 
+      margin: 10px;
     }
 

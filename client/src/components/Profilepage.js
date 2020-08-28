@@ -32,7 +32,7 @@ function Profile(){
     return( 
         <div className = "profile-form"> 
         <form>
-        <h1>{`Welcome back ${userProfile.email && userProfile.email}`}</h1> 
+        <h1>{`Welcome back ${userProfile.email ? userProfile.email : userProfile.displayName} `}</h1> 
             <div>{ toggle ? 
             <>
                 <h2>Address: {userProfile.address}</h2>
@@ -136,9 +136,10 @@ function Profile(){
                 
             </div>
             </form>
-            <button onClick = {() => setToggle(prev => !prev)}>Edit</button> 
-            <button onClick = {() => updateFields()}>Submit</button>
-            <button onClick = {() => logout()}>Logout</button>
+            <button className = "profile-button" onClick = {() => setToggle(prev => !prev)}>Edit</button> 
+            <button className = "profile-button" onClick = {() => updateFields()}>Submit</button>
+            <button className = "profile-button" onClick = {() => logout()}>Logout</button>
+            <button className = "profile-button" onClick = {() => history.goBack()}>Back</button>
         </div>
     )
 }
