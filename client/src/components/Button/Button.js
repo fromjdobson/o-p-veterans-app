@@ -39,7 +39,7 @@ const SecondaryButton = styled.button`
 `;
 
 export default function Button() {
-  const { clickFunc } = props;
+  // const { clickFunc } = props;
   return (
     <ButtonContainer>
       <PrimaryButton>JOIN</PrimaryButton>

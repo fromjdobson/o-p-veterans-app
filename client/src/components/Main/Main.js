@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Button } from '../Button'
 
 
 const MainPage = styled.div`
@@ -67,7 +68,7 @@ export default function Main(props) {
         <InputLabel>Password</InputLabel>
         <StyledInput></StyledInput>
       </FormContainer>
-      
+      <Button />
     </MainPage>
   );
 }
