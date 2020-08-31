@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
   width: 169px;
   height: 40px;
   padding: 0px 0px 0px 0px;
@@ -9,7 +11,6 @@ const ButtonContainer = styled.div`
 `;
 
 const PrimaryButton = styled.button`
-  position: absolute;
   width: 216px;
   height: 40px;
   left: 0px;
@@ -24,7 +25,6 @@ const PrimaryButton = styled.button`
 `;
 
 const SecondaryButton = styled.button`
-  position: absolute;
   width: 216px;
   height: 40px;
   left: 0px;
@@ -38,12 +38,12 @@ const SecondaryButton = styled.button`
   border-radius: 2px;
 `;
 
-export default function Button(props) {
-  const { text, clickFunc } = props;
+export default function Button() {
+  const { clickFunc } = props;
   return (
     <ButtonContainer>
-      <PrimaryButton onCLick={clickFunc}>{text}</PrimaryButton>
-      <SecondaryButton onCLick={clickFunc}>{text}</SecondaryButton>
+      <PrimaryButton>JOIN</PrimaryButton>
+      <SecondaryButton>SIGN IN</SecondaryButton>
     </ButtonContainer>
   );
 }

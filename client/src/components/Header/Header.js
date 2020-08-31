@@ -1,13 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-
-
 const HeaderContainer = styled.div`
-  position: absolute;
   width: 100%;
-  left: 0px;
-  top: -0.2px;
+  margin: 0 0 50px 0;
 
   /* Other Colors/Pastel Gray */
 
@@ -20,15 +16,15 @@ const HeaderContainer = styled.div`
 `;
 
 const Greeting = styled.p`
-    font-size: 25px;
-`
+  font-size: 25px;
+`;
 
 export default function Header() {
-    return (
-        <>
-        <HeaderContainer>
-            <Greeting>Welcome.</Greeting>
-        </HeaderContainer>
-        </>
-    )
+  return (
+    <>
+      <HeaderContainer>
+        <Greeting>Welcome.</Greeting>
+      </HeaderContainer>
+    </>
+  );
 }

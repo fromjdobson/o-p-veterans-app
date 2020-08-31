@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 
-import {Header} from "./components/Header";
-import {Main} from "./components/Main";
+import { Header } from "./components/Header";
+import { Main } from "./components/Main";
+
 import styled from "styled-components";
 // import Loginpage from './components/Loginpage.js'
 // import Nameform from "./components/Nameform.js"
@@ -50,12 +51,19 @@ import styled from "styled-components";
 //   );
 //}
 
+const AppContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+`;
+
 function App() {
   return (
-    <>
+    <AppContainer>
       <Header></Header>
-        <Main></Main>
-    </>
+      <Main></Main>
+    </AppContainer>
   );
 }
 

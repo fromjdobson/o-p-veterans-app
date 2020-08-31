@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
+
 const MainPage = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  // padding: 20px;
   width: 704px;
-  height: 784px;
+  height: 384px;
 
   /* Other Colors/Pastel Gray */
 
@@ -15,6 +18,20 @@ const MainPage = styled.div`
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12),
     0px 1px 5px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
+`;
+
+const Greeting = styled.h2`
+  font-family: Helvetica Neue;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  color: #403926;
+`;
+
+const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const InputLabel = styled.label`
@@ -29,7 +46,7 @@ const InputLabel = styled.label`
 `;
 
 const StyledInput = styled.input`
-  margin: 8px 0px 0px 0px;
+  margin: 8px 0px 15px 0px;
   width: 255px;
   height: 32px;
   box-sizing: border-box;
@@ -43,9 +60,13 @@ export default function Main(props) {
   const { label } = props;
   return (
     <MainPage>
-      
-        <InputLabel>{label}</InputLabel>
+      <Greeting>Welcome.</Greeting>
+      <FormContainer>
+        <InputLabel>Email</InputLabel>
         <StyledInput></StyledInput>
+        <InputLabel>Password</InputLabel>
+        <StyledInput></StyledInput>
+      </FormContainer>
       
     </MainPage>
   );
