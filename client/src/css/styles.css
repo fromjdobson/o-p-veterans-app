@@ -34,3 +34,22 @@
       justify-content: center;
     }
 
+    button{ 
+      border: none;
+    }
+
+    .profile-form{ 
+      background-color: white;
+      padding: 25px ;
+    }
+
+    .link{ 
+      margin: 10px;
+      text-decoration: none;
+      color: whitesmoke;
+    }
+
+    .profile-button{ 
+      margin: 10px;
+    }
+

@@ -3,7 +3,8 @@ import { FormContext } from "../context/FormContext";
 import styles from "../css/Square.module.css";
 
 const Square = ({ paymentForm }) => {
-const { qty, value, pushToNextPage } = useContext(FormContext);
+const { value, pushToNextPage } = useContext(FormContext);
+console.warn(value, 'value')
 const config = {
     // Initialize the payment form elements
         
@@ -53,7 +54,7 @@ const config = {
                 
                 return;
             }
-               alert(`The generated nonce is:\n${nonce}`);
+               alert(`The generated nonce is:\n${nonce} and value is ${value}`);
                fetch('http://localhost:4000/process-payment', {
                   method: 'POST',
                   headers: {
@@ -62,7 +63,6 @@ const config = {
                   },
                   body: JSON.stringify({
                     nonce: nonce,
-                    qty: qty, 
                     value: value
                   })
                 })
@@ -109,7 +109,7 @@ const config = {
         className={styles.creditCardBtn}
         onClick={requestCardNonce}
       >
-        Pay ${qty * value}
+        Pay ${value}
       </button>
       </div>
 </div>

@@ -50,6 +50,10 @@ h1 {
     margin-left: 7rem;
 }
 
+.logoutBtn{ 
+    margin-top: 15px;
+}
+
 
 /* .contBtn, .logoutBtn {
     background-color: black;

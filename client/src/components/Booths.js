@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { FormContext } from "../context/FormContext";
-import image from "../images/2020 site map png labeled.png";
+import image from "../images/OPVeteran2020sitemap.jpg";
 import Zoom from "react-img-zoom";
 import { useHistory } from "react-router";
 import styles from "../css/Booths.module.css";
@@ -9,10 +9,10 @@ function Booths() {
   const {
     selectBooth,
     writeUserData,
-    booths,
+    availableBooths,
     updateDB,
-    getBooths,
-    userBoothState
+    userBoothState, 
+    boothSelected
   } = useContext(FormContext);
 
   const [whiteToggle, setWhiteToggle] = useState(false);
@@ -22,11 +22,11 @@ function Booths() {
   function goHome() {
     writeUserData();
     updateDB();
-    history.push("/opvet");
+    history.push("/profile");
   }
-  useEffect(() => {
-    getBooths();
-  }, []);
+  // useEffect(() => {
+  //   getBooths();
+  // }, []);
   return (
     <div className={styles.container}>
       <Zoom
@@ -39,7 +39,7 @@ function Booths() {
       <h1 className={styles.heading} onClick={() => setWhiteToggle(prev => !prev)}>Available Booths</h1>
       <div className={styles.grid}>
       {whiteToggle
-        ? booths.map(i => <div className={styles.column} onClick={() => selectBooth(i)}>{i}</div>)
+        ? availableBooths.booths.map(i => <div className={styles.column} onClick={() => selectBooth(i)}>{i}</div>)
         : null}
       </div>
       <h1 className={styles.heading} onClick={() => setCompanyToggle(prev => !prev)}>
@@ -55,7 +55,23 @@ function Booths() {
 
       <br></br>
       <div className={styles.btnDiv}>
-      <button className={styles.submitBtn} onClick={() => goHome()}>Submit</button>
+        {
+          boothSelected ? 
+            <button 
+              className={styles.submitBtn} 
+              onClick={() => goHome()}
+            >
+              Submit
+            </button> 
+            : 
+            <button 
+              className={styles.submitBtn} 
+              onClick = {() => alert("Please Select a booth")}
+            >
+                Submit
+            </button>
+        }
+      
       </div>
 
     </div>
