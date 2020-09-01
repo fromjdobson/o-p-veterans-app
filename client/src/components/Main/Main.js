@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Button } from '../Button'
-
+import { Button } from "../Button";
 
 const MainPage = styled.div`
   display: flex;
@@ -9,7 +8,7 @@ const MainPage = styled.div`
   align-items: center;
   // padding: 20px;
   width: 704px;
-  height: 384px;
+  height: 484px;
 
   /* Other Colors/Pastel Gray */
 
@@ -29,10 +28,21 @@ const Greeting = styled.h2`
   color: #403926;
 `;
 
+const SubText = styled.h4`
+  font-family: Helvetica Neue;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  padding: 0 0 0 20px;
+  line-height: 24px;
+  margin-left: 4px;
+`;
+
 const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-bottom: 10px;
 `;
 
 const InputLabel = styled.label`
@@ -62,6 +72,10 @@ export default function Main(props) {
   return (
     <MainPage>
       <Greeting>Welcome.</Greeting>
+      <SubText>
+        Please sign in, or register an account with O.P. Veteran to start vendor
+        registration
+      </SubText>
       <FormContainer>
         <InputLabel>Email</InputLabel>
         <StyledInput></StyledInput>
