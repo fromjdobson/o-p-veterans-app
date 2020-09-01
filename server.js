@@ -6,13 +6,29 @@ const dotenv = require('dotenv');
 dotenv.config();
 const app = express();
 const port = 4000;
-
+var admin = require('firebase-admin');
 var cors = require('cors');
 app.use(cors())
 // Set the Access Token
 const accessToken = process.env.ACCESS_TOKEN
 
 
+
+var refreshToken;
+var uid = '6QOK01bDhZNBCdL8fumFJnQ2V2T2'
+
+admin.initializeApp({
+  credential: admin.credential.applicationDefault(),
+  databaseURL: 'https://op-vet.firebaseio.com/'
+});
+
+// admin.auth().setCustomUserClaims(uid, {admin: true}).then(() => {
+// });
+
+admin.auth().getUser(uid).then((userRecord) => {
+  // The claims can be accessed on the user record.
+  console.log(userRecord.customClaims['admin']);
+});
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname));

@@ -64,7 +64,8 @@ const initState = {
     coupon: "", 
     hasPayed: false || localStorage.getItem("hasPayed"),
     boothSelected: "" || localStorage.getItem("boothSelected"),
-    uid: "" || localStorage.getItem('uid')
+    uid: "" || localStorage.getItem('uid'),
+    isAdmin: false
 }
 
 export const FormContext = React.createContext()
@@ -80,6 +81,10 @@ function FormProvider(props){
     const [errorMessage, setErrorMessage] = useState({errorMessage: ""})
     const sortAlphaNum = (a, b) => a.localeCompare(b, 'en', { numeric: true })
 
+
+
+
+      
     useEffect(() => { 
         getBooths()
         // console.log("fired the cannons", availableBooths)
@@ -292,9 +297,25 @@ function FormProvider(props){
                 errorMessage: e.message
             })))
             firebase.auth().onAuthStateChanged(function(user){
-                if(user){ getUser() }
-            })
-    }  
+                if(user){
+                    getUser()
+                    firebase.auth().currentUser.getIdTokenResult()
+                        .then((idTokenResult) => {
+                        // Confirm the user is an Admin.
+                        if(!!idTokenResult.claims.admin) {
+                            // Show admin UI.
+                            setUserState((prev) => ({
+                                ...prev,
+                                isAdmin: true
+                            }))
+                        }
+                    })
+                        .catch((error) => {
+                            console.log(error);
+                        });
+                    }
+                })
+            }  
             
     function handleLogin(email, password){ 
         auth.signInWithEmailAndPassword(email, password)
@@ -312,10 +333,26 @@ function FormProvider(props){
         }).catch(e => setErrorMessage((prev) => ({
             ...prev, errorMessage: e.message
         })))
-        firebase.auth().onAuthStateChanged(function(user) { 
-            if(user){ getUser() }
-        })
-    }
+        firebase.auth().onAuthStateChanged(function(user){
+            if(user){
+                getUser()
+                firebase.auth().currentUser.getIdTokenResult()
+                    .then((idTokenResult) => {
+                    // Confirm the user is an Admin.
+                    if(!!idTokenResult.claims.admin) {
+                        // Show admin UI.
+                        setUserState((prev) => ({
+                            ...prev,
+                            isAdmin: true
+                        }))
+                    }
+                })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+                }
+            })
+        }  
 
     function signInWithFacebook(){ 
         firebase.auth().signInWithPopup(FBprovider)
@@ -328,14 +365,31 @@ function FormProvider(props){
                 email: res.user.email,
                 uid: res.user.uid
             }))
-            firebase.auth().onAuthStateChanged(function(user){ 
-                if(user){ getUser() }
+            firebase.auth().onAuthStateChanged(function(user){
+                if(user){
+                    getUser()
+                    firebase.auth().currentUser.getIdTokenResult()
+                        .then((idTokenResult) => {
+                        // Confirm the user is an Admin.
+                        if(!!idTokenResult.claims.admin) {
+                            // Show admin UI.
+                            setUserState((prev) => ({
+                                ...prev,
+                                isAdmin: true
+                            }))
+                        }
+                    })
+                        .catch((error) => {
+                            console.log(error);
+                        });
+                    }
+                })
             })
-        }).catch((error) => { 
-            let errorCode = error.code
-            let errorMessage = error.message
-            
-            console.log(errorCode, errorMessage)
+            .catch((error) => { 
+                let errorCode = error.code
+                let errorMessage = error.message
+                
+                console.log(errorCode, errorMessage)
         })   
     }
 
@@ -349,13 +403,30 @@ function FormProvider(props){
                 email: res.user.email,
                 uid: res.user.uid
             }))
-            firebase.auth().onAuthStateChanged(() => { 
-                getUser()
+            firebase.auth().onAuthStateChanged(function(user){
+                if(user){
+                    getUser()
+                    firebase.auth().currentUser.getIdTokenResult()
+                        .then((idTokenResult) => {
+                        // Confirm the user is an Admin.
+                        if(!!idTokenResult.claims.admin) {
+                            // Show admin UI.
+                            setUserState((prev) => ({
+                                ...prev,
+                                isAdmin: true
+                            }))
+                        }
+                    })
+                        .catch((error) => {
+                            console.log(error);
+                        });
+                    }
                 })
-        }).catch(e => { 
-            let error = e.message
-            let errorCode = e.code
-            console.log(error, errorCode)
+            })
+                .catch(e => { 
+                    let error = e.message
+                    let errorCode = e.code
+                    console.log(error, errorCode)
         })
     }
 
@@ -392,7 +463,7 @@ function FormProvider(props){
             setUserState, 
             editBooth, 
             getUsersBoothSelection, 
-            editUsers
+            editUsers,
     
 
         }}>

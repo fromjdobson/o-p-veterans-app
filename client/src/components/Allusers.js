@@ -34,7 +34,7 @@ function Allusers(props){
                 <>
                         <p>Company: <input type = "text" placeholder = {props.users.companyName} onChange = {(e) => handleChange(e)} name = "companyName"/></p>
                         <p>Display Name: <input type = "text" placeholder = {props.users.displayName} onChange = {(e) => handleChange(e)} name = "displayName" /></p>
-                        <p>Booth: <input type = "text" placeholder = {props.users.boothSelected} onChange = {(e) => handleChange(e)} name = "boothSelected"/></p>
+                        <p>Booth: {props.users.boothSelected}</p>
                         <p>Address: <input type = "text" placeholder = {props.users.address} onChange = {(e) => handleChange(e)} name = "address" /></p>
                         <p>City: <br></br>  <input type = "text" placeholder = {props.users.city} onChange = {(e) => handleChange(e)} name = "city" /></p>
                         <p>State: <input type = "text" placeholder = {props.users.state} onChange = {(e) => handleChange(e)} name = "state" /></p>

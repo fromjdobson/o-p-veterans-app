@@ -10,9 +10,11 @@ import Profile from "./components/Profilepage.js"
 import {Switch, Route, Redirect, useHistory, Link} from "react-router-dom"
 import { FormContext } from "./context/FormContext"
 import Adminpage from './components/Adminpage.js';
+import firebase from 'firebase'
+
 
 function App() {
-  const { uid, value, hasPayed } = useContext(FormContext)
+  const { uid, isAdmin, value, hasPayed } = useContext(FormContext)
   const [isLoad, setLoad] = useState(false);
   const history = useHistory()
   useEffect(() => {
@@ -28,13 +30,14 @@ function App() {
     document.getElementsByTagName("head")[0].appendChild(sqPaymentScript);
   });
 
-  
+
+
   const squarePayment = isLoad && <Square paymentForm={ window.SqPaymentForm } value = {value} />
   
   return (
     <div className="App">
       {uid ? <Link className = "link" to = "/profile">Profile</Link> : null}
-      {uid === "6QOK01bDhZNBCdL8fumFJnQ2V2T2" ? <Link className = "link" to = "/viewer">Admin</Link> : null}
+      {isAdmin ? <Link className = "link" to = "/viewer">Admin</Link> : null}
       <Switch>
          <Route exact path = "/"      render ={() => uid ? <Redirect to = "/form1" /> : <Loginpage />} />
          <Route exact path = "/form1" render ={() => uid ? <Nameform /> : <Redirect to = "/" />} />
@@ -43,7 +46,7 @@ function App() {
          <Route exact path = "/form4" render ={() => uid ? <Sponsorshiplevels /> : <Redirect to = "/" />} />
          <Route exact path = "/form5" render ={() => uid ? <div className="App"> {squarePayment} </div> : <Redirect to = "/" />} />
          <Route exact path = "/form6" render ={() => uid && hasPayed ? <Booths /> : history.goBack()} />
-         <Route exact path = "/viewer" render={() => uid === "6QOK01bDhZNBCdL8fumFJnQ2V2T2" ? <Adminpage /> : <Redirect to = "/" />} />
+         <Route exact path = "/viewer" render={() => isAdmin ? <Adminpage /> : <Redirect to = "/" />} />
          {uid ?  <Route exact path = "/profile" render = {() => uid ?  <Profile /> : <Redirect to = "/" />} /> : ""} 
          <Route path='/opvet' component={() => { window.location.href = 'https://opveteran.org/'  
             return null }}/>
