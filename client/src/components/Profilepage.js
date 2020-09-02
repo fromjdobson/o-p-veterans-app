@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from "react"
+import React, {useContext, useState} from "react"
 import { FormContext } from "../context/FormContext"
 import { useHistory } from "react-router-dom"
 import "../css/styles.css"
@@ -13,7 +13,9 @@ function Profile(){
 
     function updateFields(){ 
         setToggle(prev => !prev)
+        // write to db 
         writeUserData()
+        // get the user from the db and update localstorage
         getUser()
     }
 
@@ -25,6 +27,7 @@ function Profile(){
             ...prev, 
             hasPayed: true
         })) 
+        // for new booth selection
         editBooth(userProfile.boothSelected)
         history.push("/form6")
     }

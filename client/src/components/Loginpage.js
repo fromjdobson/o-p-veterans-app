@@ -31,6 +31,7 @@ function Loginpage() {
     let results = login.password.localeCompare(login.confirmPassword);
     if (results === 0) {
       handleSignup(login.email, login.password)
+      // sets value to be displayed on page 
     } else setMessage("Passwords do not match, please try again")
   }
 
@@ -114,16 +115,7 @@ function Loginpage() {
       >
         {!toggle.login ? "Already have an account? Sign in" : "Dont have an account? Sign up!" } 
       </p>
-      {/* {toggle.login ? (
-        <button
-          style = {toggle.login && toggle.privacyAgreement ?{backgroundColor: "#2C528C", color: "white"} : null }
-          className={styles.accountBtn}
-          onClick={() => handleLogin(login.email, login.password)}
-          disabled={!toggle.login && toggle.privacyAgreement ? false : true}
-        >
-          Login
-        </button>
-      ) : null} */}
+   
 
       {toggle.login && toggle.privacyAgreement ? (
       <button
@@ -185,7 +177,6 @@ function Loginpage() {
       ) : (
         ""
       )}
-      {/* <button onClick = {() => signInWithLinkedIn()}>LinkedIn</button> */}
     </div>
     </div>
   );

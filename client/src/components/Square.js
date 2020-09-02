@@ -4,11 +4,9 @@ import styles from "../css/Square.module.css";
 
 const Square = ({ paymentForm }) => {
 const { value, pushToNextPage } = useContext(FormContext);
-console.warn(value, 'value')
 const config = {
     // Initialize the payment form elements
         
-        //TODO: Replace with your sandbox application ID
         applicationId: process.env.REACT_APP_APPLICATION_ID,
         inputClass: 'sq-input',
         autoBuild: false,
@@ -77,7 +75,9 @@ const config = {
                 })
                 .then(data => {
                   console.log(JSON.stringify(data));
+                  // TODO: update this alert to something more user friendly
                   alert('Payment complete successfully!\nCheck browser developer console form more details');
+                  // pushes to booth selection page
                   pushToNextPage()
                 })
                 .catch(err => {

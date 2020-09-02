@@ -5,13 +5,9 @@ import Allusers from "./Allusers"
 function Adminpage(){ 
     const { userBoothState } = useContext(FormContext)
 
-    // useEffect(() => {
-    //     getUsersBoothSelection()
-    //     // userBoothState.filter()
-    // },[])
-
     return ( 
         <div> 
+            {/* maps all of the users info into props in the component */}
             {userBoothState?.map((user) => 
                 <Allusers users = {user} key = {user.uid}/>
             )}

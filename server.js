@@ -12,23 +12,12 @@ app.use(cors())
 // Set the Access Token
 const accessToken = process.env.ACCESS_TOKEN
 
-
-
-var refreshToken;
-var uid = '6QOK01bDhZNBCdL8fumFJnQ2V2T2'
-
 admin.initializeApp({
   credential: admin.credential.applicationDefault(),
   databaseURL: 'https://op-vet.firebaseio.com/'
 });
 
-// admin.auth().setCustomUserClaims(uid, {admin: true}).then(() => {
-// });
 
-admin.auth().getUser(uid).then((userRecord) => {
-  // The claims can be accessed on the user record.
-  console.log(userRecord.customClaims['admin']);
-});
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname));
@@ -46,7 +35,6 @@ oauth2.accessToken = accessToken;
 defaultClient.basePath = 'https://connect.squareupsandbox.com';
 
 app.post('/process-payment', async (req, res) => {
-    console.log(req.body)
   const request_params = req.body;
 
   // length of idempotency_key should be less than 45
@@ -57,6 +45,7 @@ app.post('/process-payment', async (req, res) => {
   const request_body = {
     source_id: request_params.nonce,
     amount_money: {
+      // how much monet they are paying
       amount: ((req.body.value) * 100), 
       currency: 'USD'
     },

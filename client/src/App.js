@@ -10,7 +10,7 @@ import Profile from "./components/Profilepage.js"
 import {Switch, Route, Redirect, useHistory, Link} from "react-router-dom"
 import { FormContext } from "./context/FormContext"
 import Adminpage from './components/Adminpage.js';
-import firebase from 'firebase'
+
 
 
 function App() {
@@ -18,6 +18,8 @@ function App() {
   const [isLoad, setLoad] = useState(false);
   const history = useHistory()
   useEffect(() => {
+
+    // this is going to mount to payment form and wait for it load, before it will be rendered to the page 
     let sqPaymentScript = document.createElement("script");
     // sandbox: https://js.squareupsandbox.com/v2/paymentform
     // production: https://js.squareup.com/v2/paymentform
@@ -31,7 +33,7 @@ function App() {
   });
 
 
-
+// check to make sure the form is loaded before it is rendered. 
   const squarePayment = isLoad && <Square paymentForm={ window.SqPaymentForm } value = {value} />
   
   return (
