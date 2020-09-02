@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Header } from './components/Header'
 import backgroundImage from './assets/images/maysanTopoBackground.png'
 
 const AppContainer = styled.div`
@@ -19,6 +20,7 @@ const Texting = styled.p`
 export default function App() {
     return (
         <AppContainer>
+            <Header />
             <Texting>{'hello world'}</Texting>
         </AppContainer>
     )
