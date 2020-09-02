@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { AppStateContext } from './providers/Store'
 import { Header } from './components/Header'
 import backgroundImage from './assets/images/maysanTopoBackground.png'
 
@@ -13,15 +14,10 @@ const AppContainer = styled.div`
     background-position: center;
 `
 
-const Texting = styled.p`
-    margin: 0px;
-`
-
 export default function App() {
     return (
         <AppContainer>
             <Header />
-            <Texting>{'hello world'}</Texting>
         </AppContainer>
     )
 }

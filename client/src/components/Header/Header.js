@@ -19,7 +19,7 @@ export default function Header() {
     <HeaderContainer>
       <Back />
       <img src={headerLogo} alt={'O.P. Veteran'} />
-      <UserIcon />
+      <UserIcon loggedInStatus={false} />
     </HeaderContainer>
   )
 }
