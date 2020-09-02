@@ -30,10 +30,14 @@ const ExitText = styled.p`
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
-    display: flex;
+    display: none;
     align-items: center;
     letter-spacing: 0.01em;
     color: #403926;
+
+    @media (min-width: 768px) {
+        display: flex;
+    }
 `
 
 export default function Back() {
