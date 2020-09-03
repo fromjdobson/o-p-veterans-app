@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Input } from '../Input'
+import { Button } from '../Button'
 
 const MainContainer = styled.div`
   box-sizing: border-box;
@@ -18,6 +19,8 @@ export default function Main() {
     <MainContainer>
       <Input label={'Email'} warningStatus={true} warningMessage={'Helper text'} />
       <Input label={'Password'} warningStatus={true} warningMessage={'Helper text'} />
+      <Button buttonText={'Sign In'} buttonStyle={'primary'} />
+      <Button buttonText={'Join'} buttonStyle={'secondary'} />
 
     </MainContainer>
   )
