@@ -1,88 +1,24 @@
-import React from "react";
-import styled from "styled-components";
-import { Button } from "../Button";
+import React from 'react'
+import styled from 'styled-components'
+import { Input } from '../Input'
 
-const MainPage = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  // padding: 20px;
-  width: 704px;
-  height: 484px;
-
-  /* Other Colors/Pastel Gray */
-
-  background: #dad3c1;
-  /* Drop Shadow/2 dp */
-
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12),
-    0px 1px 5px rgba(0, 0, 0, 0.2);
+const MainContainer = styled.div`
+  box-sizing: border-box;
+  margin: 60px 0px 0px 0px;
+  padding: 0px 24px 0px 24px;
+  width: 328px;
+  height: 600px;
+  background: #DAD3C1;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 1px 5px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
-`;
+`
 
-const Greeting = styled.h2`
-  font-family: Helvetica Neue;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 36px;
-  color: #403926;
-`;
-
-const SubText = styled.h4`
-  font-family: Helvetica Neue;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  padding: 0 0 0 20px;
-  line-height: 24px;
-  margin-left: 4px;
-`;
-
-const FormContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: 10px;
-`;
-
-const InputLabel = styled.label`
-  display: flex;
-  align-items: center;
-  margin: 0px;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 24px;
-  box-sizing: border-box;
-`;
-
-const StyledInput = styled.input`
-  margin: 8px 0px 15px 0px;
-  width: 255px;
-  height: 32px;
-  box-sizing: border-box;
-  border: 1px solid black;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-`;
-
-export default function Main(props) {
-  const { label } = props;
+export default function Main() {
   return (
-    <MainPage>
-      <Greeting>Welcome.</Greeting>
-      <SubText>
-        Please sign in, or register an account with O.P. Veteran to start vendor
-        registration
-      </SubText>
-      <FormContainer>
-        <InputLabel>Email</InputLabel>
-        <StyledInput></StyledInput>
-        <InputLabel>Password</InputLabel>
-        <StyledInput></StyledInput>
-      </FormContainer>
-      <Button />
-    </MainPage>
-  );
+    <MainContainer>
+      <Input label={'Email'} warningStatus={true} warningMessage={'Helper text'} />
+      <Input label={'Password'} warningStatus={true} warningMessage={'Helper text'} />
+
+    </MainContainer>
+  )
 }

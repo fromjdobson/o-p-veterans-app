@@ -2,11 +2,15 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { AppStateContext } from './providers/Store'
 import { Header } from './components/Header'
+import { Main } from './components/Main'
 import backgroundImage from './assets/images/maysanTopoBackground.png'
 
 const AppContainer = styled.div`
     width: 100%;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     box-sizing: border-box;
     background: url(${backgroundImage});
     background-size: cover;
@@ -18,6 +22,7 @@ export default function App() {
     return (
         <AppContainer>
             <Header />
+            <Main />
         </AppContainer>
     )
 }

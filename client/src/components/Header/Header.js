@@ -7,6 +7,7 @@ import headerLogo from '../../assets/images/op-vet-logo-48px.png'
 
 const HeaderContainer = styled.div`
   padding: 0px 16px 0px 16px;
+  width: 100%;
   height: 96px;
   display: flex;
   justify-content: space-between;
