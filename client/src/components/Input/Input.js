@@ -4,6 +4,7 @@ import HelperText from './HelperText'
 import WarningIcon from './WarningIcon'
 
 const InputContainer = styled.div`
+    width: 100%;
     /* border: 1px solid lightcoral; */
 `
 

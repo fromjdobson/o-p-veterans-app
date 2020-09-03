@@ -1,11 +1,12 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { AppStateContext } from './providers/Store'
+// import { AppStateContext } from './providers/Store'
 import { Header } from './components/Header'
-import { Main } from './components/Main'
+import { Login } from './components/Login'
 import backgroundImage from './assets/images/maysanTopoBackground.png'
 
 const AppContainer = styled.div`
+    position: relative;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -22,7 +23,7 @@ export default function App() {
     return (
         <AppContainer>
             <Header />
-            <Main />
+            <Login />
         </AppContainer>
     )
 }

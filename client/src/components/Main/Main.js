@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Input } from '../Input'
-import { Button } from '../Button'
+
+// import { Input } from '../Input'
+// import { Button } from '../Button'
 
 const MainContainer = styled.div`
   box-sizing: border-box;
@@ -17,11 +18,11 @@ const MainContainer = styled.div`
 export default function Main() {
   return (
     <MainContainer>
-      <Input label={'Email'} warningStatus={true} warningMessage={'Helper text'} />
-      <Input label={'Password'} warningStatus={true} warningMessage={'Helper text'} />
-      <Button buttonText={'Sign In'} buttonStyle={'primary'} />
-      <Button buttonText={'Join'} buttonStyle={'secondary'} />
-
+      
+      {/* <Input label={'Email'} warningStatus={true} warningMessage={'Helper text'} />
+      <Input label={'Password'} warningStatus={true} warningMessage={'Helper text'} /> */}
+      {/* <Button buttonText={'Sign In'} buttonStyle={'primary'} />
+      <Button buttonText={'Join'} buttonStyle={'secondary'} /> */}
     </MainContainer>
   )
 }
