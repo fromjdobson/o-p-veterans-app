@@ -32,10 +32,7 @@ const StyledButton = styled.button`
 
 export default function Button(props) {
   const { buttonText, buttonStyle } = props
-  // console.log(props)
-
   const { color, background, border } = (setButtonStyle(buttonStyle))
-  console.log(background, color, border)
 
   return (
       <StyledButton background={background} color={color} border={border}>{buttonText}</StyledButton>
