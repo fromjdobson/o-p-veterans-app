@@ -3,7 +3,8 @@ import styled from 'styled-components'
 // import { AppStateContext } from './providers/Store'
 import { Header } from './components/Header'
 // import { Login } from './components/Login'
-import { VendorView } from './components/VendorView'
+// import { VendorView } from './components/VendorView'
+import { AdminView } from './components/AdminView'
 import backgroundImage from './assets/images/maysanTopoBackground.png'
 
 const AppContainer = styled.div`
@@ -25,7 +26,8 @@ export default function App() {
         <AppContainer>
             <Header />
             {/* <Login /> */}
-            <VendorView />
+            {/* <VendorView /> */}
+            <AdminView />
         </AppContainer>
     )
 }
