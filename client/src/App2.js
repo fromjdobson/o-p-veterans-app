@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
-// import { AppStateContext } from './providers/Store'
+import { AppStateContext } from './providers/Store'
 import { Header } from './components/Header'
-// import { Login } from './components/Login'
-// import { VendorView } from './components/VendorView'
+import { Login } from './components/Login'
+import { VendorView } from './components/VendorView'
 import { AdminView } from './components/AdminView'
 import backgroundImage from './assets/images/maysanTopoBackground.png'
+
+import { fakeUserDataBase } from './test-users'
 
 const AppContainer = styled.div`
     position: relative;
@@ -22,12 +24,27 @@ const AppContainer = styled.div`
 `
 
 export default function App() {
+    const [appState] = useContext(AppStateContext)
+    const { userLoggedIn, currentUser } = appState
+    const { isAdmin } = currentUser
+
+    function setView(loggedIn, userAdmin) {
+        if (loggedIn === false && userAdmin === false) {
+            return <Login />
+        } else if (loggedIn === true && userAdmin === false) {
+            return <VendorView />
+        } else if (loggedIn === true && userAdmin === true) {
+            return <AdminView />
+        }
+    }
+
+    let userView = setView(userLoggedIn, isAdmin)
+    console.log(userView)
+
     return (
         <AppContainer>
             <Header />
-            {/* <Login /> */}
-            {/* <VendorView /> */}
-            <AdminView />
+            {userView}
         </AppContainer>
     )
 }
