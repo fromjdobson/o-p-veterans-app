@@ -6,6 +6,8 @@ import EditBooth from './EditBooth'
 
 const VendorCardContainer = styled.div`
     /* margin: 0px 0px 16px 0px; */
+    box-sizing: border-box;
+    padding: 16px 16px 16px 16px;
     width: 100%;
     background: #F6F4EF;
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.14), 0px 2px 2px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.2);

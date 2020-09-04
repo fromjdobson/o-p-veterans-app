@@ -6,15 +6,16 @@ import editIcon from '../../assets/icons/edit-icon.svg'
 import poweredIcon from '../../assets/icons/powered-icon.svg'
 
 const BoothDetailsContainer = styled.div`
+    margin: 8px 0px 0px 0px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px dotted blue;
+    /* border: 1px dotted blue; */
 
     & > img {
         width: 20px;
         height: 20px;
-        border: 1px dotted gray;
+        /* border: 1px dotted gray; */
     }
 `
 
@@ -32,13 +33,13 @@ const DetailsText = styled.p`
 const BoothNumberWrapper = styled.div`
     display: flex;
     column-gap: 8px;
-    border: 1px solid lightcoral;
+    /* border: 1px solid lightcoral; */
 `
 
 const PoweredWrapper = styled.div`
     display: flex;
     column-gap: 8px;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
 `
 
 export default function BoothDetais() {
