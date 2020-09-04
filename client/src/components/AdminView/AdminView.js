@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { CardList } from '../CardList'
 
 const AdminViewContainer = styled.div`
     margin-top: 60px;
@@ -56,6 +57,7 @@ export default function AdminView() {
         <AdminViewContainer>
             <Heading>{`Welcome, ${'Denny'}.`}</Heading>
             <SubHeading>{`There are ${55} vendors registered for Vet Fest.`}</SubHeading>
+            <CardList />
         </AdminViewContainer>
     )
 }

@@ -7,7 +7,8 @@ export default function Store({ children }) {
         userLoggedIn: false,
         isLoading: false,
         currentUser: {
-            name: 'charles',
+            name: '',
+            companyName: '',
             isAdmin: false
         }
     })
