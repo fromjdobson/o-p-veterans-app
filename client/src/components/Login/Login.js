@@ -94,7 +94,6 @@ const ContentWrapper = styled.div`
 export default function Login() {
     const [, setAppState] = useContext(AppStateContext)
     const [userEmail, setUserEmail] = useState('n/a')
-    // console.log(currentUser)
     let users = fakeUserDataBase
     let emailInput = ''
 
@@ -108,7 +107,6 @@ export default function Login() {
 
         users.forEach((user) => {
             const { name, isAdmin, companyName } = user
-            // console.log('login', companyName)
             if (name.toLowerCase() === userEmail.toLocaleLowerCase()) {
                 setAppState({
                     userLoggedIn: true,

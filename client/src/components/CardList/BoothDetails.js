@@ -45,7 +45,6 @@ const PoweredWrapper = styled.div`
 export default function BoothDetais(props) {
     const { func } = props
 
-    
     return (
         <BoothDetailsContainer>
             <BoothNumberWrapper>

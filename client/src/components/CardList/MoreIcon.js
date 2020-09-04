@@ -11,7 +11,6 @@ const MoreIconContainer = styled.div`
 export default function MoreIcon(props) {
     const { func } = props
     
-    // console.log(func)
     return (
         <MoreIconContainer onClick={func}>
             <img src={moreIconDefault} alt={'Click to see more options.'} />

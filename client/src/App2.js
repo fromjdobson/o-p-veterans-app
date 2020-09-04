@@ -35,9 +35,7 @@ export default function App() {
             return <AdminView />
         }
     }
-
-    // console.log(currentUser)
-
+    
     let userView = setView(userLoggedIn, isAdmin)
 
     return (

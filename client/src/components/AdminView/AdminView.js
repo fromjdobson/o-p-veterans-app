@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { CardList } from '../CardList'
+import { fakeUserDataBase } from '../../test-users'
+let numberOfVendors = fakeUserDataBase.length
 
 const AdminViewContainer = styled.div`
     margin-top: 60px;
@@ -57,7 +59,7 @@ export default function AdminView() {
     return(
         <AdminViewContainer>
             <Heading>{`Welcome, ${'Denny'}.`}</Heading>
-            <SubHeading>{`There are ${55} vendors registered for Vet Fest.`}</SubHeading>
+            <SubHeading>{`There are ${numberOfVendors} vendors registered for Vet Fest.`}</SubHeading>
             <CardList />
         </AdminViewContainer>
     )

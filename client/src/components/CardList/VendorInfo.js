@@ -57,16 +57,16 @@ const LogoContainer = styled.div`
 `
 
 export default function VendorInfo(props) {
-    const { userName } = props
-    // console.log(props)
-    return (
+    const { userName, vendorDesc } = props
+
+return (
         <VendorInfoContainer>
             <LogoContainer>
                 <img src={companyLogo} alt={'Company logo.'} />
             </LogoContainer>
             <DetailsWrapper>
                 <VendorName>{userName}</VendorName>
-                <VendorDescription>{'Fake soap merchant'}</VendorDescription>
+                <VendorDescription>{vendorDesc}</VendorDescription>
             </DetailsWrapper>
         </VendorInfoContainer>
     )

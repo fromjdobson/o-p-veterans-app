@@ -20,7 +20,6 @@ const StyledInput = styled.input`
 
 export default function EditBooth(props) {
     const { editBooth } = props
-    // console.log(props)
 
     function setEditBoothDisplay(displayValue) {
         if (displayValue === false) {
@@ -32,8 +31,6 @@ export default function EditBooth(props) {
 
     let boothDisplay = setEditBoothDisplay(editBooth)
 
-    
-    // console.log(setBooth)
     return (
         <EditBoothContainer display={boothDisplay}>
             <StyledInput />
