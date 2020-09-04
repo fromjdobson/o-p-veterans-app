@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 // import { AppStateContext } from './providers/Store'
 import { Header } from './components/Header'
-import { Login } from './components/Login'
+// import { Login } from './components/Login'
+import { VendorView } from './components/VendorView'
 import backgroundImage from './assets/images/maysanTopoBackground.png'
 
 const AppContainer = styled.div`
@@ -23,7 +24,8 @@ export default function App() {
     return (
         <AppContainer>
             <Header />
-            <Login />
+            {/* <Login /> */}
+            <VendorView />
         </AppContainer>
     )
 }
