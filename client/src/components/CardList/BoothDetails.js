@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import MoreIcon from './MoreIcon'
 import boothIcon from '../../assets/icons/booth-icon.svg'
-import editIcon from '../../assets/icons/edit-icon.svg'
+// import editIcon from '../../assets/icons/edit-icon.svg'
 import poweredIcon from '../../assets/icons/powered-icon.svg'
 
 const BoothDetailsContainer = styled.div`
@@ -43,18 +43,28 @@ const PoweredWrapper = styled.div`
 `
 
 export default function BoothDetais(props) {
-    const { func } = props
+    const { func, boothNumber, powered } = props
+
+    function setPowered(power) {
+        if (power === false) {
+            return 'No'
+        } else if (power === true) {
+            return 'Yes'
+        }   
+    }
+
+    let isPowered = setPowered(powered)
 
     return (
         <BoothDetailsContainer>
             <BoothNumberWrapper>
                 <img src={boothIcon} alt={'Booth icon.'} />
-                <DetailsText>{'A99'}</DetailsText>
-                <img src={editIcon} alt={'Click to edit booth number.'} />
+                <DetailsText>{boothNumber}</DetailsText>
+                {/* <img src={editIcon} alt={'Click to edit booth number.'} /> */}
             </BoothNumberWrapper>
             <PoweredWrapper>
                 <img src={poweredIcon} alt={'Powered icon.'} />
-                <DetailsText>{'Yes'}</DetailsText>
+                <DetailsText>{isPowered}</DetailsText>
             </PoweredWrapper>
             <MoreIcon func={func} />
         </BoothDetailsContainer>

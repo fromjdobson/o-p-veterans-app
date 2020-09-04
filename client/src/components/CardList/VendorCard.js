@@ -29,7 +29,7 @@ const VendorName = styled.p`
 
 export default function VendorCard(props) {
     const [openDiv, setOpenDiv] = useState(false)
-    const { company, userName, vendorDesc } = props
+    const { company, userName, vendorDesc, boothNumber, powered } = props
 
     function openIt() {
         if (openDiv === false) {
@@ -43,7 +43,7 @@ export default function VendorCard(props) {
         <VendorCardContainer>
             <VendorName>{company}</VendorName>
             <VendorInfo userName={userName} vendorDesc={vendorDesc} />
-            <BoothDetails func={openIt} />
+            <BoothDetails boothNumber={boothNumber} powered={powered} func={openIt} />
             <EditBooth editBooth={openDiv} />
         </VendorCardContainer>
     )

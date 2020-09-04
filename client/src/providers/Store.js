@@ -9,7 +9,12 @@ export default function Store({ children }) {
         currentUser: {
             name: '',
             companyName: '',
-            isAdmin: false
+            isAdmin: false,
+            description: '',
+            booth: {
+                boothNumber: '',
+                powered: false
+            }
         }
     })
     return (

@@ -12,8 +12,10 @@ const CardListContainer = styled.div`
 
 export default function CardList() {
     let list = fakeUserDataBase.map((vendor, idx) => {
-        const { companyName, name, description } = vendor
-        return <VendorCard key={idx} company={companyName} userName={name} vendorDesc={description} />
+        const { companyName, name, description, booth } = vendor
+        const { boothNumber, powered } = booth
+
+        return <VendorCard key={idx} company={companyName} userName={name} vendorDesc={description} boothNumber={boothNumber} powered={powered} />
     })
 
     return (

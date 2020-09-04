@@ -92,7 +92,7 @@ const ContentWrapper = styled.div`
 `
 
 export default function Login() {
-    const [, setAppState] = useContext(AppStateContext)
+    const [appState, setAppState] = useContext(AppStateContext)
     const [userEmail, setUserEmail] = useState('n/a')
     let users = fakeUserDataBase
     let emailInput = ''
@@ -106,14 +106,22 @@ export default function Login() {
         setUserEmail(emailInput)
 
         users.forEach((user) => {
-            const { name, isAdmin, companyName } = user
+            const { name, isAdmin, companyName, description } = user
+            const { boothNumber, powered } = user.booth
+            // console.log(description)
+
             if (name.toLowerCase() === userEmail.toLocaleLowerCase()) {
                 setAppState({
                     userLoggedIn: true,
                     currentUser: {
                         name: name,
                         isAdmin: isAdmin,
-                        companyName: companyName
+                        companyName: companyName,
+                        description: description,
+                        booth: {
+                            boothNumber: boothNumber,
+                            powered: powered
+                        }
                     }
                 })
             }
