@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
+import { AppStateContext } from '../../providers/Store'
 import { Input } from '../Input'
 import { GoogleButton } from '../GoogleButton'
 import { FacebookButton } from '../FacebookButton'
+import { fakeUserDataBase } from '../../test-users'
+
 
 const LoginContainer = styled.div`
     margin-top: 60px;
@@ -80,16 +83,43 @@ const TermsText = styled.p`
 `
 
 export default function Login() {
+    const [, setAppState] = useContext(AppStateContext)
+    const [userEmail, setUserEmail] = useState('n/a')
+    let users = fakeUserDataBase
+    let emailInput = ''
+
+    function getEmail(e) {
+        const { value } = e.target
+        emailInput = value
+    }
+
+    function setEmail() {
+        setUserEmail(emailInput)
+
+        users.forEach((user) => {
+            const { name, isAdmin } = user
+            if (name.toLowerCase() === userEmail.toLocaleLowerCase()) {
+                setAppState({
+                    userLoggedIn: true,
+                    currentUser: {
+                        name: name,
+                        isAdmin: isAdmin
+                    }
+                })
+            }
+        })
+    }
+
     return (
         <LoginContainer>
             <Heading>{'Welome.'}</Heading>
             <SubHeading>{'Please sign in, or register an account with O.P. Veteran to start vendor registration.'}</SubHeading>
-            <Input label={'Email'} warningStatus={false} warningMessage={''} />
+            <Input onChange={getEmail} label={'Email'} warningStatus={false} warningMessage={''} />
             <Input label={'Password'} warningStatus={false} warningMessage={''} />
             <TermsContainer>
                 <TermsText>{'By creating and account, you accept our Terms and Conditions.'}</TermsText>
             </TermsContainer>
-            <GoogleButton />
+            <GoogleButton onClick={setEmail} />
             <FacebookButton />
         </LoginContainer>
     )

@@ -37,9 +37,11 @@ const ButtonText = styled.p`
     /* border: 1px dotted blue; */
 `
 
-export default function GoogleButton() {
-    return (
-        <GoogleButtonContainer>
+export default function GoogleButton(props) {
+    const { onClick } = props
+
+return (
+        <GoogleButtonContainer onClick={onClick}>
             <IconContainer>
                 <img src={googleDark} alt={'Create an account, or sign in using your Google account.'} />
             </IconContainer>

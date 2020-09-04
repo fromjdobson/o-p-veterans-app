@@ -49,7 +49,7 @@ const StyledInput = styled.input`
 `
 
 export default function Input(props) {
-    const { label, warningStatus, warningMessage } = props
+    const { label, warningStatus, warningMessage, onChange } = props
 
     return (
         <InputContainer>
@@ -57,7 +57,7 @@ export default function Input(props) {
                 <LabelText>{label}</LabelText>
                 <WarningIcon warning={warningStatus} />
             </LabelContainer>
-            <StyledInput />
+            <StyledInput onChange={onChange} />
             <HelperText message={warningMessage} />
         </InputContainer>
     )

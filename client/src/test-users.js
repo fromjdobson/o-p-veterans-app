@@ -1,6 +1,6 @@
 export const fakeUserDataBase = [
     {
-        name: 'Jerry McGuire',
+        name: 'Jerry',
         isAdmin: false,
     },
     {
@@ -8,7 +8,7 @@ export const fakeUserDataBase = [
         isAdmin: true
     },
     {
-        name: 'Jessica Rabbit',
+        name: 'Jessica',
         isAdmin: false
     }
 ]

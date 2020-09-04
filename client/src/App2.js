@@ -7,8 +7,6 @@ import { VendorView } from './components/VendorView'
 import { AdminView } from './components/AdminView'
 import backgroundImage from './assets/images/maysanTopoBackground.png'
 
-import { fakeUserDataBase } from './test-users'
-
 const AppContainer = styled.div`
     position: relative;
     width: 100%;
@@ -39,7 +37,6 @@ export default function App() {
     }
 
     let userView = setView(userLoggedIn, isAdmin)
-    console.log(userView)
 
     return (
         <AppContainer>
