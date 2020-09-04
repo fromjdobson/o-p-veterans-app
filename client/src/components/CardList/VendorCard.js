@@ -39,11 +39,13 @@ export default function VendorCard(props) {
         }
     }
 
+
+
     return (
         <VendorCardContainer>
             <VendorName>{company}</VendorName>
             <VendorInfo userName={userName} vendorDesc={vendorDesc} />
-            <BoothDetails boothNumber={boothNumber} powered={powered} func={openIt} />
+            <BoothDetails boothNumber={boothNumber} powered={powered} func={openIt} openDiv={openDiv} />
             <EditBooth editBooth={openDiv} />
         </VendorCardContainer>
     )

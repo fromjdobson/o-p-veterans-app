@@ -43,7 +43,7 @@ const PoweredWrapper = styled.div`
 `
 
 export default function BoothDetais(props) {
-    const { func, boothNumber, powered } = props
+    const { func, boothNumber, powered, openDiv } = props
 
     function setPowered(power) {
         if (power === false) {
@@ -66,7 +66,7 @@ export default function BoothDetais(props) {
                 <img src={poweredIcon} alt={'Powered icon.'} />
                 <DetailsText>{isPowered}</DetailsText>
             </PoweredWrapper>
-            <MoreIcon func={func} />
+            <MoreIcon func={func} openDiv={openDiv} />
         </BoothDetailsContainer>
     )
 }

@@ -1,6 +1,6 @@
 export const fakeUserDataBase = [
     {
-        name: 'Fank',
+        name: 'Frank Galikanokous',
         companyName: 'Bunty Soap Company',
         description: 'Fake Soap Merchant',
         isAdmin: false,
@@ -20,7 +20,7 @@ export const fakeUserDataBase = [
         }
     },
     {
-        name: 'Jessica',
+        name: 'Jessica Rabbit',
         companyName: 'Roger Rabbit Inc.',
         description: 'Private Investigations',
         isAdmin: false,

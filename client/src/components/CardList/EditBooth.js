@@ -20,6 +20,7 @@ const StyledInput = styled.input`
 
 export default function EditBooth(props) {
     const { editBooth } = props
+    // console.log(openDiv)
 
     function setEditBoothDisplay(displayValue) {
         if (displayValue === false) {
