@@ -5,6 +5,7 @@ export const AppStateContext = React.createContext()
 export default function Store({ children }) {
     const [appState, setAppState] = useState({
         userLoggedIn: false,
+        isLoading: false,
         currentUser: {
             name: 'charles',
             isAdmin: false

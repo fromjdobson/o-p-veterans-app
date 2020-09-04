@@ -21,10 +21,41 @@ const AdminViewContainer = styled.div`
     }
 `  
 
+const Heading = styled.h3`
+    margin: 0px 0px 0px 0px;
+    width: 100%;
+    height: 64px;
+    font-family: Helvetica Neue;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 32px;
+    letter-spacing: 0.015em;
+    color: #403926;
+    overflow: hidden;
+    /* border: 1px dotted gray; */
+`
+
+const SubHeading = styled.h6`
+    margin: 0px 0px 16px 0px;
+    width: 100%;
+    height: 72px;
+    font-family: Helvetica Neue;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.015em;
+    color: #403926;
+    overflow: hidden;
+    /* border: 1px dotted gray; */
+`
+
 export default function AdminView() {
     return(
         <AdminViewContainer>
-            <h1>Admin Views</h1>
+            <Heading>{`Welcome, ${'Denny'}.`}</Heading>
+            <SubHeading>{`There are ${55} vendors registered for Vet Fest.`}</SubHeading>
         </AdminViewContainer>
     )
 }

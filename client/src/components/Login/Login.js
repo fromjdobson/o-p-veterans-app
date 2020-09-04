@@ -22,8 +22,8 @@ const LoginContainer = styled.div`
 
     @media (min-width: 768px) {
         width: 624px;
-        height: 720px;
-        padding: 48px 80px 48px 80px;
+        /* height: 720px; */
+        padding: 48px 48px 48px 48px;
     }
 `
 
@@ -82,6 +82,15 @@ const TermsText = styled.p`
     color: #545454;
 `
 
+const ContentWrapper = styled.div`
+    box-sizing: border-box;
+    width: 100%;
+
+    @media (min-width: 768px) {
+        padding: 0px 120px 0px 120px;
+    }
+`
+
 export default function Login() {
     const [, setAppState] = useContext(AppStateContext)
     const [userEmail, setUserEmail] = useState('n/a')
@@ -114,13 +123,15 @@ export default function Login() {
         <LoginContainer>
             <Heading>{'Welome.'}</Heading>
             <SubHeading>{'Please sign in, or register an account with O.P. Veteran to start vendor registration.'}</SubHeading>
-            <Input onChange={getEmail} label={'Email'} warningStatus={false} warningMessage={''} />
-            <Input label={'Password'} warningStatus={false} warningMessage={''} />
-            <TermsContainer>
-                <TermsText>{'By creating and account, you accept our Terms and Conditions.'}</TermsText>
-            </TermsContainer>
-            <GoogleButton onClick={setEmail} />
-            <FacebookButton />
+            <ContentWrapper>
+                <Input onChange={getEmail} label={'Email'} warningStatus={false} warningMessage={''} />
+                <Input label={'Password'} warningStatus={false} warningMessage={''} />
+                <TermsContainer>
+                    <TermsText>{'By creating and account, you accept our Terms and Conditions.'}</TermsText>
+                </TermsContainer>
+                <GoogleButton onClick={setEmail} />
+                <FacebookButton />
+            </ContentWrapper>
         </LoginContainer>
     )
 }

@@ -20,8 +20,8 @@ const LabelText = styled.h3`
     font-family: Helvetica Neue;
     font-style: normal;
     font-weight: bold;
-    font-size: 28px;
-    line-height: 32px;
+    font-size: 18px;
+    line-height: 24px;
     display: flex;
     align-items: center;
     letter-spacing: 0.015em;
