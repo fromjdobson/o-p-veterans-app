@@ -5,6 +5,7 @@ import notLoggedIn from '../../assets/icons/userNotLoggedIn24px.svg'
 import loggedIn from '../../assets/icons/userLoggedIn24px.svg'
 
 const UserIconContainer = styled.div`
+    margin: 0px 16px 0px 0px;
     width: 40px;
     height: 40px;
     display: flex;

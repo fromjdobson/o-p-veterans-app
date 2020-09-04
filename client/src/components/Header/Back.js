@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import backArrow from '../../assets/icons/backArrow.svg'
 
 const BackContainer = styled.div`
+    margin: 0px 0px 0px 16px;
     height: 24px;
     display: flex;
 `

@@ -2,12 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import { Input } from '../Input'
 import { GoogleButton } from '../GoogleButton'
+import { FacebookButton } from '../FacebookButton'
 
 const LoginContainer = styled.div`
     margin-top: 60px;
     box-sizing: border-box;
     width: 328px;
-    height: 600px;
+    /* height: 600px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,6 +20,7 @@ const LoginContainer = styled.div`
     @media (min-width: 768px) {
         width: 624px;
         height: 720px;
+        padding: 48px 80px 48px 80px;
     }
 `
 
@@ -34,7 +36,7 @@ const Heading = styled.h3`
     letter-spacing: 0.015em;
     color: #403926;
     overflow: hidden;
-    border: 1px dotted gray;
+    /* border: 1px dotted gray; */
 `
 
 const SubHeading = styled.h6`
@@ -49,7 +51,32 @@ const SubHeading = styled.h6`
     letter-spacing: 0.015em;
     color: #403926;
     overflow: hidden;
-    border: 1px dotted gray;
+    /* border: 1px dotted gray; */
+`
+
+const TermsContainer = styled.div`
+    margin: 8px 0px 0px 0px;
+    padding: 8px 16px 8px 16px;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #DAD3C1;
+    /* border: 0.5px solid #545454; */
+    box-sizing: border-box;
+    border-radius: 4px;
+`
+
+const TermsText = styled.p`
+    margin: 0px 0px 0px 0px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.02em;
+    color: #545454;
 `
 
 export default function Login() {
@@ -59,7 +86,11 @@ export default function Login() {
             <SubHeading>{'Please sign in, or register an account with O.P. Veteran to start vendor registration.'}</SubHeading>
             <Input label={'Email'} warningStatus={false} warningMessage={''} />
             <Input label={'Password'} warningStatus={false} warningMessage={''} />
+            <TermsContainer>
+                <TermsText>{'By creating and account, you accept our Terms and Conditions.'}</TermsText>
+            </TermsContainer>
             <GoogleButton />
+            <FacebookButton />
         </LoginContainer>
     )
 }

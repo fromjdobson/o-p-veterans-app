@@ -1,15 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
-import googleLight from '../../assets/images/google-light-default.svg'
 import googleDark from '../../assets/images/google-dark-default.svg'
 
 const GoogleButtonContainer = styled.button`
+    margin: 32px 0px 0px 0px;
     width: 100%;
     padding: 0px 8px 0px 8px;
     height: 48px;
     display: flex;
     align-items: center;
     border: none;
+    border-radius: 2px;
     background: #4285F4;
     box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12), 0px 4px 5px rgba(0, 0, 0, 0.2);
 `
