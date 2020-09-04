@@ -39,8 +39,6 @@ export default function VendorCard(props) {
         }
     }
 
-
-
     return (
         <VendorCardContainer>
             <VendorName>{company}</VendorName>

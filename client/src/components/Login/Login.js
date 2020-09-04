@@ -6,7 +6,6 @@ import { GoogleButton } from '../GoogleButton'
 import { FacebookButton } from '../FacebookButton'
 import { fakeUserDataBase } from '../../test-users'
 
-
 const LoginContainer = styled.div`
     margin-top: 60px;
     box-sizing: border-box;
@@ -92,7 +91,7 @@ const ContentWrapper = styled.div`
 `
 
 export default function Login() {
-    const [appState, setAppState] = useContext(AppStateContext)
+    const [, setAppState] = useContext(AppStateContext)
     const [userEmail, setUserEmail] = useState('n/a')
     let users = fakeUserDataBase
     let emailInput = ''
@@ -108,7 +107,6 @@ export default function Login() {
         users.forEach((user) => {
             const { name, isAdmin, companyName, description } = user
             const { boothNumber, powered } = user.booth
-            // console.log(description)
 
             if (name.toLowerCase() === userEmail.toLocaleLowerCase()) {
                 setAppState({
