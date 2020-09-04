@@ -42,7 +42,10 @@ const PoweredWrapper = styled.div`
     /* border: 1px solid blue; */
 `
 
-export default function BoothDetais() {
+export default function BoothDetais(props) {
+    const { func } = props
+
+    
     return (
         <BoothDetailsContainer>
             <BoothNumberWrapper>
@@ -54,7 +57,7 @@ export default function BoothDetais() {
                 <img src={poweredIcon} alt={'Powered icon.'} />
                 <DetailsText>{'Yes'}</DetailsText>
             </PoweredWrapper>
-            <MoreIcon />
+            <MoreIcon func={func} />
         </BoothDetailsContainer>
     )
 }

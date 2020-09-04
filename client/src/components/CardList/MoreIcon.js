@@ -8,9 +8,12 @@ const MoreIconContainer = styled.div`
     align-items: center;
 `
 
-export default function MoreIcon() {
+export default function MoreIcon(props) {
+    const { func } = props
+    
+    // console.log(func)
     return (
-        <MoreIconContainer>
+        <MoreIconContainer onClick={func}>
             <img src={moreIconDefault} alt={'Click to see more options.'} />
         </MoreIconContainer>
     )

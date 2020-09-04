@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import VendorInfo from './VendorInfo'
 import BoothDetails from './BoothDetails'
@@ -28,14 +28,23 @@ const VendorName = styled.p`
 `
 
 export default function VendorCard(props) {
+    const [openDiv, setOpenDiv] = useState(false)
     const { company, userName } = props
-    // console.log(userName)
+
+    function openIt() {
+        if (openDiv === false) {
+            setOpenDiv(true)
+        } else if (openDiv === true) {
+            setOpenDiv(false)
+        }
+    }
+
     return (
         <VendorCardContainer>
             <VendorName>{company}</VendorName>
             <VendorInfo userName={userName} />
-            <BoothDetails />
-            <EditBooth />
+            <BoothDetails func={openIt} />
+            <EditBooth editBooth={openDiv} />
         </VendorCardContainer>
     )
 }

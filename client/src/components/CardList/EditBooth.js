@@ -4,7 +4,7 @@ import SaveButton from './SaveButton'
 
 const EditBoothContainer = styled.div`
     margin: 16px 0px 0px 0px;
-    display: flex;
+    display: ${props => props.display};
     align-items: center;
     column-gap: 32px;
     /* border: 1px dotted lightcoral; */
@@ -18,9 +18,24 @@ const StyledInput = styled.input`
     border-radius: 4px;
 `
 
-export default function EditBooth() {
+export default function EditBooth(props) {
+    const { editBooth } = props
+    // console.log(props)
+
+    function setEditBoothDisplay(displayValue) {
+        if (displayValue === false) {
+            return 'none'
+        } else if (displayValue === true) {
+            return 'flex'
+        }
+    }
+
+    let boothDisplay = setEditBoothDisplay(editBooth)
+
+    
+    // console.log(setBooth)
     return (
-        <EditBoothContainer>
+        <EditBoothContainer display={boothDisplay}>
             <StyledInput />
             <SaveButton />
         </EditBoothContainer>
