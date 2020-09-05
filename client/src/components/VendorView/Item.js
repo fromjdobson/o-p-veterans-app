@@ -3,10 +3,8 @@ import styled from 'styled-components'
 import SaveButton from '../CardList/SaveButton'
 import MoreIcon from './MoreIcon'
 
-
 const ItemContainer = styled.div`
     margin: 0px 0px 0px 0px;
-    /* border: 1px dotted dodgerblue; */
 `
 
 const LabelContainer = styled.div`
@@ -33,16 +31,13 @@ const InputContainer = styled.div`
     box-sizing: border-box;
     margin: 8px 0px 0px 0px;
     width: 100%;
-    /* display: none; */
     display: ${props => props.display};
-    border: 1px dotted gray;
 `
 
 const StyledInput = styled.input`
     box-sizing: border-box;
     margin: 0px 0px 8px 0px;
     padding: 0px 16px 0px 16px;
-    /* width: 180px; */
     width: 100%;
     height: 36px;
     background: #F4F4F4;
@@ -93,21 +88,16 @@ export default function Item(props) {
         }
     }
 
-    
-
     function handleClick() {
         setIcon()
         setDisplay()
     }
-
-    console.log(editDisplay)
 
     return (
         <ItemContainer>
             <LabelContainer onClick={handleClick}>
                 <LabelText>{label}</LabelText>
                 <MoreIcon isOpen={iconOpen} />
-                {/* <img src={editIcon} alt={'More options.'} /> */}
             </LabelContainer>
             <InputContainer display={editDisplay}>
                 <StyledInput />

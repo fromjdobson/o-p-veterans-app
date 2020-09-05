@@ -3,7 +3,6 @@ import { AppStateContext } from '../../providers/Store'
 import styled from 'styled-components'
 import Item from './Item'
 
-
 const VendorViewContainer = styled.div`
     margin-top: 60px;
     box-sizing: border-box;
@@ -21,7 +20,6 @@ const VendorViewContainer = styled.div`
         height: 720px;
         padding: 48px 80px 48px 80px;
     }
-    /* border: 1px solid lightcoral; */
 `
 
 const Heading = styled.h3`
@@ -36,7 +34,6 @@ const Heading = styled.h3`
     letter-spacing: 0.015em;
     color: #403926;
     overflow: hidden;
-    /* border: 1px dotted gray; */
 `
 
 const SubHeading = styled.h6`
@@ -51,23 +48,22 @@ const SubHeading = styled.h6`
     letter-spacing: 0.015em;
     color: #403926;
     overflow: hidden;
-    /* border: 1px dotted gray; */
 `
 
 const ListContainer = styled.div`
     display: flex;
     flex-direction: column;
     row-gap: 16px;
-    /* border: 1px solid green; */
 `
 
 export default function VendorView() {
     const [appState] = useContext(AppStateContext)
     const { name, companyName } = appState.currentUser
+
     // Need to pull in the following properties from the currentUser obj
     // once the forms are built out - the value of those inputs will populate here
     // city, state, suite, zipcode
-    console.log('from vendorView:', name, companyName)
+
     return (
         <VendorViewContainer>
             <Heading>{`Welcome, ${'User'}.`}</Heading>

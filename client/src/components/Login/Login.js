@@ -38,7 +38,6 @@ const Heading = styled.h3`
     letter-spacing: 0.015em;
     color: #403926;
     overflow: hidden;
-    /* border: 1px dotted gray; */
 `
 
 const SubHeading = styled.h6`
@@ -53,7 +52,6 @@ const SubHeading = styled.h6`
     letter-spacing: 0.015em;
     color: #403926;
     overflow: hidden;
-    /* border: 1px dotted gray; */
 `
 
 const TermsContainer = styled.div`
@@ -65,7 +63,6 @@ const TermsContainer = styled.div`
     justify-content: center;
     align-items: center;
     background: #DAD3C1;
-    /* border: 0.5px solid #545454; */
     box-sizing: border-box;
     border-radius: 4px;
 `

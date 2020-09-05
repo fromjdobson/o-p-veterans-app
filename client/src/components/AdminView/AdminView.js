@@ -16,7 +16,6 @@ const AdminViewContainer = styled.div`
     background: #DAD3C1;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 1px 5px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
-    /* border: 1px solid red; */
 
     @media (min-width: 768px) {
         width: 624px;
@@ -37,7 +36,6 @@ const Heading = styled.h3`
     letter-spacing: 0.015em;
     color: #403926;
     overflow: hidden;
-    /* border: 1px dotted gray; */
 `
 
 const SubHeading = styled.h6`
@@ -52,7 +50,6 @@ const SubHeading = styled.h6`
     letter-spacing: 0.015em;
     color: #403926;
     overflow: hidden;
-    /* border: 1px dotted gray; */
 `
 
 export default function AdminView() {
