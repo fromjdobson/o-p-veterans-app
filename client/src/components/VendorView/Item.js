@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import SaveButton from '../CardList/SaveButton'
-import editIcon from '../../assets/icons/edit-icon.svg'
+import MoreIcon from './MoreIcon'
 
 
 const ItemContainer = styled.div`
@@ -14,10 +14,6 @@ const LabelContainer = styled.div`
     display: flex;
     justify-content: space-between;
     /* border: 1px dotted lightcoral; */
-
-    & > img {
-        margin-left: 8px;
-    }
 `
 
 const LabelText = styled.h5`
@@ -37,7 +33,8 @@ const InputContainer = styled.div`
     box-sizing: border-box;
     margin: 8px 0px 0px 0px;
     width: 100%;
-    display: none;
+    /* display: none; */
+    display: ${props => props.display};
     border: 1px dotted gray;
 `
 
@@ -76,15 +73,43 @@ const HelperText = styled.p`
 `
 
 export default function Item(props) {
+    const [iconOpen, setIconOpen] = useState(false)
+    const [editDisplay, setEditDisplay] = useState('none')
     const { label } = props
-    // console.log(label)
+
+    function setIcon() {
+        if (iconOpen === false) {
+            setIconOpen(true)
+        } else if (iconOpen === true) {
+            setIconOpen(false)
+        }
+    }
+
+    function setDisplay() {
+        if (editDisplay === 'none') {
+            setEditDisplay('block')
+        } else if (editDisplay === 'block') {
+            setEditDisplay('none')
+        }
+    }
+
+    
+
+    function handleClick() {
+        setIcon()
+        setDisplay()
+    }
+
+    console.log(editDisplay)
+
     return (
         <ItemContainer>
-            <LabelContainer>
+            <LabelContainer onClick={handleClick}>
                 <LabelText>{label}</LabelText>
-                <img src={editIcon} alt={'Edit field.'} />
+                <MoreIcon isOpen={iconOpen} />
+                {/* <img src={editIcon} alt={'More options.'} /> */}
             </LabelContainer>
-            <InputContainer>
+            <InputContainer display={editDisplay}>
                 <StyledInput />
                 <HelperText>{'Helper text'}</HelperText>
                 <SaveButton />
