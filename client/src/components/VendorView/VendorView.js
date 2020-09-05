@@ -63,14 +63,18 @@ const ListContainer = styled.div`
 
 export default function VendorView() {
     const [appState] = useContext(AppStateContext)
-    console.log('from vendorView:', appState)
+    const { name, companyName } = appState.currentUser
+    // Need to pull in the following properties from the currentUser obj
+    // once the forms are built out - the value of those inputs will populate here
+    // city, state, suite, zipcode
+    console.log('from vendorView:', name, companyName)
     return (
         <VendorViewContainer>
             <Heading>{`Welcome, ${'User'}.`}</Heading>
             <SubHeading>{'View and make changes to your vendor profile.'}</SubHeading>
             <ListContainer>
-                <Item label={'Company name'} />
-                <Item label={'Person name'} />
+                <Item label={companyName} />
+                <Item label={name} />
                 <Item label={'Address'} />
                 <Item label={'Apt/Suite'} />
                 <Item label={'City'} />
