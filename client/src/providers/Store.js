@@ -9,8 +9,13 @@ export default function Store({ children }) {
         currentUser: {
             name: '',
             companyName: '',
-            isAdmin: false,
             description: '',
+            address: '',
+            suite: '',
+            city: '',
+            state: '',
+            zipcode: '',
+            isAdmin: false,
             booth: {
                 boothNumber: '',
                 powered: false

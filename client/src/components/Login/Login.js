@@ -114,8 +114,13 @@ export default function Login() {
                     currentUser: {
                         name: name,
                         isAdmin: isAdmin,
-                        companyName: companyName,
                         description: description,
+                        companyName: companyName,
+                        address: '',
+                        suite: '',
+                        city: '',
+                        state: '',
+                        zipcode: '',
                         booth: {
                             boothNumber: boothNumber,
                             powered: powered
