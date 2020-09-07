@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { FormContext } from "../context/FormContext";
 import image from "../images/OPVeteran2020sitemap.jpg";
 import Zoom from "react-img-zoom";
@@ -20,7 +20,9 @@ function Booths() {
   const history = useHistory();
 
   function goHome() {
+    // userData gets written to the DB
     writeUserData();
+    // Updates booth array without the booth the user selected 
     updateDB();
     history.push("/profile");
   }
@@ -29,6 +31,7 @@ function Booths() {
   // }, []);
   return (
     <div className={styles.container}>
+      {/* NPM package for zooming into images */}
       <Zoom
         img={image}
         zoomScale={3}
@@ -36,8 +39,10 @@ function Booths() {
         height={800}
         transitionTime={0.2}
       />
+      {/* setWhiteToggle is just a toggle function to show the booths */}
       <h1 className={styles.heading} onClick={() => setWhiteToggle(prev => !prev)}>Available Booths</h1>
       <div className={styles.grid}>
+        {/* shows all of the booths  */}
       {whiteToggle
         ? availableBooths.booths.map(i => <div className={styles.column} onClick={() => selectBooth(i)}>{i}</div>)
         : null}

@@ -13,6 +13,7 @@ function Sponsorshiplevels() {
     veteranOwned,
     pushToNextPage
   } = useContext(FormContext);
+  // array of sponsorlevels that we map to the page
   const sponsorArray = [
     {
       name: "Paladin",
@@ -81,7 +82,8 @@ function Sponsorshiplevels() {
 
           {!toggle ? (
             <div className={styles.aTag} onClick={() => setToggle(prev => !prev)}>
-              have a coupon code? Enter it <a>here</a>
+              {/* add something to add more visual fidelity to "here" make it look clickable*/}
+              have a coupon code? Enter it here
             </div>
           ) : (
             <div className={styles.coupon}>

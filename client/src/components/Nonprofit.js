@@ -4,9 +4,7 @@ import { useHistory, Link } from "react-router-dom";
 import styles from "../css/Nonprofit.module.css";
 
 function Nonprofit() {
-  const { handleChange, companyName, veteranOwned, needPower } = useContext(
-    FormContext
-  );
+  const { handleChange, companyName, veteranOwned } = useContext(FormContext);
   const history = useHistory();
   function handleSubmit() {
     history.push("/form4");
@@ -14,7 +12,7 @@ function Nonprofit() {
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit}>
-        <h1>Veteran Business & Nonprofit status</h1>
+        <h1>{"Veteran Business & Nonprofit status"}</h1>
         <h2>just a little more info about {companyName}</h2>
         <p>Is {companyName} Veteran Owned</p>
         <label>
