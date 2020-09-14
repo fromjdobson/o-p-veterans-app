@@ -35,7 +35,7 @@ function App() {
 
 // check to make sure the form is loaded before it is rendered. 
   const squarePayment = isLoad && <Square paymentForm={ window.SqPaymentForm } value = {value} />
-  
+
   return (
     <div className="App">
       {uid ? <Link className = "link" to = "/profile">Profile</Link> : null}
@@ -47,7 +47,9 @@ function App() {
          <Route exact path = "/form3" render ={() => uid ? <Nonprofit /> : <Redirect to = "/" /> } />
          <Route exact path = "/form4" render ={() => uid ? <Sponsorshiplevels /> : <Redirect to = "/" />} />
          <Route exact path = "/form5" render ={() => uid ? <div className="App"> {squarePayment} </div> : <Redirect to = "/" />} />
-         <Route exact path = "/form6" render ={() => uid && hasPayed ? <Booths /> : history.goBack()} />
+         {/* make sure ti add back in hasPayed to ternary operation
+             it was removed to make dev work easier  */}
+         <Route exact path = "/form6" render ={() => uid ? <Booths /> : history.goBack()} />
          <Route exact path = "/viewer" render={() => isAdmin ? <Adminpage /> : <Redirect to = "/" />} />
          {uid ?  <Route exact path = "/profile" render = {() => uid ?  <Profile /> : <Redirect to = "/" />} /> : ""} 
          <Route path='/opvet' component={() => { window.location.href = 'https://opveteran.org/'  

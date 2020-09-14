@@ -63,9 +63,10 @@ const initState = {
     loaded: false,
     coupon: "", 
     hasPayed: false || localStorage.getItem("hasPayed"),
-    boothSelected: "" || localStorage.getItem("boothSelected"),
+    booth: "" || localStorage.getItem("booth"),
     uid: "" || localStorage.getItem('uid'),
-    isAdmin: false
+    // isAdmin: false || localStorage.getItem('admin'),
+    index: '' || localStorage.getItem('index')
 }
 
 export const FormContext = React.createContext()
@@ -75,20 +76,45 @@ function FormProvider(props){
     const history = useHistory()
     
     const [userState, setUserState] = useState(initState)
-    const [userProfile, setUserProfile] = useState(initState)
-    const [availableBooths, setAvailableBooths] = useState({booths:[]})
     const [userBoothState, setUserBoothState] = useState([])
+    const [boothState, setBoothState] = useState()
     const [errorMessage, setErrorMessage] = useState({errorMessage: ""})
-    const sortAlphaNum = (a, b) => a.localeCompare(b, 'en', { numeric: true })
+    // const sortAlphaNum = (a, b) => a.localeCompare(b, 'en', { numeric: true })
 
+    var boothArr = []
 
-
-
-      
     useEffect(() => { 
-        getBooths()
-        // console.log("fired the cannons", availableBooths)
-    }, [])
+        getUsersBoothSelection()
+    },[])
+
+    function getArrayBooths(){ 
+        getUsersBoothSelection()
+        let boothRef = firebase.database().ref('/arrayBooths')
+        boothRef.once('value', function(snapshot){ 
+            snapshot.forEach(function(childSnapshot){ 
+                boothArr.push(childSnapshot.val())
+                // console.log(typeof booths)
+                // setBoothState((prev) => ({ 
+                    //     ...prev,
+                    //     booths: boothsArray
+                    // }))
+                })
+                setBoothState(() => ({
+                    booths: boothArr
+                }))
+            })
+        }
+            
+
+    function updateBooths(index){ 
+        let boothRef = firebase.database().ref('/arrayBooths/' + index)
+        boothRef.once('value', function(snapshot) { 
+            let choosenBooth = snapshot.val()
+            choosenBooth.choosen = true
+            boothRef.set(choosenBooth)
+           
+        })    
+    }
 
     function handleChange(e){ 
         let {name, value} = e.target
@@ -102,14 +128,14 @@ function FormProvider(props){
     }
 
     // Update user in DB
-    function writeUserData() {
+    function writeUserData(i) {
         // let boothRef = firebase.database().ref('booths/')
         let userId = firebase.auth().currentUser.uid
         
         const itemsRef = firebase.database().ref('users/' + userId);
 
         const item = { 
-            ...userState
+            ...userState, 
         }
         let boothRef = firebase.database().ref('booths/')
       const booths = { 
@@ -119,38 +145,38 @@ function FormProvider(props){
         itemsRef.set(item);
     }
 
-    function getBooths(){
-        // gets a ref to the booths section of the DB 
-        let boothRef = firebase.database().ref('booths/')
-        // loop through the data
-        boothRef.on('value', function(snapshot){ 
-            snapshot.forEach(function(childSnapshot){ 
-                // all of the booths
-                let booths1 = childSnapshot.val()
-                // the booths available to the lowest level sponsor 
-                let lowestSponsor = pinkWhite.concat(pinkYellow, blueYellow, blueWhite)
-                let middleLevelSponsor = blueYellow.concat(blueWhite)
+    // function getBooths(){
+    //     // gets a ref to the booths section of the DB 
+    //     let boothRef = firebase.database().ref('booths/')
+    //     // loop through the data
+    //     boothRef.on('value', function(snapshot){ 
+    //         snapshot.forEach(function(childSnapshot){ 
+    //             // all of the booths
+    //             let booths1 = childSnapshot.val()
+    //             // the booths available to the lowest level sponsor 
+    //             let lowestSponsor = pinkWhite.concat(pinkYellow, blueYellow, blueWhite)
+    //             let middleLevelSponsor = blueYellow.concat(blueWhite)
                 
-                let {value} = userState
-                // filters booths based on sponsorship level
-                let displayArray = value < 2500 ? booths1?.filter(function(item){  
-                    // returns everything not included in lowest sponsor etc.. 
-                    return !lowestSponsor.includes(item) }
-                    // reuturns everything not in the middlelevelsponsor otherwise returns all booths
-                ) : value >= 2500 && value < 5000 ? booths1?.filter(function(item){ 
-                    return !middleLevelSponsor.includes(item)}
-                ) : booths1
+    //             let {value} = userState
+    //             // filters booths based on sponsorship level
+    //             let displayArray = value < 2500 ? booths1?.filter(function(item){  
+    //                 // returns everything not included in lowest sponsor etc.. 
+    //                 return !lowestSponsor.includes(item) }
+    //                 // reuturns everything not in the middlelevelsponsor otherwise returns all booths
+    //             ) : value >= 2500 && value < 5000 ? booths1?.filter(function(item){ 
+    //                 return !middleLevelSponsor.includes(item)}
+    //             ) : booths1
             
-                // sorts the booths alphanumerically 
-                displayArray.sort(sortAlphaNum)
-                setAvailableBooths((prev) => ({  
-                    ...prev,
-                   booths:displayArray
-                }))
-            })
-        })
-        getUsersBoothSelection()
-    }
+    //             // sorts the booths alphanumerically 
+    //             displayArray.sort(sortAlphaNum)
+    //             setAvailableBooths((prev) => ({  
+    //                 ...prev,
+    //                booths:displayArray
+    //             }))
+    //         })
+    //     })
+    //     getUsersBoothSelection()
+    // }
 
     function getUsersBoothSelection(){ 
         // get ref to users in db 
@@ -202,27 +228,15 @@ function FormProvider(props){
        
     }
 
-    function editBooth(booth){ 
+    function editBooth(index){ 
         // grab ref to booths in db using arg
-        let boothRef = firebase.database().ref('booths/')
-        boothRef.once('value', function(snapshot){
-            snapshot.forEach(function(childSnapshot){ 
-                let booths = childSnapshot.val()
-                // find the current booth 
-                let key = booth
-                // checks if booth is in array if so splice it out and then add it back in. to avoid duplicates 
-                let index = booths.length ? booths.indexOf(key) : null
-                booths.includes(key) && booths.splice(index, 1)
-                booths.push(booth)
-                // sorts the booths 
-                let sortedBooths = booths.sort(sortAlphaNum)
-                const newBooths = { 
-                    booths: sortedBooths
-                }
-                // update the booth array 
-                boothRef.set(newBooths)
-            })
-        })
+        let boothRef = firebase.database().ref('arrayBooths/' + index)
+            boothRef.once('value', function(snapshot) { 
+                let choosenBooth = snapshot.val()
+                choosenBooth.choosen = false
+                boothRef.set(choosenBooth)
+            }) 
+            history.push('/form6')
     }
 
     function checkCoupon(coupon){ 
@@ -268,22 +282,27 @@ function FormProvider(props){
         let userId = firebase.auth().currentUser.uid
         firebase.database().ref('users/' + userId).once('value').then(function(snapshot) { 
             let user = snapshot.val()
-            localStorage.setItem("address",user && user.address)
-            localStorage.setItem("boothSelected",user && user.boothSelected)
-            localStorage.setItem("businessPhone", user && user.businessPhone)
-            localStorage.setItem("city", user && user.city)
-            localStorage.setItem("companyName", user && user.companyName)
-            localStorage.setItem("displayName", user && user.displayName)
-            localStorage.setItem("email", user && user.email)
-            localStorage.setItem("needPower", user && user.needPower)
-            localStorage.setItem("state", user && user.state)
-            localStorage.setItem("value", user && user.value)
-            localStorage.setItem("zipCode", user && user.zipCode)
-            localStorage.setItem('nonProfit', user && user.nonProfit)
+            // localStorage.setItem("address",user && user.address)
+            // localStorage.setItem("booth",user && user.booth)
+            // localStorage.setItem("businessPhone", user && user.businessPhone)
+            // localStorage.setItem("city", user && user.city)
+            // localStorage.setItem("companyName", user && user.companyName)
+            // localStorage.setItem("displayName", user && user.displayName)
+            // localStorage.setItem("email", user && user.email)
+            // localStorage.setItem("needPower", user && user.needPower)
+            // localStorage.setItem("state", user && user.state)
+            // localStorage.setItem("value", user && user.value)
+            // localStorage.setItem("zipCode", user && user.zipCode)
+            // localStorage.setItem('nonProfit', user && user.nonProfit)
+            // localStorage.setItem('uid', userId)
+            // localStorage.setItem('index', user.index)
             // re-render the page with the updated user info
-            setUserProfile((prev) => ({ 
+            setUserState((prev) => ({ 
                 ...prev, 
-                ...user
+                ...user,
+
+                // uid: user.uid, 
+                // index: user.index
             }))
         });
         
@@ -326,11 +345,11 @@ function FormProvider(props){
             // on auth state change checks to see if the user is an Admin
             firebase.auth().onAuthStateChanged(function(user){
                 if(user){
-                    getUser()
+                    getArrayBooths()
                     firebase.auth().currentUser.getIdTokenResult()
                         .then((idTokenResult) => {
                         // Confirm the user is an Admin.
-                        if(!!idTokenResult.claims.admin) {
+                        if(idTokenResult.claims.admin) {
                             setUserState((prev) => ({
                                 ...prev,
                                 isAdmin: true
@@ -348,7 +367,7 @@ function FormProvider(props){
         auth.signInWithEmailAndPassword(email, password)
         .then(res => { 
             // console.log the res to get the user info 
-            console.log(res.user)
+
             const {uid} = res.user
             // localStorage.setItem("uid", uid)
             localStorage.setItem("email", res.user.email)
@@ -366,10 +385,11 @@ function FormProvider(props){
         firebase.auth().onAuthStateChanged(function(user){
             if(user){
                 getUser()
+                getArrayBooths()
                 firebase.auth().currentUser.getIdTokenResult()
                     .then((idTokenResult) => {
                     // Confirm the user is an Admin.
-                    if(!!idTokenResult.claims.admin) {
+                    if(idTokenResult.claims.admin) {
                         // Show admin UI.
                         setUserState((prev) => ({
                             ...prev,
@@ -377,9 +397,9 @@ function FormProvider(props){
                         }))
                     }
                 })
-                    .catch((error) => {
-                        console.log(error);
-                    });
+            .catch((error) => {
+                console.log(error);
+            });
                 }
             })
         }  
@@ -400,11 +420,13 @@ function FormProvider(props){
             // checks if user is Admin
             firebase.auth().onAuthStateChanged(function(user){
                 if(user){
+                    getArrayBooths()
                     getUser()
                     firebase.auth().currentUser.getIdTokenResult()
                         .then((idTokenResult) => {
+                            console.log(idTokenResult.claims.admin)
                         // Confirm the user is an Admin.
-                        if(!!idTokenResult.claims.admin) {
+                        if(idTokenResult.claims.admin) {
                             // Show admin UI.
                             setUserState((prev) => ({
                                 ...prev,
@@ -418,11 +440,11 @@ function FormProvider(props){
                     }
                 })
             })
-            .catch((error) => { 
-                let errorCode = error.code
-                let errorMessage = error.message
-                
-                console.log(errorCode, errorMessage)
+        .catch((error) => { 
+            let errorCode = error.code
+            let errorMessage = error.message
+            
+            console.log(errorCode, errorMessage)
         })   
     }
 
@@ -440,12 +462,13 @@ function FormProvider(props){
             localStorage.setItem('uid', res.user.uid)
             // checks if user is admin
             firebase.auth().onAuthStateChanged(function(user){
+                getUser()
+                getArrayBooths()
                 if(user){
-                    getUser()
                     firebase.auth().currentUser.getIdTokenResult()
                         .then((idTokenResult) => {
                         // Confirm the user is an Admin.
-                        if(!!idTokenResult.claims.admin) {
+                        if(idTokenResult.claims.admin) {
                             // Show admin UI.
                             setUserState((prev) => ({
                                 ...prev,
@@ -459,10 +482,10 @@ function FormProvider(props){
                     }
                 })
             })
-                .catch(e => { 
-                    let error = e.message
-                    let errorCode = e.code
-                    console.log(error, errorCode)
+            .catch(e => { 
+                let error = e.message
+                let errorCode = e.code
+                console.log(error, errorCode)
         })
     }
 
@@ -471,7 +494,7 @@ function FormProvider(props){
         // google firebase method to logout user
         auth.signOut()
         setUserState(() => ({ 
-            uid: "",
+            uid: ""
         }))
         // sends back to login page
         history.push("/")
@@ -479,7 +502,6 @@ function FormProvider(props){
 
     return( 
         <FormContext.Provider value = {{
-            ...userState,
             handleChange, 
             handleSignup, 
             signInWithFacebook, 
@@ -491,17 +513,18 @@ function FormProvider(props){
             writeUserData,
             checkCoupon, 
             selectBooth, 
-            ...errorMessage,
-            getBooths,
+            // getBooths,
             updateDB,
-            availableBooths,
             userBoothState, 
-            userProfile, 
-            getUser, 
             setUserState, 
             editBooth, 
             getUsersBoothSelection, 
             editUsers,
+            getArrayBooths,
+            boothState,
+            updateBooths,
+            ...userState,
+            ...errorMessage,
     
 
         }}>

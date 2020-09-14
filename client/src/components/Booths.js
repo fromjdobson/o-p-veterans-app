@@ -4,6 +4,7 @@ import image from "../images/OPVeteran2020sitemap.jpg";
 import Zoom from "react-img-zoom";
 import { useHistory } from "react-router";
 import styles from "../css/Booths.module.css";
+import Interactivemap from "./Interactivemap.jsx"
 
 function Booths() {
   const {
@@ -32,13 +33,14 @@ function Booths() {
   return (
     <div className={styles.container}>
       {/* NPM package for zooming into images */}
-      <Zoom
+      <Interactivemap />
+      {/* <Zoom
         img={image}
         zoomScale={3}
         width={800}
         height={800}
         transitionTime={0.2}
-      />
+      /> */}
       {/* setWhiteToggle is just a toggle function to show the booths */}
       <h1 className={styles.heading} onClick={() => setWhiteToggle(prev => !prev)}>Available Booths</h1>
       <div className={styles.grid}>
@@ -60,7 +62,7 @@ function Booths() {
 
       <br></br>
       <div className={styles.btnDiv}>
-        {
+        {/* {
           boothSelected ? 
             <button 
               className={styles.submitBtn} 
@@ -75,7 +77,7 @@ function Booths() {
             >
                 Submit
             </button>
-        }
+        } */}
       
       </div>
 

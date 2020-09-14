@@ -53,3 +53,20 @@
       margin: 10px;
     }
 
+    svg{ 
+      height: 150vh;
+      width: 100vw;
+  }
+  rect{ 
+    color: white;
+    z-index: 0;
+  }
+  
+  .popup-booths{ 
+    z-index: 1;
+  }
+  /* rect:hover{ 
+      fill: royalblue;
+  
+  } */
+

@@ -12,10 +12,100 @@ app.use(cors())
 // Set the Access Token
 const accessToken = process.env.ACCESS_TOKEN
 
+// Get a database reference to our blog
 admin.initializeApp({
   credential: admin.credential.applicationDefault(),
   databaseURL: 'https://op-vet.firebaseio.com/'
 });
+
+var db = admin.database();
+var ref = db.ref("/arrayBooths")
+const fs = require('fs')
+const { parse, stringify } = require('svgson');
+
+
+let data = ''
+const readStream = fs.createReadStream('./client/src/images/opvetsvg.svg', 'utf8');
+
+const row = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M']
+let booth = []
+let rowIndex = 0;
+
+let svg;
+
+function boothGen(rowSize, rowLetter){
+    while(rowIndex < rowSize ){
+        booth.push(rowLetter + rowIndex)
+        rowIndex += 1
+    }
+    rowIndex = 1
+}
+row.map( row => {
+    switch(row){
+        case "A":
+            boothGen(15, row)
+            break
+        case "B":
+            boothGen(22, row)
+            break
+        case "C":
+            boothGen(22, row)
+            break
+        case "D": 
+            boothGen(22, row)
+            break
+        case "E": 
+            boothGen(22, row)
+            break
+        case "F": 
+            boothGen(22, row)
+            break
+        case "G": 
+            boothGen(22, row)
+            break
+        case "H": 
+            boothGen(22, row)
+            break
+        case "I": 
+            boothGen(29, row)
+            break
+        case "J": 
+            boothGen(8, row)
+            break
+        case "K": 
+            boothGen(8, row)
+            break
+        case "L": 
+            boothGen(8, row)
+            break
+        case "M": 
+            boothGen(17, row)
+            break
+        default:
+            console.log(booth)
+    }
+})
+
+readStream.on('data', chunk => {
+    data += chunk
+}).on('end', () => {
+    parse(data).then(json => {
+        svg = json
+        console.log(typeof svg)
+        let boothTracker = 1
+        for(let i = 1; i < svg["children"].length; i++){
+            svg.children[i].booth = booth[boothTracker]
+            svg.children[i].choosen = false
+            boothTracker++
+        }
+       
+        // ref.set(svg.children)
+        console.log(svg.children)
+    })
+
+    // data.children.map( (item, index) => item.booth = booth[index] )
+    // console.log(data)
+})
 
 
 app.use(bodyParser.json());

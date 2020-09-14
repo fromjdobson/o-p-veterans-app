@@ -9,6 +9,7 @@
     "dotenv": "^8.2.0",
     "firebase": "^7.14.3",
     "firebase-admin": "^8.13.0",
+    "fs": "0.0.1-security",
     "http2": "^3.3.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -17,7 +18,8 @@
     "react-img-zoom": "^0.1.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "svgson": "^4.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
