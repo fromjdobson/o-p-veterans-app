@@ -244,7 +244,6 @@ function FormProvider(props){
         if(couponCodes.includes(coupon)){ 
             setUserState((prev) => ({ 
                 ...prev, 
-                qty: 0, 
                 hasPayed: true
             }))
             localStorage.setItem("hasPayed", userState.hasPayed)

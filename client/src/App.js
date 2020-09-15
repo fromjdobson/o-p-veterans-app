@@ -49,7 +49,7 @@ function App() {
          <Route exact path = "/form5" render ={() => uid ? <div className="App"> {squarePayment} </div> : <Redirect to = "/" />} />
          {/* make sure ti add back in hasPayed to ternary operation
              it was removed to make dev work easier  */}
-         <Route exact path = "/form6" render ={() => uid ? <Booths /> : history.goBack()} />
+         <Route exact path = "/form6" render ={() => uid && hasPayed ? <Booths /> : history.goBack()} />
          <Route exact path = "/viewer" render={() => isAdmin ? <Adminpage /> : <Redirect to = "/" />} />
          {uid ?  <Route exact path = "/profile" render = {() => uid ?  <Profile /> : <Redirect to = "/" />} /> : ""} 
          <Route path='/opvet' component={() => { window.location.href = 'https://opveteran.org/'  

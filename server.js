@@ -100,7 +100,7 @@ readStream.on('data', chunk => {
         }
        
         // ref.set(svg.children)
-        console.log(svg.children)
+        // console.log(svg.children)
     })
 
     // data.children.map( (item, index) => item.booth = booth[index] )

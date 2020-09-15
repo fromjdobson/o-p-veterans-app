@@ -2,21 +2,19 @@ import React, {useState} from 'react'
 import "../css/styles.css"
 
 function Map(props){
+
+    const [hover, setHover] = useState(false)
    
     const {divStyle} = props
-    
-    
 
-    // function handleHover(){ 
-    //     setDivStyle((props.index + 1))
+     function handleHover(){ 
+         console.log(hover)
+        setHover(prev => !prev)
 
-    // }
+    }
 
     function handleClick(){ 
         let index = props.index + 1
-   
-       
-        console.log(divStyle, index)
         props.updateIndex(index, props.booth)
     }
 
@@ -24,7 +22,7 @@ function Map(props){
     return(
         <> 
             <text 
-            display = {divStyle !== props.index + 1 ? "none": "block"} 
+            display = {!hover & divStyle !== props.index + 1  ? "none" : "block"} 
             x = {props.x} 
             y={props.y} 
             transform = {props.transform} 
@@ -38,9 +36,9 @@ function Map(props){
 
             <rect 
             onClick = {!props.choosen ? () => handleClick() : null} 
-            // onMouseEnter = {() => handleHover()} 
-            // onMouseLeave = {() => handleHover()} 
-            fill = {props.choosen ? "grey" : divStyle !== props.index + 1 ? props.style.fill : "blue"} 
+            onMouseEnter = {() => handleHover()} 
+            onMouseLeave = {() => handleHover()} 
+            fill = {props.choosen ? "grey" : !hover & divStyle !== props.index + 1  ? props.style.fill : "blue"} 
             x={props.x} 
             y={props.y} 
             transform={props.transform} 

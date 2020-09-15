@@ -12,13 +12,14 @@ function Interactivemap(){
     const history = useHistory()
     const [divStyle, setDivStyle] = useState()
 
+
     useEffect(() => { 
         getArrayBooths()
     },[])
     
 
     function updateIndex(index, booth){ 
-        setDivStyle((prev) => (prev === index ? undefined : index))
+        setDivStyle((prev) => (prev === index ? null : index))
         setUserState((prev) => ({ 
             ...prev, 
             booth: booth, 
@@ -30,6 +31,7 @@ function Interactivemap(){
       writeUserData(i)
       history.push('/profile')
    }
+
  
    return ( 
        <>
