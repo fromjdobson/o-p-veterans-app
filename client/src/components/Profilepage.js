@@ -9,52 +9,50 @@ import "../css/styles.css"
 function Profile(){ 
     const [toggle, setToggle] = useState(true)
     const history = useHistory()
-    const {userProfile, handleChange, writeUserData, getUser, setUserState, logout, editBooth} = useContext(FormContext)
+    const { handleChange, writeUserData, getUser, setUserState, logout, index, editBooth, ...userState } = useContext(FormContext)
 
     function updateFields(){ 
         setToggle(prev => !prev)
         // write to db 
         writeUserData()
         // get the user from the db and update localstorage
-        getUser()
     }
 
-    
+    console.log(userState, 'end my suffering please ')
 
-    function handleBoothEdit(e){
-        e.preventDefault()
+    function handleBoothEdit(){
         setUserState((prev) => ({ 
             ...prev, 
             hasPayed: true
         })) 
         // for new booth selection
-        editBooth(userProfile.boothSelected)
+        editBooth(index)
         history.push("/form6")
     }
 
     return( 
         <div className = "profile-form"> 
         <form>
-        <h1>{`Welcome back ${userProfile.email ? userProfile.email : userProfile.displayName} `}</h1> 
+        <h1>{`Welcome back ${userState?.email ? userState?.email : userState?.displayName} `}</h1> 
             <div>{ toggle ? 
             <>
-                <h2>Address: {userProfile.address}</h2>
+                <h2>Address: {userState.address}</h2>
                
                 </>
                 : 
                 <>
-                <h2>Address: <input onChange = {(e) => handleChange(e)} type = "text" placeholder = {userProfile.address} name = "address" ></input></h2>
+                <h2>Address: <input onChange = {(e) => handleChange(e)} type = "text" placeholder = {userState.address} name = "address" ></input></h2>
                 </>}
                 
             </div>
             <div>
                 {toggle ?
                 <> 
-                    <h2>City: {userProfile.city}</h2>
+                    <h2>City: {userState.city}</h2>
                 </>
                     : 
                     <>
-                    <h2>City: <input onChange = {(e) => handleChange(e)} type = "text" placeholder = {userProfile.city} name = "city"></input></h2>
+                    <h2>City: <input onChange = {(e) => handleChange(e)} type = "text" placeholder = {userState.city} name = "city"></input></h2>
                     
                     </>
             }
@@ -62,34 +60,34 @@ function Profile(){
             </div>
             <div>
                 {toggle ? 
-                <h2>State: {userProfile.state}</h2> 
+                <h2>State: {userState.state}</h2> 
                 : 
                 <>
-                    <h2>State: <input onChange = {(e) => handleChange(e)} type = "text" placeholder = {userProfile.state} name = "state"></input></h2>
+                    <h2>State: <input onChange = {(e) => handleChange(e)} type = "text" placeholder = {userState.state} name = "state"></input></h2>
                    
                 </>
         }
             </div>
             <div>
                 {toggle ? 
-                <h2>Booth Selected: {userProfile.boothSelected}</h2>
+                <h2>Booth Selected: {userState?.booth}</h2>
                 : 
-                    <h2>Booth Selected: <button onClick = {(e) => handleBoothEdit(e)}>Select New Booth</button></h2>
+                    <h2>Booth Selected: <button onClick = {() => handleBoothEdit()}>Select New Booth</button></h2>
                    }
             </div>
             <div>
-                {toggle ? <h2>Business Phone: {userProfile.businessPhone}</h2> : <h2>Business Phone: <input onChange = {(e) => handleChange(e)} type = "text" placeholder = {userProfile.businessPhone} name = 'businessPhone'></input></h2>}
+                {toggle ? <h2>Business Phone: {userState.businessPhone}</h2> : <h2>Business Phone: <input onChange = {(e) => handleChange(e)} type = "text" placeholder = {userState.businessPhone} name = 'businessPhone'></input></h2>}
                 
             </div>
             <div>
-               {toggle ? <h2>Company Name: {userProfile.companyName}</h2> : <h2> Company Name: <input onChange = {(e) => handleChange(e)} type = "text" placeholder = {userProfile.companyName} name = "companyName"></input></h2>} 
+               {toggle ? <h2>Company Name: {userState.companyName}</h2> : <h2> Company Name: <input onChange = {(e) => handleChange(e)} type = "text" placeholder = {userState.companyName} name = "companyName"></input></h2>} 
             </div>
             <div>
-                {toggle ? <h2>Email: {userProfile.email}</h2> : <h2>Email: <input onChange = {(e) => handleChange(e)} type = "text" placeholder = {userProfile.email} name = "email"></input></h2>}
+                {toggle ? <h2>Email: {userState.email}</h2> : <h2>Email: <input onChange = {(e) => handleChange(e)} type = "text" placeholder = {userState.email} name = "email"></input></h2>}
                 
             </div>
             <div> 
-                {toggle ? <h2>Need a Booth with power?: {userProfile.needPower ? "Yes" : "No"}</h2> : <h2>Need a Booth with Power?:<>
+                {toggle ? <h2>Need a Booth with power?: {userState.needPower ? "Yes" : "No"}</h2> : <h2>Need a Booth with Power?:<>
                 <label>
                     <br></br>
                 <input
@@ -114,11 +112,11 @@ function Profile(){
                 
             </div>
             <div>
-                {toggle ? <h2>Sponsorship Level: ${userProfile.value}</h2> : <h2>Sponsorship Level: <input onChange = {(e) => handleChange(e)} type = "text" placeholder = {userProfile.value} name = "value"></input></h2> }
+                {toggle ? <h2>Sponsorship Level: ${userState.value}</h2> : <h2>Sponsorship Level: <input onChange = {(e) => handleChange(e)} type = "text" placeholder = {userState.value} name = "value"></input></h2> }
                 
             </div>
             <div>
-                {toggle ? <h2>{`is ${userProfile.companyName} a non-profit or government agency?`}: {userProfile.nonProfit ? "Yes" : "No"}</h2>: <h2>{`is ${userProfile.companyName} a non-profit or government agency?`}:<label>
+                {toggle ? <h2>{`is ${userState.companyName} a non-profit or government agency?`}: {userState.nonProfit ? "Yes" : "No"}</h2>: <h2>{`is ${userState.companyName} a non-profit or government agency?`}:<label>
           <input
             type="radio"
             name="nonProfit"

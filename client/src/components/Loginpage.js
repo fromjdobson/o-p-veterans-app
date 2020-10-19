@@ -88,7 +88,6 @@ function Loginpage() {
       <div>
         {errorMessage ? <p style={{ color: "red" }}>{errorMessage}</p> : ""}
       </div>
-      {console.log(toggle.privacyAgreement)}
       <input
         type="checkbox"
         checked = {toggle.privacyAgreement}

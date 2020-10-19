@@ -4,7 +4,7 @@ import Allusers from "./Allusers"
 
 function Adminpage(){ 
     const { userBoothState } = useContext(FormContext)
-
+    console.log(userBoothState, 'this is the userboothstate')
     return ( 
         <div> 
             {/* maps all of the users info into props in the component */}

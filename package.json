@@ -18,7 +18,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
-    "square-connect": "^3.20200422.2"
+    "square-connect": "^3.20200422.2",
+    "svgson": "^4.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
