@@ -3,7 +3,8 @@ import { FormContext } from "../context/FormContext";
 import styles from "../css/Square.module.css";
 
 const Square = ({ paymentForm }) => {
-const { value, pushToNextPage } = useContext(FormContext);
+const { value, pushToNextPage, needPower } = useContext(FormContext);
+
 const config = {
     // Initialize the payment form elements
         

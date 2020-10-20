@@ -34,7 +34,6 @@ function Nonprofit() {
           ></input>
           No (may require sponsorship)
         </label>
-        {veteranOwned ? (
           <>
             <p>Do you require a booth with power?</p>
             <label>
@@ -44,7 +43,7 @@ function Nonprofit() {
               value={true}
               onChange={handleChange}
             ></input>
-            Yes (additional charges may apply)
+            Yes (additional $50 charge will be added)
             </label>
             <label>
             <input
@@ -56,9 +55,6 @@ function Nonprofit() {
             No
             </label>
           </>
-        ) : (
-          ""
-        )}
         <h1>Non Profit Status</h1>
         <p>is the business you are registering a non-profit or government agency</p>
         <label>

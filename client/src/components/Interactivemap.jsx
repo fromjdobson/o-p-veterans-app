@@ -7,8 +7,8 @@ import { useEffect } from 'react'
 
 function Interactivemap(){ 
 
-    const {boothState, setUserState, writeUserData, index, getArrayBooths} = useContext(FormContext)
-    const{ updateBooths} = useContext(FormContext)
+    const {boothState, setUserState, index, getArrayBooths} = useContext(FormContext)
+    const {updateBooths} = useContext(FormContext)
     const history = useHistory()
     const [divStyle, setDivStyle] = useState()
 
@@ -28,27 +28,28 @@ function Interactivemap(){
     }
    function handleSubmit(i){ 
       updateBooths(i)
-      writeUserData(i)
+    //   writeUserData(i)
       history.push('/profile')
-   }
+   } 
 
- 
+
    return ( 
        <>
-            <svg style = {{zIndex: -1}} id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 797.1896 862.6702">
+            <svg style = {{zIndex: -1, height: "100vh"}} id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 797.1896 862.6702">
                 {boothState && boothState.booths.map((item, index) => 
                       <Map 
                         divStyle = {divStyle}
                         updateIndex = {updateIndex}
                         style= {{fill:"black"}} 
-                        x={item && item.attributes.x} 
-                        y = {item && item.attributes.y} 
-                        transform = {item && item.attributes.transform} 
-                        height = {item && item.attributes.height} 
-                        width = {item && item.attributes.width} 
-                        class = {item && item.attributes.class} 
-                        booth = {item && item.booth} 
-                        choosen = {item && item.choosen} 
+                        x={item.attributes.x} 
+                        y = {item.attributes.y} 
+                        transform = {item.attributes.transform} 
+                        height = {item.attributes.height} 
+                        width = {item.attributes.width} 
+                        class = {item.attributes.class} 
+                        booth = {item.booth} 
+                        choosen = {item.choosen} 
+                        power = {item.power}
                         index = {index && index} />
                         )}
             </svg>

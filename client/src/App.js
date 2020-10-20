@@ -4,12 +4,13 @@ import Nameform from "./components/Nameform.js"
 import Businessinfo from "./components/Businessinfo.js"
 import Nonprofit from "./components/Nonprofit.js"
 import Square from './components/Square.js';
-import Booths from "./components/Booths.js"
 import Sponsorshiplevels from "./components/Sponsorshiplevels.js"
 import Profile from "./components/Profilepage.js"
 import {Switch, Route, Redirect, useHistory, Link} from "react-router-dom"
 import { FormContext } from "./context/FormContext"
 import Adminpage from './components/Adminpage.js';
+import Thankyou from './components/Thankyou.js';
+import Interactivemap from './components/Interactivemap'
 
 
 
@@ -49,8 +50,9 @@ function App() {
          <Route exact path = "/form5" render ={() => uid ? <div className="App"> {squarePayment} </div> : <Redirect to = "/" />} />
          {/* make sure ti add back in hasPayed to ternary operation
              it was removed to make dev work easier  */}
-         <Route exact path = "/form6" render ={() => uid && hasPayed ? <Booths /> : history.goBack()} />
+         <Route exact path = "/form6" render ={() => uid && hasPayed ? <Interactivemap /> : history.goBack()} />
          <Route exact path = "/viewer" render={() => isAdmin ? <Adminpage /> : <Redirect to = "/" />} />
+         <Route exact path = "/thankyou" render = {() => uid ?  <Thankyou /> : history.goBack()} />
          {uid ?  <Route exact path = "/profile" render = {() => uid ?  <Profile /> : <Redirect to = "/" />} /> : ""} 
          <Route path='/opvet' component={() => { window.location.href = 'https://opveteran.org/'  
             return null }}/>
