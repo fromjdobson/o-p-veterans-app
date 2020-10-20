@@ -11,7 +11,8 @@ function Sponsorshiplevels() {
     coupon,
     checkCoupon,
     veteranOwned,
-    pushToNextPage
+    pushToNextPage, 
+    needPower
   } = useContext(FormContext);
   // array of sponsorlevels that we map to the page
   const sponsorArray = [
@@ -68,7 +69,7 @@ function Sponsorshiplevels() {
             {sponsorArray.map(item => (
               <div
                 className={styles.card}
-                onClick={() => handleSubmit(item.value)}
+                onClick={needPower ? () => handleSubmit(item.value + 50) : () => handleSubmit(item.value)}
                 key={item.name}
               >
                 <h1>{item.name}</h1>

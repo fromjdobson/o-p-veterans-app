@@ -12,7 +12,6 @@ app.use(cors())
 // Set the Access Token
 const accessToken = process.env.ACCESS_TOKEN
 
-// Get a database reference to our blog
 admin.initializeApp({
   credential: admin.credential.applicationDefault(),
   databaseURL: 'https://op-vet.firebaseio.com/'
@@ -24,10 +23,12 @@ const fs = require('fs')
 const { parse, stringify } = require('svgson');
 
 
+
 let data = ''
 const readStream = fs.createReadStream('./client/src/images/opvetsvg.svg', 'utf8');
 
 const row = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M']
+const powerBooths = ['C3', 'C4', 'C5', 'C6', 'C7', 'C15', 'C16', 'C17', 'C18', 'C19', 'D3', 'D4', 'D5', 'D6', 'D7', 'D15', 'D16', 'D17', 'D18', 'D19', 'F1', 'F2', 'F3','F4', 'F5', 'G1', 'G2','G3','G4','G5', 'I8','I9','I10', 'I11', 'I12', 'I13','I14']
 let booth = []
 let rowIndex = 0;
 
@@ -91,16 +92,24 @@ readStream.on('data', chunk => {
 }).on('end', () => {
     parse(data).then(json => {
         svg = json
-        console.log(typeof svg)
         let boothTracker = 1
+        
         for(let i = 1; i < svg["children"].length; i++){
             svg.children[i].booth = booth[boothTracker]
+                if(powerBooths.includes(svg.children[i].booth)){ 
+                    svg.children[i].power = true
+                } else { 
+                    svg.children[i].power = false
+                }
             svg.children[i].choosen = false
             boothTracker++
         }
        
         // ref.set(svg.children)
-        // console.log(svg.children)
+        console.log(svg.children)
+    })
+    .catch(err => { 
+        console.log(err)
     })
 
     // data.children.map( (item, index) => item.booth = booth[index] )

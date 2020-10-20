@@ -22,18 +22,6 @@ firebase.analytics();
 // coupon codes to skip payment
 const couponCodes = ["opvet123", "test123", "coupon111"]
 const auth = firebase.auth()
-const whiteBooths = ["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "A12", "A13", "A14", "B1", "B2", "B3", 
-"B4", "B5", 'B6', 'B7', 'B8', 'B9', 'B10', 'B11', 'B12', 'B13', 'B14', 'B15', 'B16', 'B17', 'B18', 'B19', 'B20', 'B21', 'C1', 'C2', 'C8', 'C9', 'C10', 'C11', 'C12', 'C13'
-,'C14', 'C20', 'C21', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12', 'F13', 'F14', 'F15', 'F16', 'F17', 'F18', 'F19', 'F20', 'F21', 'G6', 'G7', 'G8', 'G9','G10','G11','G12','G13','G14','G15','G16'
-,'G17','G18', 'G19', 'G20','G21', 'H1','H2','H3','H4','H5', 'H6','H7','H8','H9','H10','H11','H12','H13','H14','H15','H16','H17','H18','H19','H20','H21','I1','I2','I3','I4','I5','I6','I7','I15','I16','I17','I18','I19','I20','I21','I22','I23'
-,'I24', 'I25', 'I26', 'I27','I28', 'J1','J2','J3','J4','J5','J6','J7','J8','K1','K2','K3','K4','K5','K6','K7','L1','L2','L3','L4','L5','L6','L7','M1','M2','M3','M4','M5','M6','M7','M8']
-const yellowBooths =  ['C3','C4','C5','C6','C7', 'C15', 'C16', 'C17', 'C18','C19',
-'F1','F2', 'F3','F4','F5','G1','G2','G3','G4','G5','I8','I9','I10','I11','I12','I13','I14']
-const pinkWhite = ['D1','D2','D8', 'D9','D10','D11','D12','D13','D14', 'E1','E2','E3','E4','E5','E6','E7','E8','E9','E10'
-,'E11','E12','E13','E14']
-const pinkYellow = ['D3', 'D4', 'D5', 'D6','D7']
-const blueWhite = ['D20','D21',"E15", "E16", "E17", "E18", "E19", "E20", "E21", "E22", "E23", 'E24', 'E25','E26','E27','E28']
-const blueYellow = ['D15','D16','D17','D18','D19']
 
 const FBprovider = new firebase.auth.FacebookAuthProvider()
 const googleProvider = new firebase.auth.GoogleAuthProvider()
@@ -65,7 +53,6 @@ const initState = {
     hasPayed: false || localStorage.getItem("hasPayed"),
     booth: "" || localStorage.getItem("booth"),
     uid: "" || localStorage.getItem('uid'),
-    // isAdmin: false || localStorage.getItem('admin'),
     index: '' || localStorage.getItem('index')
 }
 
@@ -128,8 +115,7 @@ function FormProvider(props){
     }
 
     // Update user in DB
-    function writeUserData(i) {
-        // let boothRef = firebase.database().ref('booths/')
+    function writeUserData() {
         let userId = firebase.auth().currentUser.uid
         
         const itemsRef = firebase.database().ref('users/' + userId);
@@ -137,46 +123,8 @@ function FormProvider(props){
         const item = { 
             ...userState, 
         }
-        let boothRef = firebase.database().ref('booths/')
-      const booths = { 
-        booths: whiteBooths.concat( yellowBooths, pinkWhite, pinkYellow, blueWhite, blueYellow)
-    }
-        boothRef.set(booths)
         itemsRef.set(item);
     }
-
-    // function getBooths(){
-    //     // gets a ref to the booths section of the DB 
-    //     let boothRef = firebase.database().ref('booths/')
-    //     // loop through the data
-    //     boothRef.on('value', function(snapshot){ 
-    //         snapshot.forEach(function(childSnapshot){ 
-    //             // all of the booths
-    //             let booths1 = childSnapshot.val()
-    //             // the booths available to the lowest level sponsor 
-    //             let lowestSponsor = pinkWhite.concat(pinkYellow, blueYellow, blueWhite)
-    //             let middleLevelSponsor = blueYellow.concat(blueWhite)
-                
-    //             let {value} = userState
-    //             // filters booths based on sponsorship level
-    //             let displayArray = value < 2500 ? booths1?.filter(function(item){  
-    //                 // returns everything not included in lowest sponsor etc.. 
-    //                 return !lowestSponsor.includes(item) }
-    //                 // reuturns everything not in the middlelevelsponsor otherwise returns all booths
-    //             ) : value >= 2500 && value < 5000 ? booths1?.filter(function(item){ 
-    //                 return !middleLevelSponsor.includes(item)}
-    //             ) : booths1
-            
-    //             // sorts the booths alphanumerically 
-    //             displayArray.sort(sortAlphaNum)
-    //             setAvailableBooths((prev) => ({  
-    //                 ...prev,
-    //                booths:displayArray
-    //             }))
-    //         })
-    //     })
-    //     getUsersBoothSelection()
-    // }
 
     function getUsersBoothSelection(){ 
         // get ref to users in db 
@@ -267,34 +215,25 @@ function FormProvider(props){
         history.push("/form6")
     }
 
-    function selectBooth(i){ 
-        // updates booth selected in userState
-        setUserState((prev) => ({ 
-            ...prev, 
-            boothSelected: i
-        }))
-        localStorage.setItem("boothSelected", i)
-        alert(`you have selected booth ${i}`)
-    }
 
     function getUser(){ 
         let userId = firebase.auth().currentUser.uid
         firebase.database().ref('users/' + userId).once('value').then(function(snapshot) { 
             let user = snapshot.val()
-            // localStorage.setItem("address",user && user.address)
-            // localStorage.setItem("booth",user && user.booth)
-            // localStorage.setItem("businessPhone", user && user.businessPhone)
-            // localStorage.setItem("city", user && user.city)
-            // localStorage.setItem("companyName", user && user.companyName)
-            // localStorage.setItem("displayName", user && user.displayName)
-            // localStorage.setItem("email", user && user.email)
-            // localStorage.setItem("needPower", user && user.needPower)
-            // localStorage.setItem("state", user && user.state)
-            // localStorage.setItem("value", user && user.value)
-            // localStorage.setItem("zipCode", user && user.zipCode)
-            // localStorage.setItem('nonProfit', user && user.nonProfit)
-            // localStorage.setItem('uid', userId)
-            // localStorage.setItem('index', user.index)
+            localStorage.setItem("address",user && user.address)
+            localStorage.setItem("booth",user && user.booth)
+            localStorage.setItem("businessPhone", user && user.businessPhone)
+            localStorage.setItem("city", user && user.city)
+            localStorage.setItem("companyName", user && user.companyName)
+            localStorage.setItem("displayName", user && user.displayName)
+            localStorage.setItem("email", user && user.email)
+            localStorage.setItem("needPower", user && user.needPower)
+            localStorage.setItem("state", user && user.state)
+            localStorage.setItem("value", user && user.value)
+            localStorage.setItem("zipCode", user && user.zipCode)
+            localStorage.setItem('nonProfit', user && user.nonProfit)
+            localStorage.setItem('uid', userId)
+            localStorage.setItem('index', user.index)
             // re-render the page with the updated user info
             setUserState((prev) => ({ 
                 ...prev, 
@@ -510,8 +449,7 @@ function FormProvider(props){
             handleSubmit,
             pushToNextPage,
             writeUserData,
-            checkCoupon, 
-            selectBooth, 
+            checkCoupon,  
             // getBooths,
             updateDB,
             userBoothState, 

@@ -12,13 +12,13 @@ function Profile(){
     const { handleChange, writeUserData, getUser, setUserState, logout, index, editBooth, ...userState } = useContext(FormContext)
 
     function updateFields(){ 
-        setToggle(prev => !prev)
+        setToggle(prev => !prev) 
         // write to db 
         writeUserData()
         // get the user from the db and update localstorage
+        history.push("/thankyou")
     }
 
-    console.log(userState, 'end my suffering please ')
 
     function handleBoothEdit(){
         setUserState((prev) => ({ 
