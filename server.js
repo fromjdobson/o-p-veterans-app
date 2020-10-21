@@ -106,7 +106,7 @@ readStream.on('data', chunk => {
         }
        
         // ref.set(svg.children)
-        console.log(svg.children)
+        // console.log(svg.children)
     })
     .catch(err => { 
         console.log(err)

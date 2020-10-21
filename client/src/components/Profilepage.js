@@ -9,7 +9,7 @@ import "../css/styles.css"
 function Profile(){ 
     const [toggle, setToggle] = useState(true)
     const history = useHistory()
-    const { handleChange, writeUserData, getUser, setUserState, logout, index, editBooth, ...userState } = useContext(FormContext)
+    const { handleChange, writeUserData, getUser, setUserState, logout, index, image, editBooth, ...userState } = useContext(FormContext)
 
     function updateFields(){ 
         setToggle(prev => !prev) 
@@ -33,6 +33,7 @@ function Profile(){
     return( 
         <div className = "profile-form"> 
         <form>
+        {/* <img id = "myimg" alt = "testimage"> </img> */}
         <h1>{`Welcome back ${userState?.email ? userState?.email : userState?.displayName} `}</h1> 
             <div>{ toggle ? 
             <>
@@ -141,6 +142,10 @@ function Profile(){
             <button className = "profile-button" onClick = {() => updateFields()}>Submit</button>
             <button className = "profile-button" onClick = {() => logout()}>Logout</button>
             <button className = "profile-button" onClick = {() => history.goBack()}>Back</button>
+            {image?.map(image => 
+                <img style = {{ objectFit: "scale-down", width: 500, height: 500}} src = {image} alt = "img"></img>
+            )}
+            {/* <img src = {image && image} alt = "img"></img> */}
         </div>
     )
 }
