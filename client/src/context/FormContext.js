@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react'
 import firebase from 'firebase'
 import { useHistory } from "react-router-dom"
+import { ChargeRequest } from 'square-connect';
 
 // config object for firebase
 const firebaseConfig = {
@@ -66,13 +67,70 @@ function FormProvider(props){
     const [userBoothState, setUserBoothState] = useState([])
     const [boothState, setBoothState] = useState()
     const [errorMessage, setErrorMessage] = useState({errorMessage: ""})
+    const [image, setImage ] = useState()
     // const sortAlphaNum = (a, b) => a.localeCompare(b, 'en', { numeric: true })
 
     var boothArr = []
 
     useEffect(() => { 
         getUsersBoothSelection()
+        getImages()
     },[])
+
+    function uploadImage(e){ 
+          const file = e.target.files[0]
+          const uploader = document.getElementById('uploader')
+            
+          const storageRef = firebase.storage().ref(`images/${file.name}`)
+          const task = storageRef.put(file)
+          task.on('state_changed', 
+            function progress(snapshot){ 
+                const percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                console.log(percentage)
+                uploader.value = percentage
+
+            }, 
+            function error(err){ 
+                console.log(err)
+            }, 
+            function complete(){ 
+                // alert("file Uploaded successfully")
+            }
+          )
+        }
+    
+
+    function getImages(){ 
+       const imageRef = firebase.storage().ref('images')
+       const tempArray = []
+        imageRef.listAll().then(res => { 
+            res.items.forEach((item, index) => { 
+                imageRef.child(`${res.items[index].name}`).getDownloadURL().then((url) => { 
+                    tempArray.push(url)
+                    setImage(() => [
+                        ...tempArray
+                    ])
+                })
+            })
+            // imageRef.child(`${res.items[0].fullPath}`).getDownloadURL().then((url) => { 
+            //     console.log(url, 'this is the url')
+            // })
+        })
+        // imageRef.child('images/53A36475-CC83-48EA-A922-0B7105FBEE0F.jpeg').getDownloadURL().then((url) => { 
+        //     // console.log(url)
+        //     setImage(url)
+        // })
+        .catch(err => console.log(err))
+        // `url` is the download URL for 'images/stars.jpg'
+
+        // var img = document.getElementById('myimg');
+        // img.src = 'gs://op-vet.appspot.com/images/53A36475-CC83-48EA-A922-0B7105FBEE0F.jpeg'
+        
+ 
+
+    }
+
+
 
     function getArrayBooths(){ 
         getUsersBoothSelection()
@@ -460,6 +518,8 @@ function FormProvider(props){
             getArrayBooths,
             boothState,
             updateBooths,
+            image,
+            uploadImage,
             ...userState,
             ...errorMessage,
     

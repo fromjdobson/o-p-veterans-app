@@ -12,9 +12,12 @@ function Businessinfo() {
     businessPhone,
     aptNumber,
     state,
-    zipCode
+    zipCode, 
+    uploadImage
   } = useContext(FormContext);
   const history = useHistory();
+
+   
 
   function handleSubmit() {
     history.push("/form3");
@@ -103,6 +106,12 @@ function Businessinfo() {
               required={true}
             ></input>
           </div>
+        </div>
+
+        <div> 
+          <progress value = {0} max = {100} id = "uploader">0%</progress>
+          <input onChange = {(e) => uploadImage(e)} type = 'file' accept = "image/*" id = 'imageField' />
+          {/* <input type = "submit" /> */}
         </div>
 
         <div className={styles.rowBtn}>
