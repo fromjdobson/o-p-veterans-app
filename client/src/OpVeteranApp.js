@@ -1,12 +1,14 @@
-import React, { useContext } from 'react'
-import { AppStateContext } from './providers/Store'
+import React from 'react'
+import styled from 'styled-components'
+
+const AppContainer = styled.div`
+    border: 1px solid lightcoral;
+`
 
 export default function OpVeteranApp() {
-    const [appState] = useContext(AppStateContext)
-    console.log('FROM APP:', appState)
     return (
-        <>
+        <AppContainer>
             <h1>App Component</h1>
-        </>
+        </AppContainer>
     )
 }
