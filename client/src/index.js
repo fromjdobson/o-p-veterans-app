@@ -1,20 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import "./css/styles.css"
-import FormProvider from "./context/FormContext"
-import {BrowserRouter} from "react-router-dom"
+import React from 'react'
+import ReactDOM from 'react-dom'
+import OpVeteranApp from './OpVeteranApp'
 
+function Index() {
+    return (
+        <OpVeteranApp />
+    )
+}
 
-
-ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <FormProvider>
-        <App />
-      </FormProvider>
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
+ReactDOM.render(<Index />, document.getElementById('root'))
