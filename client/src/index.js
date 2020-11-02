@@ -1,12 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Store from './providers/Store'
 import OpVeteranApp from './OpVeteranApp'
 
 import './index.css'
 
 function Index() {
     return (
-        <OpVeteranApp />
+        <Store>
+            <OpVeteranApp />
+        </Store>
     )
 }
 
