@@ -1,14 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
+import { UserView } from './components/UserView'
 
 const AppContainer = styled.div`
-    border: 1px solid lightcoral;
+    /* border: 1px solid lightcoral; */
 `
 
 export default function OpVeteranApp() {
     return (
         <AppContainer>
-            <h1>App Component</h1>
+            <UserView />
         </AppContainer>
     )
 }
