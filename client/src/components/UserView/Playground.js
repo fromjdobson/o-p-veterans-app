@@ -8,22 +8,9 @@ import { Input } from "../Input";
 import { ProgressBar } from "../ProgressBar";
 import { StatusMessage } from "../StatusMessage";
 import { ImageGallery } from "../ImageGallery";
-
 import { AdminSearchBar } from '../AdminSearchBar'
 
-import { AdminSearchBar } from '../AdminSearchBar'
 
-const PlaygroundContainer = styled.div`
-    /* border: 2px solid green; */
-`
-
-export default function Playground() {
-    return (
-        <PlaygroundContainer>
-            <AdminSearchBar />
-        </PlaygroundContainer>
-    )
-}
 const PlaygroundContainer = styled.div`
     /* border: 2px solid green; */
 `
