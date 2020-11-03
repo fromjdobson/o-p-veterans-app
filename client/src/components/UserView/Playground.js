@@ -1,18 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const PlaygroundContainer = styled.div`
-    border: 2px solid green;
+import { AdminSearchBar } from '../AdminSearchBar'
 
-    & > h1 {
-        margin: 0px;
-    }
+const PlaygroundContainer = styled.div`
+    /* border: 2px solid green; */
 `
 
 export default function Playground() {
     return (
         <PlaygroundContainer>
-            <h1>Playground Component</h1>
+            <AdminSearchBar />
         </PlaygroundContainer>
     )
 }
