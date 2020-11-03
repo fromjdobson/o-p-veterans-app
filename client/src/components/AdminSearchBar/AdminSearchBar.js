@@ -8,7 +8,6 @@ const SearchBarContainer = styled.div`
     width: 344px;
     height: 40px;
     /* opacity: 0.5; */
-
     & > input {
         width: 100%;
         height: 100%;
@@ -26,7 +25,6 @@ const SearchBarContainer = styled.div`
         border-radius: 2px;
         border: 1px solid #545454;
         outline: none;
-
         &:focus {
             border: 2px solid #799C8A;
         }
