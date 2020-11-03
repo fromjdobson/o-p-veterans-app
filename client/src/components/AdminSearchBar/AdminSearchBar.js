@@ -50,10 +50,12 @@ const SearchBarContainer = styled.div`
     }
 `
 
-export default function AdminSearchBare() {
+export default function AdminSearchBare(props) {
+    const { onBlur } = props
+
     return (
         <SearchBarContainer>
-            <input placeholder={'placeholder'} />
+            <input placeholder={'placeholder'} onBlur={onBlur} />
             <img src={searchIcon} alt={'Enter a vendor name to search.'} />
         </SearchBarContainer>
     )
