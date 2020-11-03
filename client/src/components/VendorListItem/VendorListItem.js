@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import InfoToggle from './InfoToggle'
 import OpenCloseIcon from './OpenCloseIcon'
@@ -73,33 +73,19 @@ const TopRowWrapper = styled.div`
 
 const BottomeRowWrapper = styled.div`
     width: 100%;
-    display: none;
+    /* display: none; */
     /* border: 1px solid dodgerblue; */
 `
 
 export default function VendorListItem() {
-   const [isDetailsOpen, setIsDetailsOpen] = useState(false)
-
-   function handleClick() {
-       let rando
-
-       if (isDetailsOpen === false) {
-            rando = false
-       } else if (isDetailsOpen === true) {
-            rando = true
-       }
-
-       setIsDetailsOpen(rando)
-   }
-   console.log(isDetailsOpen)
-
+  
     return (
         <VendorListItemContainer>
             <TopRowWrapper>
                 <img src={gruntStyleLogo} alt={'Grunt Style logo.'} />
                 <p>{'Bunty Soap Componay'}</p>
                 <h6>{'A01'}</h6>
-                <OpenCloseIcon isOpen={false} onClick={handleClick} />
+                <OpenCloseIcon isOpen={true} />
             </TopRowWrapper>
             <BottomeRowWrapper>
                 <InfoToggle />
