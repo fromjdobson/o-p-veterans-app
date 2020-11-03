@@ -9,14 +9,11 @@ import { ProgressBar } from "../ProgressBar";
 import { StatusMessage } from "../StatusMessage";
 import { ImageGallery } from "../ImageGallery";
 
+import { AdminSearchBar } from '../AdminSearchBar'
 
 const PlaygroundContainer = styled.div`
-  border: 2px solid green;
-
-  & > h1 {
-    margin: 0px;
-  }
-`;
+    /* border: 2px solid green; */
+`
 
 const ComponentWrapper = styled.div`
   box-sizing: border-box;
@@ -50,11 +47,32 @@ const ComponentWrapper = styled.div`
 `;
 
 export default function Playground() {
-  function onClick() {}
+
+    function onClick() {
+
+    }
+
+ 
+// const PlaygroundContainer = styled.div`
+//   border: 2px solid green;
+
+//   & > h1 {
+//     margin: 0px;
+//   }
+// `;
+
+
+
+
 
   return (
     <PlaygroundContainer>
       <h1>Playground Component</h1>
+
+      {/* This is the Search bar for Admin User */}
+        <h1>Admin Search Bar</h1>
+      <AdminSearchBar />
+      {/* This is the end of Search bar */}
 
       {/* This is the Header */}
       <h2>Header</h2>
