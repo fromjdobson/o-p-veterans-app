@@ -10,12 +10,11 @@ const IconContainer = styled.div`
     right: 16px;
 `
 
-export default function SearchIcon(props) {
-    const { stroke } = props
+export default function SearchIcon() {
 
     return (
         <IconContainer>
-            <Icon stroke={stroke} />
+            <Icon />
         </IconContainer>
     )
 }
