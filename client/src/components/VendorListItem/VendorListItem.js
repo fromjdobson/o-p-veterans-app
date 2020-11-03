@@ -6,6 +6,7 @@ import Details from './Details'
 import gruntStyleLogo from '../../assets/images/atp-logo.png'
 
 const VendorListItemContainer = styled.div`
+    margin-top: 24px;
     position: relative;
     width: 328px;
     /* height: 296px; */
@@ -19,7 +20,7 @@ const TopRowWrapper = styled.div`
     width: 100%;
     height: 56px;
     display: flex;
-    border: 1px solid lightcoral;
+    /* border: 1px solid lightcoral; */
 
     & > img {
         width: 56px;
@@ -72,7 +73,7 @@ const TopRowWrapper = styled.div`
 
 const BottomeRowWrapper = styled.div`
     width: 100%;
-    border: 1px solid dodgerblue;
+    /* border: 1px solid dodgerblue; */
 `
 
 export default function VendorListItem() {
