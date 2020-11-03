@@ -32,7 +32,6 @@ const ToggleContainer = styled.div`
 export default function Toggle(props) {
     const { text, status } = props
     const { color, fontWeight, background, opacity } = setDisplay(status)
-    console.log(fontWeight)
 
     return (
         <ToggleContainer background={background} color={color} opacity={opacity} fontWeight={fontWeight}>

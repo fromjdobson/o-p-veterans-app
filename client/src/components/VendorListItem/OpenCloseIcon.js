@@ -14,11 +14,11 @@ const IconContainer = styled.div`
 `
 
 export default function OpenCloseIcon(props) {
-    const { isOpen } = props
+    const { isOpen, onClick } = props
     let icon = setIcon(isOpen, <ClosedIcon />, <OpenIcon />)
 
     return (
-        <IconContainer>
+        <IconContainer onClick={onClick}>
             {icon}
         </IconContainer>
     )
