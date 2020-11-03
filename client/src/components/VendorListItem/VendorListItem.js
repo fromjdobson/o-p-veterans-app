@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import InfoToggle from './InfoToggle'
 import OpenCloseIcon from './OpenCloseIcon'
 import gruntStyleLogo from '../../assets/images/atp-logo.png'
 
@@ -71,10 +72,6 @@ const TopRowWrapper = styled.div`
 const BottomeRowWrapper = styled.div`
     width: 100%;
     border: 1px solid dodgerblue;
-
-    & > p {
-        margin:0px;
-    }
 `
 
 export default function VendorListItem() {
@@ -87,7 +84,7 @@ export default function VendorListItem() {
                 <OpenCloseIcon isOpen={false} />
             </TopRowWrapper>
             <BottomeRowWrapper>
-                <p>Bottom</p>
+                <InfoToggle />
             </BottomeRowWrapper>
         </VendorListItemContainer>
     )
