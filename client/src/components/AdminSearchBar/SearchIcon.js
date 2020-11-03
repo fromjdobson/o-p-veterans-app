@@ -11,7 +11,6 @@ const IconContainer = styled.div`
 `
 
 export default function SearchIcon() {
-
     return (
         <IconContainer>
             <Icon />
