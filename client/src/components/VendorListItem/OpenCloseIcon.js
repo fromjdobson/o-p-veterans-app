@@ -7,6 +7,10 @@ import { ReactComponent as OpenIcon } from '../../assets/Icons/card-open-icon.sv
 const IconContainer = styled.div`
     width: 24px;
     height: 24px;
+    position: absolute;
+    top: calc(50% - 24px/2);
+    right: 8px;
+    /* border: 1px dotted blue; */
 `
 
 export default function OpenCloseIcon(props) {
