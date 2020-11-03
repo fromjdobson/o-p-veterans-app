@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { AppStateContext } from '../../providers/Store'
-import closeIcon from "../../assets/icons/Vector.svg";
+// import closeIcon from "../../assets/icons/Vector.svg";
 
 const CloseContainer = styled.div`
   height: 24px;
@@ -63,7 +63,7 @@ export default function Close() {
   return (
     <CloseContainer onClick={logOut}>
         <ExitIcon>
-            <img src={closeIcon} alt={'Exit'} />
+            <img  alt={'Exit'} />
         </ExitIcon>
     </CloseContainer>
   )
