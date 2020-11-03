@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import InfoToggle from './InfoToggle'
 import OpenCloseIcon from './OpenCloseIcon'
+import Details from './Details'
 import gruntStyleLogo from '../../assets/images/atp-logo.png'
 
 const VendorListItemContainer = styled.div`
@@ -85,6 +86,7 @@ export default function VendorListItem() {
             </TopRowWrapper>
             <BottomeRowWrapper>
                 <InfoToggle />
+                <Details />
             </BottomeRowWrapper>
         </VendorListItemContainer>
     )
