@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ReactComponent as Icon } from '../../assets/icons/search-icon.svg'
+import { ReactComponent as Icon } from '../../assets/Icons/search-icon.svg'
 
 const IconContainer = styled.div`
     width: 24px;
@@ -11,7 +11,6 @@ const IconContainer = styled.div`
 `
 
 export default function SearchIcon() {
-
     return (
         <IconContainer>
             <Icon />
