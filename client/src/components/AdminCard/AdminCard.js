@@ -4,7 +4,7 @@ import boothIcon from "../../assets/icons/booth.svg";
 import openIcon from "../../assets/icons/open.svg";
 import closeIcon from "../../assets/icons/close.svg";
 import chargeIcon from "../../assets/icons/charge.svg";
-import buntyLogo from "../../assets/logos/Company logo image.svg";
+// import buntyLogo from "../../assets/logos/Company logo image.svg";
 
 const CardContainer = styled.div`
   border: solid red 1px;
@@ -106,7 +106,7 @@ export default function AdminCard() {
       <CompanyName>{"Strickland Propane"}</CompanyName>
       
         <CompanyLogo>
-          <img src={buntyLogo} />
+          {/* <img src={buntyLogo} /> */}
         </CompanyLogo>
         <NameText>{"Hank Hill"}</NameText>
         <CategoryText>{"Propane & Propane Accessories"}</CategoryText>

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import closedIcon from "../../assets/icons/closed-card-icon.svg";
+import openIcon from '../../assets/icons/card-open-icon.svg'
 
 const PerkContainer = styled.div`
   border: solid 1px red;
@@ -40,13 +41,24 @@ const Title = styled.h6`
   color: #545454;
 `;
 
-export default function Dropdown() {
+export default function Dropdown(props) {
+
+const { iconStatus }= props
+
+function setIcon(status) {
+  if (status === 'closed') {
+    return <img src={closedIcon} />
+  }else if (status === 'open') {
+    return <img  src={openIcon} />
+  }
+}
+
   return (
     <PerkContainer>
       <DropdownBtn>
         Expand for Perks
-        <img src={closedIcon} />
       </DropdownBtn>
+      <img  />
     </PerkContainer>
   );
 }
