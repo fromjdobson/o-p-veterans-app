@@ -1,36 +1,22 @@
 import React from "react";
 import styled from "styled-components";
-import closedIcon from "../../assets/icons/closed-card-icon.svg";
-import openIcon from '../../assets/icons/card-open-icon.svg'
+// import { setIconStyle } from "./utils";
 
-const PerkContainer = styled.div`
-  border: solid 1px red;
-  display: flex;
-  width: 342px;
-  margin-top: 24px;
-`;
 
-const DropdownBtn = styled.h4`
-  border: solid 1px yellow;
-  width: 180px;
-  height: 24px;
-  font-family: Open Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin-left: 14px;
-  color: #799c8a;
-`;
 
-const Title = styled.h6`
-  border: 1px solid green;
+const StyledRow = styled.div`
+  border: solid blue 1px;
   position: relative;
-  width: 312px;
-  height: 24px;
+  width: 342px;
+  height: 128px;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: #545454;
+`;
+
+const Title = styled.h3`
   font-family: Open Sans;
   font-style: normal;
   font-weight: bold;
@@ -38,27 +24,49 @@ const Title = styled.h6`
   line-height: 24px;
   display: flex;
   align-items: center;
-  color: #545454;
+  margin-left: 16px;
+`;
+
+const PerkWrapper=styled.div`
+border: solid pink 1px;
+  width: 100%;
+  height:60px;
+  margin-bottom: 8px;
+`
+
+const PerkItem = styled.li`
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
+  margin-bottom: 8px;
 `;
 
 export default function Dropdown(props) {
+  const { onClick, iconStyle } = props;
+  // const { display, border } = setIconStyle(iconStyle);
 
-const { iconStatus }= props
-
-function setIcon(status) {
-  if (status === 'closed') {
-    return <img src={closedIcon} />
-  }else if (status === 'open') {
-    return <img  src={openIcon} />
-  }
-}
+  // function setIcon(status) {
+  //   if (status === "closed") {
+  //     return <img src={closedIcon} />;
+  //   } else if (status === "open") {
+  //     return <img src={openIcon} />;
+  //   }
+  // }
 
   return (
-    <PerkContainer>
-      <DropdownBtn>
-        Expand for Perks
-      </DropdownBtn>
-      <img  />
-    </PerkContainer>
+    <StyledRow>
+      <Title>{'Sponsorship perks:'}</Title>
+      <PerkWrapper>
+        <PerkItem>{'Perk number one'}</PerkItem>
+        <PerkItem>{'Perk number two'}</PerkItem>
+        <PerkItem>{'Perk number three'}</PerkItem>
+      </PerkWrapper>
+    </StyledRow>
+
   );
 }

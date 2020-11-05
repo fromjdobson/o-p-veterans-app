@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { Button } from '../Button'
-import  Dropdown from './Dropdown'
 import abrams from "../../assets/logos/abrams-sponsor-logo.png";
+import ExpandButton from "./ExpandButton";
+import Dropdown from './Dropdown'
 
 
 const Card = styled.div`
@@ -12,7 +13,7 @@ const Card = styled.div`
   padding: 16px 0px 0px;
   position: absolute;
   width: 344px;
-  height: 455px;
+  height: 591px;
   background: #ffffff;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.14), 0px 2px 2px rgba(0, 0, 0, 0.12),
     0px 1px 3px rgba(0, 0, 0, 0.2);
@@ -60,6 +61,7 @@ export default function SponsorshipCard() {
       <Price>{"$99,999"}</Price>
       <SponsorText>{"Other Abrams Level sponsors"}</SponsorText>
       <Button buttonText={'Select This Level'} buttonStyle={'primary'} marginTop={'24px'}></Button> 
+      <ExpandButton />
       <Dropdown />
     </Card>
   );
