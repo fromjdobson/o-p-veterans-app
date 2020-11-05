@@ -1,12 +1,12 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
-
- import closedIcon from "../../assets/icons/closed-card-icon.svg";
- import openIcon from "../../assets/icons/card-open-icon.svg";
+import closedIcon from "../../assets/icons/closed-card-icon.svg";
+import openIcon from "../../assets/icons/card-open-icon.svg";
 
 const RowContainer = styled.div`
-  border: solid 1px red;
+  position: relative;
+  
   display: flex;
   width: 342px;
   height: 48px;
@@ -15,8 +15,8 @@ const RowContainer = styled.div`
 `;
 
 const DropdownBtn = styled.h4`
+  position: relative;
 
-border: solid 1px yellow;
   width: 180px;
   height: 24px;
   font-family: Open Sans;
@@ -32,10 +32,10 @@ border: solid 1px yellow;
 `;
 
 export default function ExpandButton() {
-    return (
-        <RowContainer>
-            <DropdownBtn>{'Expand for perks'}</DropdownBtn>
-            <img src={closedIcon}/>
-        </RowContainer>
-    )
+  return (
+    <RowContainer>
+      <DropdownBtn>{"Expand for perks"}</DropdownBtn>
+      <img src={closedIcon} />
+    </RowContainer>
+  );
 }

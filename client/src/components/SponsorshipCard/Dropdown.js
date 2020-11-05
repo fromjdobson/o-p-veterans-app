@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 
 const StyledRow = styled.div`
-  border: solid blue 1px;
+  
   position: relative;
   width: 342px;
   height: 128px;
@@ -28,7 +28,6 @@ const Title = styled.h3`
 `;
 
 const PerkWrapper=styled.div`
-border: solid pink 1px;
   width: 100%;
   height:60px;
   margin-bottom: 8px;
@@ -46,17 +45,7 @@ const PerkItem = styled.li`
   margin-bottom: 8px;
 `;
 
-export default function Dropdown(props) {
-  const { onClick, iconStyle } = props;
-  // const { display, border } = setIconStyle(iconStyle);
-
-  // function setIcon(status) {
-  //   if (status === "closed") {
-  //     return <img src={closedIcon} />;
-  //   } else if (status === "open") {
-  //     return <img src={openIcon} />;
-  //   }
-  // }
+export default function Dropdown() {
 
   return (
     <StyledRow>
