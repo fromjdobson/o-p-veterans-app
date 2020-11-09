@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 
-
-
 const StyledRow = styled.div`
   border: solid red 1px;
 
@@ -11,7 +9,7 @@ const StyledRow = styled.div`
   width: 342px;
   height: 128px;
   
-  display: flex;
+  display: ${props => props.display};
   flex-direction: column;
   justify-content: flex-start;
   color: #545454;
@@ -47,10 +45,14 @@ const PerkItem = styled.li`
   margin-bottom: 8px;
 `;
 
-export default function Dropdown() {
+export default function Dropdown(props) {
+
+  const { display }= props
 
   return (
-    <StyledRow>
+    <StyledRow display={display}>
+
+
       <Title>{'Sponsorship perks:'}</Title>
       <PerkWrapper>
         <PerkItem>{'Perk number one'}</PerkItem>

@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 
 import closedIcon from "../../assets/icons/closed-card-icon.svg";
-import openIcon from "../../assets/icons/card-open-icon.svg";
+// import openIcon from "../../assets/icons/card-open-icon.svg";
 
 const RowContainer = styled.div`
 border: solid blue 1px;
@@ -32,23 +32,16 @@ const DropdownBtn = styled.h4`
   color: #799c8a;
 `;
 
-export default function ExpandButton() {
+export default function ExpandButton(props) {
 
-  const [ isOpen, setOpen ] = useState(false)
-  const openTrueFalse = () => setOpen(!isOpen)
+const { onClick } = props
 
-    if(isOpen === 'false') {
-      return <img src={closedIcon} />
-    } else if( isOpen === 'true') {
-      return <img src={openIcon} />
-    }
-
-
+console.log(onClick)
 
   return (
-    <RowContainer>
+    <RowContainer >
       <DropdownBtn>{"Expand for perks"}</DropdownBtn>
-      <img onClick={openTrueFalse}/>
+      <img   src={closedIcon} alt={"closed"}/> 
     </RowContainer>
   );
 }

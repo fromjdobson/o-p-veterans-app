@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { Button } from '../Button'
+import { Button } from "../Button";
 import abrams from "../../assets/logos/abrams-sponsor-logo.png";
 import ExpandButton from "./ExpandButton";
-import Dropdown from './Dropdown'
-
+import Dropdown from "./Dropdown";
 
 const Card = styled.div`
   display: flex;
@@ -13,7 +12,7 @@ const Card = styled.div`
   padding: 16px 0px 0px;
   position: absolute;
   width: 344px;
-  
+
   background: #ffffff;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.14), 0px 2px 2px rgba(0, 0, 0, 0.12),
     0px 1px 3px rgba(0, 0, 0, 0.2);
@@ -53,15 +52,31 @@ const SponsorText = styled.div`
   color: #545454;
 `;
 
-
 export default function SponsorshipCard(props) {
+  const [isOpen, setIsOpen] = useState(false);
+  console.log(111, isOpen);
+
+  function setCard() {
+    if (isOpen === false) {
+      // setIsOpen(true)
+      console.log("it is false");
+    } else if (isOpen === true) {
+      // setIsOpen(false)
+      console.log("it is true");
+    }
+  }
+
   return (
     <Card>
       <img src={abrams} alt={"Abrams logo"} />
       <Price>{"$99,999"}</Price>
       <SponsorText>{"Other Abrams Level sponsors"}</SponsorText>
-      <Button buttonText={'Select This Level'} buttonStyle={'primary'} marginTop={'24px'}></Button> 
-      <ExpandButton />
+      <Button
+        buttonText={"Select This Level"}
+        buttonStyle={"primary"}
+        marginTop={"24px"}
+      ></Button>
+      <ExpandButton onclick={setCard} />
       <Dropdown />
     </Card>
   );
