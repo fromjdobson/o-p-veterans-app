@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+
 
 import closedIcon from "../../assets/icons/closed-card-icon.svg";
 import openIcon from "../../assets/icons/card-open-icon.svg";
 
 const RowContainer = styled.div`
+border: solid blue 1px;
   position: relative;
-  
   display: flex;
   width: 342px;
   height: 48px;
@@ -32,10 +33,22 @@ const DropdownBtn = styled.h4`
 `;
 
 export default function ExpandButton() {
+
+  const [ isOpen, setOpen ] = useState(false)
+  const openTrueFalse = () => setOpen(!isOpen)
+
+    if(isOpen === 'false') {
+      return <img src={closedIcon} />
+    } else if( isOpen === 'true') {
+      return <img src={openIcon} />
+    }
+
+
+
   return (
     <RowContainer>
       <DropdownBtn>{"Expand for perks"}</DropdownBtn>
-      <img src={closedIcon} />
+      <img onClick={openTrueFalse}/>
     </RowContainer>
   );
 }

@@ -13,7 +13,7 @@ const Card = styled.div`
   padding: 16px 0px 0px;
   position: absolute;
   width: 344px;
-  height: 591px;
+  
   background: #ffffff;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.14), 0px 2px 2px rgba(0, 0, 0, 0.12),
     0px 1px 3px rgba(0, 0, 0, 0.2);
@@ -54,7 +54,7 @@ const SponsorText = styled.div`
 `;
 
 
-export default function SponsorshipCard() {
+export default function SponsorshipCard(props) {
   return (
     <Card>
       <img src={abrams} alt={"Abrams logo"} />

@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-// import { setIconStyle } from "./utils";
+
 
 
 
 const StyledRow = styled.div`
-  
+  border: solid red 1px;
+
   position: relative;
   width: 342px;
   height: 128px;
@@ -17,6 +18,7 @@ const StyledRow = styled.div`
 `;
 
 const Title = styled.h3`
+
   font-family: Open Sans;
   font-style: normal;
   font-weight: bold;
