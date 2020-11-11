@@ -10,7 +10,7 @@ const Card = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 16px 0px 0px;
-  position: absolute;
+
   width: 344px;
 
   background: #ffffff;
