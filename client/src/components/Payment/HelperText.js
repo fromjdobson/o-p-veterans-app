@@ -19,7 +19,7 @@ const InputWarning = styled.caption`
   display: flex;
   align-items: center;
   letter-spacing: 0.02em;
-  margin-top: -20px;
+  margin-top: 5px;
 
   /* Geranium Lake/Tints & Shades/Light 3 */
 

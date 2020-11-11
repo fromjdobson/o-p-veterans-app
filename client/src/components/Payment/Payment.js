@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import HelperText from "./HelperText";
+import WarningIcon from "./WarningIcon";
 
 const PaymentWrapper = styled.div`
   border: solid green 1px;
@@ -48,10 +49,10 @@ const Label = styled.caption`
   letter-spacing: 0.02em;
 `;
 
-const InputLine = styled.div`
-  border-bottom: solid #545454 1px;
+const InputContainer = styled.div`
   width: 296px;
-  margin-bottom: 20px;
+  height: 24px;
+  display: flex;
 `;
 
 const StyledInput = styled.input`
@@ -62,6 +63,7 @@ const StyledInput = styled.input`
   height: 24px;
   outline: none;
   border: none;
+  border-bottom: 1px solid black;
   font-family: Open Sans;
   font-style: normal;
   font-weight: normal;
@@ -79,13 +81,19 @@ export default function Payment() {
     <PaymentWrapper>
       <Heading>{"Payment"}</Heading>
       <Label>{"Name on Card"}</Label>
-      <StyledInput></StyledInput>
-      <InputLine></InputLine>
+      <InputContainer>
+        <StyledInput></StyledInput>
+        <WarningIcon />
+      </InputContainer>
+
       <HelperText />
 
       <Label>{"Card number"}</Label>
-      <StyledInput></StyledInput>
-      <InputLine></InputLine>
+      <InputContainer>
+        <StyledInput></StyledInput>
+        <WarningIcon />
+      </InputContainer>
+
       <HelperText />
     </PaymentWrapper>
   );
