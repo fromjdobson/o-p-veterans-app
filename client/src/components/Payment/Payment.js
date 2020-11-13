@@ -50,6 +50,7 @@ const Label = styled.caption`
 `;
 
 const InputContainer = styled.div`
+  border-bottom: 1px solid black;
   width: 296px;
   height: 24px;
   display: flex;
@@ -63,7 +64,6 @@ const StyledInput = styled.input`
   height: 24px;
   outline: none;
   border: none;
-  border-bottom: 1px solid black;
   font-family: Open Sans;
   font-style: normal;
   font-weight: normal;
