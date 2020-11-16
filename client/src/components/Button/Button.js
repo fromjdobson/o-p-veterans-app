@@ -2,7 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 import { setButtonStyle } from "./utils";
-import googleIcon from "../../assets/icons/google-icon.svg";
+// import googleIcon from "../../assets/icons/google-icon.svg";
+import googleIcon from '../../assets/Icons/google-icon.svg'
+
 
 const StyledButton = styled.button`
   /* border-sizing: border-box; */
