@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useContext  } from "react";
 import styled from "styled-components";
 import LevelLogo from './LevelLogo'
 import { OtherSponsors } from './OtherSponsors'

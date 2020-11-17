@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Store from './providers/Store'
+import SponsorshipContext from './providers/SponsorshipContext'
 import OpVeteranApp from './OpVeteranApp'
 
 import './index.css'
@@ -8,7 +9,9 @@ import './index.css'
 function Index() {
     return (
         <Store>
-            <OpVeteranApp />
+            <SponsorshipContext>
+                <OpVeteranApp />
+            </SponsorshipContext>
         </Store>
     )
 }

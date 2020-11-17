@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { AdminSearchBar } from "../AdminSearchBar";
 import { VendorListItem } from "../VendorListItem";
 import { SponsorshipCard } from "../SponsorshipCard";
-import { Payment } from "../Payment";
+// import { Payment } from "../Payment";
 
 const PlaygroundContainer = styled.div`
   padding: 24px 24px 24px 24px;
@@ -34,7 +34,7 @@ export default function Playground() {
       <VendorListItem />
 
       <h3>Payment</h3>
-      <Payment />
+      {/* <Payment /> */}
     </PlaygroundContainer>
   );
 }

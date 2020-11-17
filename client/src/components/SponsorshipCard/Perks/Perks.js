@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { SponsorshipCardContext } from '../../../providers/SponsorshipContext'
 import ExpandComponent from './ExpandComponent'
 import ListItem from './ListItem'
 
@@ -10,7 +11,8 @@ const PerksContainer = styled.div`
 const RowWrapper = styled.div`
     box-sizing: border-box;
     margin: 20px 0px 0px 0px;
-    display: block;
+    display: ${props => props.display};
+    /* border: 1px solid red; */
 
     & > h4 {
         margin: 0px 0px 16px 0px;
@@ -26,10 +28,26 @@ const RowWrapper = styled.div`
 `
 
 export default function Perks() {
+    const [isExpanded] = useContext(SponsorshipCardContext)
+    const { display } = setDisplay(isExpanded)
+
+    function setDisplay(status) {
+        if  (status === false) {
+            return {
+                display: `none`
+            }
+        } else if (status === true) {
+            return {
+                display: `block`
+            }
+        }
+    }
+    console.log(display)
+
     return (
         <PerksContainer>
             <ExpandComponent />
-            <RowWrapper>
+            <RowWrapper display={display}>
                 <h4>Perks for this level:</h4>
                 <ListItem text={'List Item'} />
                 <ListItem text={'List Item'} />
