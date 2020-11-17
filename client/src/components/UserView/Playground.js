@@ -23,14 +23,15 @@ export default function Playground() {
   return (
     <PlaygroundContainer>
       <h1>Playground</h1>
+
+      <h3>Sponsorship Card</h3>
+      <SponsorshipCard />
+
       <h3>Admin Search Bar</h3>
       <AdminSearchBar />
 
       <h3>Vendor List Item</h3>
       <VendorListItem />
-
-      <h3>Sponsorship Card</h3>
-      <SponsorshipCard />
 
       <h3>Payment</h3>
       <Payment />
