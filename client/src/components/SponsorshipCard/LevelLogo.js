@@ -6,7 +6,6 @@ const LevelLogoContainer = styled.div`
     box-sizing: border-box;
     width: 150px;
     height: 150px;
-    /* border: 1px dotted black; */
 `
 
 export default function LevelLogo() {

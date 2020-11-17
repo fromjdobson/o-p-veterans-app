@@ -4,16 +4,13 @@ import ExpandComponent from './ExpandComponent'
 import ListItem from './ListItem'
 
 const PerksContainer = styled.div`
-    /* box-sizing: border-box; */
     width: 312px;
-    /* border: 1px solid darkgreen; */
 `
 
 const RowWrapper = styled.div`
     box-sizing: border-box;
     margin: 20px 0px 0px 0px;
     display: block;
-    /* background: lightblue; */
 
     & > h4 {
         margin: 0px 0px 16px 0px;

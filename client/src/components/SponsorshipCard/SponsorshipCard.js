@@ -4,7 +4,6 @@ import LevelLogo from './LevelLogo'
 import { OtherSponsors } from './OtherSponsors'
 import { Button } from '../Button'
 import { Perks } from './Perks'
-// import { Button } from "../Button";
 
 const SponsorshipCardContainer = styled.div`
   box-sizing: border-box;
@@ -19,7 +18,6 @@ const SponsorshipCardContainer = styled.div`
 
   & > h2 {
     margin: 24px 0px 0px 0px;
-    /* margin: 0px 24px; */
     font-family: Open Sans;
     font-style: normal;
     font-weight: 300;
@@ -29,7 +27,6 @@ const SponsorshipCardContainer = styled.div`
     align-items: center;
     text-align: center;
     color: #545454;
-    /* border: 1px solid lightgreen; */
   }
 
   &:hover {

@@ -3,10 +3,7 @@ import styled from 'styled-components'
 import cardClosedIcon from '../../../assets/Icons/card-closed-icon.svg'
 
 const ExpandContainer = styled.div`
-    /* box-sizing: border-box; */
-    /* width: 312px; */
     display: flex;
-    /* border: 1px solid green; */
 
     & > p {
         margin: 0px 8px 0px 0px;
@@ -20,12 +17,10 @@ const ExpandContainer = styled.div`
         display: flex;
         align-items: center;
         color: #799C8A;
-        /* border: 1px dotted gray; */
     }
 
     & > img {
         margin: 0px 0px 0px 0px;
-        /* border: 1px dotted gray; */
     }
 `
 

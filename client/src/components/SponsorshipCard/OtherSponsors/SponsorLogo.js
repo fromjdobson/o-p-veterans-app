@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import cover6Logo from '../../../assets/images/cover-six-logo.png'
 
 const SponsorLogoContainer = styled.div`
-     box-sizing: border-box;
+    box-sizing: border-box;
     margin: 0px 4px 0px 4px;
     width: 24px;
     height: 24px;

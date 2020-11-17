@@ -8,7 +8,6 @@ const OtherSponsorsContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* border: 1px solid orange; */
 
     & > p {
         margin: 0px;
@@ -18,16 +17,15 @@ const OtherSponsorsContainer = styled.div`
         font-size: 16px;
         line-height: 24px;
         color: #545454;
-        /* border: 1px dotted blue; */
     }
 `
 
 const LogosContainer = styled.div`
     box-sizing: border-box;
+    margin: 8px 0px 0px 0px;
     width: 100%;
     display: flex;
     justify-content: center;
-    /* border: 1px solid black; */
 `
 
 export default function OtherSponsors() {
