@@ -3,6 +3,11 @@ import styled from 'styled-components'
 import SponsorLogo from './SponsorLogo'
 
 const OtherSponsorsContainer = styled.div`
+    box-sizing: border-box;
+    margin: 24px 0px 24px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     /* border: 1px solid orange; */
 
     & > p {
@@ -18,8 +23,10 @@ const OtherSponsorsContainer = styled.div`
 `
 
 const LogosContainer = styled.div`
-    width: 200px;
+    box-sizing: border-box;
+    width: 100%;
     display: flex;
+    justify-content: center;
     /* border: 1px solid black; */
 `
 

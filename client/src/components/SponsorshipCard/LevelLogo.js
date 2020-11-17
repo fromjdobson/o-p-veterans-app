@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import abramsLevelImg from '../../assets/logos/abrams-sponsor-logo.png'
 
 const LevelLogoContainer = styled.div`
+    box-sizing: border-box;
     width: 150px;
     height: 150px;
     /* border: 1px dotted black; */

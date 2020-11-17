@@ -7,11 +7,18 @@ import { Perks } from './Perks'
 // import { Button } from "../Button";
 
 const SponsorshipCardContainer = styled.div`
+  box-sizing: border-box;
   max-width: 344px;
-  border: 1px solid lightcoral;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 16px 16px 16px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.14), 0px 2px 2px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
 
   & > h2 {
-    margin: 0px;
+    margin: 24px 0px 0px 0px;
     /* margin: 0px 24px; */
     font-family: Open Sans;
     font-style: normal;
@@ -24,9 +31,15 @@ const SponsorshipCardContainer = styled.div`
     color: #545454;
     /* border: 1px solid lightgreen; */
   }
+
+  &:hover {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 4px 5px rgba(0, 0, 0, 0.12), 0px 1px 10px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(244, 184, 96, 0.5);
+  }
 `
 
 const DividerDiv = styled.div`
+  margin: 24px 0px 24px 0px;
   width: 100%;
   height: 1px;
   background: #EAEAEA;

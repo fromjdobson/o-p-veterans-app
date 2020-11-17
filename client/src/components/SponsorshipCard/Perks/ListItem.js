@@ -2,7 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 
 const ListItemContainer = styled.div`
-    border: 1px dashed blue;
+    margin: 4px 0px 4px 0px;
+    /* width: 312px; */
+    /* box-sizing: border-box; */
 
     & > p {
         margin: 0px;
