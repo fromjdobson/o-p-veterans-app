@@ -1,8 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const StyledInput = styled.input`
+const EditInputContainer = styled.div`
     margin: 16px 0px 24px 0px;
+    width: 280px;
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid orange; */
+
+    @media (min-width: 768px) {
+        width: 416px;
+        justify-content: flex-start;
+    }
+`
+
+const StyledInput = styled.input`
+    /* margin: 16px 0px 24px 0px; */
     width: 56px;
     height: 32px;
     font-family: Open Sans;
@@ -28,6 +41,8 @@ export default function EditInput(props) {
     const { placeholder } = props
 
     return (
-        <StyledInput placeholder={placeholder} />
+        <EditInputContainer>
+            <StyledInput placeholder={placeholder} />
+        </EditInputContainer>
     )
 }

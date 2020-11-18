@@ -16,6 +16,10 @@ const EditModalContainer = styled.div`
     box-sizing: border-box;
     box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12), 0px 4px 5px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
+
+    @media (min-width: 768px) {
+        max-width: 480px;
+    }
 `
 
 const ModalTitle = styled.p`
@@ -31,6 +35,11 @@ const ModalTitle = styled.p`
     text-transform: uppercase;
     color: #545454;
     /* border: 1px dotted dodgerblue; */
+
+    @media (min-width: 768px) {
+        width: 416px;
+        justify-content: flex-start;
+    }
 `
 
 const RowWrapper = styled.div`
@@ -38,6 +47,11 @@ const RowWrapper = styled.div`
     display: flex;
     justify-content: center;
     /* border: 1px solid orange; */
+
+    @media (min-width: 768px) {
+        width: 416px;
+        justify-content: flex-end;
+    }
 `
 
 export default function EditModal() {
