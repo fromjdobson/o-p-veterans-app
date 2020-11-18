@@ -1,35 +1,32 @@
 export function setButtonStyle(style) {
-    switch (style) {
-      case "primary":
+  switch (style) {
+    case 'primary':
+      return {
+        background: `#618572`,
+        fontColor: `#FFFFFF`,
+        border: `2px solid #618572`,
+        googleDisplay: `none`
+      }
+    case 'secondary':
+      return {
+        background: `#FFFFFF`,
+        fontColor:`#93B0A1`,
+        border: `2px solid #93B0A1`,
+        googleDisplay: `none`
+      }
+    case 'google':
+      return {
+        background:`#FFFFFF`,
+        fontColor: `#4285F4`,
+        border: `2px solid #4285F4`,
+        googleDisplay: `flex`
+      }
+    default:
         return {
-          background: `#618572`,
-          color: `#ffffff`,
-          border: `none`,
-          display: `none`,
-          boxShadow: `0px 2px 4px rgba(97, 133, 114, 0.14),
-          0px 3px 4px rgba(97, 133, 114, 0.12), 0px 1px 5px rgba(97, 133, 114, 0.2)`
-        };
-  
-      case "secondary":
-        return {
-          background: `#ffffff`,
-          color: `#618572`,
-          border: `2px solid #618572`,
-          display: `none`,
-          boxShadow: `0px 2px 4px rgba(97, 133, 114, 0.14),
-          0px 3px 4px rgba(97, 133, 114, 0.12), 0px 1px 5px rgba(97, 133, 114, 0.2)`
-        };
-      case "google-button":
-        return {
-          background: `#ffffff`,
-          color: `#4285f4`,
-          border: `2px solid #4285f4`,
-          display: `flex`,
-          boxShadow: `0px 2px 4px rgba(97, 133, 114, 0.14),
-          0px 3px 4px rgba(97, 133, 114, 0.12), 0px 1px 5px rgba(97, 133, 114, 0.2)`
-        };
-  
-      default:
-        return "Default case";
-    }
+          background: `black`,
+          fontColor: `white`,
+          border: `2px solid white`,
+          googleDisplay: `inline-block`
+        }
   }
+}
