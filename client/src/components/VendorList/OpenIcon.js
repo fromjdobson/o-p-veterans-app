@@ -6,7 +6,7 @@ import closedIcon from '../../assets/Icons/card-closed-icon.svg'
 const OpenIconContainer = styled.div`
     min-width: 24px;
     min-height: 24px;
-    border: 1px dotted dodgerblue;
+    /* border: 1px dotted dodgerblue; */
 
     & > img {
         width: 100%;
@@ -24,7 +24,7 @@ export default function OpenIcon() {
             setIsExpanded(false)
         }
     }
-    
+
     return (
         <OpenIconContainer onClick={handleClick}>
             <img src={closedIcon} alt={'Click to epxand.'} />

@@ -5,7 +5,7 @@ import OpenIcon from './OpenIcon'
 const ItemHeaderContainer = styled.div`
     display: flex;
     justify-content: flex-end;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 `
 
 const VendorNameText = styled.p`
