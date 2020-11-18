@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-
 import { AdminSearchBar } from "../AdminSearchBar";
 import { VendorListItem } from "../VendorListItem";
 import { SponsorshipCard } from "../SponsorshipCard";
@@ -9,10 +8,8 @@ import { EditModal } from '../EditModal'
 import { VendorList } from '../VendorList'
 import { Button } from '../Button'
 
-
 const PlaygroundContainer = styled.div`
   padding: 24px 24px 24px 24px;
-  /* border: 2px solid green; */
 
   h1 {
     margin: 0px;
@@ -29,12 +26,11 @@ export default function Playground() {
       <h1>Playground</h1>
 
       <h3>Vendor List</h3>
-      <Button buttonStyle={'primary'} buttonText={'Button 1'} />
+      <Button buttonStyle={'primary'} buttonText={'Button'} />
       <br />
-      <Button buttonStyle={'secondary'} buttonText={'Button 2'} />
+      <Button buttonStyle={'secondary'} buttonText={'Button'} />
       <br />
-      <Button buttonStyle={'google'} buttonText={'Button 3'} />
-
+      <Button buttonStyle={'google'} buttonText={'Button'} />
 
 
       <h3>Vendor List</h3>

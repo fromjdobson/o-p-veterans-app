@@ -14,11 +14,12 @@ const StyledButton = styled.button`
   justify-content: center;
   align-items: center;
   letter-spacing: 0.01em;
-  color: #FFFFFF;
-  background: #618572;
+  color: ${props => props.color};
+  background: ${props => props.background};
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 1px 5px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  border: 2px solid #618572;
+  border: ${props => props.border};
+  outline: none;
 
   &:hover {
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 4px 5px rgba(0, 0, 0, 0.12), 0px 1px 10px rgba(0, 0, 0, 0.2);
@@ -28,16 +29,62 @@ const StyledButton = styled.button`
     margin-left: 8px;
     width: 24px;
     height: 24px;
-    display: none;
     border: 1px solid white;
   }
 `
 
+const GoogleContainer = styled.div`
+  margin-left: 8px;
+  width: 24px;
+  height: 24px;
+  display: ${props => props.display};
+  justify-content: center;
+  align-items: center;
+`
+
 export default function Button(props) {
   const { buttonStyle, buttonText } = props
-  console.log(buttonStyle)
+  const { background, fontColor, border, googleDisplay } = setButtonStyle(buttonStyle)
+
+  function setButtonStyle(style) {
+    switch (buttonStyle) {
+      case 'primary':
+        return {
+          background: `#618572`,
+          fontColor: `#FFFFFF`,
+          border: `2px solid #618572`,
+          googleDisplay: `none`
+        }
+      case 'secondary':
+        return {
+          background: `#FFFFFF`,
+          fontColor:`#93B0A1`,
+          border: `2px solid #93B0A1`,
+          googleDisplay: `none`
+        }
+      case 'google':
+        return {
+          background:`#FFFFFF`,
+          fontColor: `#4285F4`,
+          border: `2px solid #4285F4`,
+          googleDisplay: `flex`
+        }
+      default:
+          return {
+            background: `black`,
+            fontColor: `white`,
+            border: `2px solid white`,
+            googleDisplay: `inline-block`
+          }
+    }
+  }
 
   return (
-      <StyledButton>{buttonText}<img src={googleIcon} alt={'Google'} /></StyledButton>
+      <StyledButton background={background} color={fontColor} border={border}>
+          {buttonText}
+          <GoogleContainer display={googleDisplay}>
+            <img src={googleIcon} alt={'Google'} />
+          </GoogleContainer>
+      </StyledButton>
   )
 }
