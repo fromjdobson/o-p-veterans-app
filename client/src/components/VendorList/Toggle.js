@@ -1,6 +1,6 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { ToggleContext } from '../../providers/VendorListItemContext'
+// import { ToggleContext } from '../../providers/VendorListItemContext'
 import ToggleButton from './ToggleButton'
 
 const ToggleContainer = styled.div`
@@ -9,8 +9,7 @@ const ToggleContainer = styled.div`
 `
 
 export default function Toggle() {
-    const [toggleState] = useContext(ToggleContext)
-    console.log(toggleState)
+    // const [toggleState] = useContext(ToggleContext)
 
     return (
         <ToggleContainer>

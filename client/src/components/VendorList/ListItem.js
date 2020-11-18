@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { ListItemContext, ToggleContext } from '../../providers/VendorListItemContext'
-import { setDisplay } from '../VendorListItem/utils'
 import ItemHeader from './ItemHeader'
 import Toggle from './Toggle'
 import VendorDetails from './VendorDetails'

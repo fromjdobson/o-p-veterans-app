@@ -1,7 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-
-// import { setButtonStyle } from "./utils";
 import googleIcon from '../../assets/Icons/google-icon.svg'
 
 const StyledButton = styled.button`
@@ -30,14 +28,14 @@ const StyledButton = styled.button`
     margin-left: 8px;
     width: 24px;
     height: 24px;
+    display: none;
     border: 1px solid white;
   }
-
-  
 `
 
 export default function Button(props) {
-  const { buttonText } = props
+  const { buttonStyle, buttonText } = props
+  console.log(buttonStyle)
 
   return (
       <StyledButton>{buttonText}<img src={googleIcon} alt={'Google'} /></StyledButton>
