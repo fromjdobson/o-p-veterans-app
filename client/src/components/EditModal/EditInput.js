@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledInput = styled.input`
+    margin: 16px 0px 24px 0px;
     width: 56px;
     height: 32px;
     font-family: Open Sans;
@@ -17,6 +18,10 @@ const StyledInput = styled.input`
     border: 1px solid rgba(84, 84, 84, 0.5);
     box-sizing: border-box;
     border-radius: 2px;
+
+    &:focus {
+        outline: 1px solid #799C8A;
+    }
 `
 
 export default function EditInput(props) {
