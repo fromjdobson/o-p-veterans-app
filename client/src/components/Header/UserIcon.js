@@ -6,7 +6,6 @@ const IconContainer = styled.div`
     width: 40px;
     height: 40px;
     display: ${props => props.display};
-    /* border: 1px dotted dodgerblue; */
 
     & > img {
         width: 100%;

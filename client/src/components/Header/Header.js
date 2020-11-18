@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { AppStateContext } from '../../providers/Store'
+import { setHeader } from './utils'
 import Close from './Close'
 import UserIcon from "./UserIcon";
 import vetFestLogo from '../../assets/images/vetfest-logo.png'
@@ -11,7 +12,6 @@ const HeaderContainer = styled.div`
   padding: 32px 12px 16px 12px;
   display: flex;
   justify-content: ${props => props.justifyContent};
-  /* justify-content: space-between; */
   border: 1px solid lightcoral;
 
   @media (min-width: 768px) {
@@ -28,20 +28,6 @@ export default function Header() {
   const [appState] = useContext(AppStateContext)
   const { isLoggedIn } = appState
   const { display, centerJustify } = setHeader(isLoggedIn)
-
-  function setHeader(status) {
-    if (status === false) {
-      return {
-        display: `none`,
-        centerJustify: `center`
-      }
-    } else if (status === true) {
-      return {
-        display: `inline-block`,
-        centerJustify: `space-between`
-      }
-    }
-  }
 
   return (
     <HeaderContainer justifyContent={centerJustify}>

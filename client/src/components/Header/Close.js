@@ -1,13 +1,12 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-// import { AppStateContext } from '../../providers/Store'
+import { AppStateContext } from '../../providers/Store'
 import closeIcon from '../../assets/Icons/Vector.svg'
 
 const CloseContainer = styled.div`
   width: 40px;
   height: 40px;
   display: ${props => props.display};
-  /* border: 1px dotted dodgerblue; */
 
   & > img {
     width: 100%;
@@ -17,46 +16,14 @@ const CloseContainer = styled.div`
 
 export default function Close(props) {
   const { display } = props
-  // const [, setAppState] = useContext(AppStateContext)
+  const [, setAppState] = useContext(AppStateContext)
 
-  // function logOut() {
-  //   setAppState({
-  //     userLoggedIn: false,
-  //     isLoading: false,
-  //     currentUser: {
-  //         userDetails: {
-  //         firstName: '',
-  //         lastName: '',
-  //         userPhone: '',
-  //         userEmail: '',
-  //         isAdmin: false
-  //         },
-  //         vendorDetails: {
-  //             vendorName: '',
-  //             vendorDescription: '',
-  //             vendorAddress: '',
-  //             vendorAptSuite: '',
-  //             vendorCity: '',
-  //             vendorState: '',
-  //             vendorZipcode: '',
-  //             veteranOwned: false,
-  //             nonProfitVendor: false,
-  //             sponsorshipLevel: ''
-  //         },
-  //         eventDetails: {
-  //             registrationComplete: false,
-  //             paymentComplete: false,
-  //             booth: {
-  //                 boothNumber: '',
-  //                 powered: ''
-  //             }
-  //         }
-  //     }
-  //   })
-  // }
+  function logOut() {
+    setAppState({ isLoggedIn: false})
+  }
 
   return (
-    <CloseContainer display={display}>
+    <CloseContainer display={display} onClick={logOut}>
         <img src={closeIcon} alt={'Click to close.'} />
     </CloseContainer>
   )
