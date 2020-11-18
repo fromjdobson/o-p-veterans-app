@@ -1,66 +1,53 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { AppStateContext } from '../../providers/Store'
-import UserIcon from "./UserIcon";
 import Close from './Close'
-import newHeaderLogo from "../../assets/images/vetfest-logo.png";
+import UserIcon from "./UserIcon";
+import vetFestLogo from '../../assets/images/vetfest-logo.png'
 
 const HeaderContainer = styled.div`
-box-sizing: border-box;
-  background: #FFFFFF;
-  margin: none;
-  padding: 10px 16px 10px 16px;
-  width: 100%;
-  height: 64px;
+  box-sizing: border-box;
+  height: 88px;
+  padding: 32px 12px 16px 12px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: ${props => props.justifyContent};
+  /* justify-content: space-between; */
+  border: 1px solid lightcoral;
+
+  @media (min-width: 768px) {
+    height: 72px;
+    padding: 16px 24px 16px 24px;
+  }
 
   & > img {
     height: 40px;
   }
-
-  @media (min-width: 768px) {
-    min-height: 72px;
-  }
-`;
-
-
-// const LogoContainer = styled.div`
-//   min-height: 64px;
-//   width: 100%;
-//   background-image: url(${newHeaderLogo});
-//   background-repeat: no-repeat;
-// `;
+`
 
 export default function Header() {
   const [appState] = useContext(AppStateContext)
-  const { userLoggedIn } = appState
+  const { isLoggedIn } = appState
+  const { display, centerJustify } = setHeader(isLoggedIn)
 
-  function closeIconDisplay() {
-    if (userLoggedIn === false) {
-      return <div></div>
-    } else if (userLoggedIn === true) {
-      return <Close />
+  function setHeader(status) {
+    if (status === false) {
+      return {
+        display: `none`,
+        centerJustify: `center`
+      }
+    } else if (status === true) {
+      return {
+        display: `inline-block`,
+        centerJustify: `space-between`
+      }
     }
   }
-
-  function userAvatarDisplay() {
-    if (userLoggedIn === false) {
-      return <div></div>
-    } else if (userLoggedIn === true) {
-      return <UserIcon />
-    }
-  }
-
-  let closeIcon = closeIconDisplay()
-  let avatarIcon = userAvatarDisplay()
 
   return (
-    <HeaderContainer>
-      {closeIcon}
-      <img src={newHeaderLogo}  alt={'O.P. Veterans'} />
-      {avatarIcon}
+    <HeaderContainer justifyContent={centerJustify}>
+      <Close display={display} />
+      <img src={vetFestLogo} alt={'VetFest logo'} />
+      <UserIcon display={display} />
     </HeaderContainer>
   );
 }

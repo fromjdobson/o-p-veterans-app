@@ -7,6 +7,7 @@ import { Payment } from "../Payment";
 import { EditModal } from '../EditModal'
 import { VendorList } from '../VendorList'
 import { Button } from '../Button'
+import { Header } from '../Header'
 
 const PlaygroundContainer = styled.div`
   padding: 24px 24px 24px 24px;
@@ -26,6 +27,9 @@ export default function Playground() {
       <h1>Playground</h1>
 
       <h3>Vendor List</h3>
+      <Header />
+
+      <h3>Button</h3>
       <Button buttonStyle={'primary'} buttonText={'Button'} />
       <br />
       <Button buttonStyle={'secondary'} buttonText={'Button'} />

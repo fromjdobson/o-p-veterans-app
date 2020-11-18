@@ -1,70 +1,63 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { AppStateContext } from '../../providers/Store'
-// import closeIcon from "../../assets/icons/Vector.svg";
+// import { AppStateContext } from '../../providers/Store'
+import closeIcon from '../../assets/Icons/Vector.svg'
 
 const CloseContainer = styled.div`
-  height: 24px;
-  display: flex;
-`;
+  width: 40px;
+  height: 40px;
+  display: ${props => props.display};
+  /* border: 1px dotted dodgerblue; */
 
-const ExitIcon = styled.div`
-  margin: 0px 8px 0px 0px;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
   & > img {
-    width: 16px;
-    height: 16px;
+    width: 100%;
+    height: 100%;
   }
-`;
+`
 
-export default function Close() {
-  const [, setAppState] = useContext(AppStateContext)
+export default function Close(props) {
+  const { display } = props
+  // const [, setAppState] = useContext(AppStateContext)
 
-  function logOut() {
-    setAppState({
-      userLoggedIn: false,
-      isLoading: false,
-      currentUser: {
-          userDetails: {
-          firstName: '',
-          lastName: '',
-          userPhone: '',
-          userEmail: '',
-          isAdmin: false
-          },
-          vendorDetails: {
-              vendorName: '',
-              vendorDescription: '',
-              vendorAddress: '',
-              vendorAptSuite: '',
-              vendorCity: '',
-              vendorState: '',
-              vendorZipcode: '',
-              veteranOwned: false,
-              nonProfitVendor: false,
-              sponsorshipLevel: ''
-          },
-          eventDetails: {
-              registrationComplete: false,
-              paymentComplete: false,
-              booth: {
-                  boothNumber: '',
-                  powered: ''
-              }
-          }
-      }
-    })
-  }
+  // function logOut() {
+  //   setAppState({
+  //     userLoggedIn: false,
+  //     isLoading: false,
+  //     currentUser: {
+  //         userDetails: {
+  //         firstName: '',
+  //         lastName: '',
+  //         userPhone: '',
+  //         userEmail: '',
+  //         isAdmin: false
+  //         },
+  //         vendorDetails: {
+  //             vendorName: '',
+  //             vendorDescription: '',
+  //             vendorAddress: '',
+  //             vendorAptSuite: '',
+  //             vendorCity: '',
+  //             vendorState: '',
+  //             vendorZipcode: '',
+  //             veteranOwned: false,
+  //             nonProfitVendor: false,
+  //             sponsorshipLevel: ''
+  //         },
+  //         eventDetails: {
+  //             registrationComplete: false,
+  //             paymentComplete: false,
+  //             booth: {
+  //                 boothNumber: '',
+  //                 powered: ''
+  //             }
+  //         }
+  //     }
+  //   })
+  // }
+
   return (
-    <CloseContainer onClick={logOut}>
-        <ExitIcon>
-            <img  alt={'Exit'} />
-        </ExitIcon>
+    <CloseContainer display={display}>
+        <img src={closeIcon} alt={'Click to close.'} />
     </CloseContainer>
   )
 }

@@ -1,28 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
-import avatar from '../../assets/icons/avatar-icon.svg'
+import avatar from '../../assets/Icons/avatar-icon.svg'
 
 const IconContainer = styled.div`
-    margin: 0px 16px 0px 16px;
     width: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
+    height: 40px;
+    display: ${props => props.display};
+    /* border: 1px dotted dodgerblue; */
 
     & > img {
-        width: 65px;
-    }
-
-    @media (min-width: 679px) {
-        display: flex;
+        width: 100%;
+        height: 100%;
     }
 `
 
-export default function UserIcon() {
+export default function UserIcon(props) {
+    const { display } = props
+
     return (
-        <IconContainer>
-            <img src={avatar} alt={'My Account'} />
+        <IconContainer display={display}>
+            <img src={avatar} alt={'User is logged in.'} />
         </IconContainer>
     )
 }
