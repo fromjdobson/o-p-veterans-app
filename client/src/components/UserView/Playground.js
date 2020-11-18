@@ -26,6 +26,9 @@ export default function Playground() {
     <PlaygroundContainer>
       <h1>Playground</h1>
 
+      <h3>Vendor List Item</h3>
+      <VendorListItem />
+
       <h3>Edit Modal</h3>
       <EditModal />
 
@@ -37,9 +40,6 @@ export default function Playground() {
 
       <h3>Admin Search Bar</h3>
       <AdminSearchBar />
-
-      <h3>Vendor List Item</h3>
-      <VendorListItem />
 
     </PlaygroundContainer>
   );
