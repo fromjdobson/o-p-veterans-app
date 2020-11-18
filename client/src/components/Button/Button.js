@@ -1,20 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-import { setButtonStyle } from "./utils";
-// import googleIcon from "../../assets/icons/google-icon.svg";
+// import { setButtonStyle } from "./utils";
 import googleIcon from '../../assets/Icons/google-icon.svg'
 
-
 const StyledButton = styled.button`
-  /* border-sizing: border-box; */
-  margin-top: ${props => props.marginTop};
   width: 312px;
   height: 40px;
-  background: ${props => props.background};
-  border: ${props => props.border};
-  box-shadow: ${props => props.boxShadow};
-  border-radius: 4px;
   font-family: Open Sans;
   font-style: normal;
   font-weight: 600;
@@ -24,42 +16,30 @@ const StyledButton = styled.button`
   justify-content: center;
   align-items: center;
   letter-spacing: 0.01em;
-  color: ${props => props.color};
+  color: #FFFFFF;
+  background: #618572;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 1px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  border: 2px solid #618572;
 
   &:hover {
-    box-shadow: 0px 8px 10px rgba(97, 133, 114, 0.14),
-      0px 3px 14px rgba(97, 133, 114, 0.12), 0px 4px 5px rgba(97, 133, 114, 0.2);
-    border-radius: 4px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 4px 5px rgba(0, 0, 0, 0.12), 0px 1px 10px rgba(0, 0, 0, 0.2);
   }
-`;
 
-const GoogleContainer = styled.div`
-  margin-left: 3px;
-  display: ${props => props.display};
-
-  & > p {
-    margin-right: 8px;
+  & > img {
+    margin-left: 8px;
+    width: 24px;
+    height: 24px;
+    border: 1px solid white;
   }
-`;
 
+  
+`
 
 export default function Button(props) {
-  const { buttonStyle, onClick, marginTop, buttonText } = props;
-  const { color, background, border, display } = setButtonStyle(buttonStyle);
+  const { buttonText } = props
 
   return (
-    <StyledButton 
-      marginTop={marginTop}
-      background={background}
-      color={color}
-      border={border}
-      onClick={onClick} 
-    >
-      <p>{buttonText}</p>
-      <GoogleContainer display={display}>
-        <p>with</p>
-        <img src={googleIcon} alt={"Sign in using Google"} />
-      </GoogleContainer>
-    </StyledButton>
-  );
+      <StyledButton>{buttonText}<img src={googleIcon} alt={'Google'} /></StyledButton>
+  )
 }

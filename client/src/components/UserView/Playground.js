@@ -7,6 +7,7 @@ import { SponsorshipCard } from "../SponsorshipCard";
 import { Payment } from "../Payment";
 import { EditModal } from '../EditModal'
 import { VendorList } from '../VendorList'
+import { Button } from '../Button'
 
 
 const PlaygroundContainer = styled.div`
@@ -26,6 +27,15 @@ export default function Playground() {
   return (
     <PlaygroundContainer>
       <h1>Playground</h1>
+
+      <h3>Vendor List</h3>
+      <Button buttonStyle={'primary'} buttonText={'Button 1'} />
+      <br />
+      <Button buttonStyle={'secondary'} buttonText={'Button 2'} />
+      <br />
+      <Button buttonStyle={'google'} buttonText={'Button 3'} />
+
+
 
       <h3>Vendor List</h3>
       <VendorList />
