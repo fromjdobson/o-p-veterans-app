@@ -12,7 +12,6 @@ const TotalsContainer = styled.div`
     }
 `
 
-
 const LabelText = styled.p`
     margin: 0px 0px 24px 0px;
     font-family: Open Sans;
@@ -23,8 +22,6 @@ const LabelText = styled.p`
     display: flex;
     align-items: center;
     color: #545454;
-    /* border: 1px dotted orange; */
-
 `
 
 const ValueText = styled.p`
@@ -37,7 +34,6 @@ const ValueText = styled.p`
     display: flex;
     align-items: center;
     color: #545454;
-    /* border: 1px dotted orange; */
 `
 
 const MainText = styled.p`
@@ -50,13 +46,11 @@ const MainText = styled.p`
     display: flex;
     align-items: center;
     color: #545454;
-    /* border: 1px dotted orange; */
 `
 
 const LabelsContainer = styled.div`
     margin: 0px 8px 0px 0px;
     width: 128px;
-    /* border: 1px solid black; */
 
     & > p {
         display: flex;
@@ -67,7 +61,6 @@ const LabelsContainer = styled.div`
 const ValuesContainer = styled.div`
     margin: 0px 0px 0px 8px;
     width: 128px;
-    /* border: 1px solid black; */
 
     & > p {
         display: flex;

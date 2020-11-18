@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Summary } from './Summary'
 import { DiscountInput } from './DiscountInput'
 import { TotalsDisplay } from './TotalsDisplay'
+import { MakePayment } from './MakePayment'
 
 const PaymentContainer = styled.div`
   box-sizing: border-box;
@@ -15,6 +16,7 @@ export default function Payment() {
       <Summary />
       <DiscountInput />
       <TotalsDisplay />
+      <MakePayment />
     </PaymentContainer>
   )
 }
