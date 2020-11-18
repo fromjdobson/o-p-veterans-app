@@ -5,6 +5,8 @@ import { AdminSearchBar } from "../AdminSearchBar";
 import { VendorListItem } from "../VendorListItem";
 import { SponsorshipCard } from "../SponsorshipCard";
 import { Payment } from "../Payment";
+import { EditModal } from '../EditModal'
+
 
 const PlaygroundContainer = styled.div`
   padding: 24px 24px 24px 24px;
@@ -23,6 +25,9 @@ export default function Playground() {
   return (
     <PlaygroundContainer>
       <h1>Playground</h1>
+
+      <h3>Edit Modal</h3>
+      <EditModal />
 
       <h3>Payment</h3>
       <Payment />
