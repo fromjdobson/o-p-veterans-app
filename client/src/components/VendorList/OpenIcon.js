@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { ListItemContext } from '../../providers/VendorListItemContext'
 import closedIcon from '../../assets/Icons/card-closed-icon.svg'
 
 const OpenIconContainer = styled.div`
@@ -14,8 +15,18 @@ const OpenIconContainer = styled.div`
 `
 
 export default function OpenIcon() {
+    const [isExpanded, setIsExpanded] = useContext(ListItemContext)
+    
+    function handleClick(input) {
+        if (isExpanded === false) {
+            setIsExpanded(true)
+        }  else if (isExpanded === true) {
+            setIsExpanded(false)
+        }
+    }
+    
     return (
-        <OpenIconContainer>
+        <OpenIconContainer onClick={handleClick}>
             <img src={closedIcon} alt={'Click to epxand.'} />
         </OpenIconContainer>
     )

@@ -39,6 +39,7 @@ const BoothNumberText = styled.p`
 `
 
 export default function ItemHeader() {
+
     return (
         <ItemHeaderContainer>
             <VendorNameText>{'Bunty Soap Company'}</VendorNameText>

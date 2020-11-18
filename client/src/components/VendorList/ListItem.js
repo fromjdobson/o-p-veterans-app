@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { ListItemContext } from '../../providers/VendorListItemContext'
 import ItemHeader from './ItemHeader'
 import Toggle from './Toggle'
 import VendorDetails from './VendorDetails'
@@ -10,17 +11,30 @@ const ListItemContainer = styled.div`
 `
 
 const RowWrapper = styled.div`
+    display: ${props => props.display};
     /* border: 1px dotted orange; */
 `
 
 export default function ListItem() {
+    const [isExpanded] = useContext(ListItemContext)
+    const { display } = openDisplay(isExpanded)
+
+    function openDisplay(status) {
+        if (status === false) {
+            return { display: `none` }
+        } else if (status === true) {
+            return { display: `block` }
+        }
+    }
+    console.log(openDisplay(isExpanded))
+    
     return (
         <ListItemContainer>
             <ItemHeader />
-            <RowWrapper>
+            <RowWrapper display={display}>
                 <Toggle />
+                <VendorDetails />
             </RowWrapper>
-            <VendorDetails />
         </ListItemContainer>
     )
 }
