@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const BoothContainer = styled.div`
     box-sizing: border-box;
-    margin: 12px 0px 0px 0px;
+    margin: 24px 0px 0px 0px;
     display: flex;
 `
 

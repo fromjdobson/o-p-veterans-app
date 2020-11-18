@@ -6,7 +6,9 @@ import BoothSummary from './BoothSummary'
 const SummaryContainer = styled.div`
     max-width: 375px;
     padding: 40px 24px 40px 24px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    border: 1px solid #EAEAEA;
+
 
     @media (min-width: 768px) {
         padding: 48px 24px 48px 24px;
