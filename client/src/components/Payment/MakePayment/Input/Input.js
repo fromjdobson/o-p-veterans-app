@@ -4,7 +4,7 @@ import HelperText from './HelperText'
 import WarningIcon from './WarningIcon'
 
 const InputContainer = styled.div`
-    border: 1px solid dodgerblue;
+    /* border: 1px solid dodgerblue; */
 
     & > p {
         margin: 0px 0px 0px 0px;
@@ -21,19 +21,30 @@ const InputContainer = styled.div`
 `
 
 const RowWrapper = styled.div`
+    position: relative;
     display: flex;
     justify-content: space-between;
     /* border: 1px solid black; */
 `
 
 const StyledInput = styled.input`
+    margin: 4px 0px 4px 0px;
     width: 100%;
     height: 24px;
-    /* background: lightblue; */
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.01em;
+    color: #545454;
     border-top: none;
     border-right: none;
     border-left: none;
     border-bottom: 1px solid #545454;
+    outline: none;
 `
 
 

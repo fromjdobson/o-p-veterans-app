@@ -3,10 +3,11 @@ import styled from 'styled-components'
 import warningIcon from '../../../../assets/Icons/status-warning-icon.svg'
 
 const WarningIconContainer = styled.div`
-    margin: 0px 0px 0px 8px;
+    margin: 4px 0px 0px -24px;
     width: 24px;
     height: 24px;
-    border: 1px dotted green;
+    display: none;
+    /* border: 1px dotted green; */
 
     & > img {
         width: 100%;

@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 const HelperTextContainer = styled.div`
-    border: 1px solid red;
+    display: none;
+    /* border: 1px solid red; */
 
     & > p {
         margin: 0px;

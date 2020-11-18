@@ -9,7 +9,8 @@ const MakePaymentContainer = styled.div`
 export default function MakePayment() {
     return (
         <MakePaymentContainer>
-            <Input label={'Label'} />
+            <Input label={'Name on card'} />
+            <Input label={'Card number'} />
         </MakePaymentContainer>
     )
 }
