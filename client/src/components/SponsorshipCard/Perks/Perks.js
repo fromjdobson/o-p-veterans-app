@@ -12,7 +12,6 @@ const RowWrapper = styled.div`
     box-sizing: border-box;
     margin: 20px 0px 0px 0px;
     display: ${props => props.display};
-    /* border: 1px solid red; */
 
     & > h4 {
         margin: 0px 0px 16px 0px;
@@ -42,7 +41,6 @@ export default function Perks() {
             }
         }
     }
-    console.log(display)
 
     return (
         <PerksContainer>

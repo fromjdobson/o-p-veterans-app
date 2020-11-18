@@ -11,7 +11,6 @@ const SponsorLogoContainer = styled.div`
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    border: 1px solid orange;
 
     & > img {
         width: 100%;

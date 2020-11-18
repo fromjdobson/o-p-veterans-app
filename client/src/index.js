@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom'
 import Store from './providers/Store'
 import SponsorshipContext from './providers/SponsorshipContext'
 import OpVeteranApp from './OpVeteranApp'
-
 import './index.css'
 
 function Index() {
