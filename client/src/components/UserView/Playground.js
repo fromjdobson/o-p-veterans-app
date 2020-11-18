@@ -6,6 +6,7 @@ import { VendorListItem } from "../VendorListItem";
 import { SponsorshipCard } from "../SponsorshipCard";
 import { Payment } from "../Payment";
 import { EditModal } from '../EditModal'
+import { VendorList } from '../VendorList'
 
 
 const PlaygroundContainer = styled.div`
@@ -27,7 +28,7 @@ export default function Playground() {
       <h1>Playground</h1>
 
       <h3>Vendor List</h3>
-
+      <VendorList />
 
       <h3>Vendor List Item</h3>
       <VendorListItem />
