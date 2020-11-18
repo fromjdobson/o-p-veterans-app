@@ -25,6 +25,7 @@ export default function ToggleButton(props) {
     const [toggleState, setToggleState] = useContext(ToggleContext)
     const { buttonStatus, buttonText } = props
     const { background, fontColor, fontWeight, opacity } = setButtonDisplay(buttonStatus)
+    console.log(toggleState, buttonStatus)
 
     function handleClick() {
         setToggleState(() => {

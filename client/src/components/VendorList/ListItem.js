@@ -32,7 +32,6 @@ export default function ListItem() {
     }
     let displayDetails = setDetails(toggleState)
 
-    console.log(displayDetails)
 
     function expandDisplay(status) {
         if (status === false) {
