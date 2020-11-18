@@ -11,8 +11,8 @@ export default function Toggle() {
 
     return (
         <ToggleContainer>
-            <ToggleButton buttonStatus={'active'} />
-            <ToggleButton buttonStatus={'inactive'} />
+            <ToggleButton buttonText={'Vendor details'} buttonStatus={'active'} />
+            <ToggleButton buttonText={'Event info'} buttonStatus={'inactive'} />
         </ToggleContainer>
     )
 }

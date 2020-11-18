@@ -12,7 +12,7 @@ export default function VendorList() {
     return (
         <VendorListContainer>
             <ListItem />
-            <ListItem />
+            {/* <ListItem /> */}
         </VendorListContainer>
     )
 }
