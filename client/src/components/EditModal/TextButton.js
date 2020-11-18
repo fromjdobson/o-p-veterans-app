@@ -3,8 +3,6 @@ import styled from 'styled-components'
 
 const StyledButton = styled.button`
     padding: 4px 8px 4px 8px;
-    /* display: flex;
-    justify-content: center; */
     font-family: Open Sans;
     font-style: normal;
     font-weight: 600;

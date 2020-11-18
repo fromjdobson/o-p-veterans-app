@@ -6,7 +6,6 @@ const EditInputContainer = styled.div`
     width: 280px;
     display: flex;
     justify-content: center;
-    /* border: 1px solid orange; */
 
     @media (min-width: 768px) {
         width: 416px;
@@ -15,7 +14,6 @@ const EditInputContainer = styled.div`
 `
 
 const StyledInput = styled.input`
-    /* margin: 16px 0px 24px 0px; */
     width: 56px;
     height: 32px;
     font-family: Open Sans;

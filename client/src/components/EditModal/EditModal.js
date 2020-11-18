@@ -34,7 +34,6 @@ const ModalTitle = styled.p`
     line-height: 24px;
     text-transform: uppercase;
     color: #545454;
-    /* border: 1px dotted dodgerblue; */
 
     @media (min-width: 768px) {
         width: 416px;
@@ -46,7 +45,6 @@ const RowWrapper = styled.div`
     width: 280px;
     display: flex;
     justify-content: center;
-    /* border: 1px solid orange; */
 
     @media (min-width: 768px) {
         width: 416px;

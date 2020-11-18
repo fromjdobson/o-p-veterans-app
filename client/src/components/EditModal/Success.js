@@ -10,13 +10,11 @@ const SuccessContainer = styled.div`
     flex-direction: column;
     align-items: center;
     background: #FFFFFF;
-    /* border: 1px solid pink; */
 `
 
 const ImageContainer = styled.div`
     width: 80px;
     height: 80px;
-    /* border: 1px dotted black; */
 
     & > img {
         width: 100%;
