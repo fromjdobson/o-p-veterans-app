@@ -9,3 +9,13 @@ export function setDisplay(status) {
         }
     }
 }
+
+export function handleClick(status, newFunc) {
+    newFunc(() => {
+        if (status === false) {
+            return true
+        } else if (status === true) {
+            return false
+        }
+    })
+}

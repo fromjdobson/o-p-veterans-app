@@ -19,6 +19,7 @@ const ListItemContainer = styled.div`
 
 export default function ListItem(props) {
     const { text } = props
+    
     return (
         <ListItemContainer>
             <p>{text}</p>
