@@ -69,6 +69,7 @@ const ValuesContainer = styled.div`
 `
 
 export default function TotalsDisplay() {
+    
     return (
         <TotalsContainer>
             <LabelsContainer>

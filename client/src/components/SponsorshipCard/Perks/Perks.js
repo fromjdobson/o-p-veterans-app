@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { SponsorshipCardContext } from '../../../providers/SponsorshipContext'
+import { setDisplay } from'./utils'
 import ExpandComponent from './ExpandComponent'
 import ListItem from './ListItem'
 
@@ -29,18 +30,6 @@ const RowWrapper = styled.div`
 export default function Perks() {
     const [isExpanded] = useContext(SponsorshipCardContext)
     const { display } = setDisplay(isExpanded)
-
-    function setDisplay(status) {
-        if  (status === false) {
-            return {
-                display: `none`
-            }
-        } else if (status === true) {
-            return {
-                display: `block`
-            }
-        }
-    }
 
     return (
         <PerksContainer>

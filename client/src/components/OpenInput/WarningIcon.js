@@ -16,6 +16,7 @@ const WarningIconContainer = styled.div`
 `
 
 export default function WarningIcon() {
+    
     return (
         <WarningIconContainer>
             <img src={warningIcon} alt={'Invalid input.'} />

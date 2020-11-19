@@ -19,6 +19,7 @@ const SponsorLogoContainer = styled.div`
 `
 
 export default function SponsorLogo() {
+    
     return (
         <SponsorLogoContainer>
             <img src={cover6Logo} alt={'Cover 6 Outdoors logo.'} />

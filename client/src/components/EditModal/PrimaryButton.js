@@ -23,6 +23,7 @@ const StyledButton = styled.button`
 
 export default function PrimaryButton(props) {
     const { buttonText } = props
+    
     return (
         <StyledButton>{buttonText}</StyledButton>
     )

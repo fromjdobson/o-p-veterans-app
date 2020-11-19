@@ -21,6 +21,7 @@ const RowContainer = styled.div`
 `
 
 export default function DiscountInput() {
+    
     return (
         <DiscountContainer>
             <RowContainer>

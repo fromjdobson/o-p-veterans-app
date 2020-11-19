@@ -21,6 +21,7 @@ const HelperTextContainer = styled.div`
 
 export default function HelperText(props) {
     const { text } = props
+    
     return (
         <HelperTextContainer>
             <p>{text}</p>

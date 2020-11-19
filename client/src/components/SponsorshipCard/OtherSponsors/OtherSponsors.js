@@ -29,6 +29,7 @@ const LogosContainer = styled.div`
 `
 
 export default function OtherSponsors() {
+    
     return (
         <OtherSponsorsContainer>
             {/* Remeber to have sponsor level change dynamically */}
