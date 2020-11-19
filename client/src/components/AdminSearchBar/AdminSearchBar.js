@@ -3,11 +3,11 @@ import styled from 'styled-components'
 import SearchIcon from './SearchIcon'
 
 const SearchBarContainer = styled.div`
-    margin: 24px 0px 0px 24px;
+    /* margin: 24px 0px 0px 24px; */
     position: relative;
     width: 344px;
     height: 40px;
-    /* opacity: 0.5; */
+    
     & > input {
         width: 100%;
         height: 100%;
