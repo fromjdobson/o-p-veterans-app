@@ -35,10 +35,7 @@ const DropdownBtn = styled.h4`
 `;
 
 export default function ExpandButton(props) {
-
 const { onClick } = props
-
-console.log(onClick)
 
   return (
     <RowContainer >
