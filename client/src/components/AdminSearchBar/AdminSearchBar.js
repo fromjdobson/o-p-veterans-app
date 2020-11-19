@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import SearchIcon from './SearchIcon'
 
 const SearchBarContainer = styled.div`
-    /* margin: 24px 0px 0px 24px; */
+    margin: 24px 0px 16px 0px;
     position: relative;
     width: 100%;
     height: 40px;

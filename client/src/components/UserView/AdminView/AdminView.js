@@ -9,13 +9,14 @@ const AdminViewContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid lightcoral;
+    /* border: 1px solid lightcoral; */
 `
 
 const TitleContainer = styled.div`
     box-sizing: border-box;
+    margin: 32px 0px 0px 0px;
     width: 100%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 `
 
 const TitleText = styled.h2`
@@ -27,11 +28,11 @@ const TitleText = styled.h2`
     line-height: 32px;
     letter-spacing: 0.02em;
     color: #545454;
-    border: 1px solid mediumspringgreen;
+    /* border: 1px solid mediumspringgreen; */
 `
 
 const SubtitleText = styled.p`
-    margin: 0px;
+    margin: 8px 0px 0px 0px;
     font-family: Open Sans;
     font-style: normal;
     font-weight: 300;
@@ -39,17 +40,18 @@ const SubtitleText = styled.p`
     line-height: 24px;
     letter-spacing: 0.01em;
     color: #545454;
-    border: 1px solid mediumspringgreen;
+    /* border: 1px solid mediumspringgreen; */
 `
 
 const MapPlaceholder = styled.div`
-
+    margin: 32px 0px 0px 0px;
     width: 100%;
     height: 375px;
     display: flex;
     justify-content: center;
     align-items: center;
     background: gray;
+    opacity: 0.5;
 
     & > p {
         margin: 0px;

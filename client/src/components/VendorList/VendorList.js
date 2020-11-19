@@ -10,10 +10,9 @@ const VendorListContainer = styled.div`
 `
 
 export default function VendorList() {
+
     return (
         <VendorListContainer>
-            <ListItem />
-            <ListItem />
             <ListItem />
             {/* <ListItem /> */}
         </VendorListContainer>

@@ -1,6 +1,5 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { ToggleContext } from '../../providers/VendorListItemContext'
 
 const NewStyledToggleButton = styled.button`
     width: 50%;
@@ -22,19 +21,11 @@ const NewStyledToggleButton = styled.button`
 `
 
 export default function ToggleButton(props) {
-    const [toggleState, setToggleState] = useContext(ToggleContext)
-    const { buttonStatus, buttonText } = props
+    const { toggleObj, buttonStatus, buttonText } = props
+    const { toggleState } = toggleObj
     const { background, fontColor, fontWeight, opacity } = setButtonDisplay(buttonStatus)
+    console.log(toggleState, background)
 
-    function handleClick() {
-        setToggleState(() => {
-            if (toggleState === 'vendor') {
-                return 'event'
-            } else if (toggleState === 'event') {
-                return 'vendor'
-            }
-        })
-    }
 
     function setButtonDisplay(status) {
         if (status === 'active') {
@@ -56,6 +47,10 @@ export default function ToggleButton(props) {
 
 
     return (
-        <NewStyledToggleButton onClick={handleClick} background={background} color={fontColor} fontWeight={fontWeight} opacity={opacity}>{buttonText}</NewStyledToggleButton>
+        <NewStyledToggleButton
+             background={background}
+             color={fontColor}
+             fontWeight={fontWeight}
+             opacity={opacity}>{buttonText}</NewStyledToggleButton>
     )
 }

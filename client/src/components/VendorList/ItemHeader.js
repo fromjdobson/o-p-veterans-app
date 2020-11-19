@@ -38,13 +38,15 @@ const BoothNumberText = styled.p`
     /* border: 1px solid lightgreen; */
 `
 
-export default function ItemHeader() {
+export default function ItemHeader(props) {
+    const { expandContainer } = props
+    let expandObj = {...expandContainer}
 
     return (
         <ItemHeaderContainer>
             <VendorNameText>{'Bunty Soap Company'}</VendorNameText>
             <BoothNumberText>{'A01'}</BoothNumberText>
-            <OpenIcon />
+            <OpenIcon expandObj={expandObj} />
         </ItemHeaderContainer>
     )
 }

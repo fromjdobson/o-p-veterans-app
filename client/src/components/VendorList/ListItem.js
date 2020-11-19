@@ -1,14 +1,15 @@
-import React, { useContext } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import { ListItemContext, ToggleContext } from '../../providers/VendorListItemContext'
+// import { ListItemContext, ToggleContext } from '../../providers/VendorListItemContext'
 import ItemHeader from './ItemHeader'
 import Toggle from './Toggle'
 import VendorDetails from './VendorDetails'
-import EventInfo from './EventInfo'
+// import EventInfo from './EventInfo'
 
 const ListItemContainer = styled.div`
+    margin: 0px 0px 8px 0px;
     padding: 8px 16px 8px 16px;
-    border: 1px solid lightcoral;
+    /* border: 1px solid lightcoral; */
 `
 
 const RowWrapper = styled.div`
@@ -18,35 +19,29 @@ const RowWrapper = styled.div`
 `
 
 export default function ListItem() {
-    const [isExpanded] = useContext(ListItemContext)
-    const [toggleState] = useContext(ToggleContext)
-    const { display } = expandDisplay(isExpanded)
+    const [isExpanded, setIsExpanded] = useState(false)
+    const [toggleState, setToggleState] = useState('vendor')
+    const { display } = expandContainer(isExpanded)
 
-    function setDetails(status) {
-        if (status === 'vendor') {
-            return <VendorDetails />
-        } else if (status === 'event') {
-            return <EventInfo />
-        }
-    }
-    let displayDetails = setDetails(toggleState)
-
-
-    function expandDisplay(status) {
+    function expandContainer(status) {
         if (status === false) {
-            return { display: `none` }
+            return {
+                display: `none`
+            }
         } else if (status === true) {
-            return { display: `block` }
+            return {
+                display: `block`
+            }
         }
     }
     
     return (
         <ListItemContainer>
-            <ItemHeader />
+            <ItemHeader expandContainer={{ state: isExpanded, setter: setIsExpanded }} />
             <RowWrapper display={display}>
-                <Toggle />
-                {displayDetails}
-                {/* <VendorDetails /> */}
+                <Toggle toggle={{ toggleState: toggleState, setter: setToggleState }} />
+                {/* {displayDetails} */}
+                <VendorDetails />
             </RowWrapper>
         </ListItemContainer>
     )

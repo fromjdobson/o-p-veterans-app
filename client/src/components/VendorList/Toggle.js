@@ -8,13 +8,14 @@ const ToggleContainer = styled.div`
     /* border: 1px dashed dodgerblue; */
 `
 
-export default function Toggle() {
-    // const [toggleState] = useContext(ToggleContext)
+export default function Toggle(props) {
+    const { toggle } = props
+    let toggleObj = {...toggle}
 
     return (
         <ToggleContainer>
-            <ToggleButton buttonText={'Vendor details'} buttonStatus={'active'} />
-            <ToggleButton buttonText={'Event info'} buttonStatus={'inactive'} />
+            <ToggleButton buttonText={'Vendor details'} buttonStatus={'active'} toggleObj={toggleObj} />
+            <ToggleButton buttonText={'Event info'} buttonStatus={'inactive'} toggleObj={toggleObj} />
         </ToggleContainer>
     )
 }
