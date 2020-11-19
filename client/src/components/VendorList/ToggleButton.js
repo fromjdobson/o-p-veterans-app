@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { setButtonDisplay } from './utils'
 
 const NewStyledToggleButton = styled.button`
     width: 50%;
@@ -30,24 +31,6 @@ export default function ToggleButton(props) {
             setter(() => 'event')
         } else if (status === 'event') {
             setter(() => 'vendor')
-        }
-    }
-
-    function setButtonDisplay(status) {
-        if (status === 'active') {
-            return {
-                background: `#FFFFFF`,
-                fontColor: `#4E6A5B`,
-                fontWeight: `bold`,
-                opacity: 1.0
-            }
-        } else if (status === 'inactive') {
-            return {
-                background: `#3A4F44`,
-                fontColor: `#FFFFFF`,
-                fontWeight: `normal`,
-                opacity: 0.4
-            }
         }
     }
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { expandContainer } from './utils'
 import ItemHeader from './ItemHeader'
 import Toggle from './Toggle'
 import VendorDetails from './VendorDetails'
@@ -20,18 +21,6 @@ export default function ListItem(props) {
     const [toggleState, setToggleState] = useState('vendor')
     const { display } = expandContainer(isExpanded)
 
-    function expandContainer(status) {
-        if (status === false) {
-            return {
-                display: `none`
-            }
-        } else if (status === true) {
-            return {
-                display: `block`
-            }
-        }
-    }
-
     function setToggleDisplay(status) {
         if (status === 'vendor') {
             return <VendorDetails />
@@ -41,7 +30,7 @@ export default function ListItem(props) {
     }
 
     let displayDetails = setToggleDisplay(toggleState)
-    
+
     return (
         <ListItemContainer>
             <ItemHeader expandContainer={{ state: isExpanded, setter: setIsExpanded }} />
