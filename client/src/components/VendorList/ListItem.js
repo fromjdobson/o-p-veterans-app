@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import ItemHeader from './ItemHeader'
 import Toggle from './Toggle'
 import VendorDetails from './VendorDetails'
-// import EventInfo from './EventInfo'
+import EventInfo from './EventInfo'
 
 const ListItemContainer = styled.div`
     margin: 0px 0px 8px 0px;
@@ -34,14 +34,26 @@ export default function ListItem() {
             }
         }
     }
+
+    function setToggleDisplay(status) {
+        if (status === 'vendor') {
+            return <VendorDetails />
+        } else if (status === 'event') {
+            return <EventInfo />
+        }
+    }
+
+    let displayDetails = setToggleDisplay(toggleState)
+
+    // console.log(displayDetails)
     
     return (
         <ListItemContainer>
             <ItemHeader expandContainer={{ state: isExpanded, setter: setIsExpanded }} />
             <RowWrapper display={display}>
                 <Toggle toggle={{ toggleState: toggleState, setter: setToggleState }} />
-                {/* {displayDetails} */}
-                <VendorDetails />
+                {displayDetails}
+                {/* <VendorDetails /> */}
             </RowWrapper>
         </ListItemContainer>
     )

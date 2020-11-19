@@ -22,10 +22,17 @@ const NewStyledToggleButton = styled.button`
 
 export default function ToggleButton(props) {
     const { toggleObj, buttonStatus, buttonText } = props
-    const { toggleState } = toggleObj
+    const { toggleState, setter } = toggleObj
     const { background, fontColor, fontWeight, opacity } = setButtonDisplay(buttonStatus)
-    console.log(toggleState, background)
+    // console.log(setter)
 
+    function setToggleStatus(status) {
+        if (status === 'vendor') {
+            setter(() => 'event')
+        } else if (status === 'event') {
+            setter(() => 'vendor')
+        }
+    }
 
     function setButtonDisplay(status) {
         if (status === 'active') {
@@ -45,12 +52,12 @@ export default function ToggleButton(props) {
         }
     }
 
-
     return (
         <NewStyledToggleButton
-             background={background}
-             color={fontColor}
-             fontWeight={fontWeight}
-             opacity={opacity}>{buttonText}</NewStyledToggleButton>
+            onClick={() => setToggleStatus(toggleState)}
+            background={background}
+            color={fontColor}
+            fontWeight={fontWeight}
+            opacity={opacity}>{buttonText}</NewStyledToggleButton>
     )
 }
