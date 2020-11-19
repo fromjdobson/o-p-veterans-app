@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledTextButton = styled.button`
-    /* width: 72px; */
     height: 32px;
     padding: 4px 8px 4px 8px;
     font-family: Open Sans;

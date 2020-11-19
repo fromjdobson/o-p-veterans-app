@@ -11,7 +11,6 @@ const OpenInputContainer = styled.div`
     width: 312px;
     display: flex;
     flex-direction: column;
-    /* border: 1px solid lightblue; */
 `
 
 const LabelText = styled.p`

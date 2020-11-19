@@ -16,6 +16,7 @@ const DisplayText = styled.p`
 
 export default function HelperText(props) {
     const { displayText } = props
+    
     return (
         <DisplayText>{displayText}</DisplayText>
     )

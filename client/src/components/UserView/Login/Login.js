@@ -1,26 +1,22 @@
-import React, { useState, useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { AppStateContext } from '../../../providers/Store'
+// import { AppStateContext } from '../../../providers/Store'
 import { Header } from '../../Header'
 import { OpenInput } from '../../OpenInput'
 import { Button } from '../../Button'
 import TextButton from './TextButton'
 
 const LoginContainer = styled.div`
-    /* width: 100%; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* border: 1px solid purple; */
 `
 
 const LeftPane = styled.div`
-    /* max-width: 375px; */
     height: 100%;
     display: flex;
     flex-direction: column;
     padding: 56px 32px 168px 32px;
-    /* border: 1px solid black; */
 
     & > p {
         margin: 0px 0px 8px 0px;
@@ -31,7 +27,6 @@ const LeftPane = styled.div`
         line-height: 16px;
         letter-spacing: 0.02em;
         color: #545454;
-        /* border: 1px solid mediumspringgreen; */
     }
 
     & > h3 {
@@ -43,7 +38,6 @@ const LeftPane = styled.div`
         line-height: 32px;
         letter-spacing: 0.015em;
         color: #545454;
-        /* border: 1px solid mediumspringgreen; */
     }
 `
 
@@ -53,7 +47,6 @@ const SignInContainer = styled.div`
     justify-content: center;
     align-items: center;
     background: #FFFFFF;
-    /* border: 1px solid red; */
 
     & > h4 {
         margin: 0px 0px 0px 8px;
@@ -64,7 +57,6 @@ const SignInContainer = styled.div`
         line-height: 24px;
         letter-spacing: 0.01em;
         color: #545454;
-        /* border: 1px solid mediumspringgreen; */
     }
 `
 
@@ -75,7 +67,6 @@ const ButtonContainer = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    /* border: 1px solid orange; */
 `
 
 const InputContainer = styled.div`
@@ -84,14 +75,13 @@ const InputContainer = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    /* border: 1px solid black; */
 `
 
 export default function Login() {
-    const [appState,setAppState] = useContext(AppStateContext)
+    // const [appState,setAppState] = useContext(AppStateContext)
     // const [loginState, setLoginState] = useState({ email: '', password: ''})
     // const { email, password } = loginState
-    console.log(appState)
+    // console.log(appState)
 
     // function getEmail(e) {
     //     const { value } = e.target
