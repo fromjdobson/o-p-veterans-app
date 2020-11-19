@@ -15,7 +15,7 @@ const StyledInput = styled.input`
     border-bottom: 1px solid #545454;
     border-left: none;
     background: #FFFFFF;
-    opacity: 0.5;
+    opacity: 0.4;
 
     &:focus {
         font-family: Open Sans;
@@ -30,8 +30,8 @@ const StyledInput = styled.input`
 `
 
 export default function Input(props) {
-    const { placeholder } = props
+    const { placeholder, type } = props
     return (
-        <StyledInput placeholder={placeholder} />
+        <StyledInput type={type} placeholder={placeholder} />
     )
 }

@@ -12,7 +12,6 @@ const HeaderContainer = styled.div`
   padding: 32px 12px 16px 12px;
   display: flex;
   justify-content: ${props => props.justifyContent};
-  border: 1px solid lightcoral;
 
   @media (min-width: 768px) {
     height: 72px;

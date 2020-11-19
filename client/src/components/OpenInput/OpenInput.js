@@ -5,11 +5,13 @@ import Input from './Input'
 import HelperText from './HelperText'
 
 const OpenInputContainer = styled.div`
+    margin: 0px 0px 24px 0px;
     box-sizing: border-box;
     padding: 8px 8px 8px 8px;
     width: 312px;
     display: flex;
     flex-direction: column;
+    border: 1px solid lightblue;
 `
 
 const LabelText = styled.p`
@@ -35,13 +37,13 @@ const Container = styled.div`
 `
 
 export default function OpenInput(props) {
-    const { label, placeholder } = props
+    const { label, placeholder, type } = props
     
     return (
         <OpenInputContainer>
             <LabelText>{label}</LabelText>
             <Container>
-                <Input placeholder={placeholder} />
+                <Input type={type} placeholder={placeholder} />
                 <WarningIcon status={'none'} />
             </Container>
             <HelperText displayText={'Helper text'} />

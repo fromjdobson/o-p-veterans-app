@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Login from './Login'
+import { Login } from './Login'
 // import Playground from './Playground'
 
 const UserViewContainer = styled.div`
