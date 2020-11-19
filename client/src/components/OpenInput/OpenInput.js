@@ -5,13 +5,13 @@ import Input from './Input'
 import HelperText from './HelperText'
 
 const OpenInputContainer = styled.div`
-    margin: 0px 0px 24px 0px;
+    margin: 0px 0px 0px 0px;
     box-sizing: border-box;
     padding: 8px 8px 8px 8px;
     width: 312px;
     display: flex;
     flex-direction: column;
-    border: 1px solid lightblue;
+    /* border: 1px solid lightblue; */
 `
 
 const LabelText = styled.p`

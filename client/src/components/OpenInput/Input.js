@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledInput = styled.input`
+    box-sizing: border-box;
     width: 100%;
     height: 24px;
     font-family: Open Sans;
