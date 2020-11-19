@@ -23,7 +23,6 @@ const VendorNameText = styled.p`
 const BoothNumberText = styled.p`
     margin: 0px 8px 0px 8px;
     width: 40px;
-    /* height: 24px; */
     font-family: Open Sans;
     font-style: normal;
     font-weight: 600;
