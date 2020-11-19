@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { AdminViewContext } from '../../../providers/AdminView'
+import { setModalDisplay } from './utils'
 import { Header } from '../../Header'
 import { AdminSearchBar } from '../../AdminSearchBar'
 import { VendorList } from '../../VendorList'
@@ -88,14 +89,6 @@ export default function AdminView() {
     const [isModalOpen, setIsModalOpen] = modal
     const { display } = setModalDisplay(isModalOpen)
     
-    function setModalDisplay(modalStatus) {
-        if (modalStatus === false) {
-            return { display: `none` }
-        } else if (modalStatus) {
-            return { display: `flex` }
-        }
-    }
-
     return (
         <AdminViewContainer>
             <Header />
