@@ -7,9 +7,7 @@ import { Button } from '../../Button'
 import TextButton from './TextButton'
 
 const LoginContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
 `
 
 const LeftPane = styled.div`
@@ -17,28 +15,37 @@ const LeftPane = styled.div`
     display: flex;
     flex-direction: column;
     padding: 56px 32px 168px 32px;
+`
+
+const TitleContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     & > p {
-        margin: 0px 0px 8px 0px;
-        font-family: Open Sans;
-        font-style: normal;
-        font-weight: 300;
-        font-size: 12px;
-        line-height: 16px;
-        letter-spacing: 0.02em;
-        color: #545454;
-    }
+            margin: 0px 0px 8px 0px;
+            width: 312px;
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 16px;
+            letter-spacing: 0.02em;
+            color: #545454;
 
-    & > h3 {
-        margin: 0px 0px 64px 0px;
-        font-family: Helvetica Neue;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 28px;
-        line-height: 32px;
-        letter-spacing: 0.015em;
-        color: #545454;
-    }
+        }
+
+        & > h3 {
+            margin: 0px 0px 64px 0px;
+            width: 312px;
+            font-family: Helvetica Neue;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 28px;
+            line-height: 32px;
+            letter-spacing: 0.015em;
+            color: #545454;
+        }
 `
 
 const SignInContainer = styled.div`
@@ -98,8 +105,10 @@ export default function Login() {
         <LoginContainer>
             <Header />
             <LeftPane>
-                <p>{'Register with OP Veteran'}</p>
-                <h3>{'Create an accoount'}</h3>
+                <TitleContainer>
+                    <p>{'Register with OP Veteran'}</p>
+                    <h3>{'Create an accoount'}</h3>
+                </TitleContainer>
                 <InputContainer>
                     <OpenInput type={'text'} label={'Email'} placeholder={'user@email.com'} />
                     <OpenInput type={'password'} label={'Password'} placeholder={''} />

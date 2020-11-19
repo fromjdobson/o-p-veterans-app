@@ -4,8 +4,8 @@ import { AppStateContext } from '../../providers/Store'
 import closeIcon from '../../assets/Icons/Vector.svg'
 
 const CloseContainer = styled.div`
-  width: 40px;
-  height: 40px;
+  width: 24px;
+  height: 24px;
   display: ${props => props.display};
 
   & > img {

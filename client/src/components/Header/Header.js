@@ -9,13 +9,14 @@ import vetFestLogo from '../../assets/images/vetfest-logo.png'
 const HeaderContainer = styled.div`
   box-sizing: border-box;
   height: 88px;
-  padding: 32px 12px 16px 12px;
+  padding: 32px 16px 16px 16px;
   display: flex;
   justify-content: ${props => props.justifyContent};
+  align-items: center;
 
   @media (min-width: 768px) {
     height: 72px;
-    padding: 16px 24px 16px 24px;
+    padding: 16px 40px 16px 40px;
   }
 
   & > img {
