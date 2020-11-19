@@ -8,6 +8,7 @@ import { EditModal } from '../EditModal'
 import { VendorList } from '../VendorList'
 import { Button } from '../Button'
 import { Header } from '../Header'
+import { OpenInput } from '../OpenInput'
 
 const PlaygroundContainer = styled.div`
   padding: 24px 24px 24px 24px;
@@ -27,6 +28,7 @@ export default function Playground() {
       <h1>Playground</h1>
 
       <h3>Open Input</h3>
+      <OpenInput placeholder={'placeholder'} />
 
       <h3>Header</h3>
       <Header />
