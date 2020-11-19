@@ -5,7 +5,6 @@ import OpenIcon from './OpenIcon'
 const ItemHeaderContainer = styled.div`
     display: flex;
     justify-content: flex-end;
-    /* border: 1px solid black; */
 `
 
 const VendorNameText = styled.p`
@@ -19,7 +18,6 @@ const VendorNameText = styled.p`
     display: flex;
     align-items: center;
     color: #545454;
-    /* border: 1px solid lightgreen; */
 `
 
 const BoothNumberText = styled.p`
@@ -35,7 +33,6 @@ const BoothNumberText = styled.p`
     align-items: center;
     text-align: center;
     color: #545454;
-    /* border: 1px solid lightgreen; */
 `
 
 export default function ItemHeader(props) {

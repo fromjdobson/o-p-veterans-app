@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { AdminViewContext } from '../../providers/AdminView'
 import TextButton from './TextButton'
 
 const EventInfoContainer = styled.div`
@@ -47,6 +48,11 @@ const RowWrapper = styled.div`
 `
 
 export default function EventInfo() {
+    const { modal } = useContext(AdminViewContext)
+    const [, setIsModalOpen] = modal
+
+    
+
     return (
         <EventInfoContainer>
             <SponsorLevelText>{'helo'}</SponsorLevelText>
@@ -54,7 +60,7 @@ export default function EventInfo() {
             <StyledP>{'non profit'}</StyledP>
             <StyledP>{'powered'}</StyledP>
             <RowWrapper>
-                <TextButton buttonText={'Change booth number'} />
+                <TextButton buttonText={'Change booth number'} onClick={() => setIsModalOpen(true)} />
             </RowWrapper>
         </EventInfoContainer>
     )

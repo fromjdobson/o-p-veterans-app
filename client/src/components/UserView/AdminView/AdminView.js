@@ -1,22 +1,24 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { AdminViewContext } from '../../../providers/AdminView'
 import { Header } from '../../Header'
 import { AdminSearchBar } from '../../AdminSearchBar'
 import { VendorList } from '../../VendorList'
+import { EditModal } from '../../EditModal'
+import closeIcon from '../../../assets/Icons/Vector.svg'
 
 const AdminViewContainer = styled.div`
     padding: 0px 24px 0px 24px;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* border: 1px solid lightcoral; */
 `
 
 const TitleContainer = styled.div`
     box-sizing: border-box;
     margin: 32px 0px 0px 0px;
     width: 100%;
-    /* border: 1px solid black; */
 `
 
 const TitleText = styled.h2`
@@ -28,7 +30,6 @@ const TitleText = styled.h2`
     line-height: 32px;
     letter-spacing: 0.02em;
     color: #545454;
-    /* border: 1px solid mediumspringgreen; */
 `
 
 const SubtitleText = styled.p`
@@ -40,7 +41,6 @@ const SubtitleText = styled.p`
     line-height: 24px;
     letter-spacing: 0.01em;
     color: #545454;
-    /* border: 1px solid mediumspringgreen; */
 `
 
 const MapPlaceholder = styled.div`
@@ -61,7 +61,44 @@ const MapPlaceholder = styled.div`
     }
 `
 
+const ModalBackdrop = styled.div`
+    min-width: 100vw;
+    min-height: 100vh;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    /* display: flex; */
+    display: ${props => props.display};
+    justify-content: center;
+    align-items: center;
+    background: rgba(84, 84, 84, 0.8);
+
+    & > img {
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        top: 24px;
+        right: 24px;
+    }
+`
+
 export default function AdminView() {
+    const { modal } = useContext(AdminViewContext)
+    const [isModalOpen, setIsModalOpen] = modal
+    const { display } = setModalDisplay(isModalOpen)
+    console.log(display)
+
+    
+    function setModalDisplay(modalStatus) {
+        if (modalStatus === false) {
+            return { display: `none` }
+        } else if (modalStatus) {
+            return { display: `flex` }
+        }
+    }
+
     return (
         <AdminViewContainer>
             <Header />
@@ -74,6 +111,10 @@ export default function AdminView() {
             </MapPlaceholder>
             <AdminSearchBar />
             <VendorList />
+            <ModalBackdrop display={display}>
+                <EditModal />
+                <img src={closeIcon} alt={'Click to close.'} onClick={() => setIsModalOpen(false)} />
+            </ModalBackdrop>
         </AdminViewContainer>
     )
 }

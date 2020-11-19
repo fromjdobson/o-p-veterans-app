@@ -8,6 +8,7 @@ import Success from './Success'
 const EditModalContainer = styled.div`
     padding: 24px 32px 16px 32px;
     max-width: 344px;
+    position: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -20,9 +20,10 @@ const StyledButton = styled.button`
 `
 
 export default function TextButton(props) {
-    const { buttonText } = props
+    
+    const { buttonText, onClick } = props
 
     return (
-        <StyledButton>{buttonText}</StyledButton>
+        <StyledButton onClick={onClick}>{buttonText}</StyledButton>
     )
 }

@@ -24,7 +24,6 @@ export default function ToggleButton(props) {
     const { toggleObj, buttonStatus, buttonText } = props
     const { toggleState, setter } = toggleObj
     const { background, fontColor, fontWeight, opacity } = setButtonDisplay(buttonStatus)
-    // console.log(setter)
 
     function setToggleStatus(status) {
         if (status === 'vendor') {

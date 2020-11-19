@@ -1,19 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Store from './providers/Store'
+import AdminViewContext from './providers/AdminView'
 import SponsorshipContext from './providers/SponsorshipContext'
-import VendorListItemContext from './providers/VendorListItemContext'
 import OpVeteranApp from './OpVeteranApp'
 import './index.css'
 
 function Index() {
+
     return (
         <Store>
-            <SponsorshipContext>
-                <VendorListItemContext>
-                    <OpVeteranApp />
-                </VendorListItemContext>
-            </SponsorshipContext>
+            <AdminViewContext>
+                <SponsorshipContext>
+                     <OpVeteranApp />
+                </SponsorshipContext>
+            </AdminViewContext>
         </Store>
     )
 }

@@ -1,24 +1,21 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-// import { ListItemContext, ToggleContext } from '../../providers/VendorListItemContext'
 import ItemHeader from './ItemHeader'
 import Toggle from './Toggle'
 import VendorDetails from './VendorDetails'
 import EventInfo from './EventInfo'
 
 const ListItemContainer = styled.div`
-    margin: 0px 0px 8px 0px;
+    margin: 0px 0px 0px 0px;
     padding: 8px 16px 8px 16px;
-    /* border: 1px solid lightcoral; */
 `
 
 const RowWrapper = styled.div`
     margin: 8px 0px 0px 0px;
     display: ${props => props.display};
-    /* border: 1px dotted orange; */
 `
 
-export default function ListItem() {
+export default function ListItem(props) {
     const [isExpanded, setIsExpanded] = useState(false)
     const [toggleState, setToggleState] = useState('vendor')
     const { display } = expandContainer(isExpanded)
@@ -44,8 +41,6 @@ export default function ListItem() {
     }
 
     let displayDetails = setToggleDisplay(toggleState)
-
-    // console.log(displayDetails)
     
     return (
         <ListItemContainer>
@@ -53,7 +48,6 @@ export default function ListItem() {
             <RowWrapper display={display}>
                 <Toggle toggle={{ toggleState: toggleState, setter: setToggleState }} />
                 {displayDetails}
-                {/* <VendorDetails /> */}
             </RowWrapper>
         </ListItemContainer>
     )
