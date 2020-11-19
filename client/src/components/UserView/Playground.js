@@ -26,7 +26,9 @@ export default function Playground() {
     <PlaygroundContainer>
       <h1>Playground</h1>
 
-      <h3>Vendor List</h3>
+      <h3>Open Input</h3>
+
+      <h3>Header</h3>
       <Header />
 
       <h3>Button</h3>

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import WarningIcon from './WarningIcon'
+import WarningIcon from '../../assets/Icons/status-warning-icon.svg'
 import { setInputStatus } from './utils'
 
 const InputContainer = styled.div`
