@@ -7,7 +7,6 @@ const EventInfoContainer = styled.div`
     box-sizing: border-box;
     padding: 16px;
     height: 192px;
-    /* border: 1px dashed red; */
 `
 
 const StyledP = styled.p`
@@ -22,7 +21,6 @@ const StyledP = styled.p`
     justify-content: flex-end;
     align-items: center;
     color: #545454;
-    /* border: 1px solid lightblue; */
 `
 
 const SponsorLevelText = styled.div`
@@ -38,20 +36,16 @@ const SponsorLevelText = styled.div`
     align-items: center;
     text-align: right;
     color: #545454;
-    /* border: 1px solid purple; */
 `
 
 const RowWrapper = styled.div`
     display: flex;
     justify-content: flex-end;
-    /* border: 1px solid darkgreen; */
 `
 
 export default function EventInfo() {
     const { modal } = useContext(AdminViewContext)
     const [, setIsModalOpen] = modal
-
-    
 
     return (
         <EventInfoContainer>

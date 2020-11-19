@@ -69,7 +69,6 @@ const ModalBackdrop = styled.div`
     left: 0px;
     right: 0px;
     bottom: 0px;
-    /* display: flex; */
     display: ${props => props.display};
     justify-content: center;
     align-items: center;
@@ -88,8 +87,6 @@ export default function AdminView() {
     const { modal } = useContext(AdminViewContext)
     const [isModalOpen, setIsModalOpen] = modal
     const { display } = setModalDisplay(isModalOpen)
-    console.log(display)
-
     
     function setModalDisplay(modalStatus) {
         if (modalStatus === false) {

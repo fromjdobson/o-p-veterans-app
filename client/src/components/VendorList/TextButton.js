@@ -20,7 +20,6 @@ const StyledButton = styled.button`
 `
 
 export default function TextButton(props) {
-    
     const { buttonText, onClick } = props
 
     return (
