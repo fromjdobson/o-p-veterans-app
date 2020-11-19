@@ -10,7 +10,6 @@ const OpenInputContainer = styled.div`
     width: 312px;
     display: flex;
     flex-direction: column;
-    /* border: 1px solid lightcoral; */
 `
 
 const LabelText = styled.p`
@@ -24,7 +23,6 @@ const LabelText = styled.p`
     align-items: center;
     letter-spacing: 0.02em;
     color: #545454;
-    /* border: 1px solid mediumspringgreen; */
 `
 
 const Container = styled.div`
@@ -34,11 +32,11 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* border: 1px solid black; */
 `
 
 export default function OpenInput(props) {
     const { label, placeholder } = props
+    
     return (
         <OpenInputContainer>
             <LabelText>{label}</LabelText>

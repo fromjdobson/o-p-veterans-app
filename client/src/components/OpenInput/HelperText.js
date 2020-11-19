@@ -8,11 +8,10 @@ const DisplayText = styled.p`
     font-weight: 300;
     font-size: 12px;
     line-height: 16px;
-    display: flex;
+    display: none;
     align-items: center;
     letter-spacing: 0.02em;
     color: #EA7C7C;
-    /* border: 1px solid mediumspringgreen; */
 `
 
 export default function HelperText(props) {

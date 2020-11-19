@@ -6,8 +6,8 @@ const WarningIconContainer = styled.div`
     min-width: 24px;
     min-height: 24px;
     position: absolute;
+    display: none;
     right: 0px;
-    /* border: 1px dotted dodgerblue; */
 
     & > img {
         width: 100%;
