@@ -4,6 +4,7 @@ import { AppStateContext } from '../../../providers/Store'
 import { Header } from '../../Header'
 import { OpenInput } from '../../OpenInput'
 import { Button } from '../../Button'
+import TextButton from './TextButton'
 
 const LoginContainer = styled.div`
     /* width: 100%; */
@@ -83,6 +84,7 @@ export default function Login() {
                 <Button buttonStyle={'primary'} buttonText={'SIGN UP'} />
                 <Button buttonStyle={'google'} buttonText={'Register using'} />
                 <h4>{'Already have an account?'}</h4>
+                <TextButton buttonText={'Sign in'} />
             </LeftPane>
         </LoginContainer>
     )
