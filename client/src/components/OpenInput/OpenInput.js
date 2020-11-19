@@ -5,7 +5,12 @@ import Input from './Input'
 import HelperText from './HelperText'
 
 const OpenInputContainer = styled.div`
-    border: 1px solid lightcoral;
+    box-sizing: border-box;
+    padding: 8px 8px 8px 8px;
+    width: 312px;
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid lightcoral; */
 `
 
 const LabelText = styled.p`
@@ -13,12 +18,23 @@ const LabelText = styled.p`
     font-family: Open Sans;
     font-style: normal;
     font-weight: 300;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 16px;
     display: flex;
     align-items: center;
     letter-spacing: 0.02em;
     color: #545454;
+    /* border: 1px solid mediumspringgreen; */
+`
+
+const Container = styled.div`
+    margin: 4px 0px 4px 0px;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 1px solid black; */
 `
 
 export default function OpenInput(props) {
@@ -26,8 +42,10 @@ export default function OpenInput(props) {
     return (
         <OpenInputContainer>
             <LabelText>{label}</LabelText>
-            <Input placeholder={placeholder} />
-            <WarningIcon status={'none'} />
+            <Container>
+                <Input placeholder={placeholder} />
+                <WarningIcon status={'none'} />
+            </Container>
             <HelperText displayText={'Helper text'} />
         </OpenInputContainer>
     )
