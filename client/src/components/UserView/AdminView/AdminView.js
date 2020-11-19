@@ -5,7 +5,17 @@ import { AdminSearchBar } from '../../AdminSearchBar'
 import { VendorList } from '../../VendorList'
 
 const AdminViewContainer = styled.div`
+    padding: 0px 24px 0px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border: 1px solid lightcoral;
+`
+
+const TitleContainer = styled.div`
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid black;
 `
 
 const TitleText = styled.h2`
@@ -33,7 +43,8 @@ const SubtitleText = styled.p`
 `
 
 const MapPlaceholder = styled.div`
-    width: 375px;
+
+    width: 100%;
     height: 375px;
     display: flex;
     justify-content: center;
@@ -52,8 +63,10 @@ export default function AdminView() {
     return (
         <AdminViewContainer>
             <Header />
-            <TitleText>{'Welcome, Denny.'}</TitleText>
-            <SubtitleText>{'Here is a current list, and map, of vendors registered for Veteran Fest.'}</SubtitleText>
+            <TitleContainer>
+                <TitleText>{'Welcome, Denny.'}</TitleText>
+                <SubtitleText>{'Here is a current list, and map, of vendors registered for Veteran Fest.'}</SubtitleText>
+            </TitleContainer>
             <MapPlaceholder>
                 <p>Diagram Placeholder</p>
             </MapPlaceholder>

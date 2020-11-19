@@ -5,7 +5,7 @@ import SearchIcon from './SearchIcon'
 const SearchBarContainer = styled.div`
     /* margin: 24px 0px 0px 24px; */
     position: relative;
-    width: 344px;
+    width: 100%;
     height: 40px;
     
     & > input {
