@@ -28,7 +28,7 @@ export default function Playground() {
       <h1>Playground</h1>
 
       <h3>Open Input</h3>
-      <OpenInput placeholder={'placeholder'} />
+      <OpenInput label={'Label'} placeholder={'placeholder'} />
 
       <h3>Header</h3>
       <Header />
