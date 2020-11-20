@@ -18,6 +18,14 @@ const EditModalContainer = styled.div`
     box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12), 0px 4px 5px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
 
+    & > img {
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        top: 24px;
+        right: 24px;
+    }
+
     @media (min-width: 768px) {
         max-width: 480px;
     }
@@ -54,6 +62,7 @@ const RowWrapper = styled.div`
 `
 
 export default function EditModal() {
+
     return (
         <EditModalContainer>
             <ModalTitle>{'New Booth Number'}</ModalTitle>

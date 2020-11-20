@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { AppStateContext } from '../../providers/Store'
+import { AppStateContext } from '../../providers/AppState'
 import { setHeader } from './utils'
 import Close from './Close'
 import UserIcon from "./UserIcon";

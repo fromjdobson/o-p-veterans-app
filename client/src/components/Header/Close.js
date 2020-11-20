@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { AppStateContext } from '../../providers/Store'
+import { AppStateContext } from '../../providers/AppState'
 import closeIcon from '../../assets/Icons/Vector.svg'
 
 const CloseContainer = styled.div`
