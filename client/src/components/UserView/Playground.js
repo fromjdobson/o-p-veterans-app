@@ -9,6 +9,7 @@ import { VendorList } from '../VendorList'
 import { Button } from '../Button'
 import { Header } from '../Header'
 import { OpenInput } from '../OpenInput'
+import { ProgressBar } from '../ProgressBar'
 
 const PlaygroundContainer = styled.div`
   padding: 24px 24px 24px 24px;
@@ -26,6 +27,9 @@ export default function Playground() {
   return (
     <PlaygroundContainer>
       <h1>Playground</h1>
+
+      <h3>Open Input</h3>
+      <ProgressBar />
 
       <h3>Open Input</h3>
       <OpenInput label={'Label'} placeholder={'placeholder'} />
