@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import ProgressIndicatorIcon from './ProgressIndicatorIcon'
 
 const ProgressSectionContainer = styled.div`
     border: 1px solid blue;
@@ -8,7 +9,12 @@ const ProgressSectionContainer = styled.div`
 export default function ProgressSection() {
     return (
         <ProgressSectionContainer>
-            <p>Section</p>
+            <ProgressIndicatorIcon status={'active'} />
+            <ProgressIndicatorIcon status={'inactive'} />
+            <ProgressIndicatorIcon status={'inactive'} />
+            <ProgressIndicatorIcon status={'inactive'} />
+            <ProgressIndicatorIcon status={'inactive'} />
+            <ProgressIndicatorIcon status={'inactive'} />
         </ProgressSectionContainer>
     )
 }
