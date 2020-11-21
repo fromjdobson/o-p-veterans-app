@@ -6,6 +6,14 @@ const HelperTextContainer = styled.div`
 
     & > p {
         margin: 0px;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 16px;
+        display: flex;
+        align-items: center;
+        color: #EA7C7C;
     }
 `
 
