@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { ReactComponent as StatusWarningIcon } from '../../../assets/Icons/status-warning-icon.svg'
 
 const IconContainer =  styled.div`
-    max-width: 32px;
-    max-height: 32px;
+    max-width: 24px;
+    max-height: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
