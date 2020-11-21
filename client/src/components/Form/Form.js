@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ProgressBar } from './ProgressBar'
 import { FormInput } from './FormInput'
 
 const FormContainer = styled.div`
@@ -11,7 +10,6 @@ export default function Form() {
     
     return (
         <FormContainer>
-            <ProgressBar />
             <FormInput />
         </FormContainer>
     )

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { AppStateContext } from '../../providers/AppState'
-import Playground from './Playground'
+// import Playground from './Playground'
 import { Login } from './Login'
 import { AdminView } from './AdminView'
 import { VendorView } from './VendorView'
@@ -31,10 +31,10 @@ export default function UserView() {
 
     return (
         <UserViewContainer>
-            <Playground />
+            {/* <Playground /> */}
             {/* <Login /> */}
             {/* <AdminView /> */}
-            {/* <VendorView /> */}
+            <VendorView />
             {/* {userView} */}
         </UserViewContainer>
     )

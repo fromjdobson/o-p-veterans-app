@@ -8,6 +8,7 @@ import vetFestLogo from '../../assets/images/vetfest-logo.png'
 
 const HeaderContainer = styled.div`
   box-sizing: border-box;
+  width: 100%;
   height: 88px;
   padding: 32px 16px 16px 16px;
   display: flex;
