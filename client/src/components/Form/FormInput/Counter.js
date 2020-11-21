@@ -2,10 +2,22 @@ import React from 'react'
 import styled from 'styled-components'
 
 const CoutnerContainer = styled.div`
-    background: lightblue;
+    margin: 0px 0px 0px 8px;
+    /* background: lightblue; */
 
     & > p {
         margin: 0px;
+        min-width: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 15px;
+        line-height: 24px;
+        text-align: right;
+        color: #545454;
     }
 `
 
