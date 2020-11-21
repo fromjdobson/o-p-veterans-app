@@ -8,12 +8,16 @@ import NextButton from './NextButton'
 
 
 const InputContainer = styled.div`
-    border: 1px solid orange;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `
 
 const LabelWrapper = styled.div`
+    box-sizing: border-box;
+    margin: 0px 0px 8px 0px;
+    width: 100%;
     display: flex;
-    border: 2px dashed green;
 
     & > p {
         margin: 0px;
@@ -26,21 +30,24 @@ const LabelWrapper = styled.div`
         display: flex;
         align-items: center;
         color: #545454;
-        /* background: orange; */
     }
 `
 
 const InputWrapper = styled.div`
+    box-sizing: border-box;
+    margin: 0px 0px 16px 0px;
+    width: 100%;
     position: relative;
     display: flex;
     align-items: center;
-    background: lightgoldenrodyellow;
 `
 
 const NextButtonWrapper = styled.div`
+    box-sizing: border-box;
+    margin: 8px 0px 0px 0px;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
-    border: 2px dotted green;
 `
 
 export default function FormInput() {
@@ -52,9 +59,9 @@ export default function FormInput() {
             </LabelWrapper>
             <InputWrapper>
                 <Input placeholder={'placeholder'} />
-                <WarningIcon display={'flex'} />
+                <WarningIcon display={'none'} />
             </InputWrapper>
-            <HelperText />
+            <HelperText visibility={'hidden'} />
             <NextButtonWrapper>
                  <NextButton />
             </NextButtonWrapper>

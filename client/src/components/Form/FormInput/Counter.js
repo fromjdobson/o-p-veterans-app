@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 const CoutnerContainer = styled.div`
     margin: 0px 0px 0px 8px;
-    /* background: lightblue; */
 
     & > p {
         margin: 0px;
@@ -22,6 +21,7 @@ const CoutnerContainer = styled.div`
 `
 
 export default function Counter() {
+    
     return (
         <CoutnerContainer>
             <p>{'1/4'}</p>

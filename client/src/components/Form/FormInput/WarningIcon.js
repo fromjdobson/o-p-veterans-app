@@ -10,7 +10,6 @@ const IconContainer =  styled.div`
     display: ${props => props.display};
     justify-content: center;
     align-items: center;
-    /* border: 1px dotted dodgerblue; */
 
     & > ${StatusWarningIcon} {
         width: 100%;

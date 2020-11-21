@@ -9,8 +9,6 @@ const StyledFormInput = styled.input`
     font-weight: 300;
     font-size: 28px;
     line-height: 32px;
-    display: flex;
-    align-items: center;
     color: #403926;
     border-top: none;
     border-right: none;
@@ -19,6 +17,7 @@ const StyledFormInput = styled.input`
 `
 
 export default function Input() {
+
     return (
         <StyledFormInput />
     )
