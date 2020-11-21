@@ -5,10 +5,12 @@ import { ReactComponent as StatusWarningIcon } from '../../../assets/Icons/statu
 const IconContainer =  styled.div`
     max-width: 24px;
     max-height: 24px;
-    display: flex;
+    position: absolute;
+    right: 0px;
+    display: ${props => props.display};
     justify-content: center;
     align-items: center;
-    border: 1px dotted dodgerblue;
+    /* border: 1px dotted dodgerblue; */
 
     & > ${StatusWarningIcon} {
         width: 100%;
@@ -16,9 +18,11 @@ const IconContainer =  styled.div`
     }
 `
 
-export default function WarningIcon() {
+export default function WarningIcon(props) {
+    const { display } = props
+
     return (
-        <IconContainer>
+        <IconContainer display={display}>
             <StatusWarningIcon />
         </IconContainer>
     )

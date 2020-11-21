@@ -30,6 +30,13 @@ const LabelWrapper = styled.div`
     }
 `
 
+const InputWrapper = styled.div`
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: lightgoldenrodyellow;
+`
+
 export default function FormInput() {
     return (
         <InputContainer>
@@ -37,8 +44,10 @@ export default function FormInput() {
                 <p>{'Label'}</p>
                 <Counter />
             </LabelWrapper>
-            <Input placeholder={'placeholder'} />
-            <WarningIcon display={'display'} />
+            <InputWrapper>
+                <Input placeholder={'placeholder'} />
+                <WarningIcon display={'flex'} />
+            </InputWrapper>
             <HelperText />
             <NextButton />
         </InputContainer>
