@@ -8,6 +8,7 @@ const FormContainer = styled.div`
 `
 
 export default function Form() {
+    
     return (
         <FormContainer>
             <ProgressBar />
