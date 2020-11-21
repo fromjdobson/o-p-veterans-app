@@ -37,6 +37,12 @@ const InputWrapper = styled.div`
     background: lightgoldenrodyellow;
 `
 
+const NextButtonWrapper = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    border: 2px dotted green;
+`
+
 export default function FormInput() {
     return (
         <InputContainer>
@@ -49,7 +55,9 @@ export default function FormInput() {
                 <WarningIcon display={'flex'} />
             </InputWrapper>
             <HelperText />
-            <NextButton />
+            <NextButtonWrapper>
+                 <NextButton />
+            </NextButtonWrapper>
         </InputContainer>
     )
 }
