@@ -14,10 +14,21 @@ const StyledButton = styled.button`
     color: #618572;
     background: none;
     border: none;
+
+    @media (min-width: 768px) {
+        font-size: 32px;
+        line-height: 32px;
+    }
 `
 
 const StyledIcon = styled(RightArrow)`
     margin-left: 8px;
+
+    @media (min-width: 768px) {
+        margin-left: 16px;
+        min-width: 24px;
+        min-height: 24px;
+    }
 `
 
 export default function NextButton() {

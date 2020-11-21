@@ -6,7 +6,6 @@ import WarningIcon from './WarningIcon'
 import HelperText from './HelperText'
 import NextButton from './NextButton'
 
-
 const InputContainer = styled.div`
     display: flex;
     flex-direction: column;

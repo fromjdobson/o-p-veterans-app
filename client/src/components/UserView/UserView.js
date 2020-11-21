@@ -26,7 +26,7 @@ export default function UserView() {
 
     let userView = setUserView(isLoggedIn, isAdmin)
     
-    console.log(1111, userView)
+    // console.log(1111, userView)
 
 
     return (
@@ -34,8 +34,8 @@ export default function UserView() {
             {/* <Playground /> */}
             {/* <Login /> */}
             {/* <AdminView /> */}
-            <VendorView />
-            {/* {userView} */}
+            {/* <VendorView /> */}
+            {userView}
         </UserViewContainer>
     )
 }

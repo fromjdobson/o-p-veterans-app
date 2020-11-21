@@ -12,8 +12,9 @@ const StyledFormInput = styled.input`
     color: #403926;
     border-top: none;
     border-right: none;
-    border-bottom: 2px solid #EA7C7C;
+    border-bottom: 2px solid #545454;
     border-left: none;
+    outline: none;
 `
 
 export default function Input() {

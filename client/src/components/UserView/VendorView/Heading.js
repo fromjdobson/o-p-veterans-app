@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 const HeadingContiner = styled.div`
-    width: 328px;
-    border: 2px dashed dodgerblue;
+    margin: 0px 0px 0px 0px;
+    width: 100%;
 
     & > h2 {
         margin: 0px 0px 0px 0px;
@@ -16,6 +16,11 @@ const HeadingContiner = styled.div`
         align-items: center;
         letter-spacing: 0.03em;
         color: #545454;
+
+        @media (min-width: 768px) {
+            font-size: 44px;
+            line-height: 48px;
+        }
     }
 
     & > p {
@@ -27,6 +32,11 @@ const HeadingContiner = styled.div`
         line-height: 16px;
         letter-spacing: 0.02em;
         color: #545454;
+
+        @media (min-width: 768px) {
+            font-size: 18px;
+            line-height: 24px;
+        }
     }
 `
 

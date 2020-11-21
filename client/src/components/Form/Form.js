@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import { FormInput } from './FormInput'
 
 const FormContainer = styled.div`
-    /* border: 1px solid purple; */
+    margin: 64px 0px 0px 0px;
+    width: 100%;
 `
 
 export default function Form() {

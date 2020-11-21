@@ -5,7 +5,6 @@ import { ProgressSection } from './ProgressSection'
 const ProgressBarContainer = styled.div`
     width: 100%;
     display: flex;
-    border: 1px solid lightcoral;
 `
 
 export default function ProgressBar() {
