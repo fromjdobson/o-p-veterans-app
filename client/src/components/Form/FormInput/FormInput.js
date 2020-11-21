@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import WarningIcon from './WarningIcon'
 
 const InputContainer = styled.div`
     border: 1px solid orange;
@@ -8,7 +9,7 @@ const InputContainer = styled.div`
 export default function FormInput() {
     return (
         <InputContainer>
-            <p>Form Input</p>
+            <WarningIcon />
         </InputContainer>
     )
 }
