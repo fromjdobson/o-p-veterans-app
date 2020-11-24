@@ -1,41 +1,59 @@
 import React from "react";
 import styled from "styled-components";
+import BoothSquare from "./BoothSquare";
 
 const BoothsWrapper = styled.div`
+  border: 1px solid red;
   position: absolute;
-  width: 849.66px;
-  height: 1341.27px;
+  width: 840px;
+  height: 1340px;
   left: 70px;
-  top: 16.78px;
+  top: 16px;
 `;
 
-const BoothSquare = styled.div`
+const BoothGroup7 = styled.div`
   position: relative;
-  width: 19.56px;
-  height: 19.56px;
-  left: 0px;
-  top: 86.33px;
-
-  /* Feldgrau/Tints & Shades/Light 3 */
-
-  background: #799c8a;
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 40px;
+  height: 998px;
+  left: 70px;
+  top: 340px;
 `;
 
 export default function Booths() {
   return (
     <BoothsWrapper>
-      <BoothSquare></BoothSquare>
-      <BoothSquare></BoothSquare>
-      <BoothSquare></BoothSquare>
-      <BoothSquare></BoothSquare>
-      <BoothSquare></BoothSquare>
-      <BoothSquare></BoothSquare>
-      <BoothSquare></BoothSquare>
-      <BoothSquare></BoothSquare>
-      <BoothSquare></BoothSquare>
-      <BoothSquare></BoothSquare>
-      <BoothSquare></BoothSquare>
-      <BoothSquare></BoothSquare>
+      <BoothGroup7>
+        <BoothSquare boothNumber={"A"} />
+        <BoothSquare boothNumber={"A"} />
+        <BoothSquare boothNumber={"A"} />
+        <BoothSquare boothNumber={"A"} />
+        <BoothSquare boothNumber={"A"} />
+        <BoothSquare boothNumber={"A"} />
+        <BoothSquare boothNumber={"B"} />
+        <BoothSquare boothNumber={"B"} />
+        <BoothSquare boothNumber={"B"} />
+        <BoothSquare boothNumber={"B"} />
+        <BoothSquare boothNumber={"B"} />
+        <BoothSquare boothNumber={"B"} />
+        <BoothSquare boothNumber={"B"} />
+        <BoothSquare boothNumber={"B"} />
+        <BoothSquare boothNumber={"B"} />
+        <BoothSquare boothNumber={"B"} />
+        <BoothSquare boothNumber={"B"} />
+        <BoothSquare boothNumber={"B"} />
+        <BoothSquare boothNumber={"B"} />
+        <BoothSquare boothNumber={"B"} />
+        <BoothSquare boothNumber={"B"} />
+        <BoothSquare boothNumber={"B"} />
+        <BoothSquare boothNumber={"B"} />
+        <BoothSquare boothNumber={"B"} />
+        <BoothSquare boothNumber={"B"} />
+      </BoothGroup7>
     </BoothsWrapper>
   );
 }
