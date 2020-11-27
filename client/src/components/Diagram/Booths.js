@@ -11,7 +11,7 @@ const BoothsWrapper = styled.div`
   top: 16px;
 `;
 
-const BoothGroup7 = styled.div`
+const BoothGroup = styled.div`
   position: relative;
   border: 1px solid blue;
   display: flex;
@@ -20,14 +20,12 @@ const BoothGroup7 = styled.div`
   align-items: center;
   width: 40px;
   height: 998px;
-  left: 70px;
-  top: 340px;
 `;
 
 export default function Booths() {
   return (
     <BoothsWrapper>
-      <BoothGroup7>
+      <BoothGroup>
         <BoothSquare boothNumber={"A"} />
         <BoothSquare boothNumber={"A"} />
         <BoothSquare boothNumber={"A"} />
@@ -53,7 +51,7 @@ export default function Booths() {
         <BoothSquare boothNumber={"B"} />
         <BoothSquare boothNumber={"B"} />
         <BoothSquare boothNumber={"B"} />
-      </BoothGroup7>
+      </BoothGroup>
     </BoothsWrapper>
   );
 }

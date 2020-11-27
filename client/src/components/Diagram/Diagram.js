@@ -19,6 +19,7 @@ export default function Diagram() {
   return (
     <DiagramContainer>
       <Booths />
+      <Booths />
     </DiagramContainer>
   );
 }
