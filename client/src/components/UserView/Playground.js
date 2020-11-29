@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { AdminSearchBar } from "../AdminSearchBar";
-import { VendorListItem } from "../VendorListItem";
+// import { VendorListItem } from "../VendorListItem";
 import { SponsorshipCard } from "../SponsorshipCard";
 import { Payment } from "../Payment";
 import { EditModal } from '../EditModal'
@@ -47,8 +47,8 @@ export default function Playground() {
       <h3>Vendor List</h3>
       <VendorList />
 
-      <h3>Vendor List Item</h3>
-      <VendorListItem />
+      {/* <h3>Vendor List Item</h3>
+      <VendorListItem /> */}
 
       <h3>Edit Modal</h3>
       <EditModal />
