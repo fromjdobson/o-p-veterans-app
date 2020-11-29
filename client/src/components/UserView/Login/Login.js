@@ -1,8 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-
-import firebase, { auth, provider } from '../../../firebase'
-
 
 // import { AppStateContext } from '../../../providers/Store'
 import { Header } from '../../Header'
@@ -88,41 +85,29 @@ const InputContainer = styled.div`
     align-items: center;
 `
 
+const LogOutButton = styled.button`
+    background: blue;
+    color: white;
+`
+
 
 export default function Login() {
-    const [email, setEmail] = useState(null)
-    const [passsword, setPassword] = useState(null)
+    // const [email, setEmail] = useState(null)
+    // const [passsword, setPassword] = useState(null)
 
-    function setEmailInputState(e) {
-        const { value } = e.target
-        setEmail(value)
-    }
+    // function setEmailInputState(e) {
+    //     const { value } = e.target
+    //     setEmail(value)
+    // }
 
-    function setPasswordInputState(e) {
-        const { value } = e.target
-        setPassword(value)
-    }
+    // function setPasswordInputState(e) {
+    //     const { value } = e.target
+    //     setPassword(value)
+    // }
 
-    function login() {
-        console.log('login fired')
 
-        auth.signInWithPopup(provider)
-            .then((result) => {
-                console.log(1111, result.user)
-                const { displayName, uid, email } = result.user
-
-                const newUser = {
-                    userId: uid,
-                    name: displayName,
-                    email: email,
-                    isAdmin: false
-                }
-                console.log(2222, newUser)
-            })
-    }
 
     
-
 
     return (
         <LoginContainer>
@@ -133,12 +118,14 @@ export default function Login() {
                     <h3>{'Create an accoount'}</h3>
                 </TitleContainer>
                 <InputContainer>
-                    <OpenInput type={'text'} label={'Email'} placeholder={'user@email.com'} onChange={(e) => setEmailInputState(e)} />
-                    <OpenInput type={'password'} label={'Password'} placeholder={''} onChange={(e) => setPasswordInputState(e)} />
+                    <OpenInput type={'text'} label={'Email'} placeholder={'user@email.com'} />
+                    <OpenInput type={'password'} label={'Password'} placeholder={''} />
                 </InputContainer>
                 <ButtonContainer>
                     <Button buttonStyle={'primary'} buttonText={'SIGN UP'} />
-                    <Button buttonStyle={'google'} buttonText={'Register using'} onClick={() => login()} />
+                    <Button buttonStyle={'google'} buttonText={'Register using'} />
+                    <LogOutButton>Out</LogOutButton>
+                    <LogOutButton>Test</LogOutButton>
                 </ButtonContainer>
                 <SignInContainer>
                     <h4>{'Already have an account?'}</h4>

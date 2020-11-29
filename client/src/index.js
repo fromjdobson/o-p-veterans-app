@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import AppContext from './providers/AppContext'
 import UserContext from './providers/UserContext'
 import OpVeteranApp from './OpVeteranApp'
 import './index.css'
@@ -7,9 +8,11 @@ import './index.css'
 function Index() {
 
     return (
-        <UserContext>
-            <OpVeteranApp />
-        </UserContext>
+        <AppContext>
+            <UserContext>
+                <OpVeteranApp />
+            </UserContext>
+        </AppContext>
     )
 }
 

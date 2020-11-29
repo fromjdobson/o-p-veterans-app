@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { UserView } from './components/UserView'
+import { Login } from './components/UserView/Login'
 
 const AppContainer = styled.div`
     /* border: 1px solid lightcoral; */
@@ -8,9 +8,10 @@ const AppContainer = styled.div`
 
 export default function OpVeteranApp() {
 
+
     return (
         <AppContainer>
-            <UserView />
+            <Login />
         </AppContainer>
     )
 }
