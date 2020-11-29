@@ -44,11 +44,11 @@ const GoogleContainer = styled.div`
 `
 
 export default function Button(props) {
-  const { buttonStyle, buttonText } = props
+  const { buttonStyle, buttonText, onClick } = props
   const { background, fontColor, border, googleDisplay } = setButtonStyle(buttonStyle)
 
   return (
-      <StyledButton background={background} color={fontColor} border={border}>
+      <StyledButton background={background} color={fontColor} border={border} onClick={onClick}>
           {buttonText}
           <GoogleContainer display={googleDisplay}>
             <img src={googleIcon} alt={'Google'} />

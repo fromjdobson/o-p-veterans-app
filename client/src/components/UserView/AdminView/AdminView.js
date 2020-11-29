@@ -1,7 +1,5 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { AdminViewContext } from '../../../providers/AdminView'
-import { setModalDisplay } from './utils'
 import { Header } from '../../Header'
 import { AdminSearchBar } from '../../AdminSearchBar'
 import { VendorList } from '../../VendorList'

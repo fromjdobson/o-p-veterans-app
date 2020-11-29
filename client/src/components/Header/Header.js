@@ -1,7 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
-import { AppStateContext } from '../../providers/AppState'
-import { setHeader } from './utils'
 import Close from './Close'
 import UserIcon from "./UserIcon";
 import vetFestLogo from '../../assets/images/vetfest-logo.png'
@@ -26,15 +24,12 @@ const HeaderContainer = styled.div`
 `
 
 export default function Header() {
-  const [appState] = useContext(AppStateContext)
-  const { isLoggedIn } = appState
-  const { display, centerJustify } = setHeader(isLoggedIn)
 
   return (
-    <HeaderContainer justifyContent={centerJustify}>
-      <Close display={display} />
+    <HeaderContainer>
+      <Close />
       <img src={vetFestLogo} alt={'VetFest logo'} />
-      <UserIcon display={display} />
+      <UserIcon />
     </HeaderContainer>
   );
 }

@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
-import { AppStateContext } from '../../providers/AppState'
 import closeIcon from '../../assets/Icons/Vector.svg'
 
 const CloseContainer = styled.div`
@@ -15,15 +14,9 @@ const CloseContainer = styled.div`
 `
 
 export default function Close(props) {
-  const { display } = props
-  const [, setAppState] = useContext(AppStateContext)
-
-  function logOut() {
-    setAppState({ isLoggedIn: false})
-  }
 
   return (
-    <CloseContainer display={display} onClick={logOut}>
+    <CloseContainer>
         <img src={closeIcon} alt={'Click to close.'} />
     </CloseContainer>
   )

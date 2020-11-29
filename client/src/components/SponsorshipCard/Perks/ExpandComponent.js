@@ -1,7 +1,5 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { SponsorshipCardContext } from '../../../providers/SponsorshipContext'
-import { handleClick } from './utils'
 import cardClosedIcon from '../../../assets/Icons/card-closed-icon.svg'
 
 const ExpandContainer = styled.div`
@@ -27,10 +25,9 @@ const ExpandContainer = styled.div`
 `
 
 export default function ExpandComponent() {
-    const [isExpanded, setIsExpanded] = useContext(SponsorshipCardContext)
 
     return (
-        <ExpandContainer onClick={() => handleClick(isExpanded, setIsExpanded)}>
+        <ExpandContainer>
             <p>Expand for perks</p>
             <img src={cardClosedIcon} alt={'Click to see more information.'} />
         </ExpandContainer>
