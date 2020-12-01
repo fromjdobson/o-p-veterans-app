@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import styled from 'styled-components'
+import { CurrentUserContext } from '../../../providers/CurrentUser'
 import firebase, { auth, provider } from '../../../firebase'
 import { Header } from '../../Header'
 import { OpenInput } from '../../OpenInput'
@@ -85,6 +86,7 @@ const InputContainer = styled.div`
 `
 
 export default function Login() {
+    const [, setCurrentUser] = useContext(CurrentUserContext)
     // const [email, setEmail] = useState(null)
     // const [passsword, setPassword] = useState(null)
 
@@ -98,15 +100,6 @@ export default function Login() {
     //     setPassword(value)
     // }
 
-
-    useEffect(() => {
-        auth.onAuthStateChanged((user) => {
-            if (user) {
-                // console.log(`useEffect fired: User is still logged in.`)
-            }
-        })
-    }, [])
-
     function signInWithGoogle() {
         auth.signInWithPopup(provider).then((result) => {
             const signedInUser = result.user
@@ -115,7 +108,6 @@ export default function Login() {
 
             const db = firebase.firestore()
             const usersRef = db.collection('users')
-
             usersRef.get().then((snapshot) => {
                 snapshot.forEach((doc) => {
                     const { id } = doc.data()
@@ -124,8 +116,6 @@ export default function Login() {
                     if (signInId === docId) {
                         // console.log(1111, 'User already in database.')
                     } else {
-                        // console.log(2222, 'did not match - add new user obj')
-
                         usersRef.doc(uid).set({
                             id: `${uid}`,
                             name: `${displayName}`,
@@ -145,7 +135,7 @@ export default function Login() {
                             boothreserved: '',
                             formcomplete: false,
                             paymentcomplete: false,
-                            isAdmind: false
+                            isAdmin: false
                         }).then(() => {
                             // console.log(`Document successfully written.`)
                         }).catch((error) => {
@@ -160,9 +150,29 @@ export default function Login() {
     }
 
     function logoout() {
-        console.log('logout clicked')
         auth.signOut().then(() => {
             console.log('User has been signed out, duuuuuuuuude.')
+        })
+        setCurrentUser({
+            id: ``,
+            name: ``,
+            email: ``,
+            phone: ``,
+            userPhotoUrl: ``,
+            vendorname: ``,
+            vendordescription: '',
+            streetaddress: '',
+            suitenumber: '',
+            city: '',
+            state: '',
+            zipcode: '',
+            veteranowned: false,
+            nonprofit: false,
+            sponsorship: '',
+            boothreserved: '',
+            formcomplete: false,
+            paymentcomplete: false,
+            isAdmin: ''
         })
     }
 

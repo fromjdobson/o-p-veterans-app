@@ -83,9 +83,6 @@ const ModalBackdrop = styled.div`
 `
 
 export default function AdminView() {
-    const { modal } = useContext(AdminViewContext)
-    const [isModalOpen, setIsModalOpen] = modal
-    const { display } = setModalDisplay(isModalOpen)
     
     return (
         <AdminViewContainer>
@@ -99,10 +96,10 @@ export default function AdminView() {
             </MapPlaceholder>
             <AdminSearchBar />
             <VendorList />
-            <ModalBackdrop display={display}>
+            {/* <ModalBackdrop display={display}>
                 <EditModal />
                 <img src={closeIcon} alt={'Click to close.'} onClick={() => setIsModalOpen(false)} />
-            </ModalBackdrop>
+            </ModalBackdrop> */}
         </AdminViewContainer>
     )
 }
