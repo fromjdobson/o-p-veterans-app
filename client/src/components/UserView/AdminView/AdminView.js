@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { Header } from '../../Header'
 import { AdminSearchBar } from '../../AdminSearchBar'
 import { VendorList } from '../../VendorList'
-import { EditModal } from '../../EditModal'
-import closeIcon from '../../../assets/Icons/Vector.svg'
+// import { EditModal } from '../../EditModal'
+// import closeIcon from '../../../assets/Icons/Vector.svg'
 
 const AdminViewContainer = styled.div`
     padding: 0px 24px 0px 24px;
@@ -60,27 +60,27 @@ const MapPlaceholder = styled.div`
     }
 `
 
-const ModalBackdrop = styled.div`
-    min-width: 100vw;
-    min-height: 100vh;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    display: ${props => props.display};
-    justify-content: center;
-    align-items: center;
-    background: rgba(84, 84, 84, 0.8);
+// const ModalBackdrop = styled.div`
+//     min-width: 100vw;
+//     min-height: 100vh;
+//     position: absolute;
+//     top: 0px;
+//     left: 0px;
+//     right: 0px;
+//     bottom: 0px;
+//     display: ${props => props.display};
+//     justify-content: center;
+//     align-items: center;
+//     background: rgba(84, 84, 84, 0.8);
 
-    & > img {
-        width: 24px;
-        height: 24px;
-        position: absolute;
-        top: 24px;
-        right: 24px;
-    }
-`
+//     & > img {
+//         width: 24px;
+//         height: 24px;
+//         position: absolute;
+//         top: 24px;
+//         right: 24px;
+//     }
+// `
 
 export default function AdminView() {
     

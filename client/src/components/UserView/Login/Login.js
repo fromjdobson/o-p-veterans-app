@@ -1,6 +1,5 @@
-import React, { useEffect, useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { CurrentUserContext } from '../../../providers/CurrentUser'
 import firebase, { auth, provider } from '../../../firebase'
 import { Header } from '../../Header'
 import { OpenInput } from '../../OpenInput'
@@ -86,7 +85,6 @@ const InputContainer = styled.div`
 `
 
 export default function Login() {
-    const [, setCurrentUser] = useContext(CurrentUserContext)
     // const [email, setEmail] = useState(null)
     // const [passsword, setPassword] = useState(null)
 
@@ -146,33 +144,6 @@ export default function Login() {
             })            
         }).catch((error) => {
             console.error(`Error: ${error}`)
-        })
-    }
-
-    function logoout() {
-        auth.signOut().then(() => {
-            console.log('User has been signed out, duuuuuuuuude.')
-        })
-        setCurrentUser({
-            id: ``,
-            name: ``,
-            email: ``,
-            phone: ``,
-            userPhotoUrl: ``,
-            vendorname: ``,
-            vendordescription: '',
-            streetaddress: '',
-            suitenumber: '',
-            city: '',
-            state: '',
-            zipcode: '',
-            veteranowned: false,
-            nonprofit: false,
-            sponsorship: '',
-            boothreserved: '',
-            formcomplete: false,
-            paymentcomplete: false,
-            isAdmin: ''
         })
     }
 
