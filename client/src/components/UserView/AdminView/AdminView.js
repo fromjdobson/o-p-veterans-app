@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { CurrentUserContext } from '../../../providers/CurrentUser'
 import { Header } from '../../Header'
 import { AdminSearchBar } from '../../AdminSearchBar'
 import { VendorList } from '../../VendorList'
@@ -83,12 +84,16 @@ const MapPlaceholder = styled.div`
 // `
 
 export default function AdminView() {
+    const [currentUser] = useContext(CurrentUserContext)
+    const newObj = {...currentUser}
+    const { name } = newObj
+    console.log(name)
     
     return (
         <AdminViewContainer>
             <Header />
             <TitleContainer>
-                <TitleText>{'Welcome, Denny.'}</TitleText>
+                <TitleText>{`Welcome, ${name}.`}</TitleText>
                 <SubtitleText>{'Here is a current list, and map, of vendors registered for Veteran Fest.'}</SubtitleText>
             </TitleContainer>
             <MapPlaceholder>
