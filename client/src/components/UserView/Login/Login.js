@@ -1,12 +1,10 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import firebase, { auth, provider } from '../../../firebase'
-import { CurrentUserContext } from '../../../providers/CurrentUser'
 import { Header } from '../../Header'
 import { OpenInput } from '../../OpenInput'
 import { Button } from '../../Button'
 import TextButton from './TextButton'
-
 
 const LoginContainer = styled.div`
 
@@ -87,9 +85,6 @@ const InputContainer = styled.div`
 `
 
 export default function Login() {
-    const [currentUser] = useContext(CurrentUserContext)
-    const idsToCheck = []
-
     // const [email, setEmail] = useState(null)
     // const [passsword, setPassword] = useState(null)
 
@@ -105,28 +100,14 @@ export default function Login() {
 
 
     useEffect(() => {
-        // console.log('Use effect fired.')
-
         auth.onAuthStateChanged((user) => {
             if (user) {
                 // console.log(`useEffect fired: User is still logged in.`)
             }
         })
-
-        // const db = firebase.firestore()
-        // const usersRef = db.collection('users')
-
-        // usersRef.get().then((snapshot) => {
-        //     const tempArr = []
-        //     snapshot.forEach((doc) => {
-        //         console.log(doc.data())
-        //     })
-        // })
-
     }, [])
 
     function signInWithGoogle() {
-
         auth.signInWithPopup(provider).then((result) => {
             const signedInUser = result.user
             const { uid, displayName, email, photoURL } = signedInUser
@@ -141,9 +122,9 @@ export default function Login() {
                     const docId = id
 
                     if (signInId === docId) {
-                        console.log('User already in database.')
+                        // console.log(1111, 'User already in database.')
                     } else {
-                        console.log('did not match - add new user obj')
+                        // console.log(2222, 'did not match - add new user obj')
 
                         usersRef.doc(uid).set({
                             id: `${uid}`,
@@ -166,71 +147,16 @@ export default function Login() {
                             paymentcomplete: false,
                             isAdmind: false
                         }).then(() => {
-                            console.log(`Document successfully written.`)
+                            // console.log(`Document successfully written.`)
                         }).catch((error) => {
                             console.error(`Error writing document: ${error}.`)
                         })
                     }
-                    // console.log(docId, signInId)
                 })
-            })
-
-
-
-            // usersRef.doc(uid).set({
-            //     id: `${uid}`,
-            //     name: `${displayName}`,
-            //     email: `${email}`,
-            //     photoURL: `${photoURL}`
-            // }).then(() => {
-            //     console.log(`Document successfully written.`)
-            // }).catch((error) => {
-            //     console.error(`Error writing document: ${error}.`)
-            // })
-
-
-            
+            })            
+        }).catch((error) => {
+            console.error(`Error: ${error}`)
         })
-
-
-
-        // console.log(5555, idsToCheck)
-        // idsToCheck.forEach((id) => {
-        //     if (id === googleId) {
-        //         console.log('match')
-        //     } else {
-        //         console.log('no match')
-        //     }
-        // })
-
-        const db = firebase.firestore()
-        const usersRef = db.collection('users')
-
-        // usersRef.get().then((snapshot) => {
-        //     const tempArr = []
-        //     snapshot.forEach((doc) => {
-        //         const { addedUser } = doc.data()
-        //         const { googleId } = addedUser
-
-        //         idsToCheck.forEach((id) => {
-        //             console.log(id)
-        //         })
-
-        //         console.log(googleId)
-
-        //         const addedUser = {
-        //             name: 'Bobby Bananas',
-        //             email: 'bobby@email.com',
-        //             vendorname: 'Bananas or Bananas',
-        //             photoURL: 'www.blaah.com/images',
-        //             googleId: '37jfkspasd9o23',
-        //             isAdmin: false
-        //         }
-
-        //         usersRef.add({ addedUser })
-        //     })
-        // })
-
     }
 
     function logoout() {
