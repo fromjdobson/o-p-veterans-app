@@ -87,7 +87,6 @@ export default function AdminView() {
     const [currentUser] = useContext(CurrentUserContext)
     const newObj = {...currentUser}
     const { name } = newObj
-    console.log(name)
     
     return (
         <AdminViewContainer>
