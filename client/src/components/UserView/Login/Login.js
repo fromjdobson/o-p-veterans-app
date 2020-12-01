@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import styled from 'styled-components'
-
-// import { AppStateContext } from '../../../providers/Store'
+import firebase, { auth, provider } from '../../../firebase'
+import { CurrentUserContext } from '../../../providers/CurrentUser'
 import { Header } from '../../Header'
 import { OpenInput } from '../../OpenInput'
 import { Button } from '../../Button'
 import TextButton from './TextButton'
+
 
 const LoginContainer = styled.div`
 
@@ -85,13 +86,10 @@ const InputContainer = styled.div`
     align-items: center;
 `
 
-const LogOutButton = styled.button`
-    background: blue;
-    color: white;
-`
-
-
 export default function Login() {
+    const [currentUser] = useContext(CurrentUserContext)
+    const idsToCheck = []
+
     // const [email, setEmail] = useState(null)
     // const [passsword, setPassword] = useState(null)
 
@@ -106,8 +104,141 @@ export default function Login() {
     // }
 
 
+    useEffect(() => {
+        // console.log('Use effect fired.')
 
-    
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                // console.log(`useEffect fired: User is still logged in.`)
+            }
+        })
+
+        // const db = firebase.firestore()
+        // const usersRef = db.collection('users')
+
+        // usersRef.get().then((snapshot) => {
+        //     const tempArr = []
+        //     snapshot.forEach((doc) => {
+        //         console.log(doc.data())
+        //     })
+        // })
+
+    }, [])
+
+    function signInWithGoogle() {
+
+        auth.signInWithPopup(provider).then((result) => {
+            const signedInUser = result.user
+            const { uid, displayName, email, photoURL } = signedInUser
+            const signInId = uid
+
+            const db = firebase.firestore()
+            const usersRef = db.collection('users')
+
+            usersRef.get().then((snapshot) => {
+                snapshot.forEach((doc) => {
+                    const { id } = doc.data()
+                    const docId = id
+
+                    if (signInId === docId) {
+                        console.log('User already in database.')
+                    } else {
+                        console.log('did not match - add new user obj')
+
+                        usersRef.doc(uid).set({
+                            id: `${uid}`,
+                            name: `${displayName}`,
+                            email: `${email}`,
+                            phone: ``,
+                            userPhotoUrl: `${photoURL}`,
+                            vendorname: ``,
+                            vendordescription: '',
+                            streetaddress: '',
+                            suitenumber: '',
+                            city: '',
+                            state: '',
+                            zipcode: '',
+                            veteranowned: false,
+                            nonprofit: false,
+                            sponsorship: '',
+                            boothreserved: '',
+                            formcomplete: false,
+                            paymentcomplete: false,
+                            isAdmind: false
+                        }).then(() => {
+                            console.log(`Document successfully written.`)
+                        }).catch((error) => {
+                            console.error(`Error writing document: ${error}.`)
+                        })
+                    }
+                    // console.log(docId, signInId)
+                })
+            })
+
+
+
+            // usersRef.doc(uid).set({
+            //     id: `${uid}`,
+            //     name: `${displayName}`,
+            //     email: `${email}`,
+            //     photoURL: `${photoURL}`
+            // }).then(() => {
+            //     console.log(`Document successfully written.`)
+            // }).catch((error) => {
+            //     console.error(`Error writing document: ${error}.`)
+            // })
+
+
+            
+        })
+
+
+
+        // console.log(5555, idsToCheck)
+        // idsToCheck.forEach((id) => {
+        //     if (id === googleId) {
+        //         console.log('match')
+        //     } else {
+        //         console.log('no match')
+        //     }
+        // })
+
+        const db = firebase.firestore()
+        const usersRef = db.collection('users')
+
+        // usersRef.get().then((snapshot) => {
+        //     const tempArr = []
+        //     snapshot.forEach((doc) => {
+        //         const { addedUser } = doc.data()
+        //         const { googleId } = addedUser
+
+        //         idsToCheck.forEach((id) => {
+        //             console.log(id)
+        //         })
+
+        //         console.log(googleId)
+
+        //         const addedUser = {
+        //             name: 'Bobby Bananas',
+        //             email: 'bobby@email.com',
+        //             vendorname: 'Bananas or Bananas',
+        //             photoURL: 'www.blaah.com/images',
+        //             googleId: '37jfkspasd9o23',
+        //             isAdmin: false
+        //         }
+
+        //         usersRef.add({ addedUser })
+        //     })
+        // })
+
+    }
+
+    function logoout() {
+        console.log('logout clicked')
+        auth.signOut().then(() => {
+            console.log('User has been signed out, duuuuuuuuude.')
+        })
+    }
 
     return (
         <LoginContainer>
@@ -123,14 +254,13 @@ export default function Login() {
                 </InputContainer>
                 <ButtonContainer>
                     <Button buttonStyle={'primary'} buttonText={'SIGN UP'} />
-                    <Button buttonStyle={'google'} buttonText={'Register using'} />
-                    <LogOutButton>Out</LogOutButton>
-                    <LogOutButton>Test</LogOutButton>
+                    <Button buttonStyle={'google'} buttonText={'Register using'} onClick={() => signInWithGoogle()} />
                 </ButtonContainer>
                 <SignInContainer>
                     <h4>{'Already have an account?'}</h4>
                     <TextButton buttonText={'Sign in'} />
                 </SignInContainer>
+                <button onClick={() => logoout()}>{'Button'}</button>
             </LeftPane>
         </LoginContainer>
     )

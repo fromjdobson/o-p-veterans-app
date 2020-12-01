@@ -1,18 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import AppContext from './providers/AppContext'
-import UserContext from './providers/UserContext'
+import CurrentUser from './providers/CurrentUser'
 import OpVeteranApp from './OpVeteranApp'
 import './index.css'
 
 function Index() {
 
     return (
-        <AppContext>
-            <UserContext>
-                <OpVeteranApp />
-            </UserContext>
-        </AppContext>
+        <CurrentUser>
+            <OpVeteranApp />
+        </CurrentUser>
     )
 }
 
