@@ -196,7 +196,6 @@ export default function Login() {
                     <h4>{'Already have an account?'}</h4>
                     <TextButton buttonText={'Sign in'} />
                 </SignInContainer>
-                <button onClick={() => logoout()}>{'Button'}</button>
             </LeftPane>
         </LoginContainer>
     )
