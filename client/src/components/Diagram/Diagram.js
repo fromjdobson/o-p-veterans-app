@@ -16,7 +16,7 @@ import {
   limaBooths
 } from "./boothsDb";
 // import DiagramKey from "./DiagramKey";
-import { BoothStateContext } from "../../BoothContext";
+import { BoothStateContext } from "../../providers/BoothContext";
 
 const DiagramContainer = styled.div`
   width: 800px;
@@ -31,14 +31,14 @@ const StyledStage = styled(Stage)`
 `;
 
 export default function Diagram() {
-  const [, setSelectorState] = useContext(BoothStateContext);
-  // console.log(selectorState)
+  const [, setBoothState] = useContext(BoothStateContext);
+  //  console.log(selectorState)
   const width = 20;
   const height = 20;
 
   function handleClick(e) {
     const { boothNumber, reservedBy } = e.target.attrs;
-    setSelectorState({ boothNumber: boothNumber, reservedBy: reservedBy });
+    setBoothState({ boothNumber: boothNumber, reservedBy: reservedBy });
   }
 
   let juliet = julietBooths.map((booth, idx) => {
