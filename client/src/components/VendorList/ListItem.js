@@ -34,8 +34,6 @@ export default function ListItem(props) {
         veteranOwned,
         zipcode
     } = props
-    // console.log(props)
-    // console.log(1111, vendorName)
 
     function setToggleDisplay(status) {
         if (status === 'vendor') {

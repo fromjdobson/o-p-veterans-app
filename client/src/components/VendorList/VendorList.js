@@ -61,14 +61,6 @@ export default function VendorList() {
         })
     },[])
 
-    // itemsList.forEach((user) => {
-    //     const { vendorName } = user
-    //     console.log(vendorName)
-    // })
-
-
-
-
     let listy = itemsList.map((entry, idx) => {
         const { 
             name,
@@ -102,12 +94,9 @@ export default function VendorList() {
                 />
     })
 
-
     return (
         <VendorListContainer> 
            {listy}
-            {/* <ListItem />
-            <ListItem /> */}
         </VendorListContainer>
     )
 }
