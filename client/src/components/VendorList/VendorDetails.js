@@ -19,16 +19,18 @@ const StyledP = styled.p`
     color: #545454;
 `
 
-export default function VendorDetails() {
+export default function VendorDetails(props) {
+    const { name, phone, email, streetAddress, suiteNumber, city, state, zipcode } = props
+
     return (
         <VendorDetailsContainer>
-            <StyledP>{'name'}</StyledP>
-            <StyledP>{'phone'}</StyledP>
-            <StyledP>{'email'}</StyledP>
-            <StyledP>{'address 1'}</StyledP>
-            <StyledP>{'address 2'}</StyledP>
-            <StyledP>{'city, state'}</StyledP>
-            <StyledP>{'zipcode'}</StyledP>
+            <StyledP>{`${name}`}</StyledP>
+            <StyledP>{`${phone}`}</StyledP>
+            <StyledP>{`${email}`}</StyledP>
+            <StyledP>{`${streetAddress}`}</StyledP>
+            <StyledP>{`${suiteNumber}`}</StyledP>
+            <StyledP>{`${city}, ${state}`}</StyledP>
+            <StyledP>{`${zipcode}`}</StyledP>
         </VendorDetailsContainer>
     )
 }

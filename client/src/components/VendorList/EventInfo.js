@@ -42,13 +42,14 @@ const RowWrapper = styled.div`
     justify-content: flex-end;
 `
 
-export default function EventInfo() {
+export default function EventInfo(props) {
+    const { nonProfit, sponsorship, veteranOwned } = props
 
     return (
         <EventInfoContainer>
-            <SponsorLevelText>{'helo'}</SponsorLevelText>
-            <StyledP>{'vet owned'}</StyledP>
-            <StyledP>{'non profit'}</StyledP>
+            <SponsorLevelText>{`${sponsorship}`}</SponsorLevelText>
+            <StyledP>{`${veteranOwned}`}</StyledP>
+            <StyledP>{`${nonProfit}`}</StyledP>
             <StyledP>{'powered'}</StyledP>
             <RowWrapper>
                 <TextButton buttonText={'Change booth number'} />

@@ -35,12 +35,12 @@ const BoothNumberText = styled.p`
 `
 
 export default function ItemHeader(props) {
-    const { expandContainer } = props
+    const { expandContainer, vendorName } = props
     let expandObj = {...expandContainer}
 
     return (
         <ItemHeaderContainer>
-            <VendorNameText>{'Bunty Soap Company'}</VendorNameText>
+            <VendorNameText>{vendorName}</VendorNameText>
             <BoothNumberText>{'A01'}</BoothNumberText>
             <OpenIcon expandObj={expandObj} />
         </ItemHeaderContainer>

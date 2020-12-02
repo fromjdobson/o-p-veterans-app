@@ -20,12 +20,41 @@ export default function ListItem(props) {
     const [isExpanded, setIsExpanded] = useState(false)
     const [toggleState, setToggleState] = useState('vendor')
     const { display } = expandContainer(isExpanded)
+    const { 
+        name,
+        email,
+        city,
+        nonprofit,
+        phone,
+        sponsorship,
+        state,
+        streetAddress,
+        suiteNumber,
+        vendorName,
+        veteranOwned,
+        zipcode
+    } = props
+    // console.log(props)
+    // console.log(1111, vendorName)
 
     function setToggleDisplay(status) {
         if (status === 'vendor') {
-            return <VendorDetails />
+            return  <VendorDetails
+                        name={`${name}`}
+                        phone={`${phone}`}
+                        email={`${email}`}
+                        streetAddress={`${streetAddress}`}
+                        suiteNumber={`${suiteNumber}`}
+                        city={`${city}`}
+                        state={`${state}`}
+                        zipcode={`${zipcode}`}
+                    />
         } else if (status === 'event') {
-            return <EventInfo />
+            return  <EventInfo
+                        nonProfit={`${nonprofit}`}
+                        veteranOwned={`${veteranOwned}`}
+                        sponsorship={`${sponsorship}`}
+                     />
         }
     }
 
@@ -33,7 +62,10 @@ export default function ListItem(props) {
 
     return (
         <ListItemContainer>
-            <ItemHeader expandContainer={{ state: isExpanded, setter: setIsExpanded }} />
+            <ItemHeader
+                expandContainer={{ state: isExpanded, setter: setIsExpanded }}
+                vendorName={`${vendorName}`}
+            />
             <RowWrapper display={display}>
                 <Toggle toggle={{ toggleState: toggleState, setter: setToggleState }} />
                 {displayDetails}
