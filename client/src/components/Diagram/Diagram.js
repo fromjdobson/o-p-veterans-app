@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import Booths from "./Booths";
 
+
+
 const DiagramContainer = styled.div`
   position: absolute;
   width: 1000px;
