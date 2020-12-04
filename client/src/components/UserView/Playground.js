@@ -10,6 +10,7 @@ import { Button } from '../Button'
 import { Header } from '../Header'
 import { OpenInput } from '../OpenInput'
 import { Form } from '../Form'
+import { Diagram } from '../Diagram'
 
 const PlaygroundContainer = styled.div`
   padding: 24px 24px 24px 24px;
@@ -61,6 +62,9 @@ export default function Playground() {
 
       <h3>Admin Search Bar</h3>
       <AdminSearchBar />
+
+      <h3>Map Diagram</h3>
+      <Diagram />
 
     </PlaygroundContainer>
   );
