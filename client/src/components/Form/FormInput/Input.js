@@ -17,9 +17,10 @@ const StyledFormInput = styled.input`
     outline: none;
 `
 
-export default function Input() {
+export default function Input(props) {
+    const { placeholder } = props
 
     return (
-        <StyledFormInput />
+        <StyledFormInput placeholder={placeholder} />
     )
 }

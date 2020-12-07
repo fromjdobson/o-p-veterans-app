@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { getQuestion } from './utils'
+import { RegistrationFormContext } from '../../providers/FormContext'
 import { FormInput } from './FormInput'
 
 const FormContainer = styled.div`
@@ -8,10 +10,14 @@ const FormContainer = styled.div`
 `
 
 export default function Form() {
+    const [questionNumber] = useContext(RegistrationFormContext)
+    const { question } = getQuestion(questionNumber)
+    
+    console.log(question)
     
     return (
         <FormContainer>
-            <FormInput />
+            <FormInput label={question} />
         </FormContainer>
     )
 }

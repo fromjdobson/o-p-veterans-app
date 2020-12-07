@@ -49,11 +49,13 @@ const NextButtonWrapper = styled.div`
     justify-content: flex-end;
 `
 
-export default function FormInput() {
+export default function FormInput(props) {
+    const { label } = props
+
     return (
         <InputContainer>
             <LabelWrapper>
-                <p>{'Label'}</p>
+                <p>{label}</p>
                 <Counter />
             </LabelWrapper>
             <InputWrapper>

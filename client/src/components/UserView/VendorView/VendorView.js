@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { CurrentUserContext } from '../../../providers/CurrentUser'
+import TempDashboard from './TempDashboard'
+import TempRegistration from './TempRegistration'
 import { Header } from '../../Header'
 import { ProgressBar } from '../../ProgressBar'
 import { Form } from '../../Form'
@@ -34,14 +37,19 @@ const Container = styled.div`
 `
 
 export default function VendorView() {
+    const [currentUser] = useContext(CurrentUserContext)
+    let isComplete = currentUser.formcomplete
+    // console.log(isComplete)
+
     return (
         <VendorViewContainer>
-            <Header />
-            <ProgressBar />
-            <Container>
+            {isComplete === false ? <TempRegistration /> : <TempDashboard />}
+            {/* <Header />
+            <ProgressBar /> */}
+            {/* <Container>
                 <Heading heading={'Welcome, Vendor.'} subheading={`Before selecting your booth, let's get some more point of contact information.`}  />
                 <Form />
-            </Container>
+            </Container> */}
         </VendorViewContainer>
     )
 }
