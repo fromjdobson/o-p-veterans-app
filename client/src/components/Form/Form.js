@@ -94,7 +94,7 @@ export default function Form() {
         setCurrentResponse(null)
     }
 
-    console.log(currentUser)
+    // console.log(currentUser)
 
     
     return (
