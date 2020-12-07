@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 export const RegistrationFormContext = React.createContext()
 
 export default function FormContext({ children }) {
-    const [questionNumber, setQuestionNumber] = useState(4)
+    const [questionNumber, setQuestionNumber] = useState(2)
 
     return (
         <RegistrationFormContext.Provider value={[questionNumber, setQuestionNumber]}>
