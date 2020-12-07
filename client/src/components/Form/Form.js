@@ -56,7 +56,7 @@ const ButtonWrapper = styled.div`
 
 export default function Form() {
     const [questionNumber, setQuestionNumber] = useContext(RegistrationFormContext)
-    const [currentUser ,setCurrentUser] = useContext(CurrentUserContext)
+    const [,setCurrentUser] = useContext(CurrentUserContext)
     const [currentResponse, setCurrentResponse] = useState(null)
     const { question, inputName } = getQuestion(questionNumber)
 
@@ -66,7 +66,6 @@ export default function Form() {
                 ...prevState,
                 formcomplete: true
             }))
-            console.log('It hit a default and should do something different.')
         }
     }
 
@@ -93,9 +92,6 @@ export default function Form() {
 
         setCurrentResponse(null)
     }
-
-    // console.log(currentUser)
-
     
     return (
         <>
@@ -109,7 +105,9 @@ export default function Form() {
                     <Input placeholder={'placeholder'} onChange={(e) => handleChange(e)} value={currentResponse === null ? '' : currentResponse} />
                     <WarningIcon display={'none'} />
                 </InputWrapper>
+
                 <HelperText visibility={'hidden'} />
+
                 <ButtonWrapper>
                     <NextButton onClick={(e) => handleClick(e)} />
                 </ButtonWrapper>

@@ -4,6 +4,7 @@ import { CurrentUserContext } from '../../../providers/CurrentUser'
 import { Header } from '../../Header'
 
 const DashboardContainer = styled.div`
+    width: 100%;
     border: 1px solid lightcoral;
 
     & > p {
@@ -18,7 +19,7 @@ const DashboardContainer = styled.div`
 
 export default function TempDashboard() {
     const [currentUser] = useContext(CurrentUserContext)
-    // REMOVE THE FOLLOWING
+    // REMOVE THE FOLLOWING - FOR DEMO ONLY
 
     const {
         city,

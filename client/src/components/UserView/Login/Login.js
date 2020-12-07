@@ -142,65 +142,8 @@ export default function Login() {
                         console.error(`Error writing document: ${error}.`)
                     })
                 }
-                
             })
         })
-        // get google uid of user attemping to sign in (happens after sign in on Google's end)
-        // compare uid of user to ids of users in database to see if there is a match
-        // if there is match in the database --> finish logging user in with Google
-        // if no match, create a new user object and push to database
-
-
-        // auth.signInWithPopup(provider).then((result) => {
-        //     const signedInUser = result.user
-
-        //     console.log(`signInWithGoogle: ${signedInUser}`)
-
-        //     const { uid, displayName, email, photoURL } = signedInUser
-        //     const signInId = uid
-
-        //     usersRef.get().then((snapshot) => {
-        //         snapshot.forEach((doc) => {
-        //             const { id } = doc.data()
-        //             const docId = id
-        //             console.log(docId)
-
-        //             if (signInId === docId) {
-        //                 console.log(1111, 'User already in database.')
-        //             } else if (signInId !== docId) {
-        //                 console.log(1111, 'Not in database, so creating a new user.')
-
-        //                 usersRef.doc(uid).set({
-        //                     id: `${uid}`,
-        //                     name: `${displayName}`,
-        //                     email: `${email}`,
-        //                     phone: ``,
-        //                     userPhotoUrl: `${photoURL}`,
-        //                     vendorname: ``,
-        //                     vendordescription: '',
-        //                     streetaddress: '',
-        //                     suitenumber: '',
-        //                     city: '',
-        //                     state: '',
-        //                     zipcode: '',
-        //                     veteranowned: false,
-        //                     nonprofit: false,
-        //                     sponsorship: '',
-        //                     boothreserved: '',
-        //                     formcomplete: false,
-        //                     paymentcomplete: false,
-        //                     isAdmin: false
-        //                 }).then(() => {
-        //                     // console.log(`Document successfully written.`)
-        //                 }).catch((error) => {
-        //                     console.error(`Error writing document: ${error}.`)
-        //                 })
-        //             }
-        //         })
-        //     })            
-        // }).catch((error) => {
-        //     console.error(`Error: ${error}`)
-        // })
     }
 
     return (
