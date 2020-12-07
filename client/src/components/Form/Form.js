@@ -17,11 +17,12 @@ const StyledForm = styled.div`
 const LabelWrapper = styled.div`
     margin: 0px 0px 8px 0px;
     display: flex;
+    justify-content: space-between;
     /* border: 2px dashed dodgerblue; */
 
     & > label {
         margin: 0px;
-        width: 100%;
+        width: 80%;
         height: 48px;
         font-family: Open Sans;
         font-style: normal;
@@ -64,14 +65,14 @@ export default function Form() {
             <StyledForm>
                 <LabelWrapper>
                     <label>{question}</label>
-                    <Counter />
+                    <Counter totalQuestions={11} currentQuestion={questionNumber} />
                 </LabelWrapper>
 
                 <InputWrapper>
                     <Input placeholder={'placeholder'} />
-                    <WarningIcon display={'block'} />
+                    <WarningIcon display={'none'} />
                 </InputWrapper>
-                <HelperText visibility={'visible'} />
+                <HelperText visibility={'hidden'} />
                 <ButtonWrapper>
                     <NextButton />
                 </ButtonWrapper>

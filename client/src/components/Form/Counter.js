@@ -7,7 +7,7 @@ const CoutnerContainer = styled.div`
 
     & > p {
         margin: 0px;
-        min-width: 32px;
+        /* min-width: 32px; */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -21,11 +21,13 @@ const CoutnerContainer = styled.div`
     }
 `
 
-export default function Counter() {
+export default function Counter(props) {
+    const { totalQuestions, currentQuestion } = props
+    console.log(totalQuestions, currentQuestion )
     
     return (
         <CoutnerContainer>
-            <p>{'1/4'}</p>
+            <p>{`${currentQuestion} / ${totalQuestions}`}</p>
         </CoutnerContainer>
     )
 }
