@@ -3,15 +3,21 @@ import styled from 'styled-components'
 import { getQuestion } from './utils'
 import { RegistrationFormContext } from '../../providers/FormContext'
 import Counter from './Counter'
+import WarningIcon from './WarningIcon'
+import Input from './Input'
+import HelperText from './HelperText'
+import NextButton from './NextButton'
+import { Button } from '../Button'
 
 const StyledForm = styled.div`
     margin: 64px 0px 0px 0px;
     width: 100%;
 `
 
-const Wrapper = styled.div`
+const LabelWrapper = styled.div`
+    margin: 0px 0px 8px 0px;
     display: flex;
-    border: 2px dashed dodgerblue;
+    /* border: 2px dashed dodgerblue; */
 
     & > label {
         margin: 0px;
@@ -25,8 +31,26 @@ const Wrapper = styled.div`
         display: flex;
         align-items: flex-start;
         color: #545454;
-        border: 1px dotted red;
+        /* border: 1px dotted red; */
     }
+`
+
+const InputWrapper = styled.div`
+    margin: 0px 0px 16px 0px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    /* border: 2px dashed dodgerblue; */
+
+`
+
+const ButtonWrapper = styled.div`
+    box-sizing: border-box;
+    margin: 0px 0px 16px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    /* border: 1px dashed orange; */
 `
 
 export default function Form() {
@@ -38,10 +62,19 @@ export default function Form() {
     return (
         <>
             <StyledForm>
-                <Wrapper>
+                <LabelWrapper>
                     <label>{question}</label>
                     <Counter />
-                </Wrapper>
+                </LabelWrapper>
+
+                <InputWrapper>
+                    <Input placeholder={'placeholder'} />
+                    <WarningIcon display={'block'} />
+                </InputWrapper>
+                <HelperText visibility={'visible'} />
+                <ButtonWrapper>
+                    <NextButton />
+                </ButtonWrapper>
             </StyledForm>
         </>
     )

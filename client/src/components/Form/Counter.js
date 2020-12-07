@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const CoutnerContainer = styled.div`
     margin: 0px 0px 0px 8px;
-    border: 1px dotted orange;
+    /* border: 1px dotted orange; */
 
     & > p {
         margin: 0px;

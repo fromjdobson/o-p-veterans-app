@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ReactComponent as RightArrow } from '../../../assets/Icons/arrow-right-icon.svg'
+import { ReactComponent as RightArrow } from '../../assets/Icons/arrow-right-icon.svg'
 
 const StyledButton = styled.button`
     font-family: Open Sans;

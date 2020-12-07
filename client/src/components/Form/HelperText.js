@@ -5,6 +5,9 @@ const HelperTextContainer = styled.div`
     box-sizing: border-box;
     width: 100%;
 
+    /* border: 1px dotted red; */
+
+
     & > p {
         margin: 0px;
         font-family: Open Sans;
