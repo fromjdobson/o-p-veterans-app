@@ -60,7 +60,19 @@ export default function Form() {
     const [currentResponse, setCurrentResponse] = useState(null)
     const { question, inputName } = getQuestion(questionNumber)
 
+    function updateFormStatus() {
+        if (question === 'default') {
+            setCurrentUser((prevState) => ({
+                ...prevState,
+                formcomplete: true
+            }))
+            console.log('It hit a default and should do something different.')
+        }
+    }
 
+    useEffect(() => {
+        updateFormStatus()
+    })
 
     function handleChange(e) {
         const { value } = e.target
