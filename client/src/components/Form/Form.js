@@ -59,6 +59,31 @@ export default function Form() {
     const [currentUser ,setCurrentUser] = useContext(CurrentUserContext)
     const [currentResponse, setCurrentResponse] = useState(null)
     const { question, inputName } = getQuestion(questionNumber)
+
+
+
+    function handleChange(e) {
+        const { value } = e.target
+        setCurrentResponse(value)
+    }
+
+    function handleClick(e) {
+        e.preventDefault()
+
+        setCurrentUser((prevState) => ({
+            ...prevState,
+            [inputName]: currentResponse
+        }))
+
+        setQuestionNumber((prevState) => {
+            return prevState + 1
+        })
+
+        setCurrentResponse(null)
+    }
+
+    console.log(currentUser)
+
     
     return (
         <>
@@ -69,13 +94,12 @@ export default function Form() {
                 </LabelWrapper>
 
                 <InputWrapper>
-                    {/* {createQuestion()} */}
-                    <Input placeholder={'placeholder'} />
+                    <Input placeholder={'placeholder'} onChange={(e) => handleChange(e)} value={currentResponse === null ? '' : currentResponse} />
                     <WarningIcon display={'none'} />
                 </InputWrapper>
                 <HelperText visibility={'hidden'} />
                 <ButtonWrapper>
-                    <NextButton />
+                    <NextButton onClick={(e) => handleClick(e)} />
                 </ButtonWrapper>
             </StyledForm>
         </>

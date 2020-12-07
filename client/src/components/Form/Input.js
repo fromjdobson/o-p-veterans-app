@@ -18,9 +18,9 @@ const StyledFormInput = styled.input`
 `
 
 export default function Input(props) {
-    const { placeholder, onChange } = props
+    const { placeholder, onChange, value } = props
 
     return (
-        <StyledFormInput placeholder={placeholder} onChange={onChange} />
+        <StyledFormInput placeholder={placeholder} onChange={onChange} value={value} />
     )
 }
