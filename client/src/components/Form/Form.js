@@ -59,74 +59,23 @@ export default function Form() {
     const [currentUser ,setCurrentUser] = useContext(CurrentUserContext)
     const [currentResponse, setCurrentResponse] = useState(null)
     const { question, inputName } = getQuestion(questionNumber)
-
-    useEffect(() => {
-        updateFormStatus()
-    }, [])
-
-    function updateFormStatus() {
-        console.log(question)
-        if (question === 'default') {
-            setCurrentUser((prevState) => ({
-                ...prevState,
-                formcomplete: true
-            }))
-        }
-        // if (question === 'default') {
-        //     setCurrentUser((prevState) => ({
-        //         ...prevState,
-        //         formcomplete: true
-        //     }))
-        // }
-    }
-
-    function createQuestion() {
-        return <Input placeholder={'placeholder'} onChange={(e) => handleChange(e)} />
-    }
-
-
-    function handleChange(e) {
-        const { value } = e.target
-        setCurrentResponse(value)
-    }
-
-    function handleClick(e) {
-        e.preventDefault()
-
-        setCurrentUser((prevState) => ({
-            ...prevState,
-            [inputName]: currentResponse
-        }))
-
-        setQuestionNumber((prevState) => {
-            return prevState + 1
-        })
-
-        setCurrentResponse(null)
-    }
-
-    
-
-    
-
-    // console.log(currentUser)
     
     return (
         <>
             <StyledForm>
                 <LabelWrapper>
                     <label>{question}</label>
-                    <Counter totalQuestions={11} currentQuestion={questionNumber} />
+                    <Counter totalQuestions={10} currentQuestion={questionNumber} />
                 </LabelWrapper>
 
                 <InputWrapper>
-                    {createQuestion()}
-                    {/* <Input placeholder={'placeholder'} onChange={(e) => handleChange(e)} /> */}
+                    {/* {createQuestion()} */}
+                    <Input placeholder={'placeholder'} />
                     <WarningIcon display={'none'} />
                 </InputWrapper>
                 <HelperText visibility={'hidden'} />
                 <ButtonWrapper>
-                    <NextButton onClick={(e) => handleClick(e)} />
+                    <NextButton />
                 </ButtonWrapper>
             </StyledForm>
         </>
