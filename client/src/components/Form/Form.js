@@ -1,13 +1,13 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { getQuestion } from './utils'
 import { RegistrationFormContext } from '../../providers/FormContext'
+import { CurrentUserContext } from '../../providers/CurrentUser'
 import Counter from './Counter'
 import WarningIcon from './WarningIcon'
 import Input from './Input'
 import HelperText from './HelperText'
 import NextButton from './NextButton'
-import { Button } from '../Button'
 
 const StyledForm = styled.div`
     margin: 64px 0px 0px 0px;
@@ -55,10 +55,61 @@ const ButtonWrapper = styled.div`
 `
 
 export default function Form() {
-    const [questionNumber] = useContext(RegistrationFormContext)
-    const { question } = getQuestion(questionNumber)
+    const [questionNumber, setQuestionNumber] = useContext(RegistrationFormContext)
+    const [currentUser ,setCurrentUser] = useContext(CurrentUserContext)
+    const [currentResponse, setCurrentResponse] = useState(null)
+    const { question, inputName } = getQuestion(questionNumber)
 
-    console.log(question)
+    useEffect(() => {
+        updateFormStatus()
+    }, [])
+
+    function updateFormStatus() {
+        console.log(question)
+        if (question === 'default') {
+            setCurrentUser((prevState) => ({
+                ...prevState,
+                formcomplete: true
+            }))
+        }
+        // if (question === 'default') {
+        //     setCurrentUser((prevState) => ({
+        //         ...prevState,
+        //         formcomplete: true
+        //     }))
+        // }
+    }
+
+    function createQuestion() {
+        return <Input placeholder={'placeholder'} onChange={(e) => handleChange(e)} />
+    }
+
+
+    function handleChange(e) {
+        const { value } = e.target
+        setCurrentResponse(value)
+    }
+
+    function handleClick(e) {
+        e.preventDefault()
+
+        setCurrentUser((prevState) => ({
+            ...prevState,
+            [inputName]: currentResponse
+        }))
+
+        setQuestionNumber((prevState) => {
+            return prevState + 1
+        })
+
+        setCurrentResponse(null)
+    }
+
+    
+
+    
+
+    // console.log(currentUser)
     
     return (
         <>
@@ -69,12 +120,13 @@ export default function Form() {
                 </LabelWrapper>
 
                 <InputWrapper>
-                    <Input placeholder={'placeholder'} />
+                    {createQuestion()}
+                    {/* <Input placeholder={'placeholder'} onChange={(e) => handleChange(e)} /> */}
                     <WarningIcon display={'none'} />
                 </InputWrapper>
                 <HelperText visibility={'hidden'} />
                 <ButtonWrapper>
-                    <NextButton />
+                    <NextButton onClick={(e) => handleClick(e)} />
                 </ButtonWrapper>
             </StyledForm>
         </>

@@ -31,10 +31,11 @@ const StyledIcon = styled(RightArrow)`
     }
 `
 
-export default function NextButton() {
+export default function NextButton(props) {
+    const { onClick } = props
 
     return (
-        <StyledButton>
+        <StyledButton onClick={onClick}>
             {'Next'}
             <StyledIcon />
         </StyledButton>

@@ -23,7 +23,6 @@ const CoutnerContainer = styled.div`
 
 export default function Counter(props) {
     const { totalQuestions, currentQuestion } = props
-    console.log(totalQuestions, currentQuestion )
     
     return (
         <CoutnerContainer>

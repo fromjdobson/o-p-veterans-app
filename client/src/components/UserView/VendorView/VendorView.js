@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import { CurrentUserContext } from '../../../providers/CurrentUser'
 import TempDashboard from './TempDashboard'
 import TempRegistration from './TempRegistration'
-import { Header } from '../../Header'
-import { ProgressBar } from '../../ProgressBar'
-import { Form } from '../../Form'
-import Heading from './Heading'
+// import { Header } from '../../Header'
+// import { ProgressBar } from '../../ProgressBar'
+// import { Form } from '../../Form'
+// import Heading from './Heading'
 
 const VendorViewContainer = styled.div`
     box-sizing: border-box;
@@ -21,29 +21,30 @@ const VendorViewContainer = styled.div`
     }
 `
 
-const Container = styled.div`
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    padding: 0px 24px 0px 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+// const Container = styled.div`
+//     box-sizing: border-box;
+//     width: 100%;
+//     height: 100%;
+//     padding: 0px 24px 0px 24px;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
 
-    @media (min-width: 768px) {
-        width: 640px;
-    }
-`
+//     @media (min-width: 768px) {
+//         width: 640px;
+//     }
+// `
 
 export default function VendorView() {
     const [currentUser] = useContext(CurrentUserContext)
-    let isComplete = currentUser.formcomplete
-    // console.log(isComplete)
+    const { formcomplete } = currentUser
+    // let isComplete = currentUser.formcomplete
+    // console.log(formcomplete)
 
     return (
         <VendorViewContainer>
-            {isComplete === false ? <TempRegistration /> : <TempDashboard />}
+            {formcomplete === false ? <TempRegistration /> : <TempDashboard />}
             {/* <Header />
             <ProgressBar /> */}
             {/* <Container>

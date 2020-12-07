@@ -55,5 +55,10 @@ export function getQuestion(num) {
                 question: `Does your organization have a non-profit status?`,
                 inputName: `nonprofit`
             }
+        default:
+            return {
+                question: `default`,
+                inputName: `default`
+            }
     }
 }
