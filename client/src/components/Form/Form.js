@@ -3,11 +3,13 @@ import styled from 'styled-components'
 import { getQuestion } from './utils'
 import { RegistrationFormContext } from '../../providers/FormContext'
 import { CurrentUserContext } from '../../providers/CurrentUser'
+import firebase, { auth, provider } from '../../firebase'
 import Counter from './Counter'
 import WarningIcon from './WarningIcon'
 import Input from './Input'
 import HelperText from './HelperText'
 import NextButton from './NextButton'
+import { set } from 'mongoose'
 
 const StyledForm = styled.div`
     margin: 64px 0px 0px 0px;
@@ -56,22 +58,80 @@ const ButtonWrapper = styled.div`
 
 export default function Form() {
     const [questionNumber, setQuestionNumber] = useContext(RegistrationFormContext)
-    const [,setCurrentUser] = useContext(CurrentUserContext)
+    const [currentUser, setCurrentUser] = useContext(CurrentUserContext)
     const [currentResponse, setCurrentResponse] = useState(null)
     const { question, inputName } = getQuestion(questionNumber)
 
-    function updateFormStatus() {
-        if (question === 'default') {
-            setCurrentUser((prevState) => ({
-                ...prevState,
-                formcomplete: true
-            }))
-        }
-    }
+    const db = firebase.firestore()
+    const usersRef = db.collection('users')
 
-    useEffect(() => {
-        updateFormStatus()
-    })
+    function updateDb() {
+        auth.onAuthStateChanged((user) => {
+
+            if (user) {
+                const { uid } = user
+                usersRef.get().then((snapshot) => {
+                    const { docs } = snapshot
+                    let updateUserId
+
+                    const userToUpdate = docs.find((docUser) => {
+                        let dbUserId = docUser.data().id
+                        let idToUpdate
+
+                        if (uid === dbUserId) {
+                            idToUpdate = dbUserId
+                        }
+
+                        return idToUpdate
+                    })
+
+                    updateUserId = userToUpdate.data().id
+
+                    usersRef.doc(updateUserId).update({
+                        [inputName]: currentResponse
+                    }).then(() => console.log('Document successfully updated.'))
+                })
+
+                usersRef.get().then((snapshot) => {
+                    snapshot.forEach((doc) => {
+                        const { id } = doc.data()
+                        let currentUserId = currentUser.id
+                        // console.log(333, currentUserForm)
+        
+                        if (id === currentUserId) {
+                            let tempObj = {...doc.data()}
+
+                            const { formcomplete } = tempObj
+
+                            console.log(1111, formcomplete, questionNumber)
+
+
+                            // if (formcomplete === false) {
+                            //     console.log('form is not complete.')
+                            //     // const { formcomplete } = tempObj
+                            //     // tempObj.formcomplete = true
+                            //     console.log(1111, formcomplete, questionNumber)
+
+                            // } else {
+                            //     console.log('form is currently complete.')
+                            //     const { formcomplete } = tempObj
+                            //     // tempObj.formcomplete = true
+                            //     console.log(1111, formcomplete, questionNumber)
+
+                            // }
+
+                            setCurrentUser(tempObj)
+
+                            setQuestionNumber((prevState) => {
+                                return prevState + 1
+                            })
+                        }
+                        // console.log(currentUserId, id)
+                    })
+                })
+            }
+        })
+    }
 
     function handleChange(e) {
         const { value } = e.target
@@ -81,17 +141,13 @@ export default function Form() {
     function handleClick(e) {
         e.preventDefault()
 
-        setCurrentUser((prevState) => ({
-            ...prevState,
-            [inputName]: currentResponse
-        }))
-
-        setQuestionNumber((prevState) => {
-            return prevState + 1
-        })
+        updateDb()
 
         setCurrentResponse(null)
     }
+
+    // console.log(currentUser)
+
     
     return (
         <>

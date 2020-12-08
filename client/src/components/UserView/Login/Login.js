@@ -99,7 +99,6 @@ export default function Login() {
 
             usersRef.get().then((snapshot) => {
                 const { docs } = snapshot
-
                 const userExists = docs.some((user) => {
                     let match
                     let dbUserId = user.data().id
