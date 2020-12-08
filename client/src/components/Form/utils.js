@@ -1,3 +1,15 @@
+export function handleClick(e, dbFunc, questionSetter, responseSetter) {
+    e.preventDefault()
+
+    dbFunc()
+
+    questionSetter((prevState) => {
+        return prevState + 1
+    })
+
+    responseSetter(null)
+}
+
 export function handleChange(e, setterFunc) {
     const { value } = e.target
     setterFunc(value)

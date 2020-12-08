@@ -11,7 +11,8 @@ import NextButton from './NextButton'
 
 import {
     getQuestion,
-    handleChange
+    handleChange,
+    handleClick
 } from './utils'
 
 
@@ -120,18 +121,6 @@ export default function Form() {
         })
     }
 
-    function handleClick(e) {
-        e.preventDefault()
-
-        updateDb()
-
-        setQuestionNumber((prevState) => {
-            return prevState + 1
-        })
-
-        setCurrentResponse(null)
-    }
-
     return (
         <>
             <StyledForm>
@@ -148,7 +137,7 @@ export default function Form() {
                 <HelperText visibility={'hidden'} />
 
                 <ButtonWrapper>
-                    <NextButton onClick={(e) => handleClick(e)} />
+                    <NextButton onClick={(e) => handleClick(e, updateDb, setQuestionNumber, setCurrentResponse)} />
                 </ButtonWrapper>
             </StyledForm>
         </>
