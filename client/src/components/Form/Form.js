@@ -15,7 +15,6 @@ import {
     handleClick,
     updateUser,
     getAndUpdateDocument
-    
 } from './utils'
 
 
@@ -74,16 +73,14 @@ export default function Form() {
     const usersRef = db.collection('users')
     let dbId
 
-
-
     function updateDb() {
         auth.onAuthStateChanged((user) => {
             if (user) {
                 const { uid } = user
                 usersRef.get().then((snapshot) => {
                     const { docs } = snapshot
-                    let updateUserId
 
+                    let updateUserId
                     const userToUpdate = docs.find((docUser) => {
                         let dbUserId = docUser.data().id
                         let idToUpdate
@@ -91,7 +88,6 @@ export default function Form() {
                         if (uid === dbUserId) {
                             idToUpdate = dbUserId
                         }
-
                         return idToUpdate
                     })
 
@@ -100,8 +96,10 @@ export default function Form() {
 
                     updateUser(usersRef, updateUserId, inputName, currentResponse)
 
-                    let docRef = usersRef.doc(dbId)
-                    getAndUpdateDocument(docRef, question, setCurrentUser)
+                    if (userToUpdate) {
+                        let docRef = usersRef.doc(dbId)
+                        getAndUpdateDocument(docRef, question, setCurrentUser)    
+                    }
                 })
             }
         })

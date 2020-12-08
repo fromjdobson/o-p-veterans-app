@@ -6,6 +6,9 @@ export function getAndUpdateDocument(ref, q, currentUserSetterFunc) {
     }).catch((error) => console.log(`Error: ${error}.`))
 }
 
+
+
+
 function updateDocument(document, q, currentUserSetterFunc) {
     if (q !== '') {
         currentUserSetterFunc({...document.data()})
@@ -16,11 +19,17 @@ function updateDocument(document, q, currentUserSetterFunc) {
     }
 }
 
+
+
+
 export function updateUser(ref, refId, propertyName, response) {
     ref.doc(refId).update({
         [propertyName]: response
     }).then(() => console.log('Document successfully updated.'))
 } 
+
+
+
 
 export function handleClick(e, dbFunc, questionSetter, responseSetter) {
     e.preventDefault()
@@ -34,10 +43,16 @@ export function handleClick(e, dbFunc, questionSetter, responseSetter) {
     responseSetter(null)
 }
 
+
+
+
 export function handleChange(e, setterFunc) {
     const { value } = e.target
     setterFunc(value)
 }
+
+
+
 
 export function getQuestion(num) {
     switch (num) {
