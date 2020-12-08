@@ -60,14 +60,20 @@ export default function Form() {
     const [questionNumber, setQuestionNumber] = useContext(RegistrationFormContext)
     const [currentUser, setCurrentUser] = useContext(CurrentUserContext)
     const [currentResponse, setCurrentResponse] = useState(null)
-    const { question, inputName } = getQuestion(questionNumber)
+    const { question, inputName, isFormComplete } = getQuestion(questionNumber)
 
     const db = firebase.firestore()
     const usersRef = db.collection('users')
+    let dbId
+
+    function handleChange(e) {
+        const { value } = e.target
+        setCurrentResponse(value)
+    }
+
 
     function updateDb() {
         auth.onAuthStateChanged((user) => {
-
             if (user) {
                 const { uid } = user
                 usersRef.get().then((snapshot) => {
@@ -86,56 +92,33 @@ export default function Form() {
                     })
 
                     updateUserId = userToUpdate.data().id
+                    dbId = userToUpdate.data().id
 
                     usersRef.doc(updateUserId).update({
                         [inputName]: currentResponse
                     }).then(() => console.log('Document successfully updated.'))
-                })
 
-                usersRef.get().then((snapshot) => {
-                    snapshot.forEach((doc) => {
-                        const { id } = doc.data()
-                        let currentUserId = currentUser.id
-                        // console.log(333, currentUserForm)
-        
-                        if (id === currentUserId) {
-                            let tempObj = {...doc.data()}
+                    let docRef = usersRef.doc(dbId)
+                    docRef.get().then((doc) => {
+                        if (doc) {
+                            const { formcomplete } = doc.data()
+                            if (question !== '') {
+                                setCurrentUser({...doc.data()})
+                            } else if (question === '') {
+                                const tempObj = {...doc.data()}
+                                tempObj.formcomplete = true
+                                setCurrentUser({...tempObj})
+                                // console.log(2222, tempObj)
+                            }
 
-                            const { formcomplete } = tempObj
-
-                            console.log(1111, formcomplete, questionNumber)
-
-
-                            // if (formcomplete === false) {
-                            //     console.log('form is not complete.')
-                            //     // const { formcomplete } = tempObj
-                            //     // tempObj.formcomplete = true
-                            //     console.log(1111, formcomplete, questionNumber)
-
-                            // } else {
-                            //     console.log('form is currently complete.')
-                            //     const { formcomplete } = tempObj
-                            //     // tempObj.formcomplete = true
-                            //     console.log(1111, formcomplete, questionNumber)
-
-                            // }
-
-                            setCurrentUser(tempObj)
-
-                            setQuestionNumber((prevState) => {
-                                return prevState + 1
-                            })
+                            console.log(formcomplete)
                         }
-                        // console.log(currentUserId, id)
+                    }).catch((error) => {
+                        console.log('Error getting document: ', error)
                     })
                 })
             }
         })
-    }
-
-    function handleChange(e) {
-        const { value } = e.target
-        setCurrentResponse(value)
     }
 
     function handleClick(e) {
@@ -143,12 +126,20 @@ export default function Form() {
 
         updateDb()
 
+        setQuestionNumber((prevState) => {
+            return prevState + 1
+        })
+
         setCurrentResponse(null)
     }
 
-    // console.log(currentUser)
+    // if (question !== 'default') {
+    //     console.log(333, question, questionNumber)
+    // } else if (question === 'default') {
+        
+    //     console.log(444, question, questionNumber)
+    // }  
 
-    
     return (
         <>
             <StyledForm>

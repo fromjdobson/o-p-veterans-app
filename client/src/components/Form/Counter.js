@@ -23,11 +23,11 @@ const CoutnerContainer = styled.div`
 
 export default function Counter(props) {
     const { totalQuestions, currentQuestion } = props
-    let num = currentQuestion + 1
+    // let num = currentQuestion + 1
     
     return (
         <CoutnerContainer>
-            <p>{`${num} / ${totalQuestions}`}</p>
+            <p>{`${currentQuestion} / ${totalQuestions}`}</p>
         </CoutnerContainer>
     )
 }
