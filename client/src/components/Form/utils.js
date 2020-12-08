@@ -1,3 +1,21 @@
+export function getAndUpdateDocument(ref, q, currentUserSetterFunc) {
+    ref.get().then((doc) => {
+        if (doc) {
+            updateDocument(doc, q, currentUserSetterFunc)
+        }
+    }).catch((error) => console.log(`Error: ${error}.`))
+}
+
+function updateDocument(document, q, currentUserSetterFunc) {
+    if (q !== '') {
+        currentUserSetterFunc({...document.data()})
+    } else if (q === '') {
+        const tempObj = {...document.data()}
+        tempObj.formcomplete = true
+        currentUserSetterFunc({...tempObj})
+    }
+}
+
 export function updateUser(ref, refId, propertyName, response) {
     ref.doc(refId).update({
         [propertyName]: response

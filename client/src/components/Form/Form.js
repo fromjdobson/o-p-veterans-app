@@ -13,7 +13,9 @@ import {
     getQuestion,
     handleChange,
     handleClick,
-    updateUser
+    updateUser,
+    getAndUpdateDocument
+    
 } from './utils'
 
 
@@ -73,6 +75,7 @@ export default function Form() {
     let dbId
 
 
+
     function updateDb() {
         auth.onAuthStateChanged((user) => {
             if (user) {
@@ -97,28 +100,8 @@ export default function Form() {
 
                     updateUser(usersRef, updateUserId, inputName, currentResponse)
 
-                    // usersRef.doc(updateUserId).update({
-                    //     [inputName]: currentResponse
-                    // }).then(() => console.log('Document successfully updated.'))
-
                     let docRef = usersRef.doc(dbId)
-                    docRef.get().then((doc) => {
-                        if (doc) {
-                            const { formcomplete } = doc.data()
-                            if (question !== '') {
-                                setCurrentUser({...doc.data()})
-                            } else if (question === '') {
-                                const tempObj = {...doc.data()}
-                                tempObj.formcomplete = true
-                                setCurrentUser({...tempObj})
-                                // console.log(2222, tempObj)
-                            }
-
-                            console.log(formcomplete)
-                        }
-                    }).catch((error) => {
-                        console.log('Error getting document: ', error)
-                    })
+                    getAndUpdateDocument(docRef, question, setCurrentUser)
                 })
             }
         })

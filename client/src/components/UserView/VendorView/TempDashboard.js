@@ -40,7 +40,7 @@ export default function TempDashboard() {
         veteranowned,
         zipcode
     } = currentUser
-    console.log(currentUser)
+    // console.log(currentUser)
 
     return (
         <DashboardContainer>
