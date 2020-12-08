@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
-import { getQuestion } from './utils'
 import { RegistrationFormContext } from '../../providers/FormContext'
 import { CurrentUserContext } from '../../providers/CurrentUser'
 import firebase, { auth } from '../../firebase'
@@ -9,6 +8,12 @@ import WarningIcon from './WarningIcon'
 import Input from './Input'
 import HelperText from './HelperText'
 import NextButton from './NextButton'
+
+import {
+    getQuestion,
+    handleChange
+} from './utils'
+
 
 const StyledForm = styled.div`
     margin: 64px 0px 0px 0px;
@@ -64,11 +69,6 @@ export default function Form() {
     const db = firebase.firestore()
     const usersRef = db.collection('users')
     let dbId
-
-    function handleChange(e) {
-        const { value } = e.target
-        setCurrentResponse(value)
-    }
 
 
     function updateDb() {
@@ -141,7 +141,7 @@ export default function Form() {
                 </LabelWrapper>
 
                 <InputWrapper>
-                    <Input placeholder={'placeholder'} onChange={(e) => handleChange(e)} value={currentResponse === null ? '' : currentResponse} />
+                    <Input placeholder={'placeholder'} onChange={(e) => handleChange(e, setCurrentResponse)} value={currentResponse === null ? '' : currentResponse} />
                     <WarningIcon display={'none'} />
                 </InputWrapper>
 

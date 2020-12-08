@@ -1,3 +1,8 @@
+export function handleChange(e, setterFunc) {
+    const { value } = e.target
+    setterFunc(value)
+}
+
 export function getQuestion(num) {
     switch (num) {
         case 0:
