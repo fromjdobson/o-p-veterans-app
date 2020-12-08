@@ -1,3 +1,9 @@
+export function updateUser(ref, refId, propertyName, response) {
+    ref.doc(refId).update({
+        [propertyName]: response
+    }).then(() => console.log('Document successfully updated.'))
+} 
+
 export function handleClick(e, dbFunc, questionSetter, responseSetter) {
     e.preventDefault()
 

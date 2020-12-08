@@ -12,7 +12,8 @@ import NextButton from './NextButton'
 import {
     getQuestion,
     handleChange,
-    handleClick
+    handleClick,
+    updateUser
 } from './utils'
 
 
@@ -94,9 +95,11 @@ export default function Form() {
                     updateUserId = userToUpdate.data().id
                     dbId = userToUpdate.data().id
 
-                    usersRef.doc(updateUserId).update({
-                        [inputName]: currentResponse
-                    }).then(() => console.log('Document successfully updated.'))
+                    updateUser(usersRef, updateUserId, inputName, currentResponse)
+
+                    // usersRef.doc(updateUserId).update({
+                    //     [inputName]: currentResponse
+                    // }).then(() => console.log('Document successfully updated.'))
 
                     let docRef = usersRef.doc(dbId)
                     docRef.get().then((doc) => {
