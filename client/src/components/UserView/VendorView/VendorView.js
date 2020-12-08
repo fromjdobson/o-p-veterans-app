@@ -19,7 +19,6 @@ const VendorViewContainer = styled.div`
 
 export default function VendorView() {
     const [currentUser] = useContext(CurrentUserContext)
-    // console.log(currentUser)
     const { formcomplete } = currentUser
 
     return (
