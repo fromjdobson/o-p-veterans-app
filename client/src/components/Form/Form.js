@@ -1,15 +1,14 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
 import { getQuestion } from './utils'
 import { RegistrationFormContext } from '../../providers/FormContext'
 import { CurrentUserContext } from '../../providers/CurrentUser'
-import firebase, { auth, provider } from '../../firebase'
+import firebase, { auth } from '../../firebase'
 import Counter from './Counter'
 import WarningIcon from './WarningIcon'
 import Input from './Input'
 import HelperText from './HelperText'
 import NextButton from './NextButton'
-import { set } from 'mongoose'
 
 const StyledForm = styled.div`
     margin: 64px 0px 0px 0px;
@@ -58,9 +57,9 @@ const ButtonWrapper = styled.div`
 
 export default function Form() {
     const [questionNumber, setQuestionNumber] = useContext(RegistrationFormContext)
-    const [currentUser, setCurrentUser] = useContext(CurrentUserContext)
+    const [, setCurrentUser] = useContext(CurrentUserContext)
     const [currentResponse, setCurrentResponse] = useState(null)
-    const { question, inputName, isFormComplete } = getQuestion(questionNumber)
+    const { question, inputName } = getQuestion(questionNumber)
 
     const db = firebase.firestore()
     const usersRef = db.collection('users')
@@ -132,13 +131,6 @@ export default function Form() {
 
         setCurrentResponse(null)
     }
-
-    // if (question !== 'default') {
-    //     console.log(333, question, questionNumber)
-    // } else if (question === 'default') {
-        
-    //     console.log(444, question, questionNumber)
-    // }  
 
     return (
         <>

@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import firebase, { auth, provider } from '../../../firebase'
-
 import { Header } from '../../Header'
 import { OpenInput } from '../../OpenInput'
 import { Button } from '../../Button'
@@ -96,7 +95,6 @@ export default function Login() {
             const { uid, displayName, email, photoURL } = result.user
             const loginUserUid = uid
 
-
             usersRef.get().then((snapshot) => {
                 const { docs } = snapshot
                 const userExists = docs.some((user) => {
@@ -109,7 +107,6 @@ export default function Login() {
                     
                     return match
                 })
-
 
                 if (userExists) {
                     console.log(' it is the truth - not adding to db cause there is already a user there.')
