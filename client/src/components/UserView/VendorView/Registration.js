@@ -24,7 +24,7 @@ const Container = styled.div`
     /* background: #D3D3D3; */
 `
 
-export default function TempRegistration() {
+export default function Registration() {
     return (
         <RegistrationContainer>
             <Header />

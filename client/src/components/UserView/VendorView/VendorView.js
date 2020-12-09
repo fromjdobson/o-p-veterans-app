@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { CurrentUserContext } from '../../../providers/CurrentUser'
 import TempDashboard from './TempDashboard'
-import TempRegistration from './TempRegistration'
+import Registration from './Registration'
 
 const VendorViewContainer = styled.div`
     box-sizing: border-box;
@@ -23,7 +23,7 @@ export default function VendorView() {
 
     return (
         <VendorViewContainer>
-            {formcomplete === false ? <TempRegistration /> : <TempDashboard />}
+            {formcomplete === false ? <Registration /> : <TempDashboard />}
         </VendorViewContainer>
     )
 }
