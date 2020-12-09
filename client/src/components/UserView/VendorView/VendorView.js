@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { CurrentUserContext } from '../../../providers/CurrentUser'
-import TempDashboard from './TempDashboard'
+import SponsorshipSelector from './SponsorshipSelector'
 import Registration from './Registration'
 
 const VendorViewContainer = styled.div`
@@ -23,7 +23,7 @@ export default function VendorView() {
 
     return (
         <VendorViewContainer>
-            {formcomplete === false ? <Registration /> : <TempDashboard />}
+            {formcomplete === false ? <Registration /> : <SponsorshipSelector />}
         </VendorViewContainer>
     )
 }

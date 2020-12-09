@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { CurrentUserContext } from '../../../providers/CurrentUser'
 import { Header } from '../../Header'
 
-const DashboardContainer = styled.div`
+const SponsorshipContainer = styled.div`
     width: 100%;
     border: 1px solid lightcoral;
 
@@ -17,7 +17,7 @@ const DashboardContainer = styled.div`
     }
 `
 
-export default function TempDashboard() {
+export default function SponsorshipSelector() {
     const [currentUser] = useContext(CurrentUserContext)
     // REMOVE THE FOLLOWING - FOR DEMO ONLY
 
@@ -43,7 +43,7 @@ export default function TempDashboard() {
     // console.log(currentUser)
 
     return (
-        <DashboardContainer>
+        <SponsorshipContainer>
             <Header />
             <p>{name}</p>
             <p>{vendorname}</p>
@@ -62,6 +62,6 @@ export default function TempDashboard() {
             <p>{phone}</p>
             <p>{veteranowned}</p>
             <p>{nonprofit}</p>
-        </DashboardContainer>
+        </SponsorshipContainer>
     )
 }
