@@ -7,6 +7,8 @@ const ItemContainer = styled.div`
     height: 24px;
     display: flex;
     align-items: center;
+    /* opacity: 1.0; */
+    opacity: ${props => props.opacity};
     /* border: 1px dotted dodgerblue; */
 
     & > p {
@@ -31,15 +33,16 @@ const StyledIcon = styled(Icon)`
     /* margin: 0px 0px 0px 8px; */
     min-width: 16px;
     min-height: 16px;
-    display: block;
+    /* visibility: visible; */
+    visibility: ${props => props.visibility};
     /* border: 2px dotted red; */
 `
 
 export default function ListItem(props) {
-    const { classname } = props 
+    const { classname, visibility, opacity } = props 
     return (
-        <ItemContainer className={classname}>
-            <StyledIcon />
+        <ItemContainer className={classname} opacity={opacity} >
+            <StyledIcon visibility={visibility} />
             <p>{'Recognition on website'}</p>
         </ItemContainer>
     )
