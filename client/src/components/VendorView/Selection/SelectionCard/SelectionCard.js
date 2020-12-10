@@ -49,7 +49,6 @@ const CardContainer = styled.div`
         letter-spacing: 0.03em;
         color: #799C8A;
         /* border: 1px dotted orange; */
-
     }
 
     & > p {
@@ -69,6 +68,14 @@ const CardContainer = styled.div`
         letter-spacing: 0.015em;
         color: #545454;
         /* border: 1px dotted orange; */
+    }
+
+    &:hover {
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 1px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 4px 5px rgba(0, 0, 0, 0.12), 0px 1px 10px rgba(0, 0, 0, 0.2);
     }
 `
 
