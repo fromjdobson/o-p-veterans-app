@@ -1,10 +1,9 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 // import { CurrentUserContext } from './providers/CurrentUser'
-// import { Login } from './components/UserView/Login'
+import { Login } from './components/Login'
 // import { AdminView } from './components/UserView/AdminView'
 // import { VendorView } from './components/UserView/VendorView'
-import SponsorshipSelector from './components/UserView/VendorView/SponsorshipSelector'
 
 
 const AppContainer = styled.div`
@@ -32,8 +31,7 @@ export default function OpVeteranApp() {
 
     return (
         <AppContainer>
-            <SponsorshipSelector />
-            {/* <Login /> */}
+            <Login />
         </AppContainer>
     )
 }

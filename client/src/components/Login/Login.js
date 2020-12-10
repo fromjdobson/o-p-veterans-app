@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import firebase, { auth, provider } from '../../../firebase'
-import { Header } from '../../Header'
-import { OpenInput } from '../../OpenInput'
-import { Button } from '../../Button'
+import firebase, { auth, provider } from '../../firebase'
+import { Header } from '../Header'
+import { OpenInput } from '../OpenInput'
+import { Button } from '../Button'
 import TextButton from './TextButton'
 
 const LoginContainer = styled.div`

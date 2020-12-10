@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import SponsorshipSelector from './SponsorshipSelector'
 
 const VendorViewContainer = styled.div`
     box-sizing: border-box;
@@ -20,7 +19,6 @@ export default function VendorView() {
     return (
         <VendorViewContainer>
             {'VendorView'}
-            <SponsorshipSelector />
         </VendorViewContainer>
     )
 }
