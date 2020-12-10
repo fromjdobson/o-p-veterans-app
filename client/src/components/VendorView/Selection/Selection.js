@@ -9,6 +9,7 @@ const SelectionContainer = styled.div`
 export default function Selection() {
     return (
         <SelectionContainer>
+            <br />
             <SelectionCard />
         </SelectionContainer>
     )

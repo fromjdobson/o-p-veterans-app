@@ -8,7 +8,7 @@ const ListContainer = styled.div`
     top: 216px;
     left: 24px;
     right: 24px;
-    border: 1px dashed purple;   
+    /* border: 1px dashed purple;    */
 
     & .space {
         margin: 8px 0px 8px 0px;

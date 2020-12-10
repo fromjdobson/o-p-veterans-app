@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import BenefitList from './BenefitList'
+import TextButton from './TextButton'
 
 const CardContainer = styled.div`
     /* box-sizing: border-box; */
     position: relative;
     width: 328px;
-    height: 460px;
+    height: 500px;
     background: #FFFFFF;
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.14), 0px 2px 2px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
@@ -28,7 +29,7 @@ const CardContainer = styled.div`
         letter-spacing: 0.03em;
         text-transform: uppercase;
         color: #545454;
-        border: 1px dotted orange;
+        /* border: 1px dotted orange; */
     }
 
     & > h3 {
@@ -47,7 +48,7 @@ const CardContainer = styled.div`
         align-items: center;
         letter-spacing: 0.03em;
         color: #799C8A;
-        border: 1px dotted orange;
+        /* border: 1px dotted orange; */
 
     }
 
@@ -67,7 +68,7 @@ const CardContainer = styled.div`
         align-items: center;
         letter-spacing: 0.015em;
         color: #545454;
-        border: 1px dotted orange;
+        /* border: 1px dotted orange; */
     }
 `
 
@@ -78,6 +79,7 @@ export default function SelectionCard() {
             <p>{'Choose the right package for your organization.'}</p>
             <h3>{'99,999'}</h3>
             <BenefitList />
+            <TextButton />
         </CardContainer>
     )
 }

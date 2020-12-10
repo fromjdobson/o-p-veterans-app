@@ -39,11 +39,11 @@ const StyledIcon = styled(Icon)`
 `
 
 export default function ListItem(props) {
-    const { classname, visibility, opacity } = props 
+    const { classname, visibility, opacity, itemText } = props 
     return (
         <ItemContainer className={classname} opacity={opacity} >
             <StyledIcon visibility={visibility} />
-            <p>{'Recognition on website'}</p>
+            <p>{itemText}</p>
         </ItemContainer>
     )
 }
