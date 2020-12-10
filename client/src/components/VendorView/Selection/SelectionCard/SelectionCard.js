@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import ListItem from './ListItem'
+import BenefitList from './BenefitList'
 
 const CardContainer = styled.div`
+    /* box-sizing: border-box; */
     position: relative;
     width: 328px;
     height: 460px;
@@ -73,10 +74,10 @@ const CardContainer = styled.div`
 export default function SelectionCard() {
     return (
         <CardContainer>
-            {/* <h1>{'Stryker'}</h1>
+            <h1>{'Stryker'}</h1>
             <p>{'Choose the right package for your organization.'}</p>
-            <h3>{'99,999'}</h3> */}
-            <ListItem />
+            <h3>{'99,999'}</h3>
+            <BenefitList />
         </CardContainer>
     )
 }
