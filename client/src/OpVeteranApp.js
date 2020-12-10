@@ -2,8 +2,8 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 // import { CurrentUserContext } from './providers/CurrentUser'
 // import { Login } from './components/Login'
-import { AdminView } from './components/AdminView'
-// import { VendorView } from './components/UserView/VendorView'
+// import { AdminView } from './components/AdminView'
+import { VendorView } from './components/VendorView'
 
 
 const AppContainer = styled.div`
@@ -32,7 +32,8 @@ export default function OpVeteranApp() {
     return (
         <AppContainer>
             {/* <Login /> */}
-            <AdminView />
+            {/* <AdminView /> */}
+            <VendorView />
         </AppContainer>
     )
 }

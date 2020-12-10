@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Registration from './Registration'
 
 const VendorViewContainer = styled.div`
     box-sizing: border-box;
@@ -18,7 +19,7 @@ export default function VendorView() {
 
     return (
         <VendorViewContainer>
-            {'VendorView'}
+            <Registration />
         </VendorViewContainer>
     )
 }

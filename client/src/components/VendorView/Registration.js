@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Header } from '../../Header'
-import { ProgressBar } from '../../ProgressBar'
-import { Form } from '../../Form'
+import { Header } from '../Header'
+import { ProgressBar } from '../ProgressBar'
+import { Form } from '../Form'
 import Heading from './Heading'
 
 const RegistrationContainer = styled.div`
