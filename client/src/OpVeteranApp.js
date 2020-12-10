@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 // import { CurrentUserContext } from './providers/CurrentUser'
-import { Login } from './components/Login'
-// import { AdminView } from './components/UserView/AdminView'
+// import { Login } from './components/Login'
+import { AdminView } from './components/AdminView'
 // import { VendorView } from './components/UserView/VendorView'
 
 
@@ -31,7 +31,8 @@ export default function OpVeteranApp() {
 
     return (
         <AppContainer>
-            <Login />
+            {/* <Login /> */}
+            <AdminView />
         </AppContainer>
     )
 }

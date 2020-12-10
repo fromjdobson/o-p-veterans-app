@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import { CurrentUserContext } from '../../../providers/CurrentUser'
-import { Header } from '../../Header'
-import { AdminSearchBar } from '../../AdminSearchBar'
-import { VendorList } from '../../VendorList'
+import { CurrentUserContext } from '../../providers/CurrentUser'
+import { Header } from '../Header'
+import { AdminSearchBar } from '../AdminSearchBar'
+import { VendorList } from '../VendorList'
 // import { EditModal } from '../../EditModal'
 // import closeIcon from '../../../assets/Icons/Vector.svg'
 
