@@ -1,8 +1,8 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { CurrentUserContext } from '../../../providers/CurrentUser'
+// import { CurrentUserContext } from '../../../providers/CurrentUser'
 import SponsorshipSelector from './SponsorshipSelector'
-import Registration from './Registration'
+// import Registration from './Registration'
 
 const VendorViewContainer = styled.div`
     box-sizing: border-box;
@@ -18,12 +18,13 @@ const VendorViewContainer = styled.div`
 `
 
 export default function VendorView() {
-    const [currentUser] = useContext(CurrentUserContext)
-    const { formcomplete } = currentUser
+    // const [currentUser] = useContext(CurrentUserContext)
+    // const { formcomplete } = currentUser
 
     return (
         <VendorViewContainer>
-            {formcomplete === false ? <Registration /> : <SponsorshipSelector />}
+            <SponsorshipSelector />
+            {/* {formcomplete === false ? <Registration /> : <SponsorshipSelector />} */}
         </VendorViewContainer>
     )
 }
