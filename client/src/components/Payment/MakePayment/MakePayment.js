@@ -11,6 +11,7 @@ export default function MakePayment() {
         <MakePaymentContainer>
             <Input label={'Name on card'} />
             <Input label={'Card number'} />
+            <Input label={'Amount'} />
         </MakePaymentContainer>
     )
 }
