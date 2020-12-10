@@ -84,7 +84,7 @@ export default function SelectionCard() {
         <CardContainer>
             <h1>{'Stryker'}</h1>
             <p>{'Choose the right package for your organization.'}</p>
-            <h3>{'99,999'}</h3>
+            <h3>{'$99,999'}</h3>
             <BenefitList />
             <TextButton />
         </CardContainer>
