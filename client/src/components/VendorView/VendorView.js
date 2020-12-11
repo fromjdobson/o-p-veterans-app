@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import Registration from './Registration'
-// import { Selection } from './Selection'
+// import Registration from './Registration'
+import { Selection } from './Selection'
 
 const VendorViewContainer = styled.div`
     box-sizing: border-box;
@@ -20,8 +20,8 @@ export default function VendorView() {
 
     return (
         <VendorViewContainer>
-            <Registration />
-            {/* <Selection /> */}
+            {/* <Registration /> */}
+            <Selection />
         </VendorViewContainer>
     )
 }
