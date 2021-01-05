@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
+import { auth } from '../../firebase'
 import { UserContext } from '../../providers/CurrentUser'
 import closeIcon from '../../assets/Icons/Vector.svg'
 
@@ -15,20 +16,28 @@ const CloseContainer = styled.div`
 `
 
 export default function Close() {
-  const [currentUser] = useContext(UserContext)
+  const [currentUser, setCurrentUser] = useContext(UserContext)
 
   function setIconDisplay() {
-    if (currentUser === null) {
+    if (currentUser === 'not logged in') {
       return `hidden`
-    } else if (currentUser !== null ) {
+    } else if (currentUser !== 'not logged in' ) {
       return 'visible'
     }
   }
 
   let iconDisplay = setIconDisplay()
 
+  function handleClick() {
+    auth.signOut().then(() => {
+      setCurrentUser(() => {
+        return {}
+      })
+    })
+  }
+
   return (
-    <CloseContainer visibility={iconDisplay}>
+    <CloseContainer visibility={iconDisplay} onClick={handleClick}>
         <img src={closeIcon} alt={'Click to close.'} />
     </CloseContainer>
   )

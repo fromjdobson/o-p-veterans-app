@@ -21,9 +21,9 @@ export default function UserIcon() {
     const { userPhotoUrl } = tempObj
 
     function setIconDisplay() {
-        if (currentUser === null) {
+        if (currentUser === 'not logged in') {
           return `hidden`
-        } else if (currentUser !== null ) {
+        } else if (currentUser !== 'not logged in' ) {
           return 'visible'
         }
       }
