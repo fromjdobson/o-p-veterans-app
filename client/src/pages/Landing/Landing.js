@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import firebase, { auth, provider } from '../../firebase'
+import { UserContext } from '../../providers/CurrentUser'
 import { Header } from '../../components/Header'
 import { OpenInput } from '../../components/OpenInput'
 import { Button } from '../../components/Button'
@@ -76,8 +77,38 @@ const PageContainer = styled.div`
 `
 
 export default function Landing() {
+    const [currentUser, setCurrentUser] = useContext(UserContext)
 
-    
+    function signInWithGoogle() {
+        auth.signInWithPopup(provider).then((result) => {
+            const signedInUser = {...result.user}
+            const { email } = signedInUser
+            let signedInUserEmail = email
+            // console.log(email)
+
+            const db = firebase.firestore()
+            const usersRef = db.collection('users')
+            usersRef.get().then((snapshot) => {
+                snapshot.forEach((doc) => {
+                    const { email } = doc.data()
+                    let dbUserEmail = email
+
+                    if (signedInUserEmail === dbUserEmail) {
+                        // console.log(doc.data())
+                        // console.log(currentUser)
+
+                        setCurrentUser(() => {
+                            return {...doc.data()}
+                        })
+                    }
+
+                    // console.log(dbUserEmail)
+                })
+            })
+        })
+    }
+
+    // console.log(currentUser)
 
     return (
         <PageContainer>
@@ -88,7 +119,7 @@ export default function Landing() {
                 <OpenInput className={'email-input'} label={'Email'} placeholder={'email'} type={'email'} />
                 <OpenInput className={'password-input'} label={'Password'} placeholder={'password'} type={'password'} />
                 <Button className={'input-field-button'} buttonStyle={'primary'} buttonText={'Submit'} />
-                <Button className={'google-button'} buttonStyle={'google'} buttonText={'Register using'} />
+                <Button className={'google-button'} buttonStyle={'google'} buttonText={'Register using'} onClick={() => signInWithGoogle()} />
             </div>
             <div className={'right-pane'}>
                 <p>Right Pane</p>
