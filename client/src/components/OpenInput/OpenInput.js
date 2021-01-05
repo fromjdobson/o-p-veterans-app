@@ -36,12 +36,12 @@ const Container = styled.div`
 `
 
 export default function OpenInput(props) {
-    const { label, placeholder, type, onChange } = props
+    const { label, placeholder, type, onChange, className } = props
     // console.log(onChange)
     
     
     return (
-        <OpenInputContainer>
+        <OpenInputContainer className={className}>
             <LabelText>{label}</LabelText>
             <Container>
                 <Input type={type} placeholder={placeholder} onChange={onChange} />
