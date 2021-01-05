@@ -1,6 +1,6 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { CurrentUserContext } from './providers/CurrentUser'
+import { Landing } from './pages/'
 import { Login } from './components/UserView/Login'
 import { AdminView } from './components/UserView/AdminView'
 import { VendorView } from './components/UserView/VendorView'
@@ -11,27 +11,12 @@ const AppContainer = styled.div`
 `
 
 export default function OpVeteranApp() {
-    const [currentUser] = useContext(CurrentUserContext)
-    const newObj = {...currentUser}
-    const { isAdmin } = newObj
-
-    if (currentUser && isAdmin === false) {
-        return (
-            <AppContainer>
-                <VendorView />
-            </AppContainer>
-        )
-    } else if (currentUser && isAdmin === true) {
-        return (
-            <AppContainer>
-                <AdminView />
-            </AppContainer>
-        )
-    }
 
     return (
         <AppContainer>
-            <Login />
+            {/* <Login /> */}
+            {/* <AdminView /> */}
+            <Landing />
         </AppContainer>
     )
 }
