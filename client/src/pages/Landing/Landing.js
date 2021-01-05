@@ -2,12 +2,12 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 import firebase, { auth, provider } from '../../firebase'
 import { UserContext } from '../../providers/CurrentUser'
-import { Header } from '../../components/Header'
 import { OpenInput } from '../../components/OpenInput'
 import { Button } from '../../components/Button'
 
 const PageContainer = styled.div`
     position: relative;
+    height: 100vh;
     border: 2px dashed lightcoral;
 
     & > .left-pane {
@@ -17,7 +17,7 @@ const PageContainer = styled.div`
             margin: 0px;
             width: 312px;
             position: absolute;
-            top: 144px;
+            top: 56px;
             left: calc(50% - 312px/2);
             font-family: Open Sans;
             font-style: normal;
@@ -33,7 +33,7 @@ const PageContainer = styled.div`
             margin: 0px;
             width: 312px;
             position: absolute;
-            top: 168px;
+            top: 80px;
             left: calc(50% - 312px/2);
             font-family: Open Sans;
             font-style: normal;
@@ -47,25 +47,25 @@ const PageContainer = styled.div`
 
         & > .email-input {
             position: absolute;
-            top: 264px;
+            top: 176px;
             left: calc(50% - 312px/2);
         }
 
         & > .password-input {
             position: absolute;
-            top: 344px;
+            top: 256px;
             left: calc(50% - 312px/2);
         }
 
         & > .input-field-button {
             position: absolute;
-            top: 460px;
+            top: 372px;
             left: calc(50% - 312px/2);
         }
 
         & > .google-button {
             position: absolute;
-            top: 532px;
+            top: 444px;
             left: calc(50% - 312px/2);
         }
     }
@@ -77,42 +77,35 @@ const PageContainer = styled.div`
 `
 
 export default function Landing() {
-    const [currentUser, setCurrentUser] = useContext(UserContext)
+    const [, setCurrentUser] = useContext(UserContext)
 
     function signInWithGoogle() {
         auth.signInWithPopup(provider).then((result) => {
             const signedInUser = {...result.user}
             const { email } = signedInUser
             let signedInUserEmail = email
-            // console.log(email)
 
             const db = firebase.firestore()
             const usersRef = db.collection('users')
+
             usersRef.get().then((snapshot) => {
                 snapshot.forEach((doc) => {
                     const { email } = doc.data()
                     let dbUserEmail = email
 
                     if (signedInUserEmail === dbUserEmail) {
-                        // console.log(doc.data())
-                        // console.log(currentUser)
 
                         setCurrentUser(() => {
                             return {...doc.data()}
                         })
                     }
-
-                    // console.log(dbUserEmail)
                 })
             })
         })
     }
 
-    // console.log(currentUser)
-
     return (
         <PageContainer>
-            <Header />
             <div className={'left-pane'}>
                 <p>{'Register with OP Veteran'}</p>
                 <h3>{'Create an account'}</h3>
