@@ -17,7 +17,8 @@ const IconContainer = styled.div`
 
 export default function UserIcon() {
     const [currentUser] = useContext(UserContext)
-    console.log(currentUser)
+    const tempObj = {...currentUser}
+    const { userPhotoUrl } = tempObj
 
     function setIconDisplay() {
         if (currentUser === null) {
@@ -31,7 +32,7 @@ export default function UserIcon() {
 
     return (
         <IconContainer visibility={iconDisplay}>
-            <img src={avatar} alt={'User is logged in.'} />
+            <img src={(currentUser !== null) ? userPhotoUrl : avatar} alt={'User is logged in.'} />
         </IconContainer>
     )
 }
