@@ -1,12 +1,11 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { CurrentUserContext } from '../../providers/CurrentUser'
 import avatar from '../../assets/Icons/avatar-icon.svg'
 
 const IconContainer = styled.div`
     width: 40px;
     height: 40px;
-    display: ${props => props.display};
+    /* display: ${props => props.display}; */
 
     & > img {
         width: 100%;
@@ -15,15 +14,11 @@ const IconContainer = styled.div`
     }
 `
 
-export default function UserIcon(props) {
-    const [currentUser] = useContext(CurrentUserContext)
-    const newObj = {...currentUser}
-    const { userPhotoUrl } = newObj
-    const { display } = props
+export default function UserIcon() {
 
     return (
-        <IconContainer display={display}>
-            <img src={userPhotoUrl ? userPhotoUrl : avatar} alt={'User is logged in.'} />
+        <IconContainer>
+            <img src={avatar} alt={'User is logged in.'} />
         </IconContainer>
     )
 }
