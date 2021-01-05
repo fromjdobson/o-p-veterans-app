@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import firebase, { auth, provider } from '../../firebase'
 import { Header } from '../../components/Header'
 import { OpenInput } from '../../components/OpenInput'
+import { Button } from '../../components/Button'
 
 const PageContainer = styled.div`
     position: relative;
@@ -23,7 +25,7 @@ const PageContainer = styled.div`
             line-height: 16px;
             letter-spacing: 0.5px;
             color: #545454;
-            border: 1px dotted blue;
+            /* border: 1px dotted blue; */
         }
 
         & > h3 {
@@ -39,7 +41,7 @@ const PageContainer = styled.div`
             line-height: 32px;
             letter-spacing: 0px;
             color: #545454;
-            border: 1px dotted blue;
+            /* border: 1px dotted blue; */
         }
 
         & > .email-input {
@@ -53,6 +55,18 @@ const PageContainer = styled.div`
             top: 344px;
             left: calc(50% - 312px/2);
         }
+
+        & > .input-field-button {
+            position: absolute;
+            top: 460px;
+            left: calc(50% - 312px/2);
+        }
+
+        & > .google-button {
+            position: absolute;
+            top: 532px;
+            left: calc(50% - 312px/2);
+        }
     }
 
     & > .right-pane {
@@ -62,6 +76,9 @@ const PageContainer = styled.div`
 `
 
 export default function Landing() {
+
+    
+
     return (
         <PageContainer>
             <Header />
@@ -70,7 +87,8 @@ export default function Landing() {
                 <h3>{'Create an account'}</h3>
                 <OpenInput className={'email-input'} label={'Email'} placeholder={'email'} type={'email'} />
                 <OpenInput className={'password-input'} label={'Password'} placeholder={'password'} type={'password'} />
-
+                <Button className={'input-field-button'} buttonStyle={'primary'} buttonText={'Submit'} />
+                <Button className={'google-button'} buttonStyle={'google'} buttonText={'Register using'} />
             </div>
             <div className={'right-pane'}>
                 <p>Right Pane</p>
