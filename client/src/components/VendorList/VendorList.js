@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import firebase from '../../firebase'
-import ListItem from './ListItem'
 
 const VendorListContainer = styled.div`
     width: 100%;
@@ -10,93 +8,11 @@ const VendorListContainer = styled.div`
 `
 
 export default function VendorList() {
-    const [itemsList, setItemsList] = useState([])
-
-    const db = firebase.firestore()
-    const usersRef = db.collection('users')
-
-    useEffect(() => {
-        usersRef.get().then((snapshot) => {
-            let tempArr = [
-
-            ]
-            snapshot.forEach((doc) => {
-                const   { 
-                    name,
-                    email,
-                    city,
-                    nonprofit,
-                    phone,
-                    sponsorship,
-                    state,
-                    streetaddress,
-                    suitenumber,
-                    vendorname,
-                    veteranowned,
-                    zipcode
-                } = doc.data()
-
-                let newObj = {
-                    name: name,
-                    email: email,
-                    city: city,
-                    nonprofit: nonprofit,
-                    phone: phone,
-                    sponsorship: sponsorship,
-                    state: state,
-                    streetAddress: streetaddress,
-                    suiteNumber: suitenumber,
-                    vendorName: vendorname,
-                    veteranOwned: veteranowned,
-                    zipcode: zipcode
-                }
-
-                tempArr.push(newObj)
-            })
-
-            setItemsList(() => {
-                return tempArr
-            })
-
-        })
-    },[])
-
-    let listy = itemsList.map((entry, idx) => {
-        const { 
-            name,
-            email,
-            city,
-            nonprofit,
-            phone,
-            sponsorship,
-            state,
-            streetAddress,
-            suiteNumber,
-            vendorName,
-            veteranOwned,
-            zipcode
-        } = entry
-
-        return  <ListItem
-                    key={idx}
-                    name={name}
-                    email={email}
-                    city={city}
-                    nonprofit={nonprofit}
-                    phone={phone}
-                    sponsorship={sponsorship}
-                    state={state}
-                    streetAddress={streetAddress}
-                    suiteNumber={suiteNumber}
-                    vendorName={vendorName}
-                    veteranOwned={veteranOwned}
-                    zipcode={zipcode}
-                />
-    })
+    
 
     return (
         <VendorListContainer> 
-           {listy}
+           {'listy'}
         </VendorListContainer>
     )
 }
