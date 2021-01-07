@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, useHistory } from 'react-router-dom'
+import firebase, { auth, provider } from './firebase'
 // import Playground from './components/UserView/Playground'
 import { Landing } from './pages/index'
 import { Admin } from './pages/index'
@@ -15,6 +16,18 @@ const AppContainer = styled.div`
 `
 
 export default function OpVeteranApp() {
+    let history = useHistory()
+
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            console.log(2222, `User is currently logged in.`)
+            history.push('/vendor')
+        } else {
+            console.log(2222, `User is not logged in.`)
+            history.push('/')
+        }
+    })
+
 
     return (
         <AppContainer>
@@ -30,7 +43,7 @@ export default function OpVeteranApp() {
                     <Vendor />
                 </Route>
             </Switch>
-            <Landing />
+            {/* <Landing /> */}
         </AppContainer>
     )
 }
