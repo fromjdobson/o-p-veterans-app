@@ -28,7 +28,6 @@ export default function OpVeteranApp() {
         }
     })
 
-
     return (
         <AppContainer>
             {/* <Playground /> */}
