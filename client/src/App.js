@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Switch, Route, useHistory } from 'react-router-dom'
-import firebase, { auth, provider } from './firebase'
+import { auth } from './firebase'
 // import Playground from './components/UserView/Playground'
 import { Landing } from './pages/index'
 import { Admin } from './pages/index'
@@ -20,7 +20,7 @@ export default function OpVeteranApp() {
 
     auth.onAuthStateChanged((user) => {
         if (user) {
-            console.log(2222, `User is currently logged in.`)
+            console.log(user, `User is currently logged in.`)
             history.push('/vendor')
         } else {
             console.log(2222, `User is not logged in.`)

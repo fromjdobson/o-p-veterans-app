@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import firebase, { auth, provider } from '../firebase'
+import { auth, provider } from '../firebase'
 import { Button } from '../components/Button'
-import { OpenInput } from '../components/OpenInput'
 import logo from '../assets/images/vetfest-logo.png'
 
 const PageContainer = styled.div`
@@ -51,36 +50,18 @@ const PageContainer = styled.div`
         /* border: 1px dotted blue; */
     }
 
-    & > .email-input {
-        position: absolute;
-        top: 264px;
-        left: calc(50% - 312px/2);
-    }
-
-    & > .pass-input {
-        position: absolute;
-        top: 344px;
-        left: calc(50% - 312px/2);
-    }
-
-    & > .login-button {
-        position: absolute;
-        top: 488px;
-        left: calc(50% - 312px/2);
-    }
-
     & > .google-button {
         position: absolute;
-        top: 560px;
+        top: 528px;
         left: calc(50% - 312px/2);
     }
 `
 
 export default function Landing() {
 
-    function handleLogin() {
+    function handleGoolgeLogin() {
         auth.signInWithPopup(provider).then((result) => {
-            console.log(1111, result.user)
+            console.log('User is signed in.')
         })
     }
 
@@ -89,10 +70,7 @@ export default function Landing() {
             <img src={logo} alt={'Vetfest logo'} />
             <p>{'Register with O.P. Veteran'}</p>
             <h3>{'Create an account'}</h3>
-            <OpenInput className={'email-input'} label={'Email'} type={'email'} placeholder={''} />
-            <OpenInput className={'pass-input'} label={'Password'} type={'password'} placeholder={''} />
-            <Button className={'login-button'} buttonStyle={'primary'} buttonText={'Login'} />
-            <Button className={'google-button'} buttonStyle={'google'} buttonText={'Login using'} onClick={() => handleLogin()}  />
+            <Button className={'google-button'} buttonStyle={'google'} buttonText={'Login using'} onClick={() => handleGoolgeLogin()}  />
         </PageContainer>
     )
 }
