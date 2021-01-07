@@ -33,15 +33,27 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    & > input {
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.01em;
+        color: #545454;
+    }
 `
 
 export default function OpenInput(props) {
-    const { label, placeholder, type, onChange } = props
+    const { label, placeholder, type, onChange, className } = props
     // console.log(onChange)
     
     
     return (
-        <OpenInputContainer>
+        <OpenInputContainer className={className}>
             <LabelText>{label}</LabelText>
             <Container>
                 <Input type={type} placeholder={placeholder} onChange={onChange} />
