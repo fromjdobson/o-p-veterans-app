@@ -6,7 +6,7 @@ import Details from './Details'
 import gruntStyleLogo from '../../assets/images/atp-logo.png'
 
 const VendorListItemContainer = styled.div`
-    margin-top: 24px;
+    /* margin-top: 24px; */
     position: relative;
     width: 328px;
     /* height: 296px; */

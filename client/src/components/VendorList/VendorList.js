@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { VendorListItem } from '../VendorListItem'
 
 const VendorListContainer = styled.div`
     width: 100%;
@@ -12,7 +13,8 @@ export default function VendorList() {
 
     return (
         <VendorListContainer> 
-           {'listy'}
+           {/* {'listy'} */}
+           <VendorListItem />
         </VendorListContainer>
     )
 }

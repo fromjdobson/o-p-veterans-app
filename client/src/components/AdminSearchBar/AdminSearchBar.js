@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import SearchIcon from './SearchIcon'
 
 const SearchBarContainer = styled.div`
-    margin: 24px 0px 16px 0px;
+    margin: 0px 0px 0px 0px;
     position: relative;
     width: 100%;
     height: 40px;
@@ -25,6 +25,7 @@ const SearchBarContainer = styled.div`
         border-radius: 2px;
         border: 1px solid #545454;
         outline: none;
+        
         &:focus {
             border: 2px solid #799C8A;
         }
