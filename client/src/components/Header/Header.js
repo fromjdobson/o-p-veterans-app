@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import { auth } from '../../firebase'
 import { UserContext } from '../../providers/CurrentUser'
+import { setUserGraphic } from './utils'
 import avatar from '../../assets/Icons/avatar-icon.svg'
 import closeIcon from '../../assets/Icons/Vector.svg'
 import vetFestLogo from '../../assets/images/vetfest-logo.png'
@@ -32,15 +33,7 @@ const HeaderContainer = styled.div`
 
 export default function Header() {
   const [currentUser] = useContext(UserContext)
-  
-  function setUserGraphic(user) {
-    if (user) {
-      const { photo } = user
-      return photo
-    } else {
-      return avatar
-    }
-  }
+  let userGrahpic = setUserGraphic(currentUser, avatar)
 
   function logout() {
     auth.signOut().then(() => {
@@ -49,8 +42,6 @@ export default function Header() {
       console.log(`Error signing user out: ${error}`)
     })
   }
-
-  let userGrahpic = setUserGraphic(currentUser)
 
   return (
     <HeaderContainer>
