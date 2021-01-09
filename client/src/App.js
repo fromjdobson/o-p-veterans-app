@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Switch, Route, useHistory } from 'react-router-dom'
 import firebase, { auth } from './firebase'
 import { UserContext } from './providers/CurrentUser'
+import { setTempUsersArr, findUserEmail, createNewUserObj, setPage } from './utils'
 // import Playground from './components/UserView/Playground'
 import { Landing } from './pages/index'
 import { Admin } from './pages/index'
@@ -29,76 +30,46 @@ export default function OpVeteranApp() {
     
                 db.collection('users').get().then((snapshot) => {
                     let tempUsersArr = []
+
+                    setTempUsersArr(snapshot, tempUsersArr)
+
+                    let found = findUserEmail(tempUsersArr, signInUserEmail)
     
-                    snapshot.forEach((doc) => {
-                        tempUsersArr.push({...doc.data()})
-                    })
-    
-                    const found = tempUsersArr.find((element) => {
-                        return element.email === signInUserEmail
-                     })
-    
-                     if (found === undefined) {
-                        console.log('User does not exist in database - creating new user and pulling from database to select user to add to current user state.')
-                        db.collection('users').add({
-                            name: displayName,
-                            email: signInUserEmail,
-                            photo: photoURL,
-                            sponsorshipLevel: '',
-                            isAdmin: false,
-                            isRegistrationComplete: false,
-                            boothSelected: ''
-                        }).then((docRef) => {
-                            console.log(`Document written with ID: ${docRef.id}`)
-                        }).catch((error) => {
-                            console.log(`Error adding document: ${error}`)
-                        })
-    
+                    if (found === undefined) {
+                        let newUserObj = createNewUserObj(displayName, signInUserEmail, photoURL)
+
+                        db.collection('users').add({...newUserObj}).then((docRef) => console.log(`Document written with ID: ${docRef.id}`)).catch((error) => console.log(`Error writing document: ${error}`))
+
                         db.collection('users').get().then((snapshot) => {
                             let tempUsersArr = []
+                            setTempUsersArr(snapshot, tempUsersArr)
 
-                            snapshot.forEach((doc) => {
-                                tempUsersArr.push({...doc.data()})
-                            })
-    
-                            const found = tempUsersArr.find((element) => {
-                                return element.email === signInUserEmail
-                            })
-    
-                            setCurrentUser(() => {
-                                return {...found}
-                            })
-                        })
-                     } else {
-                         console.log('User already exists - Just pulling in the existing database of users to choose the current user info from.')
-    
-                         db.collection('users').get().then((snapshot) => {
-                            let tempUsersArr = []
-
-                            snapshot.forEach((doc) => {
-                                tempUsersArr.push({...doc.data()})
-                            })
-    
-                            const found = tempUsersArr.find((element) => {
-                                return element.email === signInUserEmail
-                            })
-
+                            let found = findUserEmail(tempUsersArr, signInUserEmail)
                             const { isAdmin } = found
-    
+
                             setCurrentUser(() => {
                                 return {...found}
                             })
 
-                            if (isAdmin === false) {
-                                history.push('/vendor')
-                            } else if (isAdmin === true) {
-                                history.push('/admin')
-                            }
+                            setPage(isAdmin, history)
+                        })
+                    } else {
+                        db.collection('users').get().then((snapshot) => {
+                            let tempUsersArr = []
+                            setTempUsersArr(snapshot, tempUsersArr)
+
+                            let found = findUserEmail(tempUsersArr, signInUserEmail)
+                            const { isAdmin } = found
+
+                            setCurrentUser(() => {
+                                return {...found}
+                            })
+
+                            setPage(isAdmin, history)
                         })
                      }
                 })
             } else {
-                console.log('skipping this')
                 history.push('/')
             }
         })
