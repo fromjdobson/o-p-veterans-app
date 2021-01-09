@@ -1,6 +1,5 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import{ UserContext } from '../providers/CurrentUser'
 import { auth } from '../firebase'
 import { Button } from '../components/Button'
 
@@ -32,8 +31,6 @@ const PageContainer = styled.div`
 `
 
 export default function Vendor() {
-    const [currentUser] = useContext(UserContext)
-    // console.log(currentUser)
 
     function handleSignOut() {
         auth.signOut().then(() => {

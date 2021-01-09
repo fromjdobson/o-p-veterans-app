@@ -16,7 +16,7 @@ const AppContainer = styled.div`
 `
 
 export default function OpVeteranApp() {
-    const [currentUser, setCurrentUser] = useContext(UserContext)
+    const [, setCurrentUser] = useContext(UserContext)
 
     let history = useHistory()
     let db = firebase.firestore()
@@ -56,24 +56,18 @@ export default function OpVeteranApp() {
     
                         db.collection('users').get().then((snapshot) => {
                             let tempUsersArr = []
+
                             snapshot.forEach((doc) => {
                                 tempUsersArr.push({...doc.data()})
-                                // console.log(1111, doc.data())
                             })
     
                             const found = tempUsersArr.find((element) => {
                                 return element.email === signInUserEmail
                             })
-
-                            const { isAdmin } = found
     
                             setCurrentUser(() => {
                                 return {...found}
                             })
-
-                            // const { isAdmin } = currentUser
-
-                            // console.log(1111, 'found')
                         })
                      } else {
                          console.log('User already exists - Just pulling in the existing database of users to choose the current user info from.')
@@ -83,7 +77,6 @@ export default function OpVeteranApp() {
 
                             snapshot.forEach((doc) => {
                                 tempUsersArr.push({...doc.data()})
-                                // console.log(1111, doc.data())
                             })
     
                             const found = tempUsersArr.find((element) => {
@@ -104,31 +97,13 @@ export default function OpVeteranApp() {
                         })
                      }
                 })
-
-                // history.push('/vendor')
             } else {
                 console.log('skipping this')
                 history.push('/')
             }
         })
     
-    }, [setCurrentUser, db])
-
-    // console.log(7777, currentUser)
-    // if (currentUser === null) {
-    //     console.log('user not logged in - pushing to login')
-    //     history.push('/')
-    // } else if (currentUser) {
-    //     const { isAdmin } = currentUser
-
-    //     if (isAdmin === false) {
-    //         history.push('/vendor')
-    //     } else if (isAdmin === true) {
-    //         history.push('/admin')
-    //     }
-    //     console.log(isAdmin)
-    // }
-
+    }, [setCurrentUser, db, history])
 
     return (
         <AppContainer>
