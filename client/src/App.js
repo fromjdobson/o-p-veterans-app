@@ -36,7 +36,7 @@ export default function OpVeteranApp() {
             }
         })
     
-    }, [setCurrentUser, usersCollection, db, history])
+    }, [db, history])
 
     return (
         <AppContainer>
