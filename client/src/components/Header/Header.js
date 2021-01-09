@@ -1,8 +1,9 @@
 import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
+import { auth } from '../../firebase'
 import { UserContext } from '../../providers/CurrentUser'
-import Close from './Close'
 import avatar from '../../assets/Icons/avatar-icon.svg'
+import closeIcon from '../../assets/Icons/Vector.svg'
 import vetFestLogo from '../../assets/images/vetfest-logo.png'
 
 const HeaderContainer = styled.div`
@@ -15,6 +16,11 @@ const HeaderContainer = styled.div`
 
   @media (min-width: 768px) {
     padding: 16px 24px 16px 24px;
+  }
+
+  & > .close-icon {
+    width: 24px;
+    height: 24px;
   }
 
   & > .user-graphic {
@@ -36,11 +42,19 @@ export default function Header() {
     }
   }
 
+  function logout() {
+    auth.signOut().then(() => {
+      console.log(`User has been signed out.`)
+    }).catch((error) => {
+      console.log(`Error signing user out: ${error}`)
+    })
+  }
+
   let userGrahpic = setUserGraphic(currentUser)
 
   return (
     <HeaderContainer>
-      <Close />
+      <img className={'close-icon'} src={closeIcon} alt={'Click to signout'} onClick={() => logout()} />
       <img src={vetFestLogo} alt={'VetFest logo'} />
       <img className={'user-graphic'} src={userGrahpic} alt={'User avatar'} />
     </HeaderContainer>
