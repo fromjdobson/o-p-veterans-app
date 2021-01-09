@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import ListItem from './ListItem'
+import ListItemInfo from './ListItemInfo'
 import atpLogo from '../../assets/images/atp-logo.png'
 
 const ListContainer = styled.div`
@@ -28,7 +29,8 @@ export default function AdminList() {
 
     return (
         <ListContainer>
-            <ListItem logo={logo} vendorname={name} boothNumber={boothNumber} />
+            <ListItem logoImage={logo} vendorName={name} boothNumber={boothNumber} />
+            <ListItemInfo />
         </ListContainer>
     )
 }
