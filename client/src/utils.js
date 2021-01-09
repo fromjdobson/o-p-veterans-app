@@ -1,7 +1,9 @@
-export function setTempUsersArr(snapshotArr, tempArr) {
+export function setTempUsersArr(snapshotArr) {
+    const arr = []
     snapshotArr.forEach((doc) => {
-        tempArr.push(doc.data())
+        arr.push(doc.data())
     })
+    return arr
 }
 
 export function findUserEmail(arr, userEmail) {
@@ -32,4 +34,27 @@ export function setPage(admin, historyFunc) {
     } else if (admin === true) {
         historyFunc.push('/admin')
     }
+}
+
+export function getUsersCollection(func, signInEmail, setUserState, page, historyFunc) {
+    func.get().then((snapshot) => {
+        let tempArr = setTempUsersArr(snapshot)
+
+        let found = findUserEmail(tempArr, signInEmail)
+        const { isAdmin } = found
+
+        setUserState(() => {
+            return {...found}
+        })
+
+        page(isAdmin, historyFunc)
+    })
+}
+
+export function addUserToFireStore(func, newUser) {
+    func.add({...newUser}).then((docRef) => {
+        console.log(`Document written with ID: ${docRef.id}`)
+    }).catch((error) => {
+        console.log(`Error writing document: ${error}`)
+    })
 }

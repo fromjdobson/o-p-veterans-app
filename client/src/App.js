@@ -3,11 +3,11 @@ import styled from 'styled-components'
 import { Switch, Route, useHistory } from 'react-router-dom'
 import firebase, { auth } from './firebase'
 import { UserContext } from './providers/CurrentUser'
-import { setTempUsersArr, findUserEmail, createNewUserObj, setPage } from './utils'
-// import Playground from './components/UserView/Playground'
+import { setTempUsersArr, findUserEmail, createNewUserObj, setPage, addUserToFireStore, getUsersCollection } from './utils'
 import { Landing } from './pages/index'
 import { Admin } from './pages/index'
 import { Vendor } from './pages/index'
+// import Playground from './components/UserView/Playground'
 
 const AppContainer = styled.div`
     box-sizing: border-box;
@@ -21,6 +21,7 @@ export default function OpVeteranApp() {
 
     let history = useHistory()
     let db = firebase.firestore()
+    let usersCollection = db.collection('users')
 
     useEffect(() => {
         auth.onAuthStateChanged((user) => {
@@ -28,45 +29,21 @@ export default function OpVeteranApp() {
                 const { email, displayName, photoURL } = user
                 let signInUserEmail = email
     
-                db.collection('users').get().then((snapshot) => {
-                    let tempUsersArr = []
+                usersCollection.get().then((snapshot) => {
+                    let tempArr = setTempUsersArr(snapshot)
 
-                    setTempUsersArr(snapshot, tempUsersArr)
-
-                    let found = findUserEmail(tempUsersArr, signInUserEmail)
+                    let found = findUserEmail(tempArr, signInUserEmail)
     
                     if (found === undefined) {
                         let newUserObj = createNewUserObj(displayName, signInUserEmail, photoURL)
 
-                        db.collection('users').add({...newUserObj}).then((docRef) => console.log(`Document written with ID: ${docRef.id}`)).catch((error) => console.log(`Error writing document: ${error}`))
+                        addUserToFireStore(usersCollection, newUserObj)
 
-                        db.collection('users').get().then((snapshot) => {
-                            let tempUsersArr = []
-                            setTempUsersArr(snapshot, tempUsersArr)
+                        getUsersCollection(usersCollection, signInUserEmail, setCurrentUser, setPage, history)
 
-                            let found = findUserEmail(tempUsersArr, signInUserEmail)
-                            const { isAdmin } = found
-
-                            setCurrentUser(() => {
-                                return {...found}
-                            })
-
-                            setPage(isAdmin, history)
-                        })
                     } else {
-                        db.collection('users').get().then((snapshot) => {
-                            let tempUsersArr = []
-                            setTempUsersArr(snapshot, tempUsersArr)
 
-                            let found = findUserEmail(tempUsersArr, signInUserEmail)
-                            const { isAdmin } = found
-
-                            setCurrentUser(() => {
-                                return {...found}
-                            })
-
-                            setPage(isAdmin, history)
-                        })
+                        getUsersCollection(usersCollection, signInUserEmail, setCurrentUser, setPage, history)
                      }
                 })
             } else {
@@ -74,7 +51,7 @@ export default function OpVeteranApp() {
             }
         })
     
-    }, [setCurrentUser, db, history])
+    }, [setCurrentUser, usersCollection, db, history])
 
     return (
         <AppContainer>
