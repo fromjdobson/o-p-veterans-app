@@ -11,6 +11,8 @@ import { Header } from '../Header'
 import { OpenInput } from '../OpenInput'
 import { Form } from '../Form'
 
+import { AdminList } from '../AdminList'
+
 const PlaygroundContainer = styled.div`
   padding: 24px 24px 24px 24px;
 
@@ -27,6 +29,9 @@ export default function Playground() {
   return (
     <PlaygroundContainer>
       <h1>Playground</h1>
+
+      <h3>Admin List</h3>
+      <AdminList />
 
       <h3>Form</h3>
       <Form />
