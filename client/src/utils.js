@@ -1,4 +1,4 @@
-export function setTempUsersArr(snapshotArr) {
+function setTempUsersArr(snapshotArr) {
     const arr = []
     snapshotArr.forEach((doc) => {
         arr.push(doc.data())
@@ -6,7 +6,7 @@ export function setTempUsersArr(snapshotArr) {
     return arr
 }
 
-export function findUserEmail(arr, userEmail) {
+function findUserEmail(arr, userEmail) {
     const found = arr.find((element) => {
         return element.email === userEmail
     })
@@ -14,7 +14,7 @@ export function findUserEmail(arr, userEmail) {
     return found
 }
 
-export function createNewUserObj(name, email, photo) {
+function createNewUserObj(name, email, photo) {
     const newUserObj = {
         name: name,
         email: email,
@@ -28,15 +28,7 @@ export function createNewUserObj(name, email, photo) {
     return newUserObj
 }
 
-export function setPage(admin, historyFunc) {
-    if (admin === false) {
-        historyFunc.push('/vendor')
-    } else if (admin === true) {
-        historyFunc.push('/admin')
-    }
-}
-
-export function getUsersCollection(func, signInEmail, setUserState, page, historyFunc) {
+function getUsersCollection(func, signInEmail, setUserState, page, historyFunc) {
     func.get().then((snapshot) => {
         let tempArr = setTempUsersArr(snapshot)
 
@@ -51,10 +43,37 @@ export function getUsersCollection(func, signInEmail, setUserState, page, histor
     })
 }
 
-export function addUserToFireStore(func, newUser) {
+function addUserToFireStore(func, newUser) {
     func.add({...newUser}).then((docRef) => {
         console.log(`Document written with ID: ${docRef.id}`)
     }).catch((error) => {
         console.log(`Error writing document: ${error}`)
+    })
+}
+
+export function setPage(admin, historyFunc) {
+    if (admin === false) {
+        historyFunc.push('/vendor')
+    } else if (admin === true) {
+        historyFunc.push('/admin')
+    }
+}
+
+export function findUserAndUpdateState(collectionFunc, signInEmail, name, photo, setUserState, page, history) {
+    collectionFunc.get().then((snapshot) => {
+        let tempArr = setTempUsersArr(snapshot)
+        let found = findUserEmail(tempArr, signInEmail)
+
+        if (found === undefined) {
+            let newUserObj = createNewUserObj(name, signInEmail, photo)
+
+            addUserToFireStore(collectionFunc, newUserObj)
+
+            getUsersCollection(collectionFunc, signInEmail, setUserState, page, history)
+
+        } else {
+            getUsersCollection(collectionFunc, signInEmail, setUserState, page, history)
+
+        }
     })
 }

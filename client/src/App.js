@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Switch, Route, useHistory } from 'react-router-dom'
 import firebase, { auth } from './firebase'
 import { UserContext } from './providers/CurrentUser'
-import { setTempUsersArr, findUserEmail, createNewUserObj, setPage, addUserToFireStore, getUsersCollection } from './utils'
+import { setPage, findUserAndUpdateState } from './utils'
 import { Landing } from './pages/index'
 import { Admin } from './pages/index'
 import { Vendor } from './pages/index'
@@ -28,24 +28,9 @@ export default function OpVeteranApp() {
             if (user) {
                 const { email, displayName, photoURL } = user
                 let signInUserEmail = email
-    
-                usersCollection.get().then((snapshot) => {
-                    let tempArr = setTempUsersArr(snapshot)
 
-                    let found = findUserEmail(tempArr, signInUserEmail)
-    
-                    if (found === undefined) {
-                        let newUserObj = createNewUserObj(displayName, signInUserEmail, photoURL)
+                findUserAndUpdateState(usersCollection, signInUserEmail, displayName, photoURL, setCurrentUser, setPage, history)
 
-                        addUserToFireStore(usersCollection, newUserObj)
-
-                        getUsersCollection(usersCollection, signInUserEmail, setCurrentUser, setPage, history)
-
-                    } else {
-
-                        getUsersCollection(usersCollection, signInUserEmail, setCurrentUser, setPage, history)
-                     }
-                })
             } else {
                 history.push('/')
             }
