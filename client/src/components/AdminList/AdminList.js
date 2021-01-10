@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import { dummyInfoArr } from './utils'
 import ListItem from './ListItem'
+import ListItemInfo from './ListItemInfo'
 import atpLogo from '../../assets/images/atp-logo.png'
 
 const ListContainer = styled.div`
@@ -10,27 +12,24 @@ const ListContainer = styled.div`
 `
 
 export default function AdminList() {
-    const dummyInfo = {
-        name: 'Bunty Soap Company',
-        logo: atpLogo,
-        boothNumber: 'A01',
-        userName: 'Frank Galikanokus',
-        phone: '512-555-1212',
-        email: 'f.galikanokus@bunty.com',
-        streetAddress: '1234 Main St',
-        aptSuite: 'Suite #500',
-        city: 'Leander',
-        state: 'TX',
-        zipcode: '78611',
-        sponsorshipLevel: 'Paladin',
-        veteranOwned: 'veteran owned',
-        nonProfit: 'non Profit',
-        powered: 'no'
+    const [isExpandOpen, setIsExpandOpen] = useState(false)
+    
+    function openCloseExpand(status, setter) {
+        if (status === false) {
+            setter(true)
+        } else if (status === true) {
+            setter(false)
+        }
     }
 
     return (
         <ListContainer>
-            <ListItem vendorData={dummyInfo} />
+            <ListItem
+                vendorInfo={dummyInfoArr[0]}
+                isExpandOpen={isExpandOpen} 
+                openExpand={() => openCloseExpand(isExpandOpen, setIsExpandOpen)}
+            />
+
         </ListContainer>
     )
 }

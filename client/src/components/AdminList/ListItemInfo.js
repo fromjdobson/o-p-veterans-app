@@ -26,16 +26,23 @@ const InfoContainer = styled.div`
 `
 
 export default function ListItemInfo(props) {
-    const { display, vendorData, className, toggleClick } = props
+    const { className, isExpandOpen } = props
+
+    function setExpandDisplay(status) {
+        if (status === false) {
+            return `none`
+        } else if (status === true) {
+            return `block`
+        }
+    }
 
     return (
-        <InfoContainer display={display} className={className}>
-            <InfoToggle toggleClick={toggleClick} />
-            {
-                vendorData.map((property, idx) => {
-                    return <p key={idx}>{property}</p>
-                })
-            }
+        <InfoContainer display={`${setExpandDisplay(isExpandOpen)}`} className={className}>
+            <InfoToggle />
+            <p>{'inf pararaph'}</p>
+            <p>{'inf pararaph'}</p>
+            <p>{'inf pararaph'}</p>
+
         </InfoContainer>
     )
 }

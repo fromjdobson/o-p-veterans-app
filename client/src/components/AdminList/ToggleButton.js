@@ -11,12 +11,12 @@ const StyledButton = styled.button`
     letter-spacing: 0.02em;
     color: ${props => props.color};
     background: ${props => props.background};
-    border: 1px solid red;
+    border: none;
     outline: none;
 `
 
 export default function ToggleButton(props) {
-    const { buttonText, toggleClick } = props
+    const { buttonText } = props
 
-    return <StyledButton onClick={toggleClick}>{buttonText}</StyledButton>
+    return <StyledButton>{buttonText}</StyledButton>
 }

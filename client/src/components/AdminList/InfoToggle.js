@@ -7,13 +7,12 @@ const ToggleContainer = styled.div`
     border: 1px solid black;
 `
 
-export default function InfoToggle(props) {
-    const { toggleClick } = props
+export default function InfoToggle() {
 
     return (
         <ToggleContainer>
-            <ToggleButton buttonText={'Vendor details'} toggleClick={toggleClick} />
-            <ToggleButton buttonText={'Event info'} toggleClick={toggleClick} />
+            <ToggleButton buttonText={'Vendor details'} />
+            <ToggleButton buttonText={'Event info'} />
         </ToggleContainer>
     )
 }
