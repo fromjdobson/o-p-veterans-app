@@ -1,12 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import ListItem from './ListItem'
-import ListItemInfo from './ListItemInfo'
 import atpLogo from '../../assets/images/atp-logo.png'
 
 const ListContainer = styled.div`
     width: 328px;
-    height: 296px;
+    max-height: 312px;
     border: 2px dashed orange;
 `
 
@@ -25,12 +24,9 @@ export default function AdminList() {
         zipcode: '78611'
     }
 
-    const { logo, name, boothNumber } = dummyInfo
-
     return (
         <ListContainer>
-            <ListItem logoImage={logo} vendorName={name} boothNumber={boothNumber} />
-            <ListItemInfo />
+            <ListItem vendorData={dummyInfo} />
         </ListContainer>
     )
 }

@@ -1,18 +1,46 @@
 import React from 'react'
 import styled from 'styled-components'
+import InfoToggle from './InfoToggle'
 
 const InfoContainer = styled.div`
-    background: #CCCCCC;
+    width: 328px;
+    /* padding: 8px 0px 8px 0px; */
+    /* height: 240px; */
+    display: ${props => props.display};
+    background: #FFFFFF;
+    /* border: 1px solid #CCCCCC; */
 
     & > p {
-        margin: 0px;
+        margin: 8px 0px 8px 0px;
+        padding: 0px 16px 0px 16px;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 16px;
+        display: flex;
+        align-items: center;
+        color: #545454;
+        /* border: 1px dotted blue; */
     }
 `
 
-export default function ListItemInfo() {
+export default function ListItemInfo(props) {
+    const { display, vendorData, className } = props
+    const { userName, email, phone, streetAddress, aptSuite, city, state, zipcode } = vendorData
+    console.log(vendorData)
+
     return (
-        <InfoContainer>
-            <p>Info</p>
+        <InfoContainer display={display} className={className}>
+            <InfoToggle />
+            <p>{userName}</p>
+            <p>{email}</p>
+            <p>{phone}</p>
+            <p>{streetAddress}</p>
+            <p>{aptSuite}</p>
+            <p>{city}</p>
+            <p>{state}</p>
+            <p>{zipcode}</p>
         </InfoContainer>
     )
 }

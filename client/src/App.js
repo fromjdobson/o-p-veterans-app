@@ -1,12 +1,13 @@
 import React, { useContext, useEffect } from 'react'
 import styled from 'styled-components'
-import { Switch, Route, useHistory } from 'react-router-dom'
+import{ useHistory } from 'react-router-dom'
+// import { Switch, Route, useHistory } from 'react-router-dom'
 import firebase, { auth } from './firebase'
 import { UserContext } from './providers/CurrentUser'
 import { setPage, findUserAndUpdateState } from './utils'
-import { Landing } from './pages/index'
-import { Admin } from './pages/index'
-import { Vendor } from './pages/index'
+// import { Landing } from './pages/index'
+// import { Admin } from './pages/index'
+// import { Vendor } from './pages/index'
 import Playground from './components/UserView/Playground'
 
 const AppContainer = styled.div`
