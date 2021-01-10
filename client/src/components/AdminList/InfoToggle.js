@@ -4,7 +4,7 @@ import ToggleButton from './ToggleButton'
 
 const ToggleContainer = styled.div`
     /* background: lightblue; */
-    /* border: 1px solid black; */
+    border: 1px solid black;
 `
 
 export default function InfoToggle(props) {
@@ -12,8 +12,8 @@ export default function InfoToggle(props) {
 
     return (
         <ToggleContainer>
-            <ToggleButton isOn={true} buttonText={'Vendor details'} toggleClick={toggleClick} />
-            <ToggleButton isOn={false} buttonText={'Event info'} toggleClick={toggleClick} />
+            <ToggleButton buttonText={'Vendor details'} toggleClick={toggleClick} />
+            <ToggleButton buttonText={'Event info'} toggleClick={toggleClick} />
         </ToggleContainer>
     )
 }

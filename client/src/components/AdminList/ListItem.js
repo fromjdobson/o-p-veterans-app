@@ -105,7 +105,7 @@ export default function ListItem(props) {
     function handleToggleClick(status, func) {
         if (status === 'vendor') {
             func('event')
-        } else {
+        } else if (status === 'event') {
             func('vendor')
         }
     }
