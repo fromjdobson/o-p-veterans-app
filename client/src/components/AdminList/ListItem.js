@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import ListItemInfo from './ListItemInfo'
 import cardClosedIcon from '../../assets/Icons/card-closed-icon.svg'
@@ -93,12 +93,29 @@ const ItemContainer = styled.div`
         /* position: relative; */
         top: 56px;
     }
-
 `
 
 export default function ListItem(props) {
+    const [isOpen, setIsOpen] = useState(false)
     const { vendorData } = props
     const { logo, name, boothNumber } = vendorData
+    let seeMoreDisplay = setSeeMoreDisplay(isOpen)
+
+    function handleSeeMore(status, func) {
+        if (status === false) {
+            func(true)
+        } else {
+            func(false)
+        }
+    }
+
+    function setSeeMoreDisplay(status) {
+        if (status === false) {
+            return `none`
+        } else {
+            return `block`
+        }
+    }
     
     return (
         <ItemContainer>
@@ -106,9 +123,9 @@ export default function ListItem(props) {
                 <img className={'logo-image'} src={logo} alt={'logo'} />
                 <p className={'vendor-name'}>{name}</p>
                 <p className={'booth-number'}>{boothNumber}</p>
-                <img className={'more-icon'} src={cardClosedIcon} alt={'Click to see less.'} />
+                <img className={'more-icon'} src={cardClosedIcon} alt={'Click to see less.'} onClick={() => handleSeeMore(isOpen, setIsOpen)} />
             </div>
-            <ListItemInfo className={'toggled'} display={'block'} vendorData={vendorData}  />
+            <ListItemInfo className={'toggled'} display={seeMoreDisplay} vendorData={vendorData}  />
         </ItemContainer>
     )
 }

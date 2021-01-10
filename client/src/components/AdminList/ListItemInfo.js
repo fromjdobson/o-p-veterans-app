@@ -28,7 +28,6 @@ const InfoContainer = styled.div`
 export default function ListItemInfo(props) {
     const { display, vendorData, className } = props
     const { userName, email, phone, streetAddress, aptSuite, city, state, zipcode } = vendorData
-    console.log(vendorData)
 
     return (
         <InfoContainer display={display} className={className}>
