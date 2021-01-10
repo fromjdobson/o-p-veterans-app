@@ -26,20 +26,18 @@ const InfoContainer = styled.div`
 `
 
 export default function ListItemInfo(props) {
-    const { display, vendorData, className } = props
+    const { display, vendorData, className, toggleClick } = props
     const { userName, email, phone, streetAddress, aptSuite, city, state, zipcode } = vendorData
+    console.log(vendorData)
 
     return (
         <InfoContainer display={display} className={className}>
-            <InfoToggle />
-            <p>{userName}</p>
-            <p>{email}</p>
-            <p>{phone}</p>
-            <p>{streetAddress}</p>
-            <p>{aptSuite}</p>
-            <p>{city}</p>
-            <p>{state}</p>
-            <p>{zipcode}</p>
+            <InfoToggle toggleClick={toggleClick} />
+            {
+                vendorData.map((property, idx) => {
+                    return <p key={idx}>{property}</p>
+                })
+            }
         </InfoContainer>
     )
 }

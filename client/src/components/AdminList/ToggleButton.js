@@ -20,7 +20,7 @@ const StyledButton = styled.button`
 `
 
 export default function ToggleButton(props) {
-    const { isOn, buttonText } = props
+    const { isOn, buttonText, toggleClick } = props
     const { background, color, opacity, fontWeight, width } = setToggleStyling(isOn)
 
     function setToggleStyling(status) {
@@ -43,5 +43,5 @@ export default function ToggleButton(props) {
         }
     }
 
-    return <StyledButton width={width} background={background} color={color} opacity={opacity} fontWeight={fontWeight}>{buttonText}</StyledButton>
+    return <StyledButton onClick={toggleClick} width={width} background={background} color={color} opacity={opacity} fontWeight={fontWeight}>{buttonText}</StyledButton>
 }

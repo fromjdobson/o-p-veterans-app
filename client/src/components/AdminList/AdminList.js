@@ -21,7 +21,11 @@ export default function AdminList() {
         aptSuite: 'Suite #500',
         city: 'Leander',
         state: 'TX',
-        zipcode: '78611'
+        zipcode: '78611',
+        sponsorshipLevel: 'Paladin',
+        veteranOwned: 'veteran owned',
+        nonProfit: 'non Profit',
+        powered: 'no'
     }
 
     return (

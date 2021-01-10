@@ -97,9 +97,32 @@ const ItemContainer = styled.div`
 
 export default function ListItem(props) {
     const [isOpen, setIsOpen] = useState(false)
+    const [toggleSelected, setToggleSelected] = useState('vendor')
     const { vendorData } = props
     const { logo, name, boothNumber } = vendorData
     let seeMoreDisplay = setSeeMoreDisplay(isOpen)
+
+    function handleToggleClick(status, func) {
+        if (status === 'vendor') {
+            func('event')
+        } else {
+            func('vendor')
+        }
+    }
+
+    function setInfo(info) {
+        if (info === 'vendor') {
+            const { userName, email, phone, streetAddress, aptSuite, city, state, zipcode } = vendorData
+            const vendorDetailsArr = [userName, email, phone, streetAddress, aptSuite, city, state, zipcode]
+            return vendorDetailsArr
+        } else if (info === 'event') {
+            const { powered, sponsorshipLevel, veteranOwned, nonProfit } = vendorData
+            const eventDetailsArr = [powered, sponsorshipLevel, veteranOwned, nonProfit]
+            return eventDetailsArr
+        }
+    }
+
+    let info = setInfo(toggleSelected)
 
     function handleSeeMore(status, func) {
         if (status === false) {
@@ -125,7 +148,7 @@ export default function ListItem(props) {
                 <p className={'booth-number'}>{boothNumber}</p>
                 <img className={'more-icon'} src={cardClosedIcon} alt={'Click to see less.'} onClick={() => handleSeeMore(isOpen, setIsOpen)} />
             </div>
-            <ListItemInfo className={'toggled'} display={seeMoreDisplay} vendorData={vendorData}  />
+            <ListItemInfo className={'toggled'} display={seeMoreDisplay} vendorData={info} toggleClick={() => handleToggleClick(toggleSelected, setToggleSelected)} />
         </ItemContainer>
     )
 }
