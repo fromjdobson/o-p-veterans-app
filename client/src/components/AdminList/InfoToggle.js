@@ -9,18 +9,26 @@ const ToggleContainer = styled.div`
 `
 
 export default function InfoToggle(props) {
-    const { toggleState, setToggleState } = props
+    const { setToggleState } = props
 
-    console.log(toggleState, setToggleState)
+    // console.log(toggleState)
 
     function handleVendorButton() {
-        alert('fired')
+        setToggleState(() => {
+            return 'vendor'
+        })
+    }
+
+    function handleEventButton() {
+        setToggleState(() => {
+            return 'event'
+        })
     }
 
     return (
         <ToggleContainer>
             <ToggleButton buttonText={'Vendor details'} onClick={() => handleVendorButton()} />
-            <ToggleButton buttonText={'Event info'} />
+            <ToggleButton buttonText={'Event info'} onClick={() => handleEventButton()} />
         </ToggleContainer>
     )
 }
