@@ -9,14 +9,15 @@ const StyledButton = styled.button`
     font-size: 15px;
     line-height: 24px;
     letter-spacing: 0.02em;
-    color: ${props => props.color};
-    background: ${props => props.background};
-    border: none;
+    /* color: ${props => props.color}; */
+    /* background: ${props => props.background}; */
+    border: 1px solid black;
     outline: none;
 `
 
 export default function ToggleButton(props) {
-    const { buttonText } = props
+    const { buttonText, onClick } = props
 
-    return <StyledButton>{buttonText}</StyledButton>
+
+    return <StyledButton onClick={onClick}>{buttonText}</StyledButton>
 }

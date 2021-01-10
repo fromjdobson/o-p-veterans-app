@@ -13,6 +13,7 @@ const ListContainer = styled.div`
 
 export default function AdminList() {
     const [isExpandOpen, setIsExpandOpen] = useState(false)
+    const [toggleState, setToggleState] = useState('vendor')
     
     function openCloseExpand(status, setter) {
         if (status === false) {
@@ -28,6 +29,8 @@ export default function AdminList() {
                 vendorInfo={dummyInfoArr[0]}
                 isExpandOpen={isExpandOpen} 
                 openExpand={() => openCloseExpand(isExpandOpen, setIsExpandOpen)}
+                toggleState={toggleState}
+                setToggleState={setToggleState}
             />
 
         </ListContainer>

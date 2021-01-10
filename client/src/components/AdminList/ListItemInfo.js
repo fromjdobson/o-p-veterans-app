@@ -26,7 +26,8 @@ const InfoContainer = styled.div`
 `
 
 export default function ListItemInfo(props) {
-    const { className, isExpandOpen } = props
+    const { className, isExpandOpen, vendorInfo, toggleState, setToggleState } = props
+    // console.log(toggleState)
 
     function setExpandDisplay(status) {
         if (status === false) {
@@ -38,7 +39,7 @@ export default function ListItemInfo(props) {
 
     return (
         <InfoContainer display={`${setExpandDisplay(isExpandOpen)}`} className={className}>
-            <InfoToggle />
+            <InfoToggle toggleState={toggleState} setToggleState={setToggleState} />
             <p>{'inf pararaph'}</p>
             <p>{'inf pararaph'}</p>
             <p>{'inf pararaph'}</p>
