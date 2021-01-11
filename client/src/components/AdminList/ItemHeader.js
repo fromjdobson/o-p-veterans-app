@@ -91,7 +91,6 @@ export default function ItemHeader(props) {
     } = props
 
     function openCloseExpand(status, setter) {
-        console.log('fired')
         if (status === false) {
             setter(true)
         } else if (status === true) {
