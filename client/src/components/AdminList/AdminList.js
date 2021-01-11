@@ -17,6 +17,10 @@ export default function AdminList() {
                 vendorInfo={dummyInfoArr[0]}
             />
 
+            <ListItem
+                vendorInfo={dummyInfoArr[1]}
+            />
+
         </ListContainer>
     )
 }

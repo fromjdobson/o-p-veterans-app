@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { AppStateContext } from '../../providers/AppState'
 import ToggleButton from './ToggleButton'
 
 const ToggleContainer = styled.div`
@@ -8,22 +9,21 @@ const ToggleContainer = styled.div`
 `
 
 export default function InfoToggle() {
+    const { toggle } = useContext(AppStateContext)
+    const [ selectedToggle, setSelectedToggle] = toggle
 
-    function handleVendorButton(e) {
-        const { target } = e
-        console.log(target.name)
-
+    function handleVendorButton() {
+        setSelectedToggle('vendor')
     }
 
-    function handleEventButton(e) {
-        const { target } = e
-        console.log(target.name)
+    function handleEventButton() {
+        setSelectedToggle('event')
     }
 
     return (
         <ToggleContainer>
-            <ToggleButton name={'vendor-button'} buttonText={'Vendor details'} onClick={(e) => handleVendorButton(e)} />
-            <ToggleButton name={'event-button'} buttonText={'Event info'} onClick={(e) => handleEventButton(e)} />
+            <ToggleButton name={'vendor-button'} buttonText={'Vendor details'} onClick={() => handleVendorButton()} />
+            <ToggleButton name={'event-button'} buttonText={'Event info'} onClick={() => handleEventButton()} />
         </ToggleContainer>
     )
 }
