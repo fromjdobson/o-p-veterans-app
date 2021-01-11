@@ -8,7 +8,32 @@ const ToggleContainer = styled.div`
 `
 
 export default function InfoToggle(props) {
-    const { setToggleState } = props
+    const { toggleState, setToggleState } = props
+
+    function newToggleObj(status) {
+        if (status === 'vendor') {
+            return {vendorToggle: 'active', eventToggle: 'inactive'}
+        } else if (status === 'event') {
+            return { vendorToggle: 'inactive', eventToggle: 'active'}
+        }
+    }
+
+    function assignToggleStatus(toggleObj) {
+        const { vendorToggle, eventToggle } = toggleObj
+        const tempObj = { toggleOne: vendorToggle, toggleTwo: eventToggle }
+        // console.log(tempObj)
+
+        return tempObj
+    }
+
+    let toggleStatusObj = assignToggleStatus(newToggleObj(toggleState))
+    const { toggleOne, toggleTwo } = toggleStatusObj
+
+     
+
+
+
+    // console.log(`Button 1: ${toggleOne} & Button 2: ${toggleTwo}`)
 
     function handleVendorButton() {
         setToggleState('vendor')
@@ -20,8 +45,8 @@ export default function InfoToggle(props) {
 
     return (
         <ToggleContainer>
-            <ToggleButton name={'vendor-button'} buttonText={'Vendor details'} onClick={() => handleVendorButton()} />
-            <ToggleButton name={'event-button'} buttonText={'Event info'} onClick={() => handleEventButton()} />
+            <ToggleButton toggleStyle={toggleOne} name={'vendor-button'} buttonText={'Vendor details'} onClick={() => handleVendorButton()} />
+            <ToggleButton toggleStyle={toggleTwo} name={'event-button'} buttonText={'Event info'} onClick={() => handleEventButton()} />
         </ToggleContainer>
     )
 }
