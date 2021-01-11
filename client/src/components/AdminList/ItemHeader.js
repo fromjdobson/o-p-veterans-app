@@ -83,7 +83,11 @@ const HeaderContainer = styled.div`
 `
 
 export default function ItemHeader(props) {
-    const { vendorName, boothNumber, openExpand } = props
+    const {
+        vendorName, 
+        boothNumber, 
+        openExpand 
+    } = props
 
     return (
         <HeaderContainer>

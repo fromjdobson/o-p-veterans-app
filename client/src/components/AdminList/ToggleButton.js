@@ -18,6 +18,5 @@ const StyledButton = styled.button`
 export default function ToggleButton(props) {
     const { buttonText, onClick } = props
 
-
     return <StyledButton onClick={onClick}>{buttonText}</StyledButton>
 }

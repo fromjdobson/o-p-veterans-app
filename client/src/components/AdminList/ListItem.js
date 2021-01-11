@@ -19,7 +19,13 @@ const ItemContainer = styled.div`
 `
 
 export default function ListItem(props) {
-    const { vendorInfo, isExpandOpen, openExpand, toggleState, setToggleState } = props
+    const {
+        vendorInfo, 
+        isExpandOpen, 
+        openExpand, 
+        toggleState, 
+        setToggleState 
+    } = props
     const { name, boothNumber } = vendorInfo
     
     return (

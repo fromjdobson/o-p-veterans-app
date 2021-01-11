@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { dummyInfoArr } from './utils'
 import ListItem from './ListItem'
-import ListItemInfo from './ListItemInfo'
-import atpLogo from '../../assets/images/atp-logo.png'
 
 const ListContainer = styled.div`
     width: 328px;

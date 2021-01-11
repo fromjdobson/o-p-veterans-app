@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { setButtonStyle } from '../Button/utils'
 import ToggleButton from './ToggleButton'
 
 const ToggleContainer = styled.div`
@@ -10,8 +9,6 @@ const ToggleContainer = styled.div`
 
 export default function InfoToggle(props) {
     const { setToggleState } = props
-
-    // console.log(toggleState)
 
     function handleVendorButton() {
         setToggleState(() => {
