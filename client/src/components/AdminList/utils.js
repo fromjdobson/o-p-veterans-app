@@ -19,20 +19,20 @@ export const dummyInfoArr = [
         powered: 'no'
     },
     {
-        name: 'Other Soap Company',
+        name: 'American Trigger Pullers',
         logo: atpLogo,
-        boothNumber: 'A01',
-        userName: 'Frank Galikanokus',
+        boothNumber: 'B11',
+        userName: 'Shane Smith',
         phone: '512-555-1212',
-        email: 'f.galikanokus@bunty.com',
+        email: 's.smith@atp.com',
         streetAddress: '1234 Main St',
         aptSuite: 'Suite #500',
-        city: 'Leander',
+        city: 'Austin',
         state: 'TX',
         zipcode: '78611',
-        sponsorshipLevel: 'Paladin',
+        sponsorshipLevel: 'Bradley',
         veteranOwned: 'veteran owned',
-        nonProfit: 'non Profit',
-        powered: 'no'
+        nonProfit: 'no',
+        powered: 'yes'
     }
 ]
