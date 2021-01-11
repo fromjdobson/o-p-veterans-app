@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { AppStateContext } from '../../providers/AppState'
 import cardClosedIcon from '../../assets/Icons/card-closed-icon.svg'
 
 const HeaderContainer = styled.div`
@@ -83,10 +84,21 @@ const HeaderContainer = styled.div`
 `
 
 export default function ItemHeader(props) {
+    const { expand } = useContext(AppStateContext)
+    const [isExpandOpen, setIsExpandOpen] = expand
+
+    function openCloseExpand(status, setter) {
+        console.log('fired')
+        if (status === false) {
+            setter(true)
+        } else if (status === true) {
+            setter(false)
+        }
+    }
+
     const {
         vendorName, 
-        boothNumber, 
-        openExpand 
+        boothNumber 
     } = props
 
     return (
@@ -98,7 +110,7 @@ export default function ItemHeader(props) {
                 className={'more-icon'} 
                 src={cardClosedIcon} 
                 alt={'Click to see less.'}
-                onClick={openExpand}
+                onClick={() => openCloseExpand(isExpandOpen, setIsExpandOpen)}
             />
         </HeaderContainer>
     )

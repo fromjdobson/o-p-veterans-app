@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext} from 'react'
 import styled from 'styled-components'
+import { AppStateContext } from '../../providers/AppState'
 import InfoToggle from './InfoToggle'
 
 const InfoContainer = styled.div`
@@ -26,9 +27,11 @@ const InfoContainer = styled.div`
 `
 
 export default function ListItemInfo(props) {
+    const { expand } = useContext(AppStateContext)
+    const [ isExpandOpen ] = expand
+
     const {
         className, 
-        isExpandOpen, 
         vendorInfo, 
     } = props
 

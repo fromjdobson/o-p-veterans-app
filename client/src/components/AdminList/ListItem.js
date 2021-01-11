@@ -19,11 +19,7 @@ const ItemContainer = styled.div`
 `
 
 export default function ListItem(props) {
-    const {
-        vendorInfo, 
-        isExpandOpen, 
-        openExpand,
-    } = props
+    const { vendorInfo } = props
     const { name, boothNumber } = vendorInfo
     
     return (
@@ -31,11 +27,8 @@ export default function ListItem(props) {
             <ItemHeader 
                 vendorName={name} 
                 boothNumber={boothNumber} 
-                openExpand={openExpand}
-            
             />
             <ListItemInfo 
-                isExpandOpen={isExpandOpen} 
                 vendorInfo={vendorInfo} 
             />
         </ItemContainer>

@@ -4,11 +4,11 @@ export const AppStateContext = React.createContext()
 AppStateContext.displayName = 'App State Context'
 
 export default function AppState({ children }) {
-    const [isExpandOpen, setIsExpandOpen] = useState()
+    const [isExpandOpen, setIsExpandOpen] = useState(false)
     const [selectedToggle, setSelectedToggle] = useState()
 
     return (
-        <AppStateContext.Provider value={{ isExpandOpen, setIsExpandOpen, selectedToggle, setSelectedToggle}}>
+        <AppStateContext.Provider value={{expand: [isExpandOpen, setIsExpandOpen], toggle: [selectedToggle, setSelectedToggle]}}>
             { children }
         </AppStateContext.Provider>
     )
