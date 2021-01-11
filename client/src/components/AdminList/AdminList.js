@@ -5,7 +5,7 @@ import ListItem from './ListItem'
 
 const ListContainer = styled.div`
     width: 328px;
-    max-height: 312px;
+    /* min-height: 312px; */
     border: 2px dashed orange;
 `
 

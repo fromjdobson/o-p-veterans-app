@@ -1,6 +1,5 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { AppStateContext } from '../../providers/AppState'
 import ToggleButton from './ToggleButton'
 
 const ToggleContainer = styled.div`
@@ -8,16 +7,15 @@ const ToggleContainer = styled.div`
     border: 1px solid black;
 `
 
-export default function InfoToggle() {
-    const { toggle } = useContext(AppStateContext)
-    const [ selectedToggle, setSelectedToggle] = toggle
+export default function InfoToggle(props) {
+    const { setToggleState } = props
 
     function handleVendorButton() {
-        setSelectedToggle('vendor')
+        setToggleState('vendor')
     }
 
     function handleEventButton() {
-        setSelectedToggle('event')
+        setToggleState('event')
     }
 
     return (

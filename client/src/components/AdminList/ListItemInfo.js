@@ -1,6 +1,5 @@
-import React, { useContext} from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { AppStateContext } from '../../providers/AppState'
 import InfoToggle from './InfoToggle'
 
 const InfoContainer = styled.div`
@@ -27,13 +26,15 @@ const InfoContainer = styled.div`
 `
 
 export default function ListItemInfo(props) {
-    const { expand, toggle } = useContext(AppStateContext)
     const {
         className, 
-        vendorInfo, 
+        vendorInfo,
+        toggleState,
+        setToggleState,
+        isExpanded
     } = props
-    const [ isExpandOpen ] = expand
-    const [ selectedToggle ] = toggle
+
+    let info = setInfo(toggleState)
 
     function setInfo(toggleStatus) {
         if (toggleStatus === 'vendor') {
@@ -79,10 +80,6 @@ export default function ListItemInfo(props) {
         }
     }
 
-    let info = setInfo(selectedToggle)
-    console.log(5555, info)
-
-
     function setExpandDisplay(status) {
         if (status === false) {
             return `none`
@@ -92,8 +89,8 @@ export default function ListItemInfo(props) {
     }
 
     return (
-        <InfoContainer display={`${setExpandDisplay(isExpandOpen)}`} className={className}>
-            <InfoToggle />
+        <InfoContainer display={`${setExpandDisplay(isExpanded)}`} className={className}>
+            <InfoToggle setToggleState={setToggleState} />
             {info.map((paragraph, idx) => {
                 return <p key={idx}>{paragraph}</p>
             })}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import ItemHeader from './ItemHeader'
 import ListItemInfo from './ListItemInfo'
@@ -19,6 +19,8 @@ const ItemContainer = styled.div`
 `
 
 export default function ListItem(props) {
+    const [toggleState, setToggleState] = useState('vendor')
+    const [isExpanded, setIsExpanded] = useState(false)
     const { vendorInfo } = props
     const { name, boothNumber } = vendorInfo
     
@@ -27,9 +29,14 @@ export default function ListItem(props) {
             <ItemHeader 
                 vendorName={name} 
                 boothNumber={boothNumber} 
+                isExpanded={isExpanded}
+                setIsExpanded={setIsExpanded}
             />
             <ListItemInfo 
-                vendorInfo={vendorInfo} 
+                vendorInfo={vendorInfo}
+                isExpanded={isExpanded}
+                toggleState={toggleState}
+                setToggleState={setToggleState}
             />
         </ItemContainer>
     )

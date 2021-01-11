@@ -1,6 +1,5 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { AppStateContext } from '../../providers/AppState'
 import cardClosedIcon from '../../assets/Icons/card-closed-icon.svg'
 
 const HeaderContainer = styled.div`
@@ -84,8 +83,12 @@ const HeaderContainer = styled.div`
 `
 
 export default function ItemHeader(props) {
-    const { expand } = useContext(AppStateContext)
-    const [isExpandOpen, setIsExpandOpen] = expand
+    const {
+        vendorName, 
+        boothNumber,
+        isExpanded,
+        setIsExpanded
+    } = props
 
     function openCloseExpand(status, setter) {
         console.log('fired')
@@ -96,11 +99,6 @@ export default function ItemHeader(props) {
         }
     }
 
-    const {
-        vendorName, 
-        boothNumber 
-    } = props
-
     return (
         <HeaderContainer>
             {/* <img className={'logo-image'} src={logo} alt={'logo'} /> */}
@@ -110,7 +108,7 @@ export default function ItemHeader(props) {
                 className={'more-icon'} 
                 src={cardClosedIcon} 
                 alt={'Click to see less.'}
-                onClick={() => openCloseExpand(isExpandOpen, setIsExpandOpen)}
+                onClick={() => openCloseExpand(isExpanded, setIsExpanded)}
             />
         </HeaderContainer>
     )
