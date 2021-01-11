@@ -30,10 +30,7 @@ export default function ListItemInfo(props) {
         className, 
         isExpandOpen, 
         vendorInfo, 
-        toggleState, 
-        setToggleState 
     } = props
-    let infoDetails = setDisplayInfo(toggleState, vendorInfo)
 
     function setExpandDisplay(status) {
         if (status === false) {
@@ -43,55 +40,13 @@ export default function ListItemInfo(props) {
         }
     }
 
-    function setDisplayInfo(status, info) {
-        if (status === 'vendor') {
-            const {
-                userName, 
-                email, 
-                phone, 
-                streetAddress, 
-                aptSuite, 
-                city, 
-                state, 
-                zipcode
-            } = info
-
-            const infoArr = [
-                userName, 
-                email, 
-                phone, 
-                streetAddress, 
-                aptSuite, 
-                city, 
-                state, 
-                zipcode
-            ]
-
-            return infoArr
-        } else if (status === 'event') {
-            const { 
-                sponsorshipLevel, 
-                veteranOwned, 
-                nonProfit, 
-                powered 
-            } = info
-            const infoArr = [
-                sponsorshipLevel, 
-                veteranOwned, 
-                nonProfit, 
-                powered
-            ]
-
-            return infoArr
-        }
-    }
-
     return (
         <InfoContainer display={`${setExpandDisplay(isExpandOpen)}`} className={className}>
-            <InfoToggle setToggleState={setToggleState} />
-            {infoDetails.map((paragraph, idx) => {
+            <InfoToggle />
+            <p>Info</p>
+            {/* {infoDetails.map((paragraph, idx) => {
                 return <p key={idx}>{paragraph}</p>
-            })}
+            })} */}
         </InfoContainer>
     )
 }

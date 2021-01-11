@@ -7,25 +7,23 @@ const ToggleContainer = styled.div`
     border: 1px solid black;
 `
 
-export default function InfoToggle(props) {
-    const { setToggleState } = props
+export default function InfoToggle() {
 
-    function handleVendorButton() {
-        setToggleState(() => {
-            return 'vendor'
-        })
+    function handleVendorButton(e) {
+        const { target } = e
+        console.log(target.name)
+
     }
 
-    function handleEventButton() {
-        setToggleState(() => {
-            return 'event'
-        })
+    function handleEventButton(e) {
+        const { target } = e
+        console.log(target.name)
     }
 
     return (
         <ToggleContainer>
-            <ToggleButton buttonText={'Vendor details'} onClick={() => handleVendorButton()} />
-            <ToggleButton buttonText={'Event info'} onClick={() => handleEventButton()} />
+            <ToggleButton name={'vendor-button'} buttonText={'Vendor details'} onClick={(e) => handleVendorButton(e)} />
+            <ToggleButton name={'event-button'} buttonText={'Event info'} onClick={(e) => handleEventButton(e)} />
         </ToggleContainer>
     )
 }
