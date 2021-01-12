@@ -9,7 +9,7 @@ const HeaderContainer = styled.div`
     justify-content: space-between;
     align-items: center;
     /* border: 2px dotted purple; */
-    border: 1px dotted yellow;
+    /* border: 1px dotted yellow; */
 
     & > .logo-image {
         box-sizing: border-box;

@@ -34,5 +34,39 @@ export const dummyInfoArr = [
         veteranOwned: 'veteran owned',
         nonProfit: 'no',
         powered: 'yes'
+    },
+    {
+        name: 'Cover 6 Outdors',
+        logo: atpLogo,
+        boothNumber: 'B11',
+        userName: 'Archie Funnygi',
+        phone: '512-555-1212',
+        email: 's.smith@atp.com',
+        streetAddress: '1234 Main St',
+        aptSuite: 'Suite #500',
+        city: 'Austin',
+        state: 'TX',
+        zipcode: '78611',
+        sponsorshipLevel: 'Bradley',
+        veteranOwned: 'veteran owned',
+        nonProfit: 'no',
+        powered: 'yes'
+    },
+    {
+        name: 'Fake Co.',
+        logo: atpLogo,
+        boothNumber: 'B11',
+        userName: 'Shane Smith',
+        phone: '512-555-1212',
+        email: 's.smith@atp.com',
+        streetAddress: '1234 Main St',
+        aptSuite: 'Suite #500',
+        city: 'Austin',
+        state: 'TX',
+        zipcode: '78611',
+        sponsorshipLevel: 'Bradley',
+        veteranOwned: 'veteran owned',
+        nonProfit: 'no',
+        powered: 'yes'
     }
 ]
