@@ -70,3 +70,92 @@ export const dummyInfoArr = [
         powered: 'yes'
     }
 ]
+
+// Toggle Button
+
+export function newToggleObj(status) {
+    if (status === 'vendor') {
+        return { vendorToggle: 'active', eventToggle: 'inactive' }
+    } else if (status === 'event') {
+        return { vendorToggle: 'inactive', eventToggle: 'active' }
+    }
+}
+
+export function assignToggleStatus(toggleObj) {
+    const { vendorToggle, eventToggle } = toggleObj
+    const tempObj = { toggleOne: vendorToggle, toggleTwo: eventToggle }
+
+    return tempObj
+}
+
+export function handleVendorButton(func) {
+    func('vendor')
+}
+
+export function handleEventButton(func) {
+    func('event')
+}
+
+// ListItemInfo
+
+export function setInfo(toggleStatus, info) {
+    if (toggleStatus === 'vendor') {
+        const {
+            userName,
+            email,
+            phone,
+            streetAddress,
+            aptSuite,
+            city,
+            state,
+            zipcode
+        } = info
+
+        const infoArr = [
+            userName,
+            email,
+            phone,
+            streetAddress,
+            aptSuite,
+            city,
+            state,
+            zipcode
+        ]
+
+        return infoArr
+    } else if (toggleStatus === 'event') {
+        const {
+            sponsorshipLevel,
+            veteranOwned,
+            nonProfit,
+            powered
+        } = info
+
+        const infoArr = [
+            sponsorshipLevel,
+            veteranOwned,
+            nonProfit,
+            powered
+        ]
+
+        return infoArr
+    }
+}
+
+export function setExpandDisplay(status) {
+    if (status === false) {
+        return `none`
+    } else if (status === true) {
+        return `block`
+    }
+}
+
+// ItemHeader
+
+export function openCloseExpand(status, setter) {
+    if (status === false) {
+        setter(true)
+    } else if (status === true) {
+        setter(false)
+    }
+}

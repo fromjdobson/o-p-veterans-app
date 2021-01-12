@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { openCloseExpand } from './utils'
 import cardClosedIcon from '../../assets/Icons/card-closed-icon.svg'
 
 const HeaderContainer = styled.div`
@@ -8,16 +9,11 @@ const HeaderContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* border: 2px dotted purple; */
     /* border: 1px dotted yellow; */
 
     & > .logo-image {
         box-sizing: border-box;
         height: 56px;
-        /* width: 56px; */
-        /* position: absolute;
-        top: calc(50% - 56px/2);
-        left: 8px; */
         display: none;
         border: 1px dotted blue;
 
@@ -30,12 +26,6 @@ const HeaderContainer = styled.div`
         margin: 0px;
         width: 224px;
         height: 24px;
-        /* position: relative; */
-        /* top: calc(50% - 24px/2); */
-        /* top: 16px; */
-        /* left: 8px; */
-        /* right: 8px; */
-        /* right: 88px; */
         font-family: Open Sans;
         font-style: normal;
         font-weight: normal;
@@ -52,10 +42,6 @@ const HeaderContainer = styled.div`
         margin: 0px;
         width: 40px;
         height: 24px;
-        /* position: relative; */
-        /* top: calc(50% - 24px/2); */
-        /* top: 0px; */
-        /* right: 40px; */
         font-family: Open Sans;
         font-style: normal;
         font-weight: 600;
@@ -71,9 +57,6 @@ const HeaderContainer = styled.div`
     & > .more-icon {
         width: 24px;
         height: 24px;
-        /* position: relative; */
-        /* top: 16px; */
-        /* top: calc(50% - 24px/2); */
         right: 8px;
         display: flex;
         justify-content: center;
@@ -89,14 +72,6 @@ export default function ItemHeader(props) {
         isExpanded,
         setIsExpanded
     } = props
-
-    function openCloseExpand(status, setter) {
-        if (status === false) {
-            setter(true)
-        } else if (status === true) {
-            setter(false)
-        }
-    }
 
     return (
         <HeaderContainer>

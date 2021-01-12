@@ -11,30 +11,12 @@ const ListContainer = styled.div`
 
 export default function AdminList() {
 
-    function setList(vendorList) {
-        return vendorList
-    }
-
-    let list = setList(dummyInfoArr)
-    console.log(list)
-
     return (
         <ListContainer>
-
-            {
-                dummyInfoArr.map((vendor) => {
-                    const { name } = vendor
-                    return <ListItem key={name} vendorInfo={vendor} />
-                })
-            }
-            {/* <ListItem
-                vendorInfo={dummyInfoArr[0]}
-            />
-
-            <ListItem
-                vendorInfo={dummyInfoArr[1]}
-            /> */}
-
+            {dummyInfoArr.map(vendor => {
+                const { name } = vendor
+                return <ListItem key={name} vendorInfo={vendor} />
+            })}
         </ListContainer>
     )
 }

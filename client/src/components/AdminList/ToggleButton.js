@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledButton = styled.button`
-    /* width: 50%; */
     width: ${props => props.width};
     height: 48px;
     font-family: Open Sans;
@@ -19,8 +18,20 @@ const StyledButton = styled.button`
 `
 
 export default function ToggleButton(props) {
-    const { buttonText, onClick, name, toggleStyle } = props
-    const { width, background, color, fontWeight, opacity } = setToggleStyle(toggleStyle)
+    const { 
+        buttonText, 
+        onClick, 
+        name, 
+        toggleStyle 
+    } = props
+
+    const { 
+        width, 
+        background, 
+        color, 
+        fontWeight, 
+        opacity 
+    } = setToggleStyle(toggleStyle)
 
     function setToggleStyle(status) {
         if (status === 'active') {
