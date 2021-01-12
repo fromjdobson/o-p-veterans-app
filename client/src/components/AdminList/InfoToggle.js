@@ -4,7 +4,7 @@ import ToggleButton from './ToggleButton'
 
 const ToggleContainer = styled.div`
     /* background: lightblue; */
-    border: 1px solid black;
+    /* border: 1px solid black; */
 `
 
 export default function InfoToggle(props) {
@@ -12,28 +12,21 @@ export default function InfoToggle(props) {
 
     function newToggleObj(status) {
         if (status === 'vendor') {
-            return {vendorToggle: 'active', eventToggle: 'inactive'}
+            return { vendorToggle: 'active', eventToggle: 'inactive' }
         } else if (status === 'event') {
-            return { vendorToggle: 'inactive', eventToggle: 'active'}
+            return { vendorToggle: 'inactive', eventToggle: 'active' }
         }
     }
 
     function assignToggleStatus(toggleObj) {
         const { vendorToggle, eventToggle } = toggleObj
         const tempObj = { toggleOne: vendorToggle, toggleTwo: eventToggle }
-        // console.log(tempObj)
 
         return tempObj
     }
 
     let toggleStatusObj = assignToggleStatus(newToggleObj(toggleState))
     const { toggleOne, toggleTwo } = toggleStatusObj
-
-     
-
-
-
-    // console.log(`Button 1: ${toggleOne} & Button 2: ${toggleTwo}`)
 
     function handleVendorButton() {
         setToggleState('vendor')

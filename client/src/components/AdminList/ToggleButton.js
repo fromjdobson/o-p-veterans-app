@@ -1,11 +1,12 @@
 import React from 'react'
-import { act } from 'react-dom/test-utils'
 import styled from 'styled-components'
 
 const StyledButton = styled.button`
-    width: 50%;
+    /* width: 50%; */
+    width: ${props => props.width};
     height: 48px;
     font-family: Open Sans;
+    font-weight: ${props => props.fontWeight};
     font-style: normal;
     font-size: 15px;
     line-height: 24px;
@@ -19,21 +20,24 @@ const StyledButton = styled.button`
 
 export default function ToggleButton(props) {
     const { buttonText, onClick, name, toggleStyle } = props
-    const { background, color, opacity } = setToggleStyle(toggleStyle)
+    const { width, background, color, fontWeight, opacity } = setToggleStyle(toggleStyle)
 
     function setToggleStyle(status) {
         if (status === 'active') {
             return {
+                width: `55%`,
                 background: `#FFFFFF`,
                 color: `#4E6A5B`,
-                opacity:`1.0`
-                
+                opacity:`1.0`,
+                fontWeight: `bold`
             }
         } else if (status === 'inactive') {
             return {
+                width: `45%`,
                 background: `#3A4F44`,
                 color: `#FFFFFF`,
-                opacity: `0.4`
+                opacity: `0.4`,
+                fontWeight: `normal`
             }
         }
     }
@@ -41,8 +45,10 @@ export default function ToggleButton(props) {
     return  <StyledButton 
                 name={name} 
                 onClick={onClick}
+                width={width}
                 background={background} 
                 color={color}
+                fontWeight={fontWeight}
                 opacity={opacity}
             >{buttonText}</StyledButton>
 }
