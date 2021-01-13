@@ -28,9 +28,9 @@ const StyledButton = styled.button`
 `
 
 export default function ProviderButton(props) {
-    const { className } = props
+    const { className, onClick } = props
 
-    return  <StyledButton className={className}>
+    return  <StyledButton className={className} onClick={onClick}>
                 <img src={googleIcon} alt={'Google icon'} />
             </StyledButton>
 }

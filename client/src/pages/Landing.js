@@ -131,19 +131,27 @@ export default function Landing() {
         })
     }
 
+    function handleRegisterButton() {
+        alert('register button fired')
+    }
+
+    function handleSignInButton() {
+        alert('sign in button fired')
+    }
+
     return (
         <PageContainer>
             <img src={logo} alt={'Vetfest logo'} />
             <p className={'title-one'}>{'OP Veteran'}</p>
             <h3 className={'title-two'}>{'VetFest Registration'}</h3>
             <p className={'paragraph-one'}>{'Register and sign in with'}</p>
-            <ProviderButton className={'google-button'} />
+            <ProviderButton className={'google-button'} onClick={() => handleGoolgeLogin()} />
             <p className={'paragraph-two'}>{'Or'}</p>
             <OpenInput className={'email-input'} label={'label'} placeholder={'placeholder'} />
             <OpenInput className={'pass-input'} label={'pass'} placeholder={'placeholder'} />
             <div className={'button-container'}>
-                <Button className={'short-button'} buttonStyle={'primary'} buttonText={'Register'} onClick={() => handleGoolgeLogin()}  />
-                <Button className={'short-button'} buttonStyle={'secondary'} buttonText={'Register'} onClick={() => handleGoolgeLogin()}  />
+                <Button className={'short-button'} buttonStyle={'primary'} buttonText={'Register'} onClick={() => handleRegisterButton()}  />
+                <Button className={'short-button'} buttonStyle={'secondary'} buttonText={'Sign in'} onClick={() => handleSignInButton()} />
             </div>
         </PageContainer>
     )
