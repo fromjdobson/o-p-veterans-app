@@ -142,7 +142,7 @@ export default function Landing() {
         auth.createUserWithEmailAndPassword(email, pass).then((user) => {
         }).catch((error) => {
             const { code, message} = error
-            console.log(`${code}, ${message}`)
+            console.log(`Error code: ${code} // Error message: ${message}`)
         })
     }
 
