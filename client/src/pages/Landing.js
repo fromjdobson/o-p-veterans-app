@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { auth, provider } from '../firebase'
 import { ProviderButton } from '../components/ProviderButton'
@@ -125,6 +125,8 @@ const PageContainer = styled.div`
 `
 
 export default function Landing() {
+    const [email, setEmail] = useState(null)
+    const [pass, setPass] = useState(null)
 
     function handleGoolgeLogin() {
         auth.signInWithPopup(provider).then((result) => {
@@ -135,8 +137,6 @@ export default function Landing() {
         })
     }
 
-    let email = 'dillard@email.com'
-    let pass = '123456'
 
     function handleRegisterButton() {
         // console.log('handleRegister fired')
@@ -162,12 +162,12 @@ export default function Landing() {
 
     function handleEmailInputChange(e) {
         const { value } = e.target
-        console.log(value)
+        setEmail(() => value)
     }
 
     function handlePassInputChange(e) {
         const { value } = e.target
-        console.log(value)
+        setPass(() => value)
     }
 
     return (
