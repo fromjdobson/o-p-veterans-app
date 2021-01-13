@@ -18,22 +18,22 @@ function createNewUserObj(name, email, photo) {
     const newUserObj = {
         name: name,
         email: email,
-        phone: '',
+        phone: 'ukn',
         userImg: photo,
         isAdmin: false,
         isRegistrationComplete: false,
-        streetAddress: '',
-        aptSuite: '',
-        city: '',
-        state: '',
-        zipcode: '',
-        vendorName: '',
+        streetAddress: 'ukn',
+        aptSuite: 'ukn',
+        city: 'ukn',
+        state: 'ukn',
+        zipcode: 'ukn',
+        vendorName: 'ukn',
         logoURL: '',
-        sponsorshipLevel: '',
-        veteranOwned: false,
-        nonProfit: false,
-        boothNumber: '',
-        powered: false
+        sponsorshipLevel: 'ukn',
+        veteranOwned: 'no',
+        nonProfit: 'no',
+        boothNumber: 'n/a',
+        powered: 'no'
     }
 
     return newUserObj

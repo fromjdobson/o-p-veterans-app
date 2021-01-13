@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { auth, provider } from '../firebase'
+import firebase, { auth, provider } from '../firebase'
 import { ProviderButton } from '../components/ProviderButton'
 import { OpenInput } from '../components/OpenInput'
 import { Button } from '../components/Button'
@@ -132,8 +132,17 @@ export default function Landing() {
         })
     }
 
+    let email = 'email@email.com'
+    let pass = '123456'
+
     function handleRegisterButton() {
-        alert('register button fired')
+        console.log('handleRegister fired')
+        auth.createUserWithEmailAndPassword(email, pass).then((user) => {
+            console.log(user)
+        }).catch((error) => {
+            const { code, message} = error
+            console.log(`${code}, ${message}`)
+        })
     }
 
     function handleSignInButton() {
