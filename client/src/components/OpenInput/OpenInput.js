@@ -49,8 +49,6 @@ const Container = styled.div`
 
 export default function OpenInput(props) {
     const { label, placeholder, type, onChange, className } = props
-    // console.log(onChange)
-    
     
     return (
         <OpenInputContainer className={className}>

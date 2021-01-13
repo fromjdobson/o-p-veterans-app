@@ -119,7 +119,7 @@ const PageContainer = styled.div`
         /* border: 1px dotted orange; */
 
         & > .short-button {
-        width: 148px;
+            width: 148px;
         }
     }
 `
@@ -139,9 +139,7 @@ export default function Landing() {
 
 
     function handleRegisterButton() {
-        // console.log('handleRegister fired')
         auth.createUserWithEmailAndPassword(email, pass).then((user) => {
-            // console.log(user)
         }).catch((error) => {
             const { code, message} = error
             console.log(`${code}, ${message}`)
@@ -149,7 +147,6 @@ export default function Landing() {
     }
 
     function handleSignInButton() {
-        // console.log(`handleSignIn fired`)
         auth.signInWithEmailAndPassword(email, pass).then((user) => {
             if (user) {
                 console.log(user)
@@ -162,12 +159,12 @@ export default function Landing() {
 
     function handleEmailInputChange(e) {
         const { value } = e.target
-        setEmail(() => value)
+        setEmail(value)
     }
 
     function handlePassInputChange(e) {
         const { value } = e.target
-        setPass(() => value)
+        setPass(value)
     }
 
     return (

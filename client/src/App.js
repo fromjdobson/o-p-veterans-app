@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from 'react'
 import styled from 'styled-components'
-// import{ useHistory } from 'react-router-dom'
 import { Switch, Route, useHistory } from 'react-router-dom'
 import firebase, { auth } from './firebase'
 import { UserContext } from './providers/CurrentUser'
