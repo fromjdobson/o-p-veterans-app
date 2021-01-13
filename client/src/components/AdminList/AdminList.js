@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import firebase from '../../firebase'
-// import { dummyInfoArr } from './utils'
 import ListItem from './ListItem'
 
 const ListContainer = styled.div`
@@ -9,7 +8,7 @@ const ListContainer = styled.div`
     position: relative;
     top: 0px;
     left: calc(50% - 328px/2);
-    min-height: 312px;
+    min-height: 56px;
     border: 2px dashed orange;
 `
 
@@ -33,15 +32,12 @@ export default function AdminList(props) {
         })
     }, [])
 
-    // List from useState is not rendering loading status on screen
     return (
         <ListContainer>
             {(list === 'Loading...') ? list : list.map(vendor => {
                 const { name } = vendor
                 return <ListItem key={name} vendorInfo={vendor} />
             })}
-            {/* {'list'} */}
-
         </ListContainer>
     )
 }

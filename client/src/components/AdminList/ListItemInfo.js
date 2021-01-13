@@ -38,10 +38,7 @@ export default function ListItemInfo(props) {
         isExpanded
     } = props
 
-
     let info = setInfo(toggleState, vendorInfo)
-    // console.log(info)
-
 
     return (
         <InfoContainer display={`${setExpandDisplay(isExpanded)}`} className={className}>
