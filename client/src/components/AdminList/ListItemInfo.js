@@ -24,7 +24,7 @@ const InfoContainer = styled.div`
         line-height: 16px;
         display: flex;
         align-items: center;
-        color: #545454;
+        color: #4E6A5B;
         /* border: 1px dotted blue; */
     }
 `
