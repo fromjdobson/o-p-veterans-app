@@ -31,7 +31,7 @@ export default function AdminList(props) {
         setList(() => {
             return tempUsersArr
         })
-    }, [setList])
+    }, [setList, usersCollection])
 
     // List from useState is not rendering loading status on screen
     return (
