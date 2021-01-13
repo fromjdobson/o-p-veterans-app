@@ -4,7 +4,7 @@ import { setButtonStyle } from './utils'
 import googleIcon from '../../assets/Icons/google-icon.svg'
 
 const StyledButton = styled.button`
-  width: 312px;
+  width: 328px;
   height: 40px;
   font-family: Open Sans;
   font-style: normal;
@@ -17,13 +17,17 @@ const StyledButton = styled.button`
   letter-spacing: 0.01em;
   color: ${props => props.color};
   background: ${props => props.background};
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 1px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.14), 0px 1px 18px rgba(0, 0, 0, 0.12), 0px 3px 5px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   border: ${props => props.border};
   outline: none;
 
   &:hover {
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 4px 5px rgba(0, 0, 0, 0.12), 0px 1px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 1px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    box-shadow: none;
   }
 
   & > img {

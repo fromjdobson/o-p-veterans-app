@@ -8,7 +8,7 @@ const OpenInputContainer = styled.div`
     margin: 0px 0px 0px 0px;
     box-sizing: border-box;
     padding: 8px 8px 8px 8px;
-    width: 312px;
+    width: 328px;
     display: flex;
     flex-direction: column;
 `

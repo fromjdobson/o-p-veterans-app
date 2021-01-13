@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { auth, provider } from '../firebase'
+import { ProviderButton } from '../components/ProviderButton'
+import { OpenInput } from '../components/OpenInput'
 import { Button } from '../components/Button'
 import logo from '../assets/images/vetfest-logo.png'
 
@@ -12,34 +14,36 @@ const PageContainer = styled.div`
     & > img {
         width: 160px;
         height: 40px;
-        position: absolute;
+        position: relative;
         top: 32px;
         left: calc(50% - 160px/2);
         /* border: 1px dotted blue; */
     }
 
-    & > p {
+    & > .title-one {
         margin: 0px;
-        width: 312px;
-        position: absolute;
-        top: 144px;
-        left: calc(50% - 312px/2);
+        width: 328px;
+        height: 24px;
+        position: relative;
+        top: 104px;
+        left: calc(50% - 328px/2);
         font-family: Open Sans;
         font-style: normal;
         font-weight: 300;
-        font-size: 12px;
-        line-height: 16px;
+        font-size: 18px;
+        line-height: 24px;
         letter-spacing: 0.02em;
         color: #545454;
         /* border: 1px dotted blue; */
     }
 
-    & > h3 {
+    & > .title-two {
         margin: 0px;
-        width: 312px;
-        position: absolute;
-        top: 168px;
-        left: calc(50% - 312px/2);
+        width: 328px;
+        height: 32px;
+        position: relative;
+        top: 104px;
+        left: calc(50% - 328px/2);
         font-family: Open Sans;
         font-style: normal;
         font-weight: bold;
@@ -50,10 +54,72 @@ const PageContainer = styled.div`
         /* border: 1px dotted blue; */
     }
 
+    & > .paragraph-one {
+        margin: 0px;
+        width: 328px;
+        position: relative;
+        top: 192px;
+        left: calc(50% - 328px/2);
+        height: 24px;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 24px;
+        text-align: center;
+        color: #545454;
+        /* border: 1px dotted blue; */
+    }
+
+    & > .paragraph-two {
+        margin: 0px;
+        width: 328px;
+        position: relative;
+        top: 256px;
+        left: calc(50% - 328px/2);
+        height: 24px;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 24px;
+        text-align: center;
+        color: #545454;
+        /* border: 1px dotted blue; */
+    }
+
+    & > .email-input {
+        position: relative;
+        top: 296px;
+        left: calc(50% - 328px/2);
+    }
+
+    & > .pass-input {
+        position: relative;
+        top: 324px;
+        left: calc(50% - 328px/2);
+    }
+
     & > .google-button {
-        position: absolute;
-        top: 528px;
-        left: calc(50% - 312px/2);
+        position: relative;
+        top: 216px;
+        left: calc(50% - 56px/2);
+    }
+
+    & > .button-container {
+        width: 328px;
+        height: 40px;
+        position: relative;
+        top: 364px;
+        left: calc(50% - 328px/2);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* border: 1px dotted orange; */
+
+        & > .short-button {
+        width: 148px;
+        }
     }
 `
 
@@ -68,9 +134,17 @@ export default function Landing() {
     return (
         <PageContainer>
             <img src={logo} alt={'Vetfest logo'} />
-            <p>{'Register with O.P. Veteran'}</p>
-            <h3>{'Create an account'}</h3>
-            <Button className={'google-button'} buttonStyle={'google'} buttonText={'Login using'} onClick={() => handleGoolgeLogin()}  />
+            <p className={'title-one'}>{'OP Veteran'}</p>
+            <h3 className={'title-two'}>{'VetFest Registration'}</h3>
+            <p className={'paragraph-one'}>{'Register and sign in with'}</p>
+            <ProviderButton className={'google-button'} />
+            <p className={'paragraph-two'}>{'Or'}</p>
+            <OpenInput className={'email-input'} label={'label'} placeholder={'placeholder'} />
+            <OpenInput className={'pass-input'} label={'pass'} placeholder={'placeholder'} />
+            <div className={'button-container'}>
+                <Button className={'short-button'} buttonStyle={'primary'} buttonText={'Register'} onClick={() => handleGoolgeLogin()}  />
+                <Button className={'short-button'} buttonStyle={'secondary'} buttonText={'Register'} onClick={() => handleGoolgeLogin()}  />
+            </div>
         </PageContainer>
     )
 }
