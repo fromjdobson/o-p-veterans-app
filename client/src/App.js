@@ -18,7 +18,7 @@ const AppContainer = styled.div`
 `
 
 export default function App() {
-    const [, setCurrentUser] = useContext(UserContext)
+    const [currentUser, setCurrentUser] = useContext(UserContext)
 
     let history = useHistory()
     let db = firebase.firestore()

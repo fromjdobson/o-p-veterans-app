@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 const DiagramContainer = styled.div`
-    width: 100%;
-    height: 375px;
+    width: 328px;
+    height: 328px;
     background: lightblue;
 
      & > p {
@@ -22,9 +22,11 @@ const DiagramContainer = styled.div`
      }
 `
 
-export default function TempDiagam() {
+export default function TempDiagam(props) {
+    const { className } = props
+
     return (
-        <DiagramContainer>
+        <DiagramContainer className={className}>
             <p>Diagram</p>
         </DiagramContainer>
     )
