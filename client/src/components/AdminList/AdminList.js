@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import firebase from '../../firebase'
 // import { dummyInfoArr } from './utils'
 import ListItem from './ListItem'
 
@@ -13,15 +14,33 @@ const ListContainer = styled.div`
 `
 
 export default function AdminList(props) {
-    const { vendorInfo } = props
-    let vendorArr = vendorInfo
+    const [list, setList] = useState('Loading...')
 
+    let db = firebase.firestore()
+    let usersCollection = db.collection('users')
+
+    useEffect(() => {
+        let tempUsersArr = []
+
+        usersCollection.get().then((snapshot) => {
+            snapshot.forEach((doc) => {
+                tempUsersArr.push({...doc.data()})
+            })
+        })
+
+        setList(() => {
+            return tempUsersArr
+        })
+    }, [setList])
+
+    // List from useState is not rendering loading status on screen
     return (
         <ListContainer>
-            {vendorArr.map(vendor => {
+            {(list === 'Loading...') ? list : list.map(vendor => {
                 const { name } = vendor
                 return <ListItem key={name} vendorInfo={vendor} />
             })}
+
         </ListContainer>
     )
 }
