@@ -139,6 +139,16 @@ export default function Landing() {
         alert('sign in button fired')
     }
 
+    function handleEmailInputChange(e) {
+        const { value } = e.target
+        console.log(value)
+    }
+
+    function handlePassInputChange(e) {
+        const { value } = e.target
+        console.log(value)
+    }
+
     return (
         <PageContainer>
             <img src={logo} alt={'Vetfest logo'} />
@@ -147,8 +157,8 @@ export default function Landing() {
             <p className={'paragraph-one'}>{'Register and sign in with'}</p>
             <ProviderButton className={'google-button'} onClick={() => handleGoolgeLogin()} />
             <p className={'paragraph-two'}>{'Or'}</p>
-            <OpenInput className={'email-input'} label={'label'} placeholder={'placeholder'} />
-            <OpenInput className={'pass-input'} label={'pass'} placeholder={'placeholder'} />
+            <OpenInput className={'email-input'} type={'email'} label={'Email'} placeholder={''} onChange={(e) => handleEmailInputChange(e)} />
+            <OpenInput className={'pass-input'} type={'password'} label={'Password'} placeholder={''} onChange={(e) => handlePassInputChange(e)} />
             <div className={'button-container'}>
                 <Button className={'short-button'} buttonStyle={'primary'} buttonText={'Register'} onClick={() => handleRegisterButton()}  />
                 <Button className={'short-button'} buttonStyle={'secondary'} buttonText={'Sign in'} onClick={() => handleSignInButton()} />
