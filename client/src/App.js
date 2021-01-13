@@ -37,7 +37,7 @@ export default function OpVeteranApp() {
             }
         })
     
-    }, [db, history, usersCollection])
+    }, [db, history])
 
     return (
         <AppContainer>
