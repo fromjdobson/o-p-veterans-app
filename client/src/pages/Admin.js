@@ -24,7 +24,7 @@ const PageContainer = styled.div`
         font-weight: bold;
         font-size: 32px;
         line-height: 32px;
-        letter-spacing: 0.02em;
+        /* letter-spacing: 0.02em; */
         color: #545454;
         /* border: 1px dotted blue; */
     }
