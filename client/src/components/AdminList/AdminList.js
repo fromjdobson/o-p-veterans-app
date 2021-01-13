@@ -9,7 +9,7 @@ const ListContainer = styled.div`
     position: relative;
     top: 0px;
     left: calc(50% - 328px/2);
-    /* min-height: 312px; */
+    min-height: 312px;
     border: 2px dashed orange;
 `
 

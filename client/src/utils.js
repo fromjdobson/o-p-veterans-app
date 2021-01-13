@@ -36,16 +36,6 @@ function createNewUserObj(name, email, photo) {
         powered: false
     }
 
-    // const newUserObj = {
-    //     name: name,
-    //     email: email,
-    //     photo: photo,
-    //     sponsorshipLevel: '',
-    //     isAdmin: false,
-    //     isRegistrationComplete: false,
-    //     boothSelected: ''
-    // }
-
     return newUserObj
 }
 

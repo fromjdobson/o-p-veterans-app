@@ -1,7 +1,7 @@
 export function setUserGraphic(currentUser, altImg) {
   if (currentUser) {
-    const { photo } = currentUser
-    return photo
+    const { userImg } = currentUser
+    return userImg
   } else {
     return altImg
   }
