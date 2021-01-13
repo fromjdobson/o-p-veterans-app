@@ -107,6 +107,7 @@ const PageContainer = styled.div`
     }
 
     & > .button-container {
+        box-sizing: border-box;
         width: 328px;
         height: 40px;
         position: relative;

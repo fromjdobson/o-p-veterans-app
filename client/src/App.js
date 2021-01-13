@@ -14,7 +14,7 @@ const AppContainer = styled.div`
     box-sizing: border-box;
     width: 100%;
     height: 100vh;
-    border: 2px dashed lightblue;
+    /* border: 2px dashed lightblue; */
 `
 
 export default function App() {

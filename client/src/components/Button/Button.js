@@ -4,6 +4,7 @@ import { setButtonStyle } from './utils'
 import googleIcon from '../../assets/Icons/google-icon.svg'
 
 const StyledButton = styled.button`
+  box-sizing: border-box;
   width: 328px;
   height: 40px;
   font-family: Open Sans;
