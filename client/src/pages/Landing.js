@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import firebase, { auth, provider } from '../firebase'
+import { auth, provider } from '../firebase'
 import { ProviderButton } from '../components/ProviderButton'
 import { OpenInput } from '../components/OpenInput'
 import { Button } from '../components/Button'
@@ -129,16 +129,19 @@ export default function Landing() {
     function handleGoolgeLogin() {
         auth.signInWithPopup(provider).then((result) => {
             console.log('User is signed in.')
+        }).catch((error) => {
+            const { code, message } = error
+            console.log(`Error code: ${code} // Error message: ${message}`)
         })
     }
 
-    let email = 'email@email.com'
+    let email = 'dillard@email.com'
     let pass = '123456'
 
     function handleRegisterButton() {
-        console.log('handleRegister fired')
+        // console.log('handleRegister fired')
         auth.createUserWithEmailAndPassword(email, pass).then((user) => {
-            console.log(user)
+            // console.log(user)
         }).catch((error) => {
             const { code, message} = error
             console.log(`${code}, ${message}`)
@@ -146,7 +149,15 @@ export default function Landing() {
     }
 
     function handleSignInButton() {
-        alert('sign in button fired')
+        // console.log(`handleSignIn fired`)
+        auth.signInWithEmailAndPassword(email, pass).then((user) => {
+            if (user) {
+                console.log(user)
+            }
+        }).catch((error) => {
+            const { code, message } = error
+            console.log(`Error code: ${code} // Error message: ${message}`)
+        })
     }
 
     function handleEmailInputChange(e) {
