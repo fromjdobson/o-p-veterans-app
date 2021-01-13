@@ -20,18 +20,18 @@ export default function AdminList(props) {
     let usersCollection = db.collection('users')
 
     useEffect(() => {
-        let tempUsersArr = []
-
         usersCollection.get().then((snapshot) => {
+            const tempArr = []
             snapshot.forEach((doc) => {
-                tempUsersArr.push({...doc.data()})
+                const tempObj = {...doc.data()}
+                tempArr.push(tempObj)
+            })
+
+            setList(() => {
+                return [...tempArr]
             })
         })
-
-        setList(() => {
-            return tempUsersArr
-        })
-    }, [setList])
+    }, [])
 
     // List from useState is not rendering loading status on screen
     return (
@@ -40,6 +40,7 @@ export default function AdminList(props) {
                 const { name } = vendor
                 return <ListItem key={name} vendorInfo={vendor} />
             })}
+            {/* {'list'} */}
 
         </ListContainer>
     )

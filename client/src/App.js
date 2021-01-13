@@ -17,7 +17,7 @@ const AppContainer = styled.div`
     border: 2px dashed lightblue;
 `
 
-export default function OpVeteranApp() {
+export default function App() {
     const [, setCurrentUser] = useContext(UserContext)
 
     let history = useHistory()

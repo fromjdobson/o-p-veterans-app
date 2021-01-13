@@ -101,7 +101,7 @@ export function handleEventButton(func) {
 export function setInfo(toggleStatus, info) {
     if (toggleStatus === 'vendor') {
         const {
-            userName,
+            name,
             email,
             phone,
             streetAddress,
@@ -111,8 +111,11 @@ export function setInfo(toggleStatus, info) {
             zipcode
         } = info
 
+        console.log(1111, state, zipcode)
+
+
         const infoArr = [
-            userName,
+            name,
             email,
             phone,
             streetAddress,
@@ -121,6 +124,29 @@ export function setInfo(toggleStatus, info) {
             state,
             zipcode
         ]
+
+        // const {
+        //     userName,
+        //     email,
+        //     phone,
+        //     streetAddress,
+        //     aptSuite,
+        //     city,
+        //     state,
+        //     zipcode
+        // } = info
+
+        // const infoArr = [
+        //     userName,
+        //     email,
+        //     phone,
+        //     streetAddress,
+        //     aptSuite,
+        //     city,
+        //     state,
+        //     zipcode
+        // ]
+
 
         return infoArr
     } else if (toggleStatus === 'event') {
@@ -131,12 +157,42 @@ export function setInfo(toggleStatus, info) {
             powered
         } = info
 
+        // const {
+        //     sponsorshipLevel,
+        //     veteranOwned,
+        //     nonProfit,
+        //     boothNumber,
+        //     powered
+        // } = info
+
         const infoArr = [
             sponsorshipLevel,
             veteranOwned,
             nonProfit,
             powered
         ]
+
+        // const infoArr = [
+        //     sponsorshipLevel,
+        //     veteranOwned,
+        //     nonProfit,
+        //     boothNumber,
+        //     powered
+        // ]
+
+        // const {
+        //     sponsorshipLevel,
+        //     veteranOwned,
+        //     nonProfit,
+        //     powered
+        // } = info
+
+        // const infoArr = [
+        //     sponsorshipLevel,
+        //     veteranOwned,
+        //     nonProfit,
+        //     powered
+        // ]
 
         return infoArr
     }

@@ -18,12 +18,33 @@ function createNewUserObj(name, email, photo) {
     const newUserObj = {
         name: name,
         email: email,
-        photo: photo,
-        sponsorshipLevel: '',
+        phone: '',
+        userImg: photo,
         isAdmin: false,
         isRegistrationComplete: false,
-        boothSelected: ''
+        streetAddress: '',
+        aptSuite: '',
+        city: '',
+        state: '',
+        zipcode: '',
+        vendorName: '',
+        logoURL: '',
+        sponsorshipLevel: '',
+        veteranOwned: false,
+        nonProfit: false,
+        boothNumber: '',
+        powered: false
     }
+
+    // const newUserObj = {
+    //     name: name,
+    //     email: email,
+    //     photo: photo,
+    //     sponsorshipLevel: '',
+    //     isAdmin: false,
+    //     isRegistrationComplete: false,
+    //     boothSelected: ''
+    // }
 
     return newUserObj
 }
