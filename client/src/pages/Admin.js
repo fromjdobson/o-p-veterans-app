@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import { Header } from '../components/Header'
 import { TempDiagram } from '../components/TempDiagam/'
 import { AdminSearchBar } from '../components/AdminSearchBar'
-import { VendorList } from '../components/VendorList'
+import { AdminList } from '../components/AdminList'
+import { dummyInfoArr } from '../components/AdminList/utils'
 
 const PageContainer = styled.div`
     height: 100%;
@@ -17,7 +18,7 @@ export default function Admin() {
             <Header />
             <TempDiagram />
             <AdminSearchBar />
-            <VendorList />
+            <AdminList vendorInfo={dummyInfoArr} />
         </PageContainer>
     )
 }

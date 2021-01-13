@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { dummyInfoArr } from './utils'
+// import { dummyInfoArr } from './utils'
 import ListItem from './ListItem'
 
 const ListContainer = styled.div`
@@ -9,11 +9,13 @@ const ListContainer = styled.div`
     /* border: 2px dashed orange; */
 `
 
-export default function AdminList() {
+export default function AdminList(props) {
+    const { vendorInfo } = props
+    let vendorArr = vendorInfo
 
     return (
         <ListContainer>
-            {dummyInfoArr.map(vendor => {
+            {vendorArr.map(vendor => {
                 const { name } = vendor
                 return <ListItem key={name} vendorInfo={vendor} />
             })}
