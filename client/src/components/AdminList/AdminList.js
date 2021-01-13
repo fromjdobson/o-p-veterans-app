@@ -5,8 +5,11 @@ import ListItem from './ListItem'
 
 const ListContainer = styled.div`
     width: 328px;
+    position: relative;
+    top: 0px;
+    left: calc(50% - 328px/2);
     /* min-height: 312px; */
-    /* border: 2px dashed orange; */
+    border: 2px dashed orange;
 `
 
 export default function AdminList(props) {
