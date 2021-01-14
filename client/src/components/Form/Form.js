@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Input from './Input'
 import NextButton from './NextButton'
@@ -44,7 +44,8 @@ const FormContainer = styled.div`
         font-weight: normal;
         font-size: 15px;
         line-height: 16px;
-        display: flex;
+        /* visibility: hidden; */
+        display: ${props => props.display};
         align-items: center;
         color: #EA7C7C;
         /* border: 1px dotted blue; */

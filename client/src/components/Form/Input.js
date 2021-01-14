@@ -8,6 +8,7 @@ const InputContainer = styled.div`
     position: relative;
     /* border: 1px dotted black; */
     border-bottom: 1px solid #303030;
+    border-bottom: ${props => props.borderBottom};
 
 
     & > input {
@@ -39,17 +40,19 @@ const InputContainer = styled.div`
         position: absolute;
         right: 0px;
         top: calc(50% - 24px/2);
+        display: ${props => props.display};
         /* border: 1px dotted blue; */
     }
 `
 
 export default function Input(props) {
-    const { className } = props
+    const { className, borderBottom, helperIconDisplay } = props
+    console.log(helperIconDisplay)
 
     return (
-        <InputContainer className={className}>
+        <InputContainer className={className} borderBottom={borderBottom}>
             <input />
-            <img src={warningIcon} alt={'Validation warning icon.'} />
+            <img src={warningIcon} alt={'Validation warning icon.'} display={helperIconDisplay} />
         </InputContainer>
     )
 }
