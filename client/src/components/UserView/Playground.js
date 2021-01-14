@@ -35,6 +35,7 @@ export default function Playground() {
 
       <h3>Form</h3>
       <Form />
+      
       <h3>Open Input</h3>
       <OpenInput label={'Label'} placeholder={'placeholder'} />
 

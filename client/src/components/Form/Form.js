@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { UserContext } from '../../providers/CurrentUser'
 import Input from './Input'
 import NextButton from './NextButton'
 
@@ -58,6 +59,15 @@ const FormContainer = styled.div`
 `
 
 export default function Form() {
+    const [currentUser] = useContext(UserContext)
+
+    if (currentUser === null) {
+        
+        console.log('null')
+    } else if (currentUser !== null) {
+        console.log(currentUser.name)
+    }
+    
     
     return (
         <FormContainer>
