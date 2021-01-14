@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { auth } from '../firebase'
 import { Header } from '../components/Header'
-import { Button } from '../components/Button'
+import { Form } from '../components/Form'
 
 const PageContainer = styled.div`
     height: 100%;
@@ -23,27 +22,14 @@ const PageContainer = styled.div`
         text-transform: uppercase;
         border: 1px dotted blue;
     }
-
-    & > .signout-button {
-        position: relative;
-        top: 120px;
-        left: calc(50% - 312px/2);
-    }
 `
 
 export default function Vendor() {
-    function handleSignOut() {
-        auth.signOut().then(() => {
-            console.log(`User has been signed out.`)
-        }).catch((error) => {
-            console.log(`Error: ${error}`)
-        })
-    }
 
     return (
         <PageContainer>
             <Header />
-            <Button className={'signout-button'} buttonStyle={'primary'} buttonText={'Sign out'} onClick={() => handleSignOut()} />
+            <Form />
         </PageContainer>
     )
 }

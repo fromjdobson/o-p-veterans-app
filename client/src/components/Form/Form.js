@@ -1,18 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FormInput } from './FormInput'
 
 const FormContainer = styled.div`
-    /* margin: 64px 0px 0px 0px; */
-    width: 100%;
+    width: 328px;
+    height: 144px;
+    position: relative;
+    top: 224px;
+    left: calc(50% - 328px/2);
+    border: 1px dotted blue;
 `
 
-export default function Form(props) {
-    const { className } = props
+export default function Form() {
     
     return (
-        <FormContainer className={className}>
-            <FormInput />
+        <FormContainer>
+            <p>Form</p>
         </FormContainer>
     )
 }
