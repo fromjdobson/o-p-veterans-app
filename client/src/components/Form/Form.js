@@ -44,8 +44,7 @@ const FormContainer = styled.div`
         font-weight: normal;
         font-size: 15px;
         line-height: 16px;
-        /* visibility: hidden; */
-        display: ${props => props.display};
+        display: flex;
         align-items: center;
         color: #EA7C7C;
         /* border: 1px dotted blue; */

@@ -18,13 +18,11 @@ const ButtonContainer = styled.button`
     color: #618572;
     background: #FFFFFF;
     border: none;
-    /* border: 1px dotted  blue; */
     outline: 0px;
 
     & > img {
         width: 16x;
         height: 16px;
-        /* border: 1px dotted blue; */
     }
 
     & > p {
