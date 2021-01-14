@@ -29,11 +29,11 @@ const InputContainer = styled.div`
     }
 
     & > img {
-        width: 24px;
-        height: 24px;
+        width: 32px;
+        height: 32px;
         position: absolute;
         right: 0px;
-        top: calc(50% - 24px/2);
+        top: calc(50% - 32px/2);
         display: ${props => props.display};
     }
 `
