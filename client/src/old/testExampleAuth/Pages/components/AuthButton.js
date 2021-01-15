@@ -1,6 +1,6 @@
 import React from 'react'
 import { useHistory } from "react-router-dom";
-import { authContext } from './context'
+import { authContext } from '../../Auth/context'
 
 export default function AuthButton() {
     let history = useHistory();
@@ -21,3 +21,4 @@ export default function AuthButton() {
       <p>You are not logged in.</p>
     );
   }
+  

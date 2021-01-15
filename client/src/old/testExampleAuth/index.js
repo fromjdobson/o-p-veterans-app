@@ -1,47 +1,25 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-} from "react-router-dom";
-import LoginPage from './LoginPage'
-import ProvideAuth from './context'
-import ProtectedPage from './ProtectedPage'
-import PrivateRoute from './PrivateRoute'
-import AuthButton from './AuthButton'
-import PublicPage from './PublicPage'
-
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import LoginPage from './Pages/LoginPage'
+import ProvideAuth from './Auth/context'
+import UserPage from './Pages/UserPage'
+import UsersOnly from './Auth/UsersOnly'
+import PublicPage from './Pages/PublicPage'
+import Navbar from './Pages/components/Navbar'
 
 export default function AuthExample() {
   return (
     <ProvideAuth>
-      <Router>
+      <BrowserRouter>
         <div>
-          <AuthButton />
-
-          <ul>
-            <li>
-              <Link to="/public">Public Page</Link>
-            </li>
-            <li>
-              <Link to="/protected">Protected Page</Link>
-            </li>
-          </ul>
-
+          <Navbar/>
           <Switch>
-            <Route path="/public">
-              <PublicPage />
-            </Route>
-            <Route path="/login">
-              <LoginPage />
-            </Route>
-            <PrivateRoute path="/protected">
-              <ProtectedPage />
-            </PrivateRoute>
+            <Route path="/public"> <PublicPage /> </Route>
+            <Route path="/login"> <LoginPage /> </Route>
+            <UsersOnly path="/user"> <UserPage /> </UsersOnly>
           </Switch>
         </div>
-      </Router>
+      </BrowserRouter>
     </ProvideAuth>
   );
 }

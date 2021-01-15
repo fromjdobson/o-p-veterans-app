@@ -1,11 +1,12 @@
-export const fakeAuth = {
+export const authFunctions = {
     isAuthenticated: false,
     signin(cb) {
-      fakeAuth.isAuthenticated = true;
+      authFunctions.isAuthenticated = true;
       setTimeout(cb, 100); // fake async
     },
     signout(cb) {
-      fakeAuth.isAuthenticated = false;
+      authFunctions.isAuthenticated = false;
       setTimeout(cb, 100);
     }
   };
+  

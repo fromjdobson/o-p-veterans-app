@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import { useHistory, useLocation } from "react-router-dom";
-import { authContext } from './context'
+import { authContext } from '../Auth/context'
 
 export default function LoginPage() {
     let history = useHistory();
@@ -17,6 +17,7 @@ export default function LoginPage() {
     return (
       <div>
         <p>You must log in to view the page at {from.pathname}</p>
+        
         <button onClick={login}>Log in</button>
       </div>
     );
