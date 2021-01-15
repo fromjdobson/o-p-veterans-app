@@ -1,22 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router } from 'react-router-dom'
-import AppState from './providers/AppState'
-import CurrentUser from './providers/CurrentUser'
-import App from './App'
-import './index.css'
+import {BrowserRouter} from 'react-router-dom'
+import AuthProvider from './context/AuthProvider'
+import App from './App/'
 
-function Index() {
-
-    return (
-        <AppState>
-            <CurrentUser>
-                <Router>
-                    <App />
-                </Router>
-            </CurrentUser>
-        </AppState>
-    )
-}
-
-ReactDOM.render(<Index />, document.getElementById('root'))
+ReactDOM.render(
+    <AuthProvider>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </AuthProvider>, 
+    document.getElementById('root'))

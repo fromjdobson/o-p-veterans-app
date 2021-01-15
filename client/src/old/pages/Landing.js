@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { auth, provider } from '../firebase'
+import { auth, provider } from '../../firebase'
 import { ProviderButton } from '../components/ProviderButton'
-import { OpenInput } from '../components/OpenInput'
+import { OpenInput } from '../../ReUsables/FormComponents/TextInput'
 import { Button } from '../components/Button'
 import logo from '../assets/images/vetfest-logo.png'
 
@@ -166,6 +166,7 @@ export default function Landing() {
         const { value } = e.target
         setPass(value)
     }
+    
 
     return (
         <PageContainer>

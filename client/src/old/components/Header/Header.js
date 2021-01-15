@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { auth } from '../../firebase'
-import { UserContext } from '../../providers/CurrentUser'
+import { UserContext } from '../../context/AuthProvider'
 import { setUserGraphic } from './utils'
 import avatar from '../../assets/Icons/avatar-icon.svg'
 import closeIcon from '../../assets/Icons/Vector.svg'

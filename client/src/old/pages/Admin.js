@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import { UserContext } from '../providers/CurrentUser'
+import { UserContext } from '../context/AuthProvider'
 import { Header } from '../components/Header'
 import { TempDiagram } from '../components/TempDiagam/'
 // import { AdminSearchBar } from '../components/AdminSearchBar'
