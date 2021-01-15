@@ -7,7 +7,7 @@ export default function CurrentUser({ children }) {
 
     return (
         <authContext.Provider value={ authState }>
-            { children}
+            { children }
         </authContext.Provider>
     )
 }
