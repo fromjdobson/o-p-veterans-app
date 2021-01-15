@@ -12,7 +12,7 @@ import {
     Route2,
     Route3
 } from './demoRoutes/index'
-// import { Form } from '../components/Form'
+import { Form } from '../components/Form'
 
 const PageContainer = styled.div`
     height: 100%;
