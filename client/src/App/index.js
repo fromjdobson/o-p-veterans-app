@@ -8,7 +8,7 @@ export default function App (){
         <Switch>
             <Route path='/Vendor'>Vendor</Route>
             <Route path='/Admin'>Admin</Route>
-            <Route path='/'>{ Login }</Route>
+            <Route path='/'><Login/></Route>
         </Switch>
     </Style>
 }

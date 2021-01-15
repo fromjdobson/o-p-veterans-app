@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { auth, provider } from '../../firebase'
 import { ProviderButton } from '../components/ProviderButton'
-import { OpenInput } from '../../ReUsables/FormComponents/TextInput'
+import OpenInput from '../../ReUsables/FormComponents/TextInput'
 import { Button } from '../components/Button'
-import logo from '../assets/images/vetfest-logo.png'
+import logo from '../../assets/images/vetfest-logo.png'
+import handleError from '../../ReUsables/errorHandler'
 
 const PageContainer = styled.div`
     height: 100%;
@@ -131,19 +132,12 @@ export default function Landing() {
     function handleGoolgeLogin() {
         auth.signInWithPopup(provider).then((result) => {
             console.log('User is signed in.')
-        }).catch((error) => {
-            const { code, message } = error
-            console.log(`Error code: ${code} // Error message: ${message}`)
-        })
+        }).catch(handleError)
     }
-
 
     function handleRegisterButton() {
         auth.createUserWithEmailAndPassword(email, pass).then((user) => {
-        }).catch((error) => {
-            const { code, message} = error
-            console.log(`Error code: ${code} // Error message: ${message}`)
-        })
+        }).catch(handleError)
     }
 
     function handleSignInButton() {
@@ -151,10 +145,7 @@ export default function Landing() {
             if (user) {
                 console.log(user)
             }
-        }).catch((error) => {
-            const { code, message } = error
-            console.log(`Error code: ${code} // Error message: ${message}`)
-        })
+        }).catch(handleError)
     }
 
     function handleEmailInputChange(e) {
@@ -166,7 +157,6 @@ export default function Landing() {
         const { value } = e.target
         setPass(value)
     }
-    
 
     return (
         <PageContainer>

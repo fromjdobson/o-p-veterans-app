@@ -1,27 +1,19 @@
-import React from 'react';
-import styled from 'styled-components'
+import React, {useState} from 'react';
 import Button from '../Button'
 import TextInput from '../../ReUsables/FormComponents/TextInput/'
-
-const BtnContainer = styled.div`
-    box-sizing: border-box;
-    width: 328px;
-    height: 40px;
-    position: relative;
-    top: 364px;
-    left: calc(50% - 328px/2);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-`
+import { Container } from './StyledContainer'
+import { Register, SignIn } from "./functions";
 
 export default function WithEmail (){
+    const [email, setEmail] = useState(null)
+    const [pass, setPass] = useState(null)
+
     return <>
-            <TextInput className='email-input' type='email' label='Email' placeholder='' />
-            <TextInput className='pass-input' type='password' label='Password' placeholder='' />
-            <BtnContainer>
-                <Button className='short-button' buttonStyle='primary' buttonText='Register' />
-                <Button className='short-button' buttonStyle='secondary' buttonText='Sign in' />
-            </BtnContainer>
+            <TextInput className='email-input' type='email' label='Email' placeholder='' onChange={setEmail}/>
+            <TextInput className='pass-input' type='password' label='Password' placeholder='' onChange={setPass}/>
+            <Container>
+                <Button className='short-button' buttonStyle='primary' buttonText='Register' onClick={()=>Register(email,pass)}/>
+                <Button className='short-button' buttonStyle='secondary' buttonText='Sign in' onClick={()=>SignIn(email,pass)}/>
+            </Container>
     </>
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { setButtonStyle } from './utils'
-import googleIcon from '../../assets/Icons/google-icon.svg'
+import googleIcon from '../../../assets/Icons/google-icon.svg'
 
 const StyledButton = styled.button`
   box-sizing: border-box;

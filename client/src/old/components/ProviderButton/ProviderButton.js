@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import googleIcon from '../../assets/Icons/google-icon.svg'
+import googleIcon from '../../../assets/Icons/google-icon.svg'
 
 const StyledButton = styled.button`
     width: 56px;
