@@ -39,7 +39,7 @@ function createNewUserObj(name, email, photo) {
     return newUserObj
 }
 
-function getUsersCollection(func, signInEmail, setUserState, page, historyFunc) {
+function getUsersCollection(func, signInEmail, setUserState, historyFunc) {
     func.get().then((snapshot) => {
         let tempArr = setTempUsersArr(snapshot)
 
@@ -50,7 +50,7 @@ function getUsersCollection(func, signInEmail, setUserState, page, historyFunc) 
             return {...found}
         })
 
-        page(isAdmin, historyFunc)
+        setPage(isAdmin, historyFunc)
     })
 }
 
@@ -62,7 +62,7 @@ function addUserToFireStore(func, newUser) {
     })
 }
 
-export function setPage(admin, historyFunc) {
+function setPage(admin, historyFunc) {
     if (admin === false) {
         historyFunc.push('/vendor')
     } else if (admin === true) {
@@ -70,7 +70,7 @@ export function setPage(admin, historyFunc) {
     }
 }
 
-export function findUserAndUpdateState(collectionFunc, signInEmail, name, photo, setUserState, page, history) {
+export function findUserAndUpdateState(collectionFunc, signInEmail, name, photo, setUserState, history) {
     collectionFunc.get().then((snapshot) => {
         let tempArr = setTempUsersArr(snapshot)
         let found = findUserEmail(tempArr, signInEmail)
@@ -80,10 +80,10 @@ export function findUserAndUpdateState(collectionFunc, signInEmail, name, photo,
 
             addUserToFireStore(collectionFunc, newUserObj)
 
-            getUsersCollection(collectionFunc, signInEmail, setUserState, page, history)
+            getUsersCollection(collectionFunc, signInEmail, setUserState, history)
 
         } else {
-            getUsersCollection(collectionFunc, signInEmail, setUserState, page, history)
+            getUsersCollection(collectionFunc, signInEmail, setUserState, history)
 
         }
     })

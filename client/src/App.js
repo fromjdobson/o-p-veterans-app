@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Switch, Route, useHistory } from 'react-router-dom'
 import firebase, { auth } from './firebase'
 import { UserContext } from './providers/CurrentUser'
-import { setPage, findUserAndUpdateState } from './utils'
+import { findUserAndUpdateState } from './utils'
 import { Landing } from './pages/index'
 import { Admin } from './pages/index'
 import { Vendor } from './pages/index'
@@ -29,7 +29,7 @@ export default function App() {
                 const { email, displayName, photoURL } = user
                 let signInUserEmail = email
 
-                findUserAndUpdateState(usersCollection, signInUserEmail, displayName, photoURL, setCurrentUser, setPage, history)
+                findUserAndUpdateState(usersCollection, signInUserEmail, displayName, photoURL, setCurrentUser, history)
 
             } else {
                 history.push('/')
