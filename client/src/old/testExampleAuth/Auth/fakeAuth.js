@@ -1,3 +1,5 @@
+// this is fake authentication. replace signin and signout functions with logic from firebase response.
+
 export const authFunctions = {
     isAuthenticated: false,
     signin(cb) {
