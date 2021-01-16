@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
 import AppState from './providers/AppState'
 import CurrentUser from './providers/CurrentUser'
-import App from './App'
+// import App from './App'
+import App from './BoothMap/'
+
 import './index.css'
 
 function Index() {
