@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import AppState from './providers/AppState'
 import CurrentUser from './providers/CurrentUser'
 // import App from './App'
-import App from './BoothMap/'
+import BoothMap from './BoothMap/'
 
 import './index.css'
 
@@ -14,7 +14,7 @@ function Index() {
         <AppState>
             <CurrentUser>
                 <Router>
-                    <App />
+                    <BoothMap onChange={([state])=>{console.log("Booth state changed",state)}}/>
                 </Router>
             </CurrentUser>
         </AppState>

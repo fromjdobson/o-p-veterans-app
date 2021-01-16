@@ -1,13 +1,8 @@
 import boothsRef from './firestore'
+import handleErrors from './errorHandler'
 
-
-export default function updateBooth (props) {
-    let id = props.id
-    let top = props.boothinfo.top
-    let left = props.boothinfo.left
-    boothsRef.doc(id).update({ top: top, left: left })
-        // .then((d)=>console.log('updated',d))
-        .catch(error => {
-            console.error("Error getting documents: ", error);
-        })
+export default function updateBooth({id,boothinfo:{top,left}}) {
+    boothsRef.doc(id)
+        .update({ top, left })
+        .catch(handleErrors)
 }

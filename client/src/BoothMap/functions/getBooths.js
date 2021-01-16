@@ -1,18 +1,17 @@
 import boothsRef from './firestore'
+import handleErrors from './errorHandler'
 
-export default function getBooths(cb) {
+export default function getBooths(callback) {
     boothsRef.get()
-    .then(res => {
-        let array = []
-        res.forEach(d => {
-            array.push({
-                id: d.id,
-                data: d.data()
+        .then(res => {
+            let array = []
+            res.forEach(d => {
+                array.push({
+                    id: d.id,
+                    data: d.data()
+                })
             })
+            callback(array)
         })
-        cb(array)
-    })
-    .catch(error => {
-        console.error("Error getting documents: ", error);
-    });
+    .catch(handleErrors)
 }
