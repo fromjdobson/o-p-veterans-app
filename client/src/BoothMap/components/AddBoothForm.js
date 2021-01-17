@@ -6,7 +6,7 @@ export default function AddBoothForm({setBooths}){
         e.preventDefault()
         const id = e.target.label.value
         if(id.length===0) {
-            alert('Wait! Please give your booth a label first.')
+            alert('HANG ON! Type a NAME for your booth first.')
             return
         }
         

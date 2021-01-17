@@ -17,25 +17,28 @@ export default function BoothMap({ onChange, ADMIN }) {
     onChange({state,setState})
     useEffect(() => getBooths(setBooths), [])
 
-    const Booths = booths.map(doc => {
-        return <Booth 
-            key={doc.id}
-            doc={doc} 
-            ADMIN={ADMIN} 
-            selected={state.selected===doc.id} />
-        })
-
     const boothIsSelected = booths.some(booth=>booth.id==state.selected)
 
-    return <Container ADMIN={ADMIN} onClick={e => { setState({selected: e.target.textContent}) }}>
+    const Booths = booths.map(doc => <Booth
+            key={doc.id}
+            {...doc}
+            ADMIN={ADMIN}
+            selected={state.selected===doc.id} />)
+
+
+    const handleClick = e => {
+        e.target.textContent !== state.selected && setState({selected: e.target.textContent})
+    }
+
+    return <Container ADMIN={ADMIN} onClick={handleClick}>
         {Booths}
         {ADMIN && <>
             <AddBoothForm {...{setBooths}}/>
             {boothIsSelected && <DeleteButton selected={state.selected} {...{setBooths}} />}
         </>}
-        {!ADMIN && 
-            boothIsSelected && 
-            <div>{state.selected} 
+        {!ADMIN &&
+            boothIsSelected &&
+            <div>{state.selected}
                 <button onClick={()=>reserveBooth(state.selected)}>Reserve Now</button>
             </div>}
     </Container>
