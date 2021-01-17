@@ -1,18 +1,22 @@
-import React, {useState} from 'react';
-import {StyledBooth} from './styledComponents'
+import React, { useState, memo } from 'react';
+import { StyledBooth } from './styledComponents'
 import updateBooth from '../functions/moveBooth'
-const snapToGridThresh = 2
+const snapToGrid = 2
 
-export default function Booth({ doc:{ id, data:{ label, left, top } }, ADMIN, selectorHook }) {
-    const [position, setPosition] = useState({ left, top })
+export default memo(function Booth(props) {
+    const { doc: { id, data: { label, left, top } }, ADMIN, selected } = props
+    console.log('render booth', id)
+
+    const [state, stateSetter] = useState({ left, top, isDragging: false })
+    const setState = newVals => stateSetter(p => ({ ...p, ...newVals }))
 
     const handleDrag = e => {
-        selectorHook[1](id)
-        let offsetX = position.left - e.clientX;
-        let offsetY = position.top - e.clientY
+        setState({ isDragging: true })
+        let offsetX = state.left - e.clientX;
+        let offsetY = state.top - e.clientY
         const move = e => {
-            let s = snapToGridThresh
-            setPosition({
+            let s = snapToGrid
+            setState({
                 top: Math.round((e.y + offsetY) / s) * s,
                 left: Math.round((e.x + offsetX) / s) * s
             })
@@ -29,14 +33,15 @@ export default function Booth({ doc:{ id, data:{ label, left, top } }, ADMIN, se
         updateBooth({
             id: id,
             boothinfo: {
-                left: position.left,
-                top: position.top
+                left: state.left,
+                top: state.top
             }
         })
+        setState({ isDragging: false })
     }
 
-    return <StyledBooth {...position} ADMIN={ADMIN} selected={selectorHook[0]===id}
+    return <StyledBooth {...state} ADMIN={ADMIN} selected={selected} dragging={state.isDragging}
         onMouseDown={ADMIN && handleDrag}
         onMouseUp={ADMIN && handleMouseUp}
     >{label}</StyledBooth>
-}
+})

@@ -10,12 +10,13 @@ export default function ({ onChange, ADMIN }) {
     const boothStateHook = useState([])
     const [state, setState] = boothStateHook
     const selectorHook = useState("")
+    const [selectorState, setSelectorState] = selectorHook
 
     useEffect(() => getBooths(setState), [])
     onChange(boothStateHook)
 
     const Booths = state.map(doc => <Booth key={doc.id}
-        doc={doc} ADMIN={ADMIN} selectorHook={selectorHook} />)
+        doc={doc} ADMIN={ADMIN} selected={selectorState===doc.id} />)
 
     const boothIsSelected = state.some(booth=>booth.id==selectorHook[0])
 

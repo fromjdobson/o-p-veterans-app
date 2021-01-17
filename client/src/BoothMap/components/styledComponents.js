@@ -1,4 +1,6 @@
+
 import styled from 'styled-components'
+
 
 export const Container = styled.div`
     background-color: #E4EBE8;
@@ -23,16 +25,13 @@ export const StyledBooth = styled.div`
     width: 18px;
     height: 18px;
     text-align: center;
-    /* vertical-align: middle; */
-    /* padding-top: auto; */
-    /* padding: 2px 1px; */
     user-select: none;
-    box-shadow: ${p=>p.selected ? '0px 0px 3px -0.8px red' : 'none'};
+    box-shadow: ${p=>p.selected ? '0px 0px 3px 0.6px red' : 'none'};
     &:hover {
         cursor: ${p => p.ADMIN ? 'move' : 'pointer'} 
     }
     &::before{
-        display: ${p=>p.selected ? 'inherit' : 'none'};
+        display: ${p=>p.dragging ? 'inherit' : 'none'};
         content: "";
         border-left: 1px dotted red;
         border-right: 1px dotted red;
@@ -43,7 +42,7 @@ export const StyledBooth = styled.div`
         height: 2000px;
     }
     &::after{
-        display: ${p=>p.selected ? 'inherit' : 'none'};
+        display: ${p=>p.dragging ? 'inherit' : 'none'};
         content: "";
         border-bottom: 1px dotted red;
         border-top: 1px dotted red;
