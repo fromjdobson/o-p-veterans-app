@@ -3,12 +3,11 @@ import {StyledBooth} from './styledComponents'
 import updateBooth from '../functions/updateBooth'
 const snapToGridThresh = 5
 
-export default function Booth({ doc }) {
-    const id = doc.id
-    const { label, left, top } = doc.data
+export default function Booth({ doc:{ id, data:{ label, left, top } }, ADMIN, selectorHook }) {
     const [position, setPosition] = useState({ left, top })
 
     const handleDrag = e => {
+
         let offsetX = position.left - e.clientX;
         let offsetY = position.top - e.clientY
         const move = e => {
@@ -25,6 +24,7 @@ export default function Booth({ doc }) {
         document.addEventListener('mousemove', move)
         document.addEventListener('mouseup', stopmove)
     }
+
     const handleMouseUp = () => {
         updateBooth({
             id: id,
@@ -35,8 +35,8 @@ export default function Booth({ doc }) {
         })
     }
 
-    return <StyledBooth {...position}
-        onMouseDown={handleDrag}
-        onMouseUp={handleMouseUp}
+    return <StyledBooth {...position} ADMIN={ADMIN} selected={selectorHook[0]===id}
+        onMouseDown={ADMIN && handleDrag}
+        onMouseUp={ADMIN && handleMouseUp}
     >{label}</StyledBooth>
 }
