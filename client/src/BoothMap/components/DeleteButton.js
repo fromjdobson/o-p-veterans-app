@@ -1,15 +1,15 @@
 import React from 'react'
-import deleteBooth from '../functions/deleteBooth'
+import deleteBooth from '../functions/databaseOperations/deleteBooth'
 import trashIcon from '../../assets/Icons/trash.png'
 import { StyledDeleteButton } from '../components/styledComponents'
 
-export default function DeleteButton({ selectorHook, setState }) {
-
+export default function DeleteButton({ selected, setBooths }) {
+    
     const handleClick = () => {
-        deleteBooth(selectorHook[0], setState)
+        deleteBooth(selected, setBooths)
     }
     return <StyledDeleteButton onClick={handleClick}>
         <img src={trashIcon} alt='delete booth' width='22' />
-        {selectorHook[0]}
+        {selected}
     </StyledDeleteButton>
 }

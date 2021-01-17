@@ -1,14 +1,22 @@
 import React, { useState, memo } from 'react';
 import { StyledBooth } from './styledComponents'
-import updateBooth from '../functions/moveBooth'
+import updateBooth from '../functions/databaseOperations/moveBooth'
+import { stateMerger } from '../functions/helpers'
 const snapToGrid = 2
 
 export default memo(function Booth(props) {
-    const { doc: { id, data: { label, left, top } }, ADMIN, selected } = props
-    console.log('render booth', id)
+    const { 
+        ADMIN, selected,
+        doc: { id, top, left }
+    } = props
+    const [state, stateSetter] = useState({
+        left, top, ADMIN,
+        isDragging: false,
+    })
 
-    const [state, stateSetter] = useState({ left, top, isDragging: false })
-    const setState = newVals => stateSetter(p => ({ ...p, ...newVals }))
+    console.log('rendered booth',id)
+
+    const setState = stateMerger(stateSetter)
 
     const handleDrag = e => {
         setState({ isDragging: true })
@@ -30,18 +38,13 @@ export default memo(function Booth(props) {
     }
 
     const handleMouseUp = () => {
-        updateBooth({
-            id: id,
-            boothinfo: {
-                left: state.left,
-                top: state.top
-            }
-        })
+        const { left, top } = state
+        updateBooth({ id, left, top })
         setState({ isDragging: false })
     }
 
-    return <StyledBooth {...state} ADMIN={ADMIN} selected={selected} dragging={state.isDragging}
+    return <StyledBooth {...state} selected={selected}
         onMouseDown={ADMIN && handleDrag}
         onMouseUp={ADMIN && handleMouseUp}
-    >{label}</StyledBooth>
+    >{id}</StyledBooth>
 })

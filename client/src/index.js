@@ -14,7 +14,7 @@ function Index() {
         <AppState>
             <CurrentUser>
                 <Router>
-                    <BoothMap onChange={([state])=>{}} ADMIN/>
+                    <BoothMap onChange={({state})=>{}} ADMIN/>
                 </Router>
             </CurrentUser>
         </AppState>

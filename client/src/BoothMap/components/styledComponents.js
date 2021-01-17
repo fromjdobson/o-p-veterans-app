@@ -3,8 +3,9 @@ import styled from 'styled-components'
 export const Container = styled.div`
     background-color: #E4EBE8;
     border: ${p => p.ADMIN ? '1px solid red' : 'none'};
-    height: 85vh;
-    
+    height: 700px;
+    width: 600px;
+    /* transform: scale(0.5) */
 `
 
 const StaticStyledBooth = styled.div`
@@ -12,7 +13,6 @@ const StaticStyledBooth = styled.div`
     justify-content: center;
     align-items: center;
     position: absolute;
-
     background: #799C8A;
     font-family: Open Sans;
     font-style: normal;
@@ -44,21 +44,20 @@ const StaticStyledBooth = styled.div`
         width: 2000px;
         height: 16px;
     }
-
 `
 
 export const StyledBooth = styled(StaticStyledBooth)`
-    top: ${props => props.top + 'px'};
-    left: ${props => props.left + 'px'};
+    top: ${p => p.top + 'px'};
+    left: ${p => p.left + 'px'};
     box-shadow: ${p => p.selected ? '0px 0px 3px 0.6px red' : 'none'};
     &:hover {
-        cursor: ${p => p.ADMIN ? 'move' : 'pointer'} 
+        cursor: ${p => p.ADMIN ? 'move' : 'pointer'};
     }
     &::before{
-        display: ${p => p.dragging ? 'inherit' : 'none'};
+        display: ${p => p.isDragging ? 'inherit' : 'none'};
     }
     &::after{
-        display: ${p => p.dragging ? 'inherit' : 'none'};
+        display: ${p => p.isDragging ? 'inherit' : 'none'};
     }
 `
 
