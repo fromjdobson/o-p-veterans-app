@@ -12,7 +12,7 @@ export default memo(function Booth(props) {
 
     const handleDrag = e => {
         setState({ isDragging: true })
-        let offsetX = state.left - e.clientX;
+        let offsetX = state.left - e.clientX
         let offsetY = state.top - e.clientY
         const move = e => {
             let s = snapToGrid
