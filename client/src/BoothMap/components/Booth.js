@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import {StyledBooth} from './styledComponents'
-import updateBooth from '../functions/updateBooth'
-const snapToGridThresh = 5
+import updateBooth from '../functions/moveBooth'
+const snapToGridThresh = 2
 
 export default function Booth({ doc:{ id, data:{ label, left, top } }, ADMIN, selectorHook }) {
     const [position, setPosition] = useState({ left, top })
 
     const handleDrag = e => {
-
+        selectorHook[1](id)
         let offsetX = position.left - e.clientX;
         let offsetY = position.top - e.clientY
         const move = e => {
