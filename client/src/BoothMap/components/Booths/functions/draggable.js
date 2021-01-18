@@ -10,12 +10,12 @@ export default function draggable({el,setState,state}) {
 
     function handleMouseDown(e) {
         e = e || window.event;
-        e.preventDefault()
+        // e.preventDefault()
         pos3 = e.clientX
         pos4 = e.clientY
         window.addEventListener('mouseup', handleMouseUp)
         window.addEventListener('mousemove', handleMouseMove)
-        setState({isDragging: true})
+        !state.isDragging && setState({isDragging: true})
     }
 
     function handleMouseMove(e) {
@@ -38,12 +38,12 @@ export default function draggable({el,setState,state}) {
 
     function handleMouseUp() {
         const hasMoved = tempPosition.left !== state.left || tempPosition.top !== state.top
-        setState({ ...tempPosition, isDragging: false })
         hasMoved && moveBooth({
             id: state.id,
             left: tempPosition.left,
             top: tempPosition.top
         })
+        setState({ ...tempPosition, isDragging: false })
         window.removeEventListener('mouseup', handleMouseUp)
         window.removeEventListener('mousemove', handleMouseMove)
     }
