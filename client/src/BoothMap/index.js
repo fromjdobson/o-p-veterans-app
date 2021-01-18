@@ -25,7 +25,6 @@ export default function BoothMap({ onChange, ADMIN }) {
             ADMIN={ADMIN}
             selected={state.selected===doc.id} />)
 
-
     const handleClick = e => {
         e.target.textContent !== state.selected && setState({selected: e.target.textContent})
     }

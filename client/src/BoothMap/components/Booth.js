@@ -13,7 +13,7 @@ export default memo(function Booth(props) {
     useEffect(() => {
         dragElement(document.getElementById(id))
     }, [])
-    // console.log('rendered', id, state)
+    console.log('rendered', id, state)
     const setState = stateMerger(stateSetter)
     var tempPosition = { left, top }
 
@@ -57,8 +57,7 @@ export default memo(function Booth(props) {
                     left: tempPosition.left,
                     top: tempPosition.top
                 })
-            }
-            if(state.isDragging) setState({isDragging:false})
+            } 
             window.removeEventListener('mouseup', handleMouseUp)
             window.removeEventListener('mousemove', handleMouseMove)
         }
@@ -68,5 +67,6 @@ export default memo(function Booth(props) {
         selected={selected} 
         id={id} 
         onMouseDown={()=>setState({isDragging:true})}
+        onMouseUp={()=>setState({isDragging:false})}
     >{id}</StyledBooth>
 })
