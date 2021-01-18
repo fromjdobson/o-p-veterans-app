@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Container } from './components/styledComponents/'
-import Booth from './components/Booth'
+import Booth from './components/Booth/'
 import AddBoothForm from './components/AddBoothForm'
 import DeleteButton from './components/DeleteButton'
 import reserveBooth from './functions/databaseOperations/reserveBooth'
@@ -17,7 +17,7 @@ export default function BoothMap({ onChange, ADMIN }) {
     onChange({state,setState})
     useEffect(() => getBooths(setBooths), [])
 
-    const boothIsSelected = booths.some(booth=>booth.id==state.selected)
+    const boothIsSelected = booths.some(booth=>booth.id===state.selected)
 
     const Booths = booths.map(doc => <Booth
             key={doc.id}
