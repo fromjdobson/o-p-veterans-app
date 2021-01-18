@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {memo} from 'react'
 import addBoothToDB from '../functions/databaseOperations/addBooth'
 
-export default function AddBoothForm({setBooths}){
+export default memo(function AddBoothForm({setBooths}){
     const handleSubmit = e => {
         e.preventDefault()
         const id = e.target.label.value
@@ -20,4 +20,4 @@ export default function AddBoothForm({setBooths}){
     <input type='text' name='label' placeholder='add a new booth' />
     <button>+</button>
 </form>
-}
+})

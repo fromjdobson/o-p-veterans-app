@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {memo} from 'react'
 import deleteBooth from '../functions/databaseOperations/deleteBooth'
 import trashIcon from '../../assets/Icons/trash.png'
 import { StyledDeleteButton } from '../components/styledComponents'
 
-export default function DeleteButton({ selected, setBooths }) {
+export default memo(function DeleteButton({ selected, setBooths }) {
+    console.log('render delete button')
     
     const handleClick = () => {
         deleteBooth(selected, setBooths)
@@ -12,4 +13,4 @@ export default function DeleteButton({ selected, setBooths }) {
         <img src={trashIcon} alt='delete booth' width='22' />
         {selected}
     </StyledDeleteButton>
-}
+})
