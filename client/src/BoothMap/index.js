@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Container } from './components/styledComponents'
+import { Container } from './components/styledComponents/'
 import Booth from './components/Booth'
 import AddBoothForm from './components/AddBoothForm'
 import DeleteButton from './components/DeleteButton'

@@ -1,13 +1,5 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
-    background-color: #E4EBE8;
-    border: ${p => p.ADMIN ? '1px solid red' : 'none'};
-    height: 700px;
-    width: 600px;
-    /* transform: scale(0.5) */
-`
-
 const StaticStyledBooth = styled.div`
     display: flex;
     justify-content: center;
@@ -46,9 +38,7 @@ const StaticStyledBooth = styled.div`
     }
 `
 
-export const StyledBooth = styled(StaticStyledBooth)`
-    top: ${p => p.top + 'px'};
-    left: ${p => p.left + 'px'};
+const StyledBoothWithCrossHair = styled(StaticStyledBooth)`
     box-shadow: ${p => p.selected ? '0px 0px 3px 0.6px red' : 'none'};
     &:hover {
         cursor: ${p => p.ADMIN ? 'move' : 'pointer'};
@@ -61,7 +51,9 @@ export const StyledBooth = styled(StaticStyledBooth)`
     }
 `
 
-export const StyledDeleteButton = styled.button`
-    background-color: transparent;
-    border: none;
+const StyledBooth = styled(StyledBoothWithCrossHair)`
+    top: ${p => p.top + 'px'};
+    left: ${p => p.left + 'px'};
 `
+
+export default StyledBooth

@@ -1,5 +1,5 @@
 import React, { useState, memo, useEffect } from 'react';
-import { StyledBooth } from './styledComponents'
+import StyledBooth from './styledComponents/Booth'
 import moveBooth from '../functions/databaseOperations/moveBooth'
 import { stateMerger } from '../functions/helpers'
 const snapToGrid = 4
@@ -67,6 +67,6 @@ export default memo(function Booth(props) {
         selected={selected} 
         id={id} 
         onMouseDown={()=>setState({isDragging:true})}
-        onMouseUp={()=>setState({isDragging:false})}
+        onMouseUp={()=>state.isDragging && setState({isDragging:false})}
     >{id}</StyledBooth>
 })
