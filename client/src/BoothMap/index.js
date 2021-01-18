@@ -12,33 +12,35 @@ export default function BoothMap({ onChange, ADMIN }) {
         ADMIN,
         selected: ""
     })
-    const setState = stateMerger(stateSetter)
     const [booths, setBooths] = useState([])
-    onChange({state,setState})
+    
+    const setState = stateMerger(stateSetter)
+    onChange({ state, setState })
     useEffect(() => getBooths(setBooths), [])
 
-    const boothIsSelected = booths.some(booth=>booth.id===state.selected)
+    const boothIsSelected = booths.some(booth => booth.id === state.selected)
 
     const Booths = booths.map(doc => <Booth
-            key={doc.id}
-            {...doc}
-            ADMIN={ADMIN}
-            selected={state.selected===doc.id} />)
+        key={doc.id}
+        {...doc}
+        ADMIN={ADMIN}
+        selected={state.selected === doc.id} />)
 
-    const handleClick = e => {
-        e.target.textContent !== state.selected && setState({selected: e.target.textContent})
+    const changeSelectedBooth = e => {
+        e.target.textContent !== state.selected &&
+            setState({ selected: e.target.textContent, isDragging: true })
     }
 
-    return <Container ADMIN={ADMIN} onClick={handleClick}>
+    return <Container ADMIN={ADMIN} onMouseDown={changeSelectedBooth}>
         {Booths}
         {ADMIN && <>
-            <AddBoothForm {...{setBooths}}/>
-            {boothIsSelected && <DeleteButton selected={state.selected} {...{setBooths}} />}
+            <AddBoothForm {...{ setBooths }} />
+            {boothIsSelected && <DeleteButton selected={state.selected} {...{ setBooths }} />}
         </>}
         {!ADMIN &&
             boothIsSelected &&
             <div>{state.selected}
-                <button onClick={()=>reserveBooth(state.selected)}>Reserve Now</button>
+                <button onClick={() => reserveBooth(state.selected)}>Reserve Now</button>
             </div>}
     </Container>
 }

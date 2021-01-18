@@ -1,12 +1,11 @@
 import moveBooth from '../../../functions/databaseOperations/moveBooth'
 
-// This function makes the booth draggable directly on the DOM bypassing react during drag.
+// This function makes the booth draggable directly on the DOM, bypassing react during drag.
 // Once booth is dragged, the mouseup event will setState.
 export default function draggable({el,setState,state}) {
+    const snapToGrid = 4
     var tempPosition = { left:state.left, top:state.top }
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0
-    const snapToGrid = 4
-
     el.onmousedown = handleMouseDown
 
     function handleMouseDown(e) {
@@ -16,6 +15,7 @@ export default function draggable({el,setState,state}) {
         pos4 = e.clientY
         window.addEventListener('mouseup', handleMouseUp)
         window.addEventListener('mousemove', handleMouseMove)
+        setState({isDragging: true})
     }
 
     function handleMouseMove(e) {
@@ -38,14 +38,12 @@ export default function draggable({el,setState,state}) {
 
     function handleMouseUp() {
         const hasMoved = tempPosition.left !== state.left || tempPosition.top !== state.top
-        if (hasMoved) {
-            setState({ ...tempPosition, isDragging: false })
-            moveBooth({
-                id: state.id,
-                left: tempPosition.left,
-                top: tempPosition.top
-            })
-        }
+        setState({ ...tempPosition, isDragging: false })
+        hasMoved && moveBooth({
+            id: state.id,
+            left: tempPosition.left,
+            top: tempPosition.top
+        })
         window.removeEventListener('mouseup', handleMouseUp)
         window.removeEventListener('mousemove', handleMouseMove)
     }

@@ -3,11 +3,10 @@ import StyledBooth from '../styledComponents/Booth'
 import { stateMerger } from '../../functions/helpers'
 import draggable from './functions/draggable'
 
-export default memo(function Booth(props) {
-    const { ADMIN, selected, id, top, left } = props
+const Booth = memo((props) => {
+    const { ADMIN, selected, id, top, left, isDragging } = props
     const [state, stateSetter] = useState({
-        left, top, ADMIN,
-        isDragging: false,
+        left, top, ADMIN, isDragging
     })
     const setState = stateMerger(stateSetter)
 
@@ -15,7 +14,7 @@ export default memo(function Booth(props) {
 
     useEffect(() => {
         draggable({
-            state, setState, 
+            state, setState,
             el: document.getElementById(id),
         })
     })
@@ -24,7 +23,7 @@ export default memo(function Booth(props) {
         {...state}
         selected={selected}
         id={id}
-        onMouseDown={() => setState({ isDragging: true })}
-        onMouseUp={() => state.isDragging && setState({ isDragging: false })}
     >{id}</StyledBooth>
 })
+
+export default Booth
