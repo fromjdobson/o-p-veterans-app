@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-    border: 1px solid blue;
     display: flex;
     flex-wrap: wrap;
 `
@@ -13,7 +12,6 @@ export const MapContainer = styled.div`
     min-width: 800px;
     margin: 0px;
     padding: 5px;
-    border: 1px solid blue;
 `
 export const StyledDeleteButton = styled.div`
     background-color: transparent;
