@@ -1,4 +1,11 @@
-body {
+* {
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
+    /* border: 0.5px solid salmon; */
+}
+html, head, div#root{ 
+    border: none;
+    font-family: Open Sans;
+    color: #545454;
 }

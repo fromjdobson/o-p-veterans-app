@@ -1,5 +1,5 @@
 import React, { useState, memo, useEffect } from 'react';
-import StyledBooth from '../../styledComponents/Booth'
+import StyledBooth from './StyledBooth'
 import { stateMerger } from '../../functions/helpers'
 import draggable from './functions/draggable'
 
