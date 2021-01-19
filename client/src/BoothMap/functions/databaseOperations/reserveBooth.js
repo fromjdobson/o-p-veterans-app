@@ -10,6 +10,7 @@ export default function reserveBooth(id, setBooths) {
                     return booth.id === id ? { ...booth, reserved: true } : booth
                 })
             })
+            alert('Confirm reservation and continue to payment')
         })
         .catch(handleErrors)
 }

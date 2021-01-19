@@ -1,17 +1,25 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
+    border: 1px solid blue;
+    display: flex;
+    flex-wrap: wrap;
+`
+export const MapContainer = styled.div`
+    
     background-color: #E4EBE8;
     border: ${p => p.ADMIN ? '1px solid red' : 'none'};
-    height: 700px;
-    width: 600px;
+    height: 800px;
+    min-width: 800px;
     margin: 0px;
     padding: 5px;
-    /* transform: scale(0.5) */
+    border: 1px solid blue;
 `
-
-export const StyledDeleteButton = styled.button`
+export const StyledDeleteButton = styled.div`
     background-color: transparent;
     border: none;
+    & img {
+        cursor: pointer;
+    }
 `
 

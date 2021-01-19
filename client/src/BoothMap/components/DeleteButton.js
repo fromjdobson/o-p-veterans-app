@@ -7,8 +7,8 @@ export default memo(function DeleteButton({ selected, setBooths }) {
     const handleClick = () => {
         deleteBooth(selected, setBooths)
     }
-    return <StyledDeleteButton onClick={handleClick}>
-        <img src={trashIcon} alt='delete booth' width='22' />
+    return <StyledDeleteButton>
+        <img id='delete' src={trashIcon} alt='delete booth' width='22' onMouseUp={handleClick}/>
         {selected}
     </StyledDeleteButton>
 })

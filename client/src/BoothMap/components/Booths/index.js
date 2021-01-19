@@ -4,7 +4,6 @@ import { stateMerger } from '../../functions/helpers'
 import draggable from './functions/draggable'
 
 const Booth = memo(function Booth(props) {
-    console.log('render booth',props)
     const { ADMIN, selected, id, top, left, reserved } = props
     const [state, stateSetter] = useState({
         left, top, ADMIN, id,
@@ -23,12 +22,10 @@ const Booth = memo(function Booth(props) {
 })
 
 export default function Booths(props) {
-    const BoothsList = props.booths.map(doc => <Booth
+    return props.booths.map(doc => <Booth
         key={doc.id}
         {...doc}
         ADMIN={props.ADMIN}
         selected={props.selected === doc.id} />)
-
-    return <>{BoothsList}</>
 }
 

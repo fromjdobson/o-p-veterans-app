@@ -15,6 +15,7 @@ export default function getBooths(setBooths) {
                 })
             })
             console.log('Setting booths to state')
+            localStorage.setItem('booths',JSON.stringify(array))
             setBooths(array)
         })
     .catch(handleErrors)
