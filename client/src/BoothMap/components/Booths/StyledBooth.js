@@ -21,7 +21,7 @@ const StaticStyledBooth = styled.div`
         border-left: 1px dotted red;
         border-right: 1px dotted red;
         position: absolute;
-        left: 0px;
+        left: -2px;
         top: -1000px;
         width: 16px;
         height: 2000px;
@@ -31,7 +31,7 @@ const StaticStyledBooth = styled.div`
         border-bottom: 1px dotted red;
         border-top: 1px dotted red;
         position: absolute;
-        top: 0px;
+        top: -2px;
         left: -1000px;
         width: 2000px;
         height: 16px;

@@ -16,7 +16,7 @@ function Index() {
         <AppState>
             <CurrentUser>
                 <Router>
-                    <BoothMap ADMIN={false} blockPullFromDB={false}
+                    <BoothMap ADMIN={true} blockPullFromDB={true}
                      onChange={({ state }) => {
                         // console.log('root', state)
                     }}  />
