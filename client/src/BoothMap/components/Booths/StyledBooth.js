@@ -5,7 +5,6 @@ const StaticStyledBooth = styled.div`
     justify-content: center;
     align-items: center;
     position: absolute;
-    background: #799C8A;
     font-family: Open Sans;
     font-style: normal;
     font-weight: bold;
@@ -15,6 +14,7 @@ const StaticStyledBooth = styled.div`
     height: 18px;
     text-align: center;
     user-select: none;
+    border: 2px solid #799C8A;
 
     &::before{
         content: "";
@@ -54,6 +54,8 @@ const StyledBoothWithCrossHair = styled(StaticStyledBooth)`
 const StyledBooth = styled(StyledBoothWithCrossHair)`
     top: ${p => p.top + 'px'};
     left: ${p => p.left + 'px'};
+    background: ${p=>p.reserved ? '#E4EBE8' : '#799C8A' };
+
 `
 
 export default StyledBooth

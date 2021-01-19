@@ -22,12 +22,15 @@ export default function BoothMap({ onChange, ADMIN }) {
     const boothIsSelected = booths.some(booth => booth.id === state.selected)
 
     const changeSelectedBooth = e => {
-        e.target.textContent !== state.selected &&
+        const selected = e.target.textContent
+        selected !== state.selected && selected !== 'Reserve Now' &&
             setState({ selected: e.target.textContent })
     }
 
+    console.log(booths)
+
     return <Container ADMIN={ADMIN} onMouseDown={changeSelectedBooth}>
-        <LegendKey/>
+        <LegendKey />
         <Booths {...state} booths={booths} />
 
         {ADMIN && <>
@@ -37,7 +40,7 @@ export default function BoothMap({ onChange, ADMIN }) {
         {!ADMIN && <>
             {boothIsSelected &&
                 <div>{state.selected}
-                    <button onClick={() => reserveBooth(state.selected)}>Reserve Now</button>
+                    <button onClick={() => reserveBooth(state.selected, setBooths)}>Reserve Now</button>
                 </div>}
         </>}
     </Container>

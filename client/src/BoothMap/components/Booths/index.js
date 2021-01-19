@@ -4,25 +4,25 @@ import { stateMerger } from '../../functions/helpers'
 import draggable from './functions/draggable'
 
 const Booth = memo(function Booth(props) {
-    const { ADMIN, selected, id, top, left } = props
+    console.log('render booth',props)
+    const { ADMIN, selected, id, top, left, reserved } = props
     const [state, stateSetter] = useState({
-        left, top, ADMIN,id,
+        left, top, ADMIN, id,
         isDragging: selected
     })
     const setState = stateMerger(stateSetter)
 
     useEffect(() => {
-        draggable({
+        ADMIN && draggable({
             state, setState,
             el: document.getElementById(id),
         })
     })
 
-    return <StyledBooth {...state} {...{ selected, id }}>{id}</StyledBooth>
+    return <StyledBooth {...state} {...{ selected, id, reserved }}>{id}</StyledBooth>
 })
 
 export default function Booths(props) {
-    console.log('rebuilding booths list')
     const BoothsList = props.booths.map(doc => <Booth
         key={doc.id}
         {...doc}
