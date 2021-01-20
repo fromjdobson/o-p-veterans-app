@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { MapContainer, Container } from './styledComponents'
 import Booths from './components/Booths'
-import AddBoothForm from './components/AddBoothForm'
-import DeleteButton from './components/DeleteButton'
 import getBooths from './functions/databaseOperations/getBooths'
 import { stateMerger } from './functions/helpers'
 import LegendKey from './components/LegendKey'
-import Form from './components/Form/'
+import VendorForm from './components/VendorForm'
+import AdminForm from './components/AdminForm'
 
 export default function BoothMap({ onChange, ADMIN, blockPullFromDB }) {
     const [state, stateSetter] = useState({
@@ -22,7 +21,7 @@ export default function BoothMap({ onChange, ADMIN, blockPullFromDB }) {
             : getBooths(setBooths)
     }, [blockPullFromDB])
 
-    const boothIsSelected = booths.find(booth => booth.id === state.selected)
+    const selected = booths.find(booth => booth.id === state.selected) || false
     const changeSelectedBooth = e => {
         const selected = e.target.textContent
         selected !== state.selected &&
@@ -31,18 +30,14 @@ export default function BoothMap({ onChange, ADMIN, blockPullFromDB }) {
         setState({ selected: e.target.textContent })
     }
 
-    const scale = window.screen.availWidth / 700
     return <Container>
         <MapContainer ADMIN={ADMIN} onMouseDown={changeSelectedBooth}>
             <LegendKey />
             <Booths {...state} booths={booths} />
-
-            {ADMIN && <>
-                <AddBoothForm {...{ setBooths }} />
-                {boothIsSelected && <DeleteButton selected={state.selected} {...{ setBooths }} />}
-            </>}
         </MapContainer>
-            {!ADMIN && <Form selected={boothIsSelected ? boothIsSelected : false} setBooths={setBooths}/>}
+        {ADMIN 
+            ? <AdminForm {...{setBooths,selected}}/> 
+            : <VendorForm {...{setBooths,selected}}/>}
     </Container>
 }
 

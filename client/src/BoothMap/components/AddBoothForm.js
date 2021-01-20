@@ -1,23 +1,25 @@
-import React, {memo} from 'react'
+import React, { memo } from 'react'
 import addBoothToDB from '../functions/databaseOperations/addBooth'
 
-export default memo(function AddBoothForm({setBooths}){
+export default memo(function AddBoothForm({ setBooths }) {
     const handleSubmit = e => {
         e.preventDefault()
         const id = e.target.label.value
-        if(id.length===0) {
+        if (id.length === 0) {
             alert('HANG ON! Type a NAME for your booth first.')
             return
         }
-        
-        addBoothToDB({ 
-            id, 
-            left: 210, 
-            top: 12 
-        },setBooths)
+
+        addBoothToDB({
+            id,
+            left: 210,
+            top: 12,
+            // veteranOwned: false
+        }, setBooths)
     }
     return <form onSubmit={handleSubmit}>
-    <input type='text' name='label' placeholder='add a new booth' />
-    <button>+</button>
-</form>
+        <input type='text' name='label' placeholder='add a new booth' /><br />
+        {/* Veteran Owned<input type='checkbox' /> */}
+        <button>+</button>
+    </form>
 })
