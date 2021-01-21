@@ -5,7 +5,7 @@ import { Header } from '../../Header'
 import { AdminSearchBar } from '../../AdminSearchBar'
 import { VendorList } from '../../VendorList'
 // import { EditModal } from '../../EditModal'
-// import closeIcon from '../../../assets/Icons/Vector.svg'
+// import closeIcon from '../../../assets/icons/Vector.svg'
 
 const AdminViewContainer = styled.div`
     padding: 0px 24px 0px 24px;

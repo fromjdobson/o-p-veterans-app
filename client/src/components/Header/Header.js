@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { auth } from '../../firebase'
 import { UserContext } from '../../providers/CurrentUser'
 import { setUserGraphic } from './utils'
-import avatar from '../../assets/Icons/avatar-icon.svg'
-import closeIcon from '../../assets/Icons/Vector.svg'
+import avatar from '../../assets/icons/avatar-icon.svg'
+import closeIcon from '../../assets/icons/Vector.svg'
 import vetFestLogo from '../../assets/images/vetfest-logo.png'
 
 const HeaderContainer = styled.div`

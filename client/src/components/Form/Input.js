@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import warningIcon from '../../assets/Icons/input-warning-icon.svg'
+import warningIcon from '../../assets/icons/input-warning-icon.svg'
 
 const InputContainer = styled.div`
     width: 100%;

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { openCloseExpand } from './utils'
-import cardClosedIcon from '../../assets/Icons/card-closed-icon.svg'
+import cardClosedIcon from '../../assets/icons/card-closed-icon.svg'
 
 const HeaderContainer = styled.div`
     padding: 0px 8px 0px 8px;

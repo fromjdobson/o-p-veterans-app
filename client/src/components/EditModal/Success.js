@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import TextButton from './TextButton'
-import successCheckmark from '../../assets/Icons/success-checkmark.svg'
+import successCheckmark from '../../assets/icons/success-checkmark.svg'
 
 const SuccessContainer = styled.div`
     width: 100%;

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import warningIcon from '../../assets/Icons/status-warning-icon.svg'
+import warningIcon from '../../assets/icons/status-warning-icon.svg'
 
 const WarningIconContainer = styled.div`
     min-width: 24px;

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { setOpacity } from './utils'
-import { ReactComponent as ActiveIcon } from '../../../assets/Icons/dot-icon.svg'
+import { ReactComponent as ActiveIcon } from '../../../assets/icons/dot-icon.svg'
 
 const IconContainer = styled.div`
     width: 16px;

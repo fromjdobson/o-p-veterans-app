@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import cardClosedIcon from '../../../assets/Icons/card-closed-icon.svg'
+import cardClosedIcon from '../../../assets/icons/card-closed-icon.svg'
 
 const ExpandContainer = styled.div`
     display: flex;

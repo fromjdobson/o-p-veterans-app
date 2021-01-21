@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import closedIcon from '../../assets/Icons/card-closed-icon.svg'
+import closedIcon from '../../assets/icons/card-closed-icon.svg'
 
 const OpenIconContainer = styled.div`
     min-width: 24px;
