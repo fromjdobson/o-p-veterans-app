@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import abramsLevelImg from '../../assets/logos/abrams-sponsor-logo.png'
+import abramsLevelImg from '../../assets/images/logos/abrams-sponsor-logo.png'
 
 const LevelLogoContainer = styled.div`
     box-sizing: border-box;
