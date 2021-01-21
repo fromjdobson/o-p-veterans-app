@@ -1,20 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import "./css/styles.css"
-import FormProvider from "./context/FormContext"
-import {BrowserRouter} from "react-router-dom"
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
+import AppState from './providers/AppState'
+import CurrentUser from './providers/CurrentUser'
+import App from './App'
+import './index.css'
 
+function Index() {
 
+    return (
+        <AppState>
+            <CurrentUser>
+                <Router>
+                    <App />
+                </Router>
+            </CurrentUser>
+        </AppState>
+    )
+}
 
-ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <FormProvider>
-        <App />
-      </FormProvider>
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
+ReactDOM.render(<Index />, document.getElementById('root'))
