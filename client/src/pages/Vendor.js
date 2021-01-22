@@ -24,11 +24,11 @@ const PageContainer = styled.div`
     }
 `
 
-export default function Vendor() {
+export default function Vendor({currentUser}) {
 
     return (
         <PageContainer>
-            <Header />
+            <Header {...{currentUser}}/>
             <Form />
         </PageContainer>
     )

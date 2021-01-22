@@ -1,9 +1,7 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { UserContext } from '../providers/CurrentUser'
 import { Header } from '../components/Header'
 import { TempDiagram } from '../components/TempDiagam/'
-// import { AdminSearchBar } from '../components/AdminSearchBar'
 import { AdminList } from '../components/AdminList'
 import { dummyInfoArr } from '../components/AdminList/utils'
 
@@ -60,16 +58,14 @@ const PageContainer = styled.div`
     }
 `
 
-export default function Admin() {
-    const [currentUser] = useContext(UserContext)
+export default function Admin({currentUser}) {
 
     return (
         <PageContainer>
-            <Header />
+            <Header {...{currentUser}}/>
             <h2 className={'heading'}>{(currentUser !== null) ? `Welcome, ${currentUser.name}.` : `Welcome, Admin.`}</h2>
             <h4 className={'sub-heading'}>{'Here is a current list and diagram of vendors registered for Vet Fest.'}</h4>
             <TempDiagram className={'diagram'} />
-            {/* <AdminSearchBar /> */}
             <AdminList className={'vendor-list'} vendorInfo={dummyInfoArr} />
         </PageContainer>
     )
