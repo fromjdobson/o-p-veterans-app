@@ -1,7 +1,7 @@
 import React from 'react'
 import { FormContainer } from './StyledForm'
-import AddBoothForm from '../AddBoothForm'
-import DeleteButton from '../DeleteButton'
+import AddBoothForm from '../AdminForm/AddBoothForm'
+import DeleteButton from '../AdminForm/DeleteButton'
 
 export default function AdminForm(props) {
     const {setBooths,selected} = props

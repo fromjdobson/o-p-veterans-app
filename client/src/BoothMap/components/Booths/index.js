@@ -1,6 +1,6 @@
 import React, { useState, memo, useEffect } from 'react';
 import StyledBooth from './StyledBooth'
-import { stateMerger } from '../../functions/helpers'
+import { stateMerger } from '../../../reusables/stateMerger'
 import draggable from './functions/draggable'
 
 const Booth = memo(function Booth(props) {

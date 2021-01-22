@@ -36,7 +36,7 @@ export default function App() {
             }
         })
     
-    }, [db, history])
+    }, [db, history, setCurrentUser, usersCollection])
 
     return (
         <AppContainer>

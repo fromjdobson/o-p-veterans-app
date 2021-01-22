@@ -1,5 +1,4 @@
-import moveBooth from '../../../functions/databaseOperations/moveBooth'
-
+import {update} from '../../../../reusables/firestoreCRUD'
 // This function makes the booth draggable directly on the DOM, bypassing react during drag.
 // Once booth is dragged, the mouseup event will setState.
 export default function draggable({el,setState,state}) {
@@ -38,11 +37,11 @@ export default function draggable({el,setState,state}) {
 
     function handleMouseUp() {
         const hasMoved = tempPosition.left !== state.left || tempPosition.top !== state.top
-        hasMoved && moveBooth({
+        hasMoved && update({data:{
             id: state.id,
             left: tempPosition.left,
             top: tempPosition.top
-        })
+        }})
         setState({ ...tempPosition, isDragging: false })
         window.removeEventListener('mouseup', handleMouseUp)
         window.removeEventListener('mousemove', handleMouseMove)

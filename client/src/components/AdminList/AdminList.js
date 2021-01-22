@@ -32,7 +32,7 @@ export default function AdminList(props) {
                 return [...tempArr]
             })
         })
-    }, [])
+    }, [usersCollection, setList])
 
     return (
         <ListContainer className={className}>
