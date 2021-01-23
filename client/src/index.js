@@ -1,29 +1,22 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
-// import AppState from './providers/AppState'
-// import CurrentUser from './providers/CurrentUser'
-// import App from './App'
-import BoothMap from './BoothMap/'
+import AppState from './providers/AppState'
+import CurrentUser from './providers/CurrentUser'
+import App from './App'
 
 import './index.css'
 
 function Index() {
-    useEffect(() => {
-        console.clear()
-    })
-    return (
-        // <AppState>
-        //     <CurrentUser>
-        <Router>
-            <BoothMap ADMIN={false} blockPullFromDB={false}
-                onChange={({ state }) => {
-                    // console.log('root', state)
-                }} />
 
-        </Router>
-        //     </CurrentUser>
-        // </AppState>
+    return (
+        <AppState>
+            <CurrentUser>
+                <Router>
+                    <App />
+                </Router>
+            </CurrentUser>
+        </AppState>
     )
 }
 
