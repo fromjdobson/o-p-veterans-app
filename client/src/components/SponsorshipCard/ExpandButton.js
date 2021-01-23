@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 
 // import closedIcon from "../../assets/icons/closed-card-icon.svg";
-import closedIcon from '../../assets/Icons/card-closed-icon.svg'
+import closedIcon from '../../assets/icons/card-closed-icon.svg'
 
 // import openIcon from "../../assets/icons/card-open-icon.svg";
 

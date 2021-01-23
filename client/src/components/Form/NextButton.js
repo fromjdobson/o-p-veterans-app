@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import rightArrowIcon from '../../assets/Icons/arrow-right-icon.svg'
+import rightArrowIcon from '../../assets/icons/arrow-right-icon.svg'
 
 const ButtonContainer = styled.button`
     box-sizing: border-box;
