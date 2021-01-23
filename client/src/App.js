@@ -34,8 +34,8 @@ export default function App() {
                 history.push('/')
             }
         })
-
-    }, [db, history])
+    
+    }, [db, history, setCurrentUser, usersCollection])
 
     return (
         <AppContainer>
