@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route, Link } from 'react-router-dom'
 import styled from 'styled-components'
-// import BoothMap from '../
+import BoothMap from '../BoothMap/'
 
 let NavBar = styled.nav`
     margin: 10px;
@@ -18,6 +18,8 @@ let NavBar = styled.nav`
 
 export default (p) => {
     return <Switch>
+        <Route path='/testing/boothmap/vendor'><BoothMap/></Route>
+        <Route path='/testing/boothmap/admin'><BoothMap ADMIN/></Route>
         <Route path='/'>
             <h1>This is where we can try out our new components before plugging them into the main App</h1>
             <NavBar>
@@ -26,7 +28,6 @@ export default (p) => {
             </NavBar>
         </Route>
 
-        {/* <Route path='/boothmap/vendor'><BoothMap/></Route> */}
 
     </Switch>
 }

@@ -7,14 +7,13 @@ import LegendKey from './components/VendorForm/LegendKey'
 import VendorForm from './components/VendorForm'
 import AdminForm from './components/AdminForm'
 
-export default function BoothMap({ onChange, ADMIN, blockPullFromDB }) {
+export default function BoothMap({ ADMIN, blockPullFromDB }) {
     const [state, stateSetter] = useState({
         ADMIN,
         selected: ""
     })
     const [booths, setBooths] = useState([])
     const setState = stateMerger(stateSetter)
-    onChange({ state, setState })
     useEffect(() => {
         blockPullFromDB
             ? setBooths(JSON.parse(localStorage.getItem('booths')))

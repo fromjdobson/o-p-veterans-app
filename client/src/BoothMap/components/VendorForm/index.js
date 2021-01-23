@@ -1,6 +1,6 @@
 import React from 'react'
 import { FormContainer } from './StyledForm'
-import buntylogo from '../../../assets/logos/abrams-sponsor-logo.png'
+import buntylogo from '../../../assets/images/logos/abrams-sponsor-logo.png'
 import {update} from '../../../reusables/firestoreCRUD'
 
 export default function VendorForm(props) {
