@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
 import { auth } from '../../firebase'
-import { UserContext } from '../../providers/CurrentUser'
 import { setUserGraphic } from './utils'
 import avatar from '../../assets/icons/avatar-icon.svg'
 import closeIcon from '../../assets/icons/Vector.svg'
@@ -31,8 +30,7 @@ const HeaderContainer = styled.div`
   }
 `
 
-export default function Header() {
-  const [currentUser] = useContext(UserContext)
+export default function Header({currentUser}) {
   let userGrahpic = setUserGraphic(currentUser, avatar)
 
   function logout() {
@@ -47,7 +45,7 @@ export default function Header() {
     <HeaderContainer>
       <img className={'close-icon'} src={closeIcon} alt={'Click to signout'} onClick={() => logout()} />
       <img src={vetFestLogo} alt={'VetFest logo'} />
-      <img className={'user-graphic'} src={userGrahpic} alt={'User avatar'} />
+      <img className={'user-graphic'} src={currentUser.userImg} alt={currentUser.name} />
     </HeaderContainer>
   );
 }

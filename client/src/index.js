@@ -1,23 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router } from 'react-router-dom'
-import AppState from './providers/AppState'
-import CurrentUser from './providers/CurrentUser'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import App from './App'
+import Testing from './Testing'
 
 import './index.css'
 
-function Index() {
+ReactDOM.render(
+    <BrowserRouter>
+        <Switch>
+            
+            <Route path='/testing*'><Testing/></Route>
+            <Route path='/*'><App /></Route>
 
-    return (
-        <AppState>
-            <CurrentUser>
-                <Router>
-                    <App />
-                </Router>
-            </CurrentUser>
-        </AppState>
-    )
-}
-
-ReactDOM.render(<Index />, document.getElementById('root'))
+        </Switch>
+    </BrowserRouter>, document.getElementById('root'))

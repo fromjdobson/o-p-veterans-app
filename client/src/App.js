@@ -1,13 +1,12 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Switch, Route, useHistory } from 'react-router-dom'
 import firebase, { auth } from './firebase'
-import { UserContext } from './providers/CurrentUser'
 import { setPage, findUserAndUpdateState } from './utils'
 import { Landing } from './pages/index'
 import { Admin } from './pages/index'
 import { Vendor } from './pages/index'
-// import Playground from './components/UserView/Playground'
+import avatar from './assets/icons/avatar-icon.svg'
 
 const AppContainer = styled.div`
     box-sizing: border-box;
@@ -17,7 +16,7 @@ const AppContainer = styled.div`
 `
 
 export default function App() {
-    const [, setCurrentUser] = useContext(UserContext)
+    const [currentUser, setCurrentUser] = useState({ usrImg: avatar })
 
     let history = useHistory()
     let db = firebase.firestore()
@@ -40,16 +39,15 @@ export default function App() {
 
     return (
         <AppContainer>
-            {/* <Playground /> */}
             <Switch>
                 <Route exact path='/'>
                     <Landing />
                 </Route>
                 <Route path='/admin'>
-                    <Admin />
+                    <Admin {...{ currentUser }} />
                 </Route>
                 <Route path='/vendor'>
-                    <Vendor />
+                    <Vendor {...{ currentUser }} />
                 </Route>
             </Switch>
         </AppContainer>
