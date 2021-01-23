@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import AppState from './providers/AppState'
 import CurrentUser from './providers/CurrentUser'
 import App from './App'
+
 import './index.css'
 
 function Index() {
