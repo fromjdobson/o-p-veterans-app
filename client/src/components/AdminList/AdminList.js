@@ -3,6 +3,9 @@ import styled from 'styled-components'
 import firebase from '../../firebase'
 import ListItem from './ListItem'
 
+let db = firebase.firestore()
+let usersCollection = db.collection('users')
+
 const ListContainer = styled.div`
     box-sizing: border-box;
     width: 328px;
@@ -17,10 +20,9 @@ export default function AdminList(props) {
     const [list, setList] = useState('Loading...')
     const { className } = props
 
-    let db = firebase.firestore()
-    let usersCollection = db.collection('users')
-
     useEffect(() => {
+        console.log('AdminList')
+
         usersCollection.get().then((snapshot) => {
             const tempArr = []
             snapshot.forEach((doc) => {
@@ -32,7 +34,7 @@ export default function AdminList(props) {
                 return [...tempArr]
             })
         })
-    })
+    },[])
 
     return (
         <ListContainer className={className}>

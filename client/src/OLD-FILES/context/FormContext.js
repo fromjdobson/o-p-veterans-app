@@ -73,6 +73,7 @@ function FormProvider(props){
     var boothArr = []
 
     useEffect(() => { 
+        console.log('FormPrivider')
         getUsersBoothSelection()
         getImages()
     },[])

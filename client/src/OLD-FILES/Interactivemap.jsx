@@ -13,7 +13,8 @@ function Interactivemap(){
     const [divStyle, setDivStyle] = useState()
 
 
-    useEffect(() => { 
+    useEffect(() => {
+        console.log('Interactivemap')
         getArrayBooths()
     },[])
     

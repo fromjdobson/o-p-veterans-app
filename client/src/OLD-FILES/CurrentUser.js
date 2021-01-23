@@ -7,6 +7,7 @@ export default function CurrentUser({ children }) {
     const [currentUser, setCurrentUser] = useState(null)
 
     useEffect(() => {
+        console.log('CurrentUser')
         auth.onAuthStateChanged((user) => {
             if (user) {
                 const { uid } = user

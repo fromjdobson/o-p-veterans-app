@@ -39,18 +39,15 @@ function createNewUserObj(name, email, photo) {
     return newUserObj
 }
 
-function getUsersCollection(func, signInEmail, setUserState, page, historyFunc) {
+function getUsersCollection(func, signInEmail, setUserState, historyFunc) {
     func.get().then((snapshot) => {
         let tempArr = setTempUsersArr(snapshot)
-
         let found = findUserEmail(tempArr, signInEmail)
         const { isAdmin } = found
-
         setUserState(() => {
             return {...found}
         })
-
-        page(isAdmin, historyFunc)
+        setPage(isAdmin, historyFunc)
     })
 }
 
@@ -62,29 +59,28 @@ function addUserToFireStore(func, newUser) {
     })
 }
 
-export function setPage(admin, historyFunc) {
+export function setPage(admin, history) {
     if (admin === false) {
-        historyFunc.push('/vendor')
+        history.location.pathname !== '/vendor' && history.push('/vendor')
     } else if (admin === true) {
-        historyFunc.push('/admin')
+        history.location.pathname !== '/admin' && history.push('/admin')
     }
 }
 
-export function findUserAndUpdateState(collectionFunc, signInEmail, name, photo, setUserState, page, history) {
+export function findUserAndUpdateState(collectionFunc, user, setUserState, history) {
+    const { email, displayName, photoURL } = user
+    let signInUserEmail = email
+
     collectionFunc.get().then((snapshot) => {
         let tempArr = setTempUsersArr(snapshot)
-        let found = findUserEmail(tempArr, signInEmail)
+        let found = findUserEmail(tempArr, signInUserEmail)
 
         if (found === undefined) {
-            let newUserObj = createNewUserObj(name, signInEmail, photo)
-
+            let newUserObj = createNewUserObj(displayName, signInUserEmail, photoURL)
             addUserToFireStore(collectionFunc, newUserObj)
-
-            getUsersCollection(collectionFunc, signInEmail, setUserState, page, history)
-
+            getUsersCollection(collectionFunc, signInUserEmail, setUserState, history)
         } else {
-            getUsersCollection(collectionFunc, signInEmail, setUserState, page, history)
-
+            getUsersCollection(collectionFunc, signInUserEmail, setUserState, history)
         }
     })
 }

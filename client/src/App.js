@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Switch, Route, useHistory } from 'react-router-dom'
 import firebase, { auth } from './firebase'
 import { UserContext } from './providers/CurrentUser'
-import { setPage, findUserAndUpdateState } from './utils'
+import { findUserAndUpdateState } from './utils'
 import { Landing } from './pages/index'
 import { Admin } from './pages/index'
 import { Vendor } from './pages/index'
@@ -15,28 +15,24 @@ const AppContainer = styled.div`
     height: 100vh;
     /* border: 2px dashed lightblue; */
 `
+let db = firebase.firestore()
+let usersCollection = db.collection('users')
 
+function handleAuthChange(setCurrentUser,history){
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            findUserAndUpdateState(usersCollection, user, setCurrentUser, history)
+        } else {
+            history.location.pathname !== '/' && history.push('/')
+        }
+    })
+}
+    
 export default function App() {
     const [, setCurrentUser] = useContext(UserContext)
+    const history = useHistory()
 
-    let history = useHistory()
-    let db = firebase.firestore()
-    let usersCollection = db.collection('users')
-
-    useEffect(() => {
-        auth.onAuthStateChanged((user) => {
-            if (user) {
-                const { email, displayName, photoURL } = user
-                let signInUserEmail = email
-
-                findUserAndUpdateState(usersCollection, signInUserEmail, displayName, photoURL, setCurrentUser, setPage, history)
-
-            } else {
-                history.push('/')
-            }
-        })
-    
-    })
+    // handleAuthChange(setCurrentUser,history)
 
     return (
         <AppContainer>
