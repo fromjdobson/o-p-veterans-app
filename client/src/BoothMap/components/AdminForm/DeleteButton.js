@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import trashIcon from '../../../assets/Icons/trash.png'
+import trashIcon from '../../../assets/icons/trash.png'
 import { StyledDeleteButton } from '../../styledComponents'
 import {destroy} from '../../../reusables/firestoreCRUD'
 
