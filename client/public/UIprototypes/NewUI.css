@@ -171,7 +171,7 @@ button:active {
 
 #payment-page {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr var(--mobile) 1fr;
     grid-template-areas: " . details . "
         " . discount . "
         " . total . "
