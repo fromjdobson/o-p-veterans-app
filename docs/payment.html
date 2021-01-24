@@ -16,7 +16,7 @@
 
         <div id="summary-details">
             <h3 class='left'>Summary</h3>
-            <div class='summary-row left'>
+            <div class='summary-row'>
                 <img src='abrams-sponsor-logo.png' alt='abrams' width="64">
                 <div class='sponsorship-details'>
                     <p>Abrams Level Sponsorship</p>
@@ -36,7 +36,7 @@
         <form name='discount-code' id='discount-code'>
             <div id='discount-code-input'>
                 <label class='left'>Discount code</label>
-                <input type='text' size="10" />
+                <input type='text' />
                 &nbsp; &nbsp;
                 &nbsp; &nbsp;
             </div>
@@ -51,25 +51,32 @@
 
         <form name='card-info' id='card-info'>
             <h3 class='left'>Payment</h3>
-            <div class="input-list left">
-                <div>
-                    <label class='left'>Name on card</label>
-                    <input type='text' size="30" name='name' />
-                </div>
-                <div>
-                    <label class='left'>Card number</label>
-                    <input type='text' size="30" name='name' />
-                </div>
-                <div>
-                    <label class='left'>Expires &nbsp; CVC</label>
 
-                    <input type='text' size="3" name='name' />/
-                    <input type='text' size="3" name='name' />&nbsp;
-                    <input type='text' size="3" name='name' />
+                <div class='input-container'>
+                    <label class='left'>Name on card</label>
+                    <input type='text' size='30' name='name' />
                 </div>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </div>
-            <button>Pay $2,700.00</button>
+                <div class='input-container'>
+                    <label class='left'>Card number</label>
+                    <input type='text' size='30' name='card' />
+                </div>
+
+                <div class='input-container left'>
+                    <div class="group-container">
+                        <label class='left'>Expires</label>
+                        <input type='text' name='month' /> &nbsp;/
+                    </div>
+                    <div class="group-container">
+                        <label class='left'> &nbsp;</label>
+                        <input type='text' name='year' />
+                    </div>
+                    <div class="group-container">
+                        <label class='left'>cvc</label>
+                        <input type='text' name='cvc' />
+                    </div>
+                    
+                </div>
+                <button>Pay $2,700.00</button>
         </form>
     </div>
 

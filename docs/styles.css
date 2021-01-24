@@ -81,27 +81,30 @@ h2 {
 h3 {
     font: var(--regular-font);
 }
-
-hr {
-    border: 0.5px solid var(--cloudy);
-    background: var(--cloudy);
-    width: 100%;
-    margin: 0px;
-
+h4 {
+    font: var(--small-font);
 }
 
+/* INPUT FIELDS */
 input {
     border: none;
     height: 20px;
     font-weight: 100;
     text-align: left;
     border-bottom: 1px solid var(--charcoal);
+    padding-bottom: 8px;
+    /* width: var(--mobile); */
 }
-
 input:focus {
     outline-style: none;
 }
+.input-container {
+    margin: 12px;
+    padding: 16px;
+}
 
+
+/* BUTTONS AND ANCHORS */
 a,
 button,
 a:visited {
@@ -110,13 +113,14 @@ a:visited {
     color: var(--primary-component-font-color);
     padding: 8px 46px;
     box-shadow: var(--shadow-low);
-    border: none;
+    border: 2px solid var(--primary-component-color);
     border-radius: var(--default-border);
     outline-style: none;
     user-select: none;
     text-align: center;
     text-decoration: none;
     appearance: auto;
+    font-weight: 600;
 }
 
 /* BUTTONS */
@@ -229,6 +233,9 @@ button:active {
 #discount-code-input {
     display: inline-block;
 }
+#discount-code-input > input {
+    width: 100px;
+}
 
 #discount-code button {
     padding: 8px 16px;
@@ -249,15 +256,23 @@ button:active {
     padding-top: 48px;
     border-bottom: none;
 }
+.group-container {
+    display: inline-block;
+}
+.group-container > input {
+    width: 46px;
+    margin: 8px;
+    
+}
 label {
     font-size: 12px;
     font-weight: 100;
     margin-top: -4px;
     display: block;
 }
-#card-info .input-list div {
-    margin: 12px;
-    padding: 16px;
+#card-info button{
+    padding: 8px 90px;
+    margin: 40px 10px;
 }
 
 /* PAYMENT PAGE DESKTOP LAYOUT */
@@ -285,3 +300,42 @@ label {
         padding-top: 80px;
     }
 }
+
+/* LOGIN PAGE */
+#login-page{
+    --top-gap: 20px;
+    --logo: 100px;
+    --opveteran: 24px;
+    --vetfest-registration: 105px;
+    --register-and: 47px;
+    --auth-provider: 93px;
+    --or: 38px;
+
+    /* margin: 30px; */
+    display: grid;
+    grid-template-columns: 1fr var(--mobile) 1fr;
+    grid-template-rows: 
+        var(--top-gap)
+        var(--logo) 
+        var(--opveteran)
+        var(--vetfest-registration)
+        var(--register-and)
+        var(--auth-provider)
+        var(--or);
+}
+#login-page > * {
+    grid-column-start: 2;
+    padding: 12px;
+}
+#login-page .login-buttons button{
+    padding: 8px 44px;
+    margin: 8px;
+}
+#login-page .input-container{
+    padding: 0px;
+    margin: 36px 0px;
+}
+#login-page .spacer{
+    margin: 50px 10px;
+}
+
