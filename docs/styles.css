@@ -31,7 +31,7 @@
     --secondary-font-color: var(--green);
 
     /* component defaults */
-    --default-border: var(--default-border);
+    --default-border: 2px;
 
     /* primary components */
     --primary-component-font-color: var(--primary-font-color);
@@ -50,7 +50,7 @@
     color: var(--default-font-color);
     letter-spacing: 0.01em;
     text-align: center;
-    border-radius: var(--default-border);
+    /* border-radius: var(--default-border); */
     margin: 0px;
     padding: 0px;
 }
@@ -107,11 +107,11 @@ button,
 a:visited {
     cursor: pointer;
     background: var(--primary-component-color);
-    border-radius: var(--default-border);
     color: var(--primary-component-font-color);
     padding: 8px 46px;
     box-shadow: var(--shadow-low);
     border: none;
+    border-radius: var(--default-border);
     outline-style: none;
     user-select: none;
     text-align: center;
