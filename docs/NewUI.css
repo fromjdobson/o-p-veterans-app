@@ -192,10 +192,12 @@ button:active {
 #payment-total {
     grid-area: total;
     padding-top: 27%;
+    padding-bottom: 20%;
 }
 
 #card-info {
     grid-area: card;
+    margin-bottom: 90px;
 }
 #discount-code-input{
     display: inline-block;
@@ -210,7 +212,7 @@ button:active {
 
 .sponsorship-details {
     display: inline-block;
-    height: 64px;
+    /* height: 64px; */
 }
 
 .sponsorship-details p {
@@ -226,12 +228,25 @@ button:active {
     padding: 18px;
 }
 
+.summary-row {
+    height: 64px;
+    display: flex;
+    margin: 20px;
+}
+
 .payment-row label {
     font-size: 12px;
     font-weight: 100;
     margin-top: -4px;
     display: block;
 }
+
+.payment-row .input-list div{
+    margin: 12px;
+    padding: 16px;
+}
+
+
 
 @media screen and (min-width: 862px) {
 
@@ -250,13 +265,16 @@ button:active {
 
     #summary-details {
         border: 0.5px solid var(--cloudy);
+        border-left-width: 2px;
     }
     
     #discount-code {
         border: 0.5px solid var(--cloudy);
+        border-left-width: 2px;
     }
     
     #payment-total {
         border: 0.5px solid var(--cloudy);
+        border-left-width: 2px;
     }
 }
