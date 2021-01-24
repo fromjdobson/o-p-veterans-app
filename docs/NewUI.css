@@ -167,52 +167,43 @@ button:active {
     border-width: var(--default-border);
 }
 
-/* PAYMENT PAGE */
-
+/* PAYMENT PAGE LAYOUT */
 #payment-page {
+    --summary-height: 280px;
+    --discount-code-height: 156px;
+    --totals-height: 192px;
+    --card-info-height: 476px;
+
     display: grid;
     grid-template-columns: 1fr var(--mobile) 1fr;
+    grid-template-rows:
+        var(--summary-height) var(--discount-code-height) var(--totals-height) var(--card-info-height);
     grid-template-areas: " . details . "
         " . discount . "
         " . total . "
         " . card . ";
 }
 
+/* PAYMENT PAGE ALL SECTIONS */
+#payment-page>* {
+    border-bottom: 0.5px solid var(--cloudy);
+}
+
+/* SUMMARY DETAILS SECTION */
 #summary-details {
     grid-area: details;
-    padding-left: 24px;
+    padding-top: 48px;
+    padding-left: 48px;
 }
 
-#discount-code {
-    grid-area: discount;
-    display: inline-block;
-    padding-top: 28%;
-}
-
-#payment-total {
-    grid-area: total;
-    padding-top: 27%;
-    padding-bottom: 20%;
-}
-
-#card-info {
-    grid-area: card;
-    margin-bottom: 90px;
-}
-#discount-code-input{
-    display: inline-block;
-}
-#discount-code button{
-    padding: 8px 16px;
-}
-
-#payment-page h3 {
-    margin: 24px;
+.summary-row {
+    margin: 16px;
+    height: 64px;
+    display: flex;
 }
 
 .sponsorship-details {
     display: inline-block;
-    /* height: 64px; */
 }
 
 .sponsorship-details p {
@@ -228,53 +219,69 @@ button:active {
     padding: 18px;
 }
 
-.summary-row {
-    height: 64px;
-    display: flex;
-    margin: 20px;
+/* DISCOUNT CODE APPLY SECTION*/
+#discount-code {
+    grid-area: discount;
+    padding-top: 48px;
+    display: inline-block;
 }
 
-.payment-row label {
+#discount-code-input {
+    display: inline-block;
+}
+
+#discount-code button {
+    padding: 8px 16px;
+}
+
+/* TOTALS SECTION */
+#payment-total {
+    grid-area: total;
+    padding-top: 32px;
+}
+#payment-total >*{
+    padding: 8px;
+}
+
+/* CREDIT CARD INFO FORM SECTION */
+#card-info {
+    grid-area: card;
+    padding-top: 48px;
+    border-bottom: none;
+}
+label {
     font-size: 12px;
     font-weight: 100;
     margin-top: -4px;
     display: block;
 }
-
-.payment-row .input-list div{
+#card-info .input-list div {
     margin: 12px;
     padding: 16px;
 }
 
-
-
+/* PAYMENT PAGE DESKTOP LAYOUT */
 @media screen and (min-width: 862px) {
-
     #payment-page {
-        grid-template-rows: 33vh 33vh 33vh;
+        grid-template-rows: 34vh 33vh 33vh;
         grid-template-columns: 1px 1fr calc(var(--mobile));
         grid-template-areas: " . card details "
             " . card discount "
             " . card total ";
     }
-
+    #payment-page>* {
+        border-bottom: 0.5px solid var(--cloudy);
+        border-left: 0.5px solid var(--cloudy);
+    }
     #card-info {
-        /* width: var(--mobile); */
         margin: auto;
+        border: none;
     }
-
-    #summary-details {
-        border: 0.5px solid var(--cloudy);
-        border-left-width: 2px;
-    }
-    
     #discount-code {
-        border: 0.5px solid var(--cloudy);
-        border-left-width: 2px;
+        padding-top: 110px;
     }
-    
     #payment-total {
-        border: 0.5px solid var(--cloudy);
-        border-left-width: 2px;
+        border-bottom: none;
+        padding-top: 80px;
     }
 }
