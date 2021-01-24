@@ -1,4 +1,5 @@
 import firebase from '../firebase'
+import handleErrors from './defaultErrorHandler'
 
 // Basic firestore CRUD:
 // Each operation takes one argument. 
@@ -29,8 +30,4 @@ function convertResponse(res) {
         })
     })
     return array
-}
-function handleErrors({ code, message }) {
-    console.error(`VetFest Error code: ${code} // Error message: ${message}`)
-    alert(message)
 }

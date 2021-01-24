@@ -1,0 +1,265 @@
+:root {
+    /* colors */
+    --green: #618572;
+    --white: #FCFCFC;
+    --charcoal: #545454;
+    --cloudy: #EAEAEA;
+    --red: #DE2D2D;
+
+    /* widths */
+    --mobile: 375px;
+
+    /* font */
+    --default-font: normal 400 16px/24px Open Sans;
+
+    --tiny-font: normal 300 15px/16px Open Sans;
+
+    /* status message */
+    --small-font: normal 400 16px/20px Open Sans;
+
+    /* h3, default, button */
+    --regular-font: normal 400 24px/24px Open Sans;
+
+    /* h2 */
+    --large-font: normal 700 24px/24px Open Sans;
+
+    /* h1 */
+    --super-font: normal 700 32px/40px Open Sans;
+
+    --primary-font-color: var(--white);
+    --default-font-color: var(--charcoal);
+    --secondary-font-color: var(--green);
+
+    /* component defaults */
+    --default-border: var(--default-border);
+
+    /* primary components */
+    --primary-component-font-color: var(--primary-font-color);
+    --primary-component-color: var(--green);
+
+    /* shadows */
+    --shadow-very-high: 0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12), 0px 4px 5px rgba(0, 0, 0, 0.2);
+    --shadow-high: 0px 6px 10px rgba(0, 0, 0, 0.14), 0px 1px 18px rgba(0, 0, 0, 0.12), 0px 3px 5px rgba(0, 0, 0, 0.2);
+    --shadow-low: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* DEFAULTS FOR ALL ELEMENTS */
+* {
+    box-sizing: border-box;
+    font: var(--default-font);
+    color: var(--default-font-color);
+    letter-spacing: 0.01em;
+    text-align: center;
+    border-radius: var(--default-border);
+    margin: 0px;
+    padding: 0px;
+}
+
+/* TEXT */
+.center {
+    text-align: center;
+}
+
+.left {
+    text-align: left;
+}
+
+/* GENERAL PURPOSE ELEMENTS */
+p {
+    font: var(--tiny-font);
+    margin: 8px;
+}
+
+h1 {
+    font: var(--super-font);
+}
+
+h2 {
+    font: var(--large-font);
+}
+
+h3 {
+    font: var(--regular-font);
+}
+
+hr {
+    border: 0.5px solid var(--cloudy);
+    background: var(--cloudy);
+    width: 100%;
+    margin: 0px;
+
+}
+
+input {
+    border: none;
+    height: 20px;
+    font-weight: 100;
+    text-align: left;
+    border-bottom: 1px solid var(--charcoal);
+}
+
+input:focus {
+    outline-style: none;
+}
+
+a,
+button,
+a:visited {
+    cursor: pointer;
+    background: var(--primary-component-color);
+    border-radius: var(--default-border);
+    color: var(--primary-component-font-color);
+    padding: 8px 46px;
+    box-shadow: var(--shadow-low);
+    border: none;
+    outline-style: none;
+    user-select: none;
+    text-align: center;
+    text-decoration: none;
+    appearance: auto;
+}
+
+/* BUTTONS */
+a:hover,
+button:hover,
+a:focus,
+button:focus {
+    transition: all 50ms linear;
+    box-shadow: var(--shadow-high);
+}
+
+a:active,
+button:active {
+    transform: translateY(1px);
+    box-shadow: var(--shadow-low);
+}
+
+.secondary-button {
+    background-color: var(--white);
+    color: var(--green);
+    border: solid var(--green);
+    border-width: var(--default-border);
+}
+
+.circle-button {
+    background-color: var(--white);
+    color: var(--green);
+    border: solid #EAEAEA;
+    border-width: var(--default-border);
+    border-radius: 100px;
+    width: 56px;
+    height: 56px;
+    padding: 10px 10px 10px 11px;
+}
+
+.circle-button>img {
+    width: 30px;
+}
+
+/* STATUS MESSAGE */
+.status-message-open {
+    padding: 8px 16px;
+    width: 300px;
+    margin: auto;
+    font: var(--small-font);
+    box-shadow: var(--shadow-very-high);
+    border: solid var(--charcoal);
+    border-width: var(--default-border);
+}
+
+/* PAYMENT PAGE */
+
+#payment-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: " . details . "
+        " . discount . "
+        " . total . "
+        " . card . ";
+}
+
+#summary-details {
+    grid-area: details;
+    padding-left: 24px;
+}
+
+#discount-code {
+    grid-area: discount;
+    display: inline-block;
+    padding-top: 28%;
+}
+
+#payment-total {
+    grid-area: total;
+    padding-top: 27%;
+}
+
+#card-info {
+    grid-area: card;
+}
+#discount-code-input{
+    display: inline-block;
+}
+#discount-code button{
+    padding: 8px 16px;
+}
+
+#payment-page h3 {
+    margin: 24px;
+}
+
+.sponsorship-details {
+    display: inline-block;
+    height: 64px;
+}
+
+.sponsorship-details p {
+    text-align: left;
+}
+
+.booth-box {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    background: var(--primary-component-color);
+    color: var(--primary-component-font-color);
+    padding: 18px;
+}
+
+.payment-row label {
+    font-size: 12px;
+    font-weight: 100;
+    margin-top: -4px;
+    display: block;
+}
+.payment-row input {
+    /* margin: 16px 20px 10px 4px; */
+}
+
+@media screen and (min-width: 862px) {
+
+    #payment-page {
+        grid-template-rows: 33vh 33vh 33vh;
+        grid-template-columns: 1px 1fr calc(var(--mobile));
+        grid-template-areas: " . card details "
+            " . card discount "
+            " . card total ";
+    }
+
+    #card-info {
+        /* width: var(--mobile); */
+        margin: auto;
+    }
+
+    #summary-details {
+        border: 0.5px solid var(--cloudy);
+    }
+    
+    #discount-code {
+        border: 0.5px solid var(--cloudy);
+    }
+    
+    #payment-total {
+        border: 0.5px solid var(--cloudy);
+    }
+}

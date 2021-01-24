@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="NewUI.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type='text/css'
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <title>OP Veteran UI examples</title>
+    <style>
+        fieldset {
+            display: inline-block;
+            /* width: 40%; */
+            /* padding: 10px; */
+            border-style: dotted;
+        }
+
+        pre {
+            text-align: left;
+            font-family: monospace, serif;
+            font-size: small;
+            margin-bottom: 10px;
+            overflow: auto;
+            padding: 5px;
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Buttons</h1>
+        To change the look of these components, edit the NewUI.css file
+    </div>
+    <div>
+
+        <fieldset>
+            <legend>Button</legend>
+            <button>Primary</button>
+            <pre>&lt;button&gt; Primary &lt;/button&gt;</pre>
+        </fieldset>
+        <fieldset>
+            <legend>Anchor</legend>
+            <a>Primary</a>
+            <pre>&lt;a&gt; Primary &lt;/a&gt;</pre>
+        </fieldset>
+    </div>
+    <div>
+
+        <fieldset>
+            <legend>Secondary Button</legend>
+            <button class='secondary-button'>Primary</button>
+            <pre>&lt;button class='secondary-button'&gt; Primary &lt;/button&gt;</pre>
+        </fieldset>
+        <fieldset>
+            <legend>Secondary Anchor</legend>
+            <a class='secondary-button'>Primary</a>
+            <pre>&lt;a class='secondary-button'&gt; Primary &lt;/a&gt;</pre>
+        </fieldset>
+    </div>
+    <div>
+
+        <fieldset>
+            <legend>Circle Button</legend>
+            <button class='circle-button'>
+                <img src="google-icon.svg" alt="">
+            </button>
+            <pre>&lt;button class='circle-button'&gt;
+                &lt;img src="google.svg" &gt; &lt;/button&gt;</pre>
+        </fieldset>
+        <fieldset>
+            <legend>Circle Anchor</legend>
+            <a class='circle-button'>
+                <img src="google-icon.svg" alt="">
+            </a>
+            <pre>&lt;a class='circle-button'&gt;
+                    &lt;img src="google.svg" &gt; &lt;/a&gt;</pre>
+        </fieldset>
+    </div>
+    <fieldset>
+        <legend>Status Message</legend>
+        <div class='status-message-open'>
+            Congrats! You have created an account on O.P. Veteran. Now, please continue the registration.
+        </div>
+        <pre>&lt;div class='status-message-open' &gt; &lt;/div&gt;</pre>
+    </fieldset>
+    <div>
+        <fieldset>
+            <legend>Payment Component Mobile</legend>
+            <div id='payment-component'>
+                <h3 class='left'>Summary</h3>
+                <div class='summary-row left'>
+                    <img src='../src/assets/images/abrams-sponsor-logo.png' alt='abrams' width="64">
+                    <div class='sponsorship-details'>
+                        <p>Abrams Level Sponsorship</p>
+                        <p>$2,500.00</p>
+                    </div>
+                </div>
+                <div class='summary-row left'>
+                    <div class='booth-box'>C03</div>
+                    <div class='sponsorship-details'>
+                        <p>Booth C03 Reservation</p>
+                        <p>$200.00</p>
+                    </div>
+                </div>
+                <hr />
+                <form class="summary-row" name='discount-code'>
+                    <fieldset>
+                        <div id='discount-code'>
+                            <legend class='left'>Discount code</legend>
+                            <input type='text' size="10" />
+                            &nbsp; &nbsp;
+                            &nbsp; &nbsp;
+                        </div>
+                        <button class='secondary-button'>Apply</button>
+                    </fieldset>
+                </form>
+                <hr>
+                <div class="summary-row">
+                    <div>Subtotal $2,700.00</div>
+                    <div>Tax $0</div>
+                    <h2>Total $2,700.00</h2>
+                </div>
+                <hr>
+                <form class="summary-row" name='discount-code'>
+                    <h3 class='left'>Payment</h3>
+                    <fieldset>
+                        <div class="left">
+                            <div>
+                                <legend class='left'>Name on card</legend>
+                                <input type='text' size="30" name='name' />
+                            </div>
+                            <div>
+                                <legend class='left'>Card number</legend>
+                                <input type='text' size="30" name='name' />
+                            </div>
+                            <div>
+                                <legend class='left'>Expires CVC</legend>
+
+                                <input type='text' size="3" name='name' />/
+                                <input type='text' size="3" name='name' />&nbsp;
+                                <input type='text' size="3" name='name' />
+                            </div>
+                            <div>
+
+                            </div>
+                            &nbsp; &nbsp;
+                            &nbsp; &nbsp;
+                        </div>
+                        <button>Pay $2,700.00</button>
+                    </fieldset>
+                </form>
+            </div>
+        </fieldset>
+    </div>
+
+
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque illum minima tempora, excepturi vel itaque doloremque
+    totam dolorum tempore at quaerat enim laboriosam eaque esse? Fugit provident aut facere totam.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque illum minima tempora, excepturi vel itaque doloremque
+    totam dolorum tempore at quaerat enim laboriosam eaque esse? Fugit provident aut facere totam.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque illum minima tempora, excepturi vel itaque doloremque
+    totam dolorum tempore at quaerat enim laboriosam eaque esse? Fugit provident aut facere totam.
+</body>
+
+</html>
