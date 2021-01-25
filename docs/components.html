@@ -16,9 +16,18 @@
             display: inline-block;
             /* width: 40%; */
             /* padding: 10px; */
-            border-style: dotted;
+            border-style: none;
+            border-bottom: none;
+            border-left: none;
+            border-right: none;
+            background-color: #f3f3f3;
         }
-
+        legend {
+            background-color: #f3f3f3;
+            padding: 2px 8px;
+            border-radius: 12px;
+            border-top: 2px none #ddd;
+        }
         pre {
             text-align: left;
             font-family: monospace, serif;
@@ -36,8 +45,19 @@
         <h1>Buttons</h1>
         To change the look of these components, edit the NewUI.css file
     </div>
-    <div>
 
+    <div>
+        <fieldset>
+            <legend>User Account Header</legend>
+            <header>
+                <div><img src="../client/src/assets/icons/Vector.svg" alt="close" width='20px'></div>
+                <div><img src="../client/src/assets/images/vetfest-logo.png" alt=""></div>
+                <div><img src="../client/src/assets/icons/avatar-icon.svg" alt="" width='50px'></div>
+            </header>
+        </fieldset>
+    </div>
+
+    <div>
         <fieldset>
             <legend>Button</legend>
             <button>Primary</button>
@@ -49,8 +69,8 @@
             <pre>&lt;a&gt; Primary &lt;/a&gt;</pre>
         </fieldset>
     </div>
-    <div>
 
+    <div>
         <fieldset>
             <legend>Secondary Button</legend>
             <button class='secondary-button'>Primary</button>
@@ -62,36 +82,53 @@
             <pre>&lt;a class='secondary-button'&gt; Primary &lt;/a&gt;</pre>
         </fieldset>
     </div>
-    <div>
 
+    <div>
         <fieldset>
             <legend>Circle Button</legend>
             <button class='circle-button'>
                 <img src="google-icon.svg" alt="">
             </button>
-            <pre>&lt;button class='circle-button'&gt;
-                &lt;img src="google.svg" &gt; &lt;/button&gt;</pre>
+<pre>&lt;button class='circle-button'&gt;
+    &lt;img src="google.svg" &gt; &lt;/button&gt;</pre>
         </fieldset>
         <fieldset>
             <legend>Circle Anchor</legend>
             <a class='circle-button'>
                 <img src="google-icon.svg" alt="">
             </a>
-            <pre>&lt;a class='circle-button'&gt;
-                    &lt;img src="google.svg" &gt; &lt;/a&gt;</pre>
+<pre>&lt;a class='circle-button'&gt;
+        &lt;img src="google.svg" &gt; &lt;/a&gt;</pre>
         </fieldset>
     </div>
-    <fieldset>
-        <legend>Status Message</legend>
-        <div class='status-message-open'>
-            Congrats! You have created an account on O.P. Veteran. Now, please continue the registration.
-        </div>
-        <pre>&lt;div class='status-message-open' &gt; &lt;/div&gt;</pre>
-    </fieldset>
+
+    <div>
+        <fieldset>
+            <legend>Status Message</legend>
+            <div class='status-message-open'>
+                Congrats! You have created an account on O.P. Veteran. Now, please continue the registration.
+            </div>
+            <pre>&lt;div class='status-message-open' &gt; &lt;/div&gt;</pre>
+        </fieldset>
+    </div>
    
+<div>
+    <fieldset>
+        <legend>Text Input</legend>
+        <div class='input-container'>
+            <label class='left' for="email">Email</label>
+            <input type="email" name="email" id="email" size='48'>
+        </div>
+        <pre>
+&lt;div class='input-container'&gt;
+    &lt;label for="email"&gt;Email&lt;/label&gt;
+    &lt;input type="email" id="email" size='36'&gt;&lt;/div&gt;
+</div>
+        </pre>
+    </fieldset>
+</div>
 
 
-    
     <br>
     <br>
     <br>

@@ -59,7 +59,6 @@
 .center {
     text-align: center;
 }
-
 .left {
     text-align: left;
 }
@@ -69,15 +68,12 @@ p {
     font: var(--tiny-font);
     margin: 8px;
 }
-
 h1 {
     font: var(--super-font);
 }
-
 h2 {
     font: var(--large-font);
 }
-
 h3 {
     font: var(--regular-font);
 }
@@ -87,12 +83,14 @@ h4 {
 
 /* INPUT FIELDS */
 input {
+    background: transparent;
     border: none;
     height: 20px;
     font-weight: 100;
     text-align: left;
     border-bottom: 1px solid var(--charcoal);
-    padding-bottom: 8px;
+    padding-bottom: 5px;
+    width: 100%;
     /* width: var(--mobile); */
 }
 input:focus {
@@ -163,12 +161,13 @@ button:active {
 /* STATUS MESSAGE */
 .status-message-open {
     padding: 8px 16px;
-    width: 300px;
+    /* width: 300px; */
     margin: auto;
+    text-align: left;
     font: var(--small-font);
     box-shadow: var(--shadow-very-high);
-    border: solid var(--charcoal);
-    border-width: var(--default-border);
+    border: var(--default-border) solid var(--charcoal);
+    border-radius: var(--default-border);
 }
 
 /* PAYMENT PAGE LAYOUT */
@@ -306,10 +305,10 @@ label {
     --top-gap: 20px;
     --logo: 100px;
     --opveteran: 24px;
-    --vetfest-registration: 105px;
+    --vetfest-registration: 64px;
     --register-and: 47px;
     --auth-provider: 93px;
-    --or: 38px;
+    --or: 20px;
 
     /* margin: 30px; */
     display: grid;
@@ -339,3 +338,94 @@ label {
     margin: 50px 10px;
 }
 
+/* USER ACCOUNT HEADER */
+header{
+    width: 100vw;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 80px 1fr 80px;
+    grid-template-rows: 100px;
+}
+header a{
+    background: transparent;
+    box-shadow: none;
+    padding: 0px;
+    border: none;
+}
+header a:hover{
+    box-shadow: none;
+}
+
+
+/* REGISTRATION */
+#registration-page{
+    --top-gap: 0px;
+    --status-message: 99px;
+    --welcome-title: 86px;
+    --getinfo: 101px;
+    --label: 30px;
+    --input: 91px;
+    --next: 38px;
+    --progress: 20vh;
+    /* margin: 30px; */
+    display: grid;
+    grid-template-columns: 1fr var(--mobile) 1fr;
+    grid-template-rows: 
+        var(--top-gap)
+        var(--status-message) 
+        var(--welcome-title)
+        var(--getinfo)
+        var(--label)
+        var(--input)
+        var(--next)
+        var(--progress);
+}
+
+#registration-page > * {
+    grid-column-start: 2;
+    padding: 12px;
+    text-align: left;
+}
+#registration-page label{
+    font-weight: 600;
+    text-align: left;
+    font-size: medium;
+}
+
+#registration-page a{
+    background: transparent;
+    box-shadow: none;
+    padding: 0px;
+    border: none;
+}
+#registration-page a:hover{
+    box-shadow: none;
+}
+.next-button {
+    display: flex;
+    justify-content: flex-end;
+}
+.next-button > * {
+    color: var(--green);
+    /* font: var(--large-font); */
+    font-size: 20px;
+    font-weight: 600;
+    height: 16px;
+    margin: 4px;
+}
+ 
+.progress-bar{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    justify-self: flex-end;
+    line-height: 8px;
+}
+
+meter {
+    height: 0.8em;
+    width: 14em;
+    padding: 0px;
+    margin: 0px;
+}
