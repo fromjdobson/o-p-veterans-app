@@ -1,10 +1,8 @@
 import React from "react";
-import { useHistory } from 'react-router'
+import { Link } from 'react-router-dom'
 import styled from "styled-components";
-import { auth } from '../../firebase'
 import closeIcon from '../../assets/icons/Vector.svg'
 import vetFestLogo from '../../assets/images/vetfest-logo.png'
-import handleErrors from '../../reusables/defaultErrorHandler'
 import avatar from '../../assets/icons/avatar-icon.svg'
 
 
@@ -30,23 +28,20 @@ const HeaderContainer = styled.div`
     height: 40px;
     border-radius: 100%;
   }
+  & > a{
+    box-shadow: none;
+  }
 `
 
-export default function Header({currentUser}) {
-  const history = useHistory()
-
+export default function Header({ currentUser }) {
   const img = currentUser.userImg || avatar
   const alt = currentUser.name || 'user has no name'
 
-  function logout() {
-    auth.signOut().then(() => {
-      history.push('/')      
-    }).catch(handleErrors)
-  }
-
   return (
     <HeaderContainer>
-      <img className='close-icon' src={closeIcon} alt='Click to signout' onClick={logout} />
+      <Link to='/logout'>
+        <img className='close-icon' src={closeIcon} alt='Click to signout' />
+      </Link>
       <img src={vetFestLogo} alt={'VetFest logo'} />
       <img className='user-graphic' src={img} alt={alt} />
     </HeaderContainer>
