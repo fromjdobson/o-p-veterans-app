@@ -62,7 +62,7 @@ export default function Admin({currentUser}) {
 
     return (
         <PageContainer>
-            <Header {...{currentUser}}/>
+            {/* <Header {...{currentUser}}/> */}
             <h2 className={'heading'}>{(currentUser !== null) ? `Welcome, ${currentUser.name}.` : `Welcome, Admin.`}</h2>
             <h4 className={'sub-heading'}>{'Here is a current list and diagram of vendors registered for Vet Fest.'}</h4>
             <TempDiagram className={'diagram'} />
