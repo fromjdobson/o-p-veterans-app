@@ -147,7 +147,6 @@ export default function Landing() {
         return true
     }
 
-
     function handleGoolgeLogin() {
         auth.signInWithPopup(provider).then((result) => {
             console.log('User is signed in.')
@@ -177,7 +176,7 @@ export default function Landing() {
 
     return (
         <PageContainer>
-            <img src={logo} alt={'Vetfest logo'} />
+            {/* <img src={logo} alt={'Vetfest logo'} /> */}
             <p className={'title-one'}>{'OP Veteran'}</p>
             {error && <ErrorText>{error}</ErrorText>}
             <h3 className={'title-two'}>{'VetFest Registration'}</h3>

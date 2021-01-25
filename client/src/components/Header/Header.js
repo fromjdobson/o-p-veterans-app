@@ -5,6 +5,8 @@ import { auth } from '../../firebase'
 import closeIcon from '../../assets/icons/Vector.svg'
 import vetFestLogo from '../../assets/images/vetfest-logo.png'
 import handleErrors from '../../reusables/defaultErrorHandler'
+import avatar from '../../assets/icons/avatar-icon.svg'
+
 
 const HeaderContainer = styled.div`
   box-sizing: border-box;
@@ -33,6 +35,9 @@ const HeaderContainer = styled.div`
 export default function Header({currentUser}) {
   const history = useHistory()
 
+  const img = currentUser.userImg || avatar
+  const alt = currentUser.name || 'user has no name'
+
   function logout() {
     auth.signOut().then(() => {
       history.push('/')      
@@ -41,9 +46,9 @@ export default function Header({currentUser}) {
 
   return (
     <HeaderContainer>
-      <img className={'close-icon'} src={closeIcon} alt={'Click to signout'} onClick={logout} />
+      <img className='close-icon' src={closeIcon} alt='Click to signout' onClick={logout} />
       <img src={vetFestLogo} alt={'VetFest logo'} />
-      <img className={'user-graphic'} src={currentUser.userImg} alt={currentUser.name} />
+      <img className='user-graphic' src={img} alt={alt} />
     </HeaderContainer>
   );
 }
