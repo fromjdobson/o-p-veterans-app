@@ -8,6 +8,7 @@
 
     /* widths */
     --mobile: 375px;
+    --tablet: 546px;
 
     /* font */
     --default-font: normal 400 16px/24px Open Sans;
@@ -59,6 +60,7 @@
 .center {
     text-align: center;
 }
+
 .left {
     text-align: left;
 }
@@ -68,15 +70,19 @@ p {
     font: var(--tiny-font);
     margin: 8px;
 }
+
 h1 {
     font: var(--super-font);
 }
+
 h2 {
     font: var(--large-font);
 }
+
 h3 {
     font: var(--regular-font);
 }
+
 h4 {
     font: var(--small-font);
 }
@@ -93,9 +99,11 @@ input {
     width: 100%;
     /* width: var(--mobile); */
 }
+
 input:focus {
     outline-style: none;
 }
+
 .input-container {
     margin: 12px;
     padding: 16px;
@@ -232,7 +240,8 @@ button:active {
 #discount-code-input {
     display: inline-block;
 }
-#discount-code-input > input {
+
+#discount-code-input>input {
     width: 100px;
 }
 
@@ -245,7 +254,8 @@ button:active {
     grid-area: total;
     padding-top: 32px;
 }
-#payment-total >*{
+
+#payment-total>* {
     padding: 8px;
 }
 
@@ -255,21 +265,25 @@ button:active {
     padding-top: 48px;
     border-bottom: none;
 }
+
 .group-container {
     display: inline-block;
 }
-.group-container > input {
+
+.group-container>input {
     width: 46px;
     margin: 8px;
-    
+
 }
+
 label {
     font-size: 12px;
     font-weight: 100;
     margin-top: -4px;
     display: block;
 }
-#card-info button{
+
+#card-info button {
     padding: 8px 90px;
     margin: 40px 10px;
 }
@@ -283,17 +297,21 @@ label {
             " . card discount "
             " . card total ";
     }
+
     #payment-page>* {
         border-bottom: 0.5px solid var(--cloudy);
         border-left: 0.5px solid var(--cloudy);
     }
+
     #card-info {
         margin: auto;
         border: none;
     }
+
     #discount-code {
         padding-top: 110px;
     }
+
     #payment-total {
         border-bottom: none;
         padding-top: 80px;
@@ -301,7 +319,7 @@ label {
 }
 
 /* LOGIN PAGE */
-#login-page{
+#login-page {
     --top-gap: 20px;
     --logo: 100px;
     --opveteran: 24px;
@@ -313,33 +331,31 @@ label {
     /* margin: 30px; */
     display: grid;
     grid-template-columns: 1fr var(--mobile) 1fr;
-    grid-template-rows: 
-        var(--top-gap)
-        var(--logo) 
-        var(--opveteran)
-        var(--vetfest-registration)
-        var(--register-and)
-        var(--auth-provider)
-        var(--or);
+    grid-template-rows:
+        var(--top-gap) var(--logo) var(--opveteran) var(--vetfest-registration) var(--register-and) var(--auth-provider) var(--or);
 }
-#login-page > * {
+
+#login-page>* {
     grid-column-start: 2;
     padding: 12px;
 }
-#login-page .login-buttons button{
+
+#login-page .login-buttons button {
     padding: 8px 44px;
     margin: 8px;
 }
-#login-page .input-container{
+
+#login-page .input-container {
     padding: 0px;
     margin: 36px 0px;
 }
-#login-page .spacer{
+
+#login-page .spacer {
     margin: 50px 10px;
 }
 
 /* USER ACCOUNT HEADER */
-header{
+header {
     width: 100vw;
     display: grid;
     justify-content: center;
@@ -347,19 +363,21 @@ header{
     grid-template-columns: 80px 1fr 80px;
     grid-template-rows: 100px;
 }
-header a{
+
+header a {
     background: transparent;
     box-shadow: none;
     padding: 0px;
     border: none;
 }
-header a:hover{
+
+header a:hover {
     box-shadow: none;
 }
 
 
-/* REGISTRATION */
-#registration-page{
+/* REGISTRATION PAGE */
+#registration-page {
     --top-gap: 0px;
     --status-message: 99px;
     --welcome-title: 86px;
@@ -371,42 +389,39 @@ header a:hover{
     /* margin: 30px; */
     display: grid;
     grid-template-columns: 1fr var(--mobile) 1fr;
-    grid-template-rows: 
-        var(--top-gap)
-        var(--status-message) 
-        var(--welcome-title)
-        var(--getinfo)
-        var(--label)
-        var(--input)
-        var(--next)
-        var(--progress);
+    grid-template-rows:
+        var(--top-gap) var(--status-message) var(--welcome-title) var(--getinfo) var(--label) var(--input) var(--next) var(--progress);
 }
 
-#registration-page > * {
+#registration-page>* {
     grid-column-start: 2;
     padding: 12px;
     text-align: left;
 }
-#registration-page label{
+
+#registration-page label {
     font-weight: 600;
     text-align: left;
     font-size: medium;
 }
 
-#registration-page a{
+#registration-page a {
     background: transparent;
     box-shadow: none;
     padding: 0px;
     border: none;
 }
-#registration-page a:hover{
+
+#registration-page a:hover {
     box-shadow: none;
 }
+
 .next-button {
     display: flex;
     justify-content: flex-end;
 }
-.next-button > * {
+
+.next-button>* {
     color: var(--green);
     /* font: var(--large-font); */
     font-size: 20px;
@@ -414,8 +429,8 @@ header a:hover{
     height: 16px;
     margin: 4px;
 }
- 
-.progress-bar{
+
+.progress-bar {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -423,9 +438,21 @@ header a:hover{
     line-height: 8px;
 }
 
-meter {
+
+
+    
+  
+progress[value='0.5']{
     height: 0.8em;
     width: 14em;
     padding: 0px;
     margin: 0px;
+}
+
+
+/* REGISTRATION PAGE DESKTOP LAYOUT */
+@media screen and (min-width: 862px) {
+    #registration-page {
+        grid-template-columns: 1fr calc(var(--tablet)) 1fr;
+    }
 }
