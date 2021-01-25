@@ -1,0 +1,459 @@
+:root {
+    /* colors */
+    --green: #618572;
+    --white: #FCFCFC;
+    --charcoal: #545454;
+    --cloudy: #EAEAEA;
+    --red: #DE2D2D;
+
+    /* widths */
+    --mobile: 375px;
+    --tablet: 546px;
+
+    /* font */
+    --default-font: normal 400 16px/24px Open Sans;
+
+    --tiny-font: normal 300 15px/16px Open Sans;
+
+    /* status message */
+    --small-font: normal 400 16px/20px Open Sans;
+
+    /* h3, default, button */
+    --regular-font: normal 400 24px/24px Open Sans;
+
+    /* h2 */
+    --large-font: normal 700 24px/24px Open Sans;
+
+    /* h1 */
+    --super-font: normal 700 32px/40px Open Sans;
+
+    --primary-font-color: var(--white);
+    --default-font-color: var(--charcoal);
+    --secondary-font-color: var(--green);
+
+    /* component defaults */
+    --default-border: 2px;
+
+    /* primary components */
+    --primary-component-font-color: var(--primary-font-color);
+    --primary-component-color: var(--green);
+
+    /* shadows */
+    --shadow-very-high: 0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12), 0px 4px 5px rgba(0, 0, 0, 0.2);
+    --shadow-high: 0px 6px 10px rgba(0, 0, 0, 0.14), 0px 1px 18px rgba(0, 0, 0, 0.12), 0px 3px 5px rgba(0, 0, 0, 0.2);
+    --shadow-low: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* DEFAULTS FOR ALL ELEMENTS */
+* {
+    box-sizing: border-box;
+    font: var(--default-font);
+    color: var(--default-font-color);
+    letter-spacing: 0.01em;
+    /* text-align: center; */
+    /* margin: 0px; */
+    /* padding: 0px; */
+}
+
+/* TEXT */
+.center {
+    text-align: center;
+}
+
+.left {
+    text-align: left;
+}
+
+/* GENERAL PURPOSE ELEMENTS */
+p {
+    font: var(--tiny-font);
+    margin: 8px;
+}
+
+h1 {
+    font: var(--super-font);
+}
+
+h2 {
+    font: var(--large-font);
+}
+
+h3 {
+    font: var(--regular-font);
+}
+
+h4 {
+    font: var(--small-font);
+}
+
+/* INPUT FIELDS */
+input {
+    background: transparent;
+    border: none;
+    height: 20px;
+    font-weight: 100;
+    text-align: left;
+    border-bottom: 1px solid var(--charcoal);
+    padding-bottom: 5px;
+    width: 100%;
+    /* width: var(--mobile); */
+}
+
+input:focus {
+    outline-style: none;
+}
+
+.input-container {
+    margin: 12px;
+    padding: 16px;
+}
+
+
+/* BUTTONS AND ANCHORS */
+/* a,
+button,
+a:visited {
+    cursor: pointer;
+    background: var(--primary-component-color);
+    color: var(--primary-component-font-color);
+    padding: 8px 46px;
+    box-shadow: var(--shadow-low);
+    border: 2px solid var(--primary-component-color);
+    border-radius: var(--default-border);
+    outline-style: none;
+    user-select: none;
+    text-align: center;
+    text-decoration: none;
+    appearance: auto;
+    font-weight: 600;
+} */
+
+/* BUTTONS */
+a:hover,
+button:hover,
+a:focus,
+button:focus {
+    transition: all 50ms linear;
+    box-shadow: var(--shadow-high);
+}
+a{
+    text-decoration: none;
+
+}
+a:active,
+button:active {
+    transform: translateY(1px);
+    box-shadow: var(--shadow-low);
+}
+
+.secondary-button {
+    background-color: var(--white);
+    color: var(--green);
+    border: solid var(--green);
+    border-width: var(--default-border);
+}
+
+.circle-button {
+    background-color: var(--white);
+    color: var(--green);
+    border: solid #EAEAEA;
+    border-width: var(--default-border);
+    border-radius: 100px;
+    width: 56px;
+    height: 56px;
+    padding: 10px 10px 10px 11px;
+}
+
+.circle-button>img {
+    width: 30px;
+}
+
+/* STATUS MESSAGE */
+.status-message-open {
+    padding: 8px 16px;
+    /* width: 300px; */
+    margin: auto;
+    text-align: left;
+    font: var(--small-font);
+    box-shadow: var(--shadow-very-high);
+    border: var(--default-border) solid var(--charcoal);
+    border-radius: var(--default-border);
+}
+
+/* PAYMENT PAGE LAYOUT */
+#payment-page {
+    --summary-height: 280px;
+    --discount-code-height: 156px;
+    --totals-height: 192px;
+    --card-info-height: 476px;
+
+    display: grid;
+    grid-template-columns: 1fr var(--mobile) 1fr;
+    grid-template-rows:
+        var(--summary-height) var(--discount-code-height) var(--totals-height) var(--card-info-height);
+    grid-template-areas: " . details . "
+        " . discount . "
+        " . total . "
+        " . card . ";
+}
+
+/* PAYMENT PAGE ALL SECTIONS */
+#payment-page>* {
+    border-bottom: 0.5px solid var(--cloudy);
+}
+
+/* SUMMARY DETAILS SECTION */
+#summary-details {
+    grid-area: details;
+    padding-top: 48px;
+    padding-left: 48px;
+}
+
+.summary-row {
+    margin: 16px;
+    height: 64px;
+    display: flex;
+}
+
+.sponsorship-details {
+    display: inline-block;
+}
+
+.sponsorship-details p {
+    text-align: left;
+}
+
+.booth-box {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    background: var(--primary-component-color);
+    color: var(--primary-component-font-color);
+    padding: 18px;
+}
+
+/* DISCOUNT CODE APPLY SECTION*/
+#discount-code {
+    grid-area: discount;
+    padding-top: 48px;
+    display: inline-block;
+}
+
+#discount-code-input {
+    display: inline-block;
+}
+
+#discount-code-input>input {
+    width: 100px;
+}
+
+#discount-code button {
+    padding: 8px 16px;
+}
+
+/* TOTALS SECTION */
+#payment-total {
+    grid-area: total;
+    padding-top: 32px;
+}
+
+#payment-total>* {
+    padding: 8px;
+}
+
+/* CREDIT CARD INFO FORM SECTION */
+#card-info {
+    grid-area: card;
+    padding-top: 48px;
+    border-bottom: none;
+}
+
+.group-container {
+    display: inline-block;
+}
+
+.group-container>input {
+    width: 46px;
+    margin: 8px;
+
+}
+
+label {
+    font-size: 12px;
+    font-weight: 100;
+    margin-top: -4px;
+    display: block;
+}
+
+#card-info button {
+    padding: 8px 90px;
+    margin: 40px 10px;
+}
+
+/* PAYMENT PAGE DESKTOP LAYOUT */
+@media screen and (min-width: 862px) {
+    #payment-page {
+        grid-template-rows: 34vh 33vh 33vh;
+        grid-template-columns: 1px 1fr calc(var(--mobile));
+        grid-template-areas: " . card details "
+            " . card discount "
+            " . card total ";
+    }
+
+    #payment-page>* {
+        border-bottom: 0.5px solid var(--cloudy);
+        border-left: 0.5px solid var(--cloudy);
+    }
+
+    #card-info {
+        margin: auto;
+        border: none;
+    }
+
+    #discount-code {
+        padding-top: 110px;
+    }
+
+    #payment-total {
+        border-bottom: none;
+        padding-top: 80px;
+    }
+}
+
+/* LOGIN PAGE */
+#login-page {
+    --top-gap: 20px;
+    --logo: 100px;
+    --opveteran: 24px;
+    --vetfest-registration: 64px;
+    --register-and: 47px;
+    --auth-provider: 93px;
+    --or: 20px;
+
+    /* margin: 30px; */
+    display: grid;
+    grid-template-columns: 1fr var(--mobile) 1fr;
+    grid-template-rows:
+        var(--top-gap) var(--logo) var(--opveteran) var(--vetfest-registration) var(--register-and) var(--auth-provider) var(--or);
+}
+
+#login-page>* {
+    grid-column-start: 2;
+    padding: 12px;
+}
+
+#login-page .login-buttons button {
+    padding: 8px 44px;
+    margin: 8px;
+}
+
+#login-page .input-container {
+    padding: 0px;
+    margin: 36px 0px;
+}
+
+#login-page .spacer {
+    margin: 50px 10px;
+}
+
+/* USER ACCOUNT HEADER */
+header {
+    width: 100vw;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 80px 1fr 80px;
+    grid-template-rows: 100px;
+}
+
+header a {
+    background: transparent;
+    box-shadow: none;
+    padding: 0px;
+    border: none;
+}
+
+header a:hover {
+    box-shadow: none;
+}
+
+
+/* REGISTRATION PAGE */
+#registration-page {
+    --top-gap: 0px;
+    --status-message: 99px;
+    --welcome-title: 86px;
+    --getinfo: 101px;
+    --label: 30px;
+    --input: 91px;
+    --next: 38px;
+    --progress: 20vh;
+    display: grid;
+    grid-template-columns: 1fr var(--mobile) 1fr;
+    grid-template-rows:
+        var(--top-gap) var(--status-message) var(--welcome-title) var(--getinfo) var(--label) var(--input) var(--next) var(--progress);
+}
+
+#registration-page>* {
+    grid-column-start: 2;
+    padding: 12px;
+    text-align: left;
+}
+
+#registration-page label {
+    font-weight: 600;
+    text-align: left;
+    font-size: medium;
+}
+
+#registration-page a {
+    background: transparent;
+    box-shadow: none;
+    padding: 0px;
+    border: none;
+}
+
+#registration-page a:hover {
+    box-shadow: none;
+}
+
+.next-button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.next-button>* {
+    color: var(--green);
+    /* font: var(--large-font); */
+    font-size: 20px;
+    font-weight: 600;
+    height: 16px;
+    margin: 4px;
+}
+
+.progress-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    justify-self: flex-end;
+    line-height: 8px;
+}
+
+
+
+    
+  
+progress[value='0.5']{
+    height: 0.8em;
+    width: 14em;
+    padding: 0px;
+    margin: 0px;
+}
+
+
+/* REGISTRATION PAGE DESKTOP LAYOUT */
+@media screen and (min-width: 862px) {
+    #registration-page {
+        grid-template-columns: 1fr calc(var(--tablet)) 1fr;
+    }
+}

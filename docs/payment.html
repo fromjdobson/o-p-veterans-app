@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link type='text/css'
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" type='text/css'>
+</head>
+
+<body>
+    <div id='payment-page'>
+
+        <div id="summary-details">
+            <h3 class='left'>Summary</h3>
+            <div class='summary-row'>
+                <img src='abrams-sponsor-logo.png' alt='abrams' width="64">
+                <div class='sponsorship-details'>
+                    <p>Abrams Level Sponsorship</p>
+                    <p>$2,500.00</p>
+                </div>
+            </div>
+
+            <div class='summary-row left'>
+                <div class='booth-box'>C03</div>
+                <div class='sponsorship-details'>
+                    <p>Booth C03 Reservation</p>
+                    <p>$200.00</p>
+                </div>
+            </div>
+        </div>
+
+        <form name='discount-code' id='discount-code'>
+            <div id='discount-code-input'>
+                <label class='left'>Discount code</label>
+                <input type='text' />
+                &nbsp; &nbsp;
+                &nbsp; &nbsp;
+            </div>
+            <button class='secondary-button'>Apply</button>
+        </form>
+
+        <div id='payment-total'>
+            <div>Subtotal $2,700.00</div>
+            <div>Tax $0</div>
+            <h2>Total $2,700.00</h2>
+        </div>
+
+        <form name='card-info' id='card-info'>
+            <h3 class='left'>Payment</h3>
+
+                <div class='input-container'>
+                    <label class='left'>Name on card</label>
+                    <input type='text' size='30' name='name' />
+                </div>
+                <div class='input-container'>
+                    <label class='left'>Card number</label>
+                    <input type='text' size='30' name='card' />
+                </div>
+
+                <div class='input-container left'>
+                    <div class="group-container">
+                        <label class='left'>Expires</label>
+                        <input type='text' name='month' /> &nbsp;/
+                    </div>
+                    <div class="group-container">
+                        <label class='left'> &nbsp;</label>
+                        <input type='text' name='year' />
+                    </div>
+                    <div class="group-container">
+                        <label class='left'>cvc</label>
+                        <input type='text' name='cvc' />
+                    </div>
+                    
+                </div>
+                <button>Pay $2,700.00</button>
+        </form>
+    </div>
+
+</body>
+
+</html>
