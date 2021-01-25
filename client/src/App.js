@@ -43,7 +43,7 @@ export default function App() {
     if(currentUser.isRegistrationComplete===false){
         history.push('/register/1')
     } else if (currentUser.isRegistrationComplete===true){
-        history.push('./selectbooth')
+        history.push('/selectbooth')
     }
 
     console.log('app state changed', currentUser, currentUser.email)
