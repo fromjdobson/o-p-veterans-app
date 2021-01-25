@@ -23,6 +23,8 @@ export const destroy = p => p.data ? collectionRef(p).doc(p.data.id).delete().ca
 const usersCollection = {collection:'users'}
 export const findUserByEmail = p => collectionRef(usersCollection).where('email','==',p).get().then(convertResponse).catch(handleErrors)
 export const addUser = p => p ? collectionRef(usersCollection).doc(p.email).set(p).catch(handleErrors) : new Error('failed')
+export const readUsers = () => collectionRef(usersCollection).get().then(convertResponse).catch(handleErrors)
+
 
 // internal helper functions
 function convertResponse(res) {

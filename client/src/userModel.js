@@ -1,10 +1,11 @@
 export default function createNewUserObj(user) {
     const {displayName, email, photoURL} = user
+    const unregistered =  'unregistered user'
     return {
-        name: displayName,
-        email: email,
+        name: displayName || unregistered,
+        email: email || unregistered,
         phone: 'ukn',
-        userImg: photoURL,
+        userImg: photoURL || '',
         isAdmin: false,
         isRegistrationComplete: false,
         streetAddress: 'ukn',

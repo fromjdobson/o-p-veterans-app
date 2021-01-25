@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
 import { Switch, Route, useHistory } from 'react-router-dom'
 import { auth } from './firebase'
 import { Landing } from './pages/index'
@@ -8,13 +7,7 @@ import { Vendor } from './pages/index'
 import { Header } from './components/Header'
 import { findUserByEmail, addUser } from './reusables/firestoreCRUD'
 import userModel from './userModel'
-
-
-const AppContainer = styled.div`
-    box-sizing: border-box;
-    width: 100%;
-    height: 100vh;
-`
+import handleErrors from './reusables/defaultErrorHandler'
 
 export default function App() {
     const [currentUser, setCurrentUser] = useState({})
@@ -22,51 +15,52 @@ export default function App() {
 
     useEffect(() => {
         !currentUser.email && auth.onAuthStateChanged((user) => {
-            console.log('Auth changed', user)
+            console.log('Auth state changed. User is', user ? 'authenticated' : 'logged out', user)
             if (user) {
                 findUserByEmail(user.email).then((data) => {
                     let opvetUser = userModel(user)
-                    if (data.length === 0) {
-                        addUser(opvetUser)
-                    }
-                    else {
-                        opvetUser = data[0]
-                    }
+                    if (data.length === 0) { addUser(opvetUser) }
+                    else { opvetUser = data[0] }
                     setCurrentUser(opvetUser)
                 })
             } else if (user === null) {
-                setCurrentUser({})
+                currentUser.email && setCurrentUser({})
             }
         })
     }, [])
 
-    if(currentUser.isRegistrationComplete===false){
-        history.push('/register/1')
-    } else if (currentUser.isRegistrationComplete===true){
-        history.push('/selectbooth')
-    }
-
-    console.log('app state changed', currentUser, currentUser.email)
+    useEffect(() => {
+        if (!currentUser.email) { history.push('/') }
+        else if (currentUser.isAdmin) { history.push('/admin') }
+        else if (currentUser.isRegistrationComplete === true) { history.push('/selectbooth') }
+        else if (currentUser.isRegistrationComplete === false) { history.push('/register/1') }
+    }, [currentUser])
 
     return (
-        <AppContainer>
+        <div>
             <Header {...{ currentUser }} />
             <Switch>
-                <Route path='/'>{
-                    !currentUser.email ? <Landing /> :
-                        currentUser.isAdmin
-                            ? <Admin {...{ currentUser }} />
-                            : <Vendor {...{ currentUser }} />
-                    }
+                <Route path='/logout'>
+                    {() => {
+                        auth.signOut().then(() => { history.push('/') }).catch(handleErrors)
+                        return <div>Logged Out</div>
+                    }}
                 </Route>
                 <Route path='/register'>
                     <Vendor {...{ currentUser }} />
                 </Route>
                 <Route path='/selectbooth'>
                     <h1>Select Booth</h1>
-                    {/* <SelectBooth/> */}
+                    {/* <SelectBooth/> TO DO */}
                 </Route>
+                <Route path='/admin'>
+                    <Admin {...{ currentUser }} />
+                </Route>
+                <Route path='/'>
+                    <Landing />
+                </Route>
+                {/* <Route path=''>  </Route> */}
             </Switch>
-        </AppContainer>
+        </div>
     )
 }
