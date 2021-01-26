@@ -14,15 +14,6 @@ import SelectSponsorLevel from './SelectSponsorLevel'
 import PaymentCanceled from './pages/PaymentCanceled'
 import PaymentSuccess from './pages/PaymentSuccess'
 
-function handleAuthChange(setCurrentUser,history){
-    auth.onAuthStateChanged((user) => {
-        if (user) {
-            findUserAndUpdateState(usersCollection, user, setCurrentUser, history)
-        } else {
-            history.location.pathname !== '/' && history.push('/')
-        }
-    })
-}
     
 export default function App() {
     const [currentUser, setCurrentUser] = useState({})

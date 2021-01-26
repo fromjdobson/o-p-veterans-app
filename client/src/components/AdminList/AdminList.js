@@ -3,9 +3,6 @@ import styled from 'styled-components'
 import ListItem from './ListItem'
 import { readUsers } from '../../firestoreCRUD'
 
-let db = firebase.firestore()
-let usersCollection = db.collection('users')
-
 const ListContainer = styled.div`
     box-sizing: border-box;
     width: 328px;
