@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type='text/css'
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <title>Components</title>
+    <style>
+        fieldset {
+            display: inline-block;
+            /* width: 40%; */
+            /* padding: 10px; */
+            border-style: none;
+            border-bottom: none;
+            border-left: none;
+            border-right: none;
+            background-color: #f3f3f3;
+        }
+        legend {
+            background-color: #f3f3f3;
+            padding: 2px 8px;
+            border-radius: 12px;
+            border-top: 2px none #ddd;
+        }
+        pre {
+            text-align: left;
+            font-family: monospace, serif;
+            font-size: small;
+            margin-bottom: 10px;
+            overflow: auto;
+            padding: 5px;
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Buttons</h1>
+        To change the look of these components, edit the NewUI.css file
+    </div>
+
+    <div>
+        <fieldset>
+            <legend>User Account Header</legend>
+            <header>
+                <div><img src="Vector.svg" alt="close" width='20px'></div>
+                <div><img src="vetfest-logo.png" alt=""></div>
+                <div><img src="avatar-icon.svg" alt="" width='50px'></div>
+            </header>
+        </fieldset>
+    </div>
+
+    <div>
+        <fieldset>
+            <legend>Button</legend>
+            <button>Primary</button>
+            <pre>&lt;button&gt; Primary &lt;/button&gt;</pre>
+        </fieldset>
+        <fieldset>
+            <legend>Anchor</legend>
+            <a>Primary</a>
+            <pre>&lt;a&gt; Primary &lt;/a&gt;</pre>
+        </fieldset>
+    </div>
+
+    <div>
+        <fieldset>
+            <legend>Secondary Button</legend>
+            <button class='secondary-button'>Primary</button>
+            <pre>&lt;button class='secondary-button'&gt; Primary &lt;/button&gt;</pre>
+        </fieldset>
+        <fieldset>
+            <legend>Secondary Anchor</legend>
+            <a class='secondary-button'>Primary</a>
+            <pre>&lt;a class='secondary-button'&gt; Primary &lt;/a&gt;</pre>
+        </fieldset>
+    </div>
+
+    <div>
+        <fieldset>
+            <legend>Circle Button</legend>
+            <button class='circle-button'>
+                <img src="google-icon.svg" alt="">
+            </button>
+<pre>&lt;button class='circle-button'&gt;
+    &lt;img src="google.svg" &gt; &lt;/button&gt;</pre>
+        </fieldset>
+        <fieldset>
+            <legend>Circle Anchor</legend>
+            <a class='circle-button'>
+                <img src="google-icon.svg" alt="">
+            </a>
+<pre>&lt;a class='circle-button'&gt;
+        &lt;img src="google.svg" &gt; &lt;/a&gt;</pre>
+        </fieldset>
+    </div>
+
+    <div>
+        <fieldset>
+            <legend>Status Message</legend>
+            <div class='status-message-open'>
+                Congrats! You have created an account on O.P. Veteran. Now, please continue the registration.
+            </div>
+            <pre>&lt;div class='status-message-open' &gt; &lt;/div&gt;</pre>
+        </fieldset>
+    </div>
+   
+<div>
+    <fieldset>
+        <legend>Text Input</legend>
+        <div class='input-container'>
+            <label class='left' for="email">Email</label>
+            <input type="email" name="email" id="email" size='48'>
+        </div>
+        <pre>
+&lt;div class='input-container'&gt;
+    &lt;label for="email"&gt;Email&lt;/label&gt;
+    &lt;input type="email" id="email" size='36'&gt;&lt;/div&gt;
+</div>
+        </pre>
+    </fieldset>
+</div>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+</body>
+
+</html>

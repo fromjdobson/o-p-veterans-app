@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import firebase from '../../firebase'
 import ListItem from './ListItem'
+import { readUsers } from '../../firestoreCRUD'
 
 let db = firebase.firestore()
 let usersCollection = db.collection('users')
@@ -21,6 +21,7 @@ export default function AdminList(props) {
     const { className } = props
 
     useEffect(() => {
+<<<<<<< HEAD
         console.log('AdminList')
 
         usersCollection.get().then((snapshot) => {
@@ -33,6 +34,10 @@ export default function AdminList(props) {
             setList(() => {
                 return [...tempArr]
             })
+=======
+        readUsers().then((userlist) => {
+            setList(userlist)
+>>>>>>> 1bc8282592a45d321f2761c7bf85fddf61517b9d
         })
     },[])
 

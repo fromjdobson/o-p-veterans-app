@@ -123,39 +123,46 @@ const PageContainer = styled.div`
         }
     }
 `
+const ErrorText = styled.div`
+    color: red;
+    text-align: center;
+`
 
 export default function Landing() {
     const [email, setEmail] = useState(null)
     const [pass, setPass] = useState(null)
+    const [error, setError] = useState(null)
+
+    const handleError = error => {
+        const { code, message } = error
+        console.log(`Error code: ${code} // Error message: ${message}`)
+        setError(message)
+    }
+
+    const validInput = () => {
+        if (!email || !pass) {
+            setError('please fill in email and password');
+            return false
+        }
+        return true
+    }
 
     function handleGoolgeLogin() {
         auth.signInWithPopup(provider).then((result) => {
             console.log('User is signed in.')
-        }).catch((error) => {
-            const { code, message } = error
-            console.log(`Error code: ${code} // Error message: ${message}`)
-        })
+        }).catch(handleError)
     }
 
+    const handleRegisterButton = () => validInput() &&
+        auth.createUserWithEmailAndPassword(email, pass).then((user) => { }).catch(handleError)
 
-    function handleRegisterButton() {
-        auth.createUserWithEmailAndPassword(email, pass).then((user) => {
-        }).catch((error) => {
-            const { code, message} = error
-            console.log(`Error code: ${code} // Error message: ${message}`)
-        })
-    }
 
-    function handleSignInButton() {
-        auth.signInWithEmailAndPassword(email, pass).then((user) => {
-            if (user) {
-                console.log(user)
-            }
-        }).catch((error) => {
-            const { code, message } = error
-            console.log(`Error code: ${code} // Error message: ${message}`)
-        })
-    }
+    const handleSignInButton = () => validInput() && auth.signInWithEmailAndPassword(email, pass).then((user) => {
+        if (user) {
+            console.log(user)
+        }
+    }).catch(handleError)
+
 
     function handleEmailInputChange(e) {
         const { value } = e.target
@@ -169,8 +176,9 @@ export default function Landing() {
 
     return (
         <PageContainer>
-            <img src={logo} alt={'Vetfest logo'} />
+            {/* <img src={logo} alt={'Vetfest logo'} /> */}
             <p className={'title-one'}>{'OP Veteran'}</p>
+            {error && <ErrorText>{error}</ErrorText>}
             <h3 className={'title-two'}>{'VetFest Registration'}</h3>
             <p className={'paragraph-one'}>{'Register and sign in with'}</p>
             <ProviderButton className={'google-button'} onClick={() => handleGoolgeLogin()} />
@@ -178,7 +186,7 @@ export default function Landing() {
             <OpenInput className={'email-input'} type={'email'} label={'Email'} placeholder={''} onChange={(e) => handleEmailInputChange(e)} />
             <OpenInput className={'pass-input'} type={'password'} label={'Password'} placeholder={''} onChange={(e) => handlePassInputChange(e)} />
             <div className={'button-container'}>
-                <Button className={'short-button'} buttonStyle={'primary'} buttonText={'Register'} onClick={() => handleRegisterButton()}  />
+                <Button className={'short-button'} buttonStyle={'primary'} buttonText={'Register'} onClick={() => handleRegisterButton()} />
                 <Button className={'short-button'} buttonStyle={'secondary'} buttonText={'Sign in'} onClick={() => handleSignInButton()} />
             </div>
         </PageContainer>
