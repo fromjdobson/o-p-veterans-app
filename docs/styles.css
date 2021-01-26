@@ -443,6 +443,7 @@ header a:hover {
     
   
 progress[value='0.5']{
+    
     height: 0.8em;
     width: 14em;
     padding: 0px;
@@ -450,7 +451,7 @@ progress[value='0.5']{
 }
 
 
-/* REGISTRATION PAGE DESKTOP LAYOUT */
+/* PAYMENT PAGE DESKTOP LAYOUT */
 @media screen and (min-width: 862px) {
     #registration-page {
         grid-template-columns: 1fr calc(var(--tablet)) 1fr;

@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import trashIcon from '../../../assets/icons/trash.png'
 import { StyledDeleteButton } from '../../styledComponents'
-import {destroy} from '../../../reusables/firestoreCRUD'
+import {destroy} from '../../../firestoreCRUD'
 
 export default memo(function DeleteButton(props) {
     const { setBooths, selected } = props

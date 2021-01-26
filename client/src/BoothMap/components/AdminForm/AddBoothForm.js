@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import {create} from '../../../reusables/firestoreCRUD'
+import {create} from '../../../firestoreCRUD'
 
 export default memo(function AddBoothForm({ setBooths }) {
     const handleSubmit = e => {

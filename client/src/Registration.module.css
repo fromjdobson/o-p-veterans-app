@@ -87,7 +87,7 @@ h4 {
 }
 
 /* INPUT FIELDS */
-input {
+.input {
     background: transparent;
     border: none;
     height: 20px;
@@ -99,8 +99,9 @@ input {
     /* width: var(--mobile); */
 }
 
-input:focus {
+.input:focus {
     outline-style: none;
+    text-align: left;
 }
 
 .input-container {
@@ -112,7 +113,8 @@ input:focus {
 /* BUTTONS AND ANCHORS */
 /* a,
 button,
-a:visited {
+a:visited  */
+.primary-button {
     cursor: pointer;
     background: var(--primary-component-color);
     color: var(--primary-component-font-color);
@@ -126,7 +128,7 @@ a:visited {
     text-decoration: none;
     appearance: auto;
     font-weight: 600;
-} */
+}
 
 /* BUTTONS */
 a:hover,
@@ -200,6 +202,7 @@ button:active {
 /* PAYMENT PAGE ALL SECTIONS */
 #payment-page>* {
     border-bottom: 0.5px solid var(--cloudy);
+    text-align: center;
 }
 
 /* SUMMARY DETAILS SECTION */

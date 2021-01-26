@@ -1,7 +1,9 @@
 import React from 'react'
 import { FormContainer } from './StyledForm'
 import buntylogo from '../../../assets/images/logos/abrams-sponsor-logo.png'
-import {update} from '../../../reusables/firestoreCRUD'
+import {update} from '../../../firestoreCRUD'
+import { Link } from 'react-router-dom'
+
 
 export default function VendorForm(props) {
     function handleReserveClick() {
@@ -25,7 +27,8 @@ export default function VendorForm(props) {
             <h2>Powered:</h2>
             <h3>{props.selected && (props.selected.powered ? 'Yes' : 'No')}</h3>
         </div>
-        <button disabled={props.selected.reserved || !props.selected}
-            onClick={handleReserveClick}>RESERVE BOOTH</button>
+        <Link to='/sponsorlevel'>RESERVE BOOTH AND CHECK OUT</Link>
+        {/* <button disabled={props.selected.reserved || !props.selected}
+            onClick={handleReserveClick}>RESERVE BOOTH</button> */}
     </FormContainer>
 }
