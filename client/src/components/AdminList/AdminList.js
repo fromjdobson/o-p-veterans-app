@@ -21,23 +21,8 @@ export default function AdminList(props) {
     const { className } = props
 
     useEffect(() => {
-<<<<<<< HEAD
-        console.log('AdminList')
-
-        usersCollection.get().then((snapshot) => {
-            const tempArr = []
-            snapshot.forEach((doc) => {
-                const tempObj = {...doc.data()}
-                tempArr.push(tempObj)
-            })
-
-            setList(() => {
-                return [...tempArr]
-            })
-=======
         readUsers().then((userlist) => {
             setList(userlist)
->>>>>>> 1bc8282592a45d321f2761c7bf85fddf61517b9d
         })
     },[])
 

@@ -1,23 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Switch, Route, useHistory } from 'react-router-dom'
-<<<<<<< HEAD
-import firebase, { auth } from './firebase'
-import { UserContext } from './providers/CurrentUser'
-import { findUserAndUpdateState } from './utils'
-import { Landing } from './pages/index'
-import { Admin } from './pages/index'
-import { Vendor } from './pages/index'
-// import Playground from './components/UserView/Playground'
-
-const AppContainer = styled.div`
-    box-sizing: border-box;
-    width: 100%;
-    height: 100vh;
-    /* border: 2px dashed lightblue; */
-`
-let db = firebase.firestore()
-let usersCollection = db.collection('users')
-=======
 import { auth } from './firebase'
 import { Landing } from './pages/index'
 import { Admin } from './pages/index'
@@ -31,7 +13,6 @@ import CheckoutPage from './CheckoutPage'
 import SelectSponsorLevel from './SelectSponsorLevel'
 import PaymentCanceled from './pages/PaymentCanceled'
 import PaymentSuccess from './pages/PaymentSuccess'
->>>>>>> 1bc8282592a45d321f2761c7bf85fddf61517b9d
 
 function handleAuthChange(setCurrentUser,history){
     auth.onAuthStateChanged((user) => {
@@ -44,12 +25,6 @@ function handleAuthChange(setCurrentUser,history){
 }
     
 export default function App() {
-<<<<<<< HEAD
-    const [, setCurrentUser] = useContext(UserContext)
-    const history = useHistory()
-
-    // handleAuthChange(setCurrentUser,history)
-=======
     const [currentUser, setCurrentUser] = useState({})
     const history = useHistory()
 
@@ -75,7 +50,6 @@ export default function App() {
         else if (currentUser.isRegistrationComplete === true) { history.push('/selectbooth') }
         else if (currentUser.isRegistrationComplete === false) { history.push('/register/1') }
     }, [currentUser])
->>>>>>> 1bc8282592a45d321f2761c7bf85fddf61517b9d
 
     return (
         <div>
