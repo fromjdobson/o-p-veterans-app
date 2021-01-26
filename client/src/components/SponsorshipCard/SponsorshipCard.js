@@ -6,6 +6,7 @@ import { Button } from '../Button'
 import { Perks } from './Perks'
 
 const SponsorshipCardContainer = styled.div`
+  margin: auto;
   box-sizing: border-box;
   max-width: 344px;
   display: flex;

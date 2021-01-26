@@ -1,6 +1,7 @@
 import React from 'react'
 import Styles from './Registration.module.css'
 import abramslogo from './assets/images/logos/abrams-sponsor-logo.png'
+import {Link} from 'react-router-dom'
 
 export default function CheckoutPage() {
 
@@ -68,7 +69,7 @@ export default function CheckoutPage() {
                 </div>
 
             </div>
-            <button className={Styles['primary-button']}>Pay $2,700.00</button>
+            <Link to='/paymentcomplete' className={Styles['primary-button']}>Pay $2,700.00</Link>
         </form>
     </div>
 }

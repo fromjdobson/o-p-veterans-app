@@ -27,7 +27,7 @@ export default function VendorForm(props) {
             <h2>Powered:</h2>
             <h3>{props.selected && (props.selected.powered ? 'Yes' : 'No')}</h3>
         </div>
-        <Link to='/checkout'>RESERVE BOOTH AND CHECK OUT</Link>
+        <Link to='/sponsorlevel'>RESERVE BOOTH AND CHECK OUT</Link>
         {/* <button disabled={props.selected.reserved || !props.selected}
             onClick={handleReserveClick}>RESERVE BOOTH</button> */}
     </FormContainer>

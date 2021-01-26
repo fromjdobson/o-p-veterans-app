@@ -10,6 +10,9 @@ import userModel from './userModel'
 import handleErrors from './reusables/defaultErrorHandler'
 import BoothMap from './BoothMap'
 import CheckoutPage from './CheckoutPage'
+import SelectSponsorLevel from './SelectSponsorLevel'
+import PaymentCanceled from './pages/PaymentCanceled'
+import PaymentSuccess from './pages/PaymentSuccess'
 
 export default function App() {
     const [currentUser, setCurrentUser] = useState({})
@@ -42,8 +45,17 @@ export default function App() {
         <div>
             <Header {...{ currentUser }} />
             <Switch>
-                <Route path='/'> 
-                    <CheckoutPage/>
+                <Route path='/paymentcanceled'>
+                    <PaymentCanceled/>
+                </Route>
+                <Route path='/paymentcomplete'>
+                    <PaymentSuccess/>
+                </Route>
+                <Route path='/sponsorlevel'>
+                    <SelectSponsorLevel />
+                </Route>
+                <Route path='/checkout'>
+                    <CheckoutPage />
                 </Route>
                 <Route path='/logout'>
                     {() => {
@@ -55,7 +67,7 @@ export default function App() {
                     <Vendor {...{ currentUser, setCurrentUser }} />
                 </Route>
                 <Route path='/selectbooth'>
-                    <BoothMap blockPullFromDB/>
+                    <BoothMap/>
                 </Route>
                 <Route path='/admin'>
                     <Admin {...{ currentUser }} />
