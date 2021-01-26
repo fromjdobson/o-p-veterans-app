@@ -2,14 +2,23 @@ import React, {useState} from 'react'
 import Registration from '../Registration.module.css'
 import arrow from '../assets/icons/arrow-right-icon.svg'
 import { Link, Switch, Route, useLocation } from 'react-router-dom'
+import {updateUser} from '../firestoreCRUD'
 
-export default function Vendor({ currentUser }) {
+export default function Vendor({ currentUser, setCurrentUser }) {
     const [input,setInput] = useState(currentUser.name || '')
-
     const path = useLocation().pathname
+
+    if(path==='/register/6'){
+        const userRegistered = {...currentUser,isRegistrationComplete:true}
+        updateUser(currentUser).then(()=>{
+            setCurrentUser(userRegistered)
+        })
+    }
+
     const step = Number(path.split('/')[2]) + 1
     const next = '/register/' + step
     const userName = currentUser.name || ''
+
 
     function handleChange(e){
         e.preventDefault()
@@ -42,6 +51,7 @@ export default function Vendor({ currentUser }) {
                     <Route path='*register/3'>What is your zip code?</Route>
                     <Route path='*register/4'>Now your Mailing Address?</Route>
                     <Route path='*register/5'>Is your org veteran owned?</Route>
+                    <Route path='*register/6'>Is your ?</Route>
                 </Switch>
             </label>
 

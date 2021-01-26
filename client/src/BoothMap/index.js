@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { MapContainer, Container } from './styledComponents'
 import Booths from './components/Booths'
-import {read} from '../reusables/firestoreCRUD'
+import {read} from '../firestoreCRUD'
 import { stateMerger } from '../reusables/stateMerger'
 import LegendKey from './components/VendorForm/LegendKey'
 import VendorForm from './components/VendorForm'

@@ -1,4 +1,4 @@
-import {update} from '../../../../reusables/firestoreCRUD'
+import {update} from '../../../../firestoreCRUD'
 // This function makes the booth draggable directly on the DOM, bypassing react during drag.
 // Once booth is dragged, the mouseup event will setState.
 export default function draggable({el,setState,state}) {

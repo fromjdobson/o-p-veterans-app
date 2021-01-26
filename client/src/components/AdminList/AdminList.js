@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import ListItem from './ListItem'
-import { readUsers } from '../../reusables/firestoreCRUD'
+import { readUsers } from '../../firestoreCRUD'
 
 const ListContainer = styled.div`
     box-sizing: border-box;

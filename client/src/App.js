@@ -5,9 +5,11 @@ import { Landing } from './pages/index'
 import { Admin } from './pages/index'
 import { Vendor } from './pages/index'
 import { Header } from './components/Header'
-import { findUserByEmail, addUser } from './reusables/firestoreCRUD'
+import { findUserByEmail, addUser } from './firestoreCRUD'
 import userModel from './userModel'
 import handleErrors from './reusables/defaultErrorHandler'
+import BoothMap from './BoothMap'
+import CheckoutPage from './CheckoutPage'
 
 export default function App() {
     const [currentUser, setCurrentUser] = useState({})
@@ -40,6 +42,9 @@ export default function App() {
         <div>
             <Header {...{ currentUser }} />
             <Switch>
+                <Route path='/'> 
+                    <CheckoutPage/>
+                </Route>
                 <Route path='/logout'>
                     {() => {
                         auth.signOut().then(() => { history.push('/') }).catch(handleErrors)
@@ -47,11 +52,10 @@ export default function App() {
                     }}
                 </Route>
                 <Route path='/register'>
-                    <Vendor {...{ currentUser }} />
+                    <Vendor {...{ currentUser, setCurrentUser }} />
                 </Route>
                 <Route path='/selectbooth'>
-                    <h1>Select Booth</h1>
-                    {/* <SelectBooth/> TO DO */}
+                    <BoothMap blockPullFromDB/>
                 </Route>
                 <Route path='/admin'>
                     <Admin {...{ currentUser }} />
